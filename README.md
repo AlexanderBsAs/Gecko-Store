@@ -1,6 +1,6 @@
 Gecko Store
 Un e-commerce donde vas a encontrar todo lo relacionado con videojuegos y series,
-desde juegos fisicos, consolas, figuras y accesorios!
+desde juegos fisicos, consolas y figuras!!.
 Aqui vas a encontrar todos los juegos nuevos de ps4, ps5 y nintendo switch!
 figuras de pesonajes de diferentes sagas de seres y juegos como final fantasy, resident evil, silent hill, batman, avispon verde, star wars, star trek.
 Estamos destinados al publico gamer y aquellos fanaticos de series.

@@ -11,7 +11,7 @@ Liliana Almiron
 Gabriel Robles
 
 Alejandro Vera:
-Se va a encargar del Home, y va a ser nuestro
+Se va a encargar del Home
 
 Liliana Almiron:
 Se va a encargar del formulario de login, colores.

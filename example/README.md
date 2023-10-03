@@ -22,8 +22,23 @@ Se va a encargar del carrito de compras, y repositorios
 Gabriel Robles:
 Se va a encargar del formulario de registro, detalles del producto y tipografia
 
-# Gecko store
+# Geekco store
 
 ## logo
 
 ![logo](./desing/logo/logogecko-removebg-preview.png)
+
+## Investigación
+[cdMarket](https://www.cdmarket.com.ar/tienda/juegos-y-juguetes/figuras-y-estatuillas-y-estatuillas-3594) usamos esta referencia, por su tipo de productos y por su estetica
+
+[Katech](https://katech.com.ar/) Usamos esta pagina de referencia, por su hermosa estetica, su logo, su mascota y a la vez tiene accesorios gamer
+
+[Baticueva](https://labaticuevatienda.com/) Usamos esta referencia por su tematica visual y por su tematica de productos
+
+[SoyGamer](https://soygamerargentina.com/) Usamos esta referencia por su tematica de productos y sus ideas de diseño
+
+[GoldenTech](https://goldentechstore.com.ar/) Usamos esta referencia por su diseño de la pagina y por su mascota
+
+[ElectronicThings](https://electronicthings.com.ar/) Usamos esta refencia por su estetica y diseño.
+
+## Wireframes

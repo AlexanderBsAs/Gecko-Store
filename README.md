@@ -26,7 +26,7 @@ Se va a encargar del formulario de registro, detalles del producto y tipografia
 
 ## logo
 
-![logo](./desing/logo/logogecko-removebg-preview.png)
+![logo](./example/desing/logo/logogecko-removebg-preview.png)
 
 ## Investigación
 [cdMarket](https://www.cdmarket.com.ar/tienda/juegos-y-juguetes/figuras-y-estatuillas-y-estatuillas-3594) usamos esta referencia, por su tipo de productos y por su estetica

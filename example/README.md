@@ -25,4 +25,5 @@ Se va a encargar del formulario de registro, detalles del producto y tipografia
 # Gecko store
 
 ## logo
-![logo](./desing/logogecko-removebg-preview.png)
+
+![logo](./desing/logo/logogecko-removebg-preview.png)

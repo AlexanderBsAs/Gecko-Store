@@ -22,15 +22,4 @@ Se va a encargar del carrito de compras y el logo.
 Gabriel Robles:
 Se va a encargar del formulario de registro, detalles del producto y tipografia
 
-
-Entregable: En el README.md agregar un listado de al menos 5 sitios de referencia
-indicando brevemente por qué fueron elegidos.
-
-# Gecko Store
-
-## Logo
-[logo] https://ibb.co/Zz2HcYK
-
-
-## Referencias
-Como referencia tenemos  
+#  

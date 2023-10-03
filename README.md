@@ -11,7 +11,7 @@ Liliana Almiron
 Gabriel Robles
 
 Alejandro Vera:
-Se va a encargar del Home, y va a ser nuestro QA Tester
+Se va a encargar del Home
 
 Liliana Almiron:
 Se va a encargar del formulario de login, colores.
@@ -21,3 +21,5 @@ Se va a encargar del carrito de compras y el logo.
 
 Gabriel Robles:
 Se va a encargar del formulario de registro, detalles del producto y tipografia
+
+#  

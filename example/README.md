@@ -11,15 +11,18 @@ Liliana Almiron
 Gabriel Robles
 
 Alejandro Vera:
-Se va a encargar del Home
+Se va a encargar del Home y Logo
 
 Liliana Almiron:
 Se va a encargar del formulario de login, colores.
 
 Alexander Ureta:
-Se va a encargar del carrito de compras y el logo.
+Se va a encargar del carrito de compras, y repositorios
 
 Gabriel Robles:
 Se va a encargar del formulario de registro, detalles del producto y tipografia
 
-#  
+# Gecko store
+
+## logo
+![logo](./)

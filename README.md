@@ -42,3 +42,8 @@ Se va a encargar del formulario de registro, detalles del producto y tipografia
 [ElectronicThings](https://electronicthings.com.ar/) Usamos esta refencia por su estetica y diseño.
 
 ## Wireframes
+Para acceder al conjunto de Wireframes se puede
+visualizar en los siguientes links:
+
+* [Registro](https://www.figma.com/file/mNMsFv1AgFQ6JgYfJKb7tT/Registro?type=design&node-id=0-1&mode=design&t=rgMOmvq91Q6u3hJu-0)
+* [Producto](https://www.figma.com/file/s8H7o5teOevZ18RahlWifQ/Detalles-del-producto?type=design&node-id=1-2&mode=design&t=c64Smc4dY5kBo9JR-0)

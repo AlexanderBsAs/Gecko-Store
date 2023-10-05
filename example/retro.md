@@ -1,0 +1,1 @@
+Gabriel Robles 5/10/2023: Ayer retoqué la sección detalles de producto,empecé con la sección de registro, hoy la retoqué y mañana seguiré trabajando en ambas secciones

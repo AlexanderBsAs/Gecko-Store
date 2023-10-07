@@ -10,3 +10,11 @@ Soy Gabriel ayer empecé el boceto de seccion de registro, hoy lo retoqué y emp
 5/10/23
 
 Soy Gabriel hoy terminé el boceto de formulario de registros, mañana me comprometo a seguir con la seccion de detalles de productos
+
+6/10/23
+
+Soy Gabriel hoy terminé el desktop del boceto de detalles de productos y mañana me comprometo a seguir trabajandolo
+
+7/10/23
+
+Soy Gabriel hoy terminé con los bocetos responsive de la seccion de detalles de productos.

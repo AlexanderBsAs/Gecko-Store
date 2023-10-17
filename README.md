@@ -42,3 +42,12 @@ Se va a encargar del formulario de registro, detalles del producto y tipografia
 [ElectronicThings](https://electronicthings.com.ar/) Usamos esta refencia por su estetica y diseño.
 
 ## Wireframes
+[Carrito de compras](https://www.figma.com/file/5ddnKhsIoRCMpSJsiiQkKi/Carrito-de-compras?type=design&node-id=0%3A1&mode=design&t=fxhZDZ42HNXp29DX-1) El encargado de este wireframe fue Alexander Ureta.
+
+[Formulario de Registro](https://www.figma.com/file/mNMsFv1AgFQ6JgYfJKb7tT/Registro?type=design&node-id=71-42&mode=design&t=fwEj4GHgDRz9hLjX-0) El encargado de este wireframe fue Gabriel Robles
+
+[Detalles del producto](https://www.figma.com/file/s8H7o5teOevZ18RahlWifQ/Detalles-del-producto?type=design&node-id=0%3A1&mode=design&t=HWaMw98qv8HFUTrP-1) El encargado de este wireframe fue Gabriel Robles
+
+[Formulario de Login](https://www.figma.com/file/ZmKl8b3bsyEbiv5l5oBCOe/Login?type=design&node-id=17%3A6&mode=design&t=aWUQVQipDpJXPO3v-1) La encargada de este wireframe es Liliana Almiron
+
+[Home]() El encargado de este wireframe es Alejandro Vera

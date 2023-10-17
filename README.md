@@ -50,4 +50,4 @@ Se va a encargar del formulario de registro, detalles del producto y tipografia
 
 [Formulario de Login](https://www.figma.com/file/ZmKl8b3bsyEbiv5l5oBCOe/Login?type=design&node-id=17%3A6&mode=design&t=aWUQVQipDpJXPO3v-1) La encargada de este wireframe es Liliana Almiron
 
-[Home]() El encargado de este wireframe es Alejandro Vera
+[Home](https://www.figma.com/file/TfVd2NPDgr0zr2H4xPSzAz/Untitled?type=design&node-id=0%3A1&mode=design&t=fytTy0JgjgVwVh18-1) El encargado de este wireframe es Alejandro Vera

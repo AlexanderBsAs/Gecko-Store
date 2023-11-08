@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Pixelify+Sans:wght@400;500;600;700&display=swap');
+
+
+
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #00001e;
+}
+
+section {
+    background-color: #00001e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+section h1{
+    color: white;
+    padding: 0;
+    margin: 0;
+    /* border: 3px solid #04bfbf; */
+    position: relative;
+    top: 20px;
+    font-family: "Pixelify sans";
+    font-weight: 400;
+    font-size: 40px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #04bfbf;
+}
+
+section img{
+    transform: scaleX(-1);
+    width: 60%;
+}
+
+form {
+    background-color: #ad2ab4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    margin-bottom: 30px ;
+    padding: 10px 20px;
+    gap: 5px;
+    width: 50%;
+
+}
+
+form h2{
+    margin: 0px;
+    color: white;
+    font-family: "Prompt";
+    font-weight: 400;
+}
+
+form label{
+    color: white;
+    margin-top: 10px;
+    font-family: "Prompt";
+}
+
+form input{
+    border-radius: 20px;
+    width: 90%;
+    height: 25px;
+}
+
+form a{
+    color: white;
+    font-size:10px;
+    text-decoration: none;
+    font-family: "Pixelify sans";
+    font-weight:lighter;
+}
+
+form button{
+    background-color: #04bfbf;
+    border-radius: 20px;
+    padding: 5px 15px;
+    color: white;
+    box-shadow: 3px 3px 3px 0px #00001e66;
+    font-family: "Pixelify sans";
+}

@@ -1,0 +1,91 @@
+*{text-decoration: none;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;}
+  
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+:root{
+}
+
+#input{
+    border: 1px solid white;
+    font-size: 16px;
+    width: 84%;
+    height: 58%;
+    border-radius: 8%;
+    padding: 1%;
+}
+#div{
+    width: 46%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: -1%;
+    bottom: 25%;
+}
+.fa-solid.fa-magnifying-glass{
+    color: var(--Gris-oscuro);
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 17%;
+    margin-left: -4%;
+    height: 58%;
+    padding-top: 4%;
+    font-size: 14px;
+}
+#logo{
+    width: 25%;
+    transform: scaleX(-1);
+}
+header{
+    background-color: rgb(11, 3, 46);
+    width: 100%;
+    box-sizing: border-box;
+}
+header p {
+    color: white;
+}
+
+header div p{
+    top: 55%;
+    left: 21%;
+    align-self: center;
+    color: white;
+    font-family: 'Pixelify Sans', sans-serif;
+    position: absolute;
+    font-size: 20px;
+
+}
+header div{
+    display: flex;
+    position: relative;
+
+}
+.header__nav1{
+    display: none;
+    width: 48%;
+    gap: 10%;
+    font-size: 19px;
+    margin: 3%;
+}
+
+.header__nav2{
+    display: inline-flex;
+    width: 35%;
+    justify-content: right;
+    gap: 10%;
+    font-size: 25px;
+}
+
+.burger-menu{
+    margin-left: 47%;
+    display: inline-flex;
+    width: 9%;
+    background-color: #AD2AB4;
+    padding: 3%;
+    border-radius: 10%;
+    margin-bottom: 2%;
+}
+.fas.fa-bars{
+    color:white}

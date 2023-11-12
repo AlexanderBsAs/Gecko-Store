@@ -1,0 +1,129 @@
+.header_home{
+    background-color:var(--Amarillo);
+    width: 100%;
+}
+
+.home-menu-hamburguesa{
+    background-color: #1259c3;
+    display: block;
+    text-align: center;
+    color: white;
+    margin: auto;
+    border-radius: 5px;
+    /* padding: 14px -34px; */
+    width: 2em;
+    height: 2em;
+   /*  font-size: 2em; */
+    /* border: #000 3px solid; */
+    
+}
+.fa-solid.fa-bars.fa-sm{
+    margin-top: 15px;
+     width: 2em;
+    height: 2em; 
+    margin-right: 0px; 
+  /*    font-size: 2em; */
+    /* border: #000 3px solid; */}
+
+.logo{
+  /*   background-image: url("../images/logo-mercado-liebre.svg"); */
+    height: 150px;
+/*     width: 250px; */
+/*     background-position: top left;
+    background-repeat: no-repeat; */
+   /*  border: solid 3px black; */
+  /*  display: block;
+   margin-bottom: -70px; */
+   margin-top: -25px;
+
+}
+.busqueda{
+    display: block;
+   /*  display: inline;
+    margin-right: 750px; */
+}
+.compra-cuotas{
+    margin-left: 30px;
+}
+
+.busqueda{
+    margin-left: 10px;
+}
+.logo{
+   
+        margin-left: 10px;
+}
+.home_busqueda2{
+    background-color: var(--Gris-claro);
+    border: var(--Azul) 1px solid;
+}
+.home_header_texto{
+    font-size: 12px;
+    color: black;
+    text-decoration: none;
+    display: none;
+}
+@media(max-width:320px){
+    .home_cuerpos_texto1{
+       display: none;
+       
+    }
+   
+   
+   }
+   
+   @media(min-width:768px){
+   .home-menu-hamburguesa{
+       display: none;}
+       .home_header_texto{
+        display: block;
+       }
+      
+       .home_header_texto a{
+           font-size:16px
+       }
+       .compra-cuotas{
+           font-size: 15px;
+       }
+   
+    
+    
+    .home_nav_cuerpos{
+       display: flex;
+       justify-content: space-between;
+   }
+   .home_nav_cuerpos ul {
+       display: flex;
+       justify-content: space-between;
+       gap:10px;
+       list-style: none;
+   }
+       .home_cuerpos_texto2{
+           margin-left: 300px;
+       }
+   
+   }
+
+@media(min-width:1024px){
+    .home-menu-hamburguesa{
+        display: none;
+    }
+    .home_header_texto{
+        display: block;
+    }
+
+    .home_header_texto a{
+        font-size:17px
+    }
+    .compra-cuotas{
+        font-size: 16px;
+    }
+
+.home_cuerpos_texto2{
+        margin-left: 420px;
+    }
+
+}
+@media(min-width:1439px){
+
+}

@@ -1,0 +1,60 @@
+.footer_home{
+    background-color: white;
+}
+.home_descripciones i{
+    height: 2em;
+    width: 2em;
+}
+.home_envios{
+    margin-bottom: 10px;
+}
+.home_protegido{
+    margin-bottom: 10px;
+}
+.home_tarjeta{
+    margin-bottom: 10px;
+}
+.home_descripciones{
+    margin-top: 100px;
+    font-size: 16px;
+    background-position: center center;
+    text-align: center;
+    margin: 0px auto;
+}
+.home_copyright{
+    margin-left: 10px;
+    color: var(--Gris-oscuro);
+}
+.home_descripciones article i{
+    margin-top: 35px; 
+    color: var(--Celeste);
+ }
+ .home_descripciones i {
+    margin-bottom: 10px;
+}
+
+@media(max-width:320px){
+   }
+   
+   @media(min-width:768px){
+  
+      .home_descripciones2{
+       font-size: 16px;
+      }
+ 
+   
+   }
+   
+   
+   @media(min-width:769px){
+       
+      .home_descripciones2{
+       font-size: 17px;
+      }
+    
+   
+   }
+   @media(min-width:1439px){
+    
+   }
+   

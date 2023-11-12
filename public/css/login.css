@@ -4,13 +4,13 @@
 
 
 
-body{
+.body-login{
     padding: 0;
     margin: 0;
     background-color: #00001e;
 }
 
-section {
+.section-login {
     background-color: #00001e;
     display: flex;
     flex-direction: column;
@@ -18,11 +18,10 @@ section {
     
 }
 
-section h1{
+.section-login h1{
     color: white;
     padding: 0;
     margin: 0;
-    /* border: 3px solid #04bfbf; */
     position: relative;
     top: 20px;
     font-family: "Pixelify sans";
@@ -32,46 +31,50 @@ section h1{
     -webkit-text-stroke-color: #04bfbf;
 }
 
-section img{
+.section-login img{
     transform: scaleX(-1);
     width: 60%;
 }
 
-form {
+.section-login form {
     background-color: #ad2ab4;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 30px ;
+    padding: 10px 20px;
+    gap: 5px;
+    width: 50%;
 }
 
-form {
+/* form {
     margin-bottom: 30px ;
     padding: 10px 20px;
     gap: 5px;
     width: 50%;
 
-}
+} */
 
-form h2{
+.section-login form h2{
     margin: 0px;
     color: white;
     font-family: "Prompt";
     font-weight: 400;
 }
 
-form label{
+.section-login form label{
     color: white;
     margin-top: 10px;
     font-family: "Prompt";
 }
 
-form input{
+.section-login form input{
     border-radius: 20px;
     width: 90%;
     height: 25px;
 }
 
-form a{
+.section-login form a{
     color: white;
     font-size:10px;
     text-decoration: none;
@@ -79,7 +82,7 @@ form a{
     font-weight:lighter;
 }
 
-form button{
+.section-login form button{
     background-color: #04bfbf;
     border-radius: 20px;
     padding: 5px 15px;

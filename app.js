@@ -15,6 +15,10 @@ app.get("/registro",function(req,res){
     res.sendFile(path.join(__dirname+"/views/register.html"))
 })
 
+app.post("/registro",(req,res)=>{
+    console.log(req.body)
+    res.redirect("/");
+})
 
 app.get("/login",function(req,res){
     res.sendFile(path.join(__dirname+"/views/login.html"))
@@ -28,13 +32,4 @@ app.get("/detalles",function(req,res){
 
 app.get("/carrito",function(req,res){
     res.sendFile(path.join(__dirname+"/views/productCart.html"))
-})
-
-app.get("/registro",function(req,res){
-    res.sendFile(path.join(__dirname,"./views/registro.html"))
-})
-
-app.post("/registro",(req,res)=>{
-    console.log(req.body)
-    res.redirect("/");
 })

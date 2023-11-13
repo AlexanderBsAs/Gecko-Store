@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Pixelify+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+.register-body {
+    font-family: 'Prompt', sans-serif;
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 100%;
+    position: relative;
+    background-image: url("/img/bg-body-register.png");
+}
+.register-logo {
+    position: absolute;
+    width: 40%;
+    left: 30%;
+    top: -8%;
+    font-size: 20px;
+}
+.register-main-body {
+    margin-top: 35%;
+    padding: 5%;
+    margin-bottom: 35%;
+
+}
+
+.register-form h2 {
+    font-size: 24px;
+    padding-bottom: 10px;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+.register-form h2, .register-form p {
+    text-align: center;
+}
+.register-form p  {
+    font-size: 15px;
+}
+.register-form {
+    
+    border-radius: 5%;
+    margin: auto;
+    width: 95%;
+    padding: 20px;
+    background-color: var( --color-violet);
+    opacity: 90%;
+    color: #fff;
+}
+
+.register-form a {
+    color: #fff;
+}
+
+.info-text-form {
+    width: 80%;
+    margin: auto;
+}
+.input-data {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 85%;
+    margin: auto;
+}
+.input-data button {
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px;
+    background-color: var(--color-turquoise);
+    transition: all 550ms;
+}
+.input-data button:hover {
+    box-shadow: 0px 0px 20px var(--color-midnight-blue);
+}
+
+.register-form div input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px;
+
+}
+.login-link a {
+    background-color: var(--color-turquoise);
+    border-radius: 5px;
+    padding: 2px 5px;
+
+}
+.login-link a:hover {
+    animation: logink 2000ms infinite;
+    animation-direction: alternate;
+    transition: all 2000ms;
+}
+
+@keyframes logink {
+    0% {background-color: var(--color-turquoise);}
+    50% {background-color: var(--color-ligth-violet);}
+    100% {background-color: var(--color-turquoise);}
+
+}
+
+
+
+
+
+@media (min-width: 768px){
+    .register-form h2 {
+        font-size: 35px;
+    }
+    .register-form {
+        width: 70%;
+        padding: 20px;
+        color: #fff;
+        font-size: 15px;
+    }
+    .register-logo {
+    width: 25%;
+    left: 36%;
+    text-align: center;
+    margin: auto;
+}
+}
+@media (min-width: 1024px){
+    .register-form h2 {
+        font-size: 40px;
+    }
+    .register-form {
+        width: 50%;
+        padding: 20px;
+        color: #fff;
+        font-size: 18px;
+    }
+    .register-logo {
+        width: 25%;
+        left: 38%;
+        top: -12%;
+        text-align: center;
+    }
+}

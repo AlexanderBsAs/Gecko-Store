@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/icon/favicon.ico">
+    <script src="https://kit.fontawesome.com/d0b104a98c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Geekco Store</title>
+</head>
+<body class="register-body">
+    <main class="register-main-body">
+        <img class="register-logo" src="/img/logo.png" alt="">
+        <form action="/registro" class="register-form" method="post">
+            <h2>Registrarse</h2>
+            <div class="info-text-form">
+            <p>Los campos con "*" son obligatorios"</p>
+            </div>
+            <div class="input-data">
+                <label for="name-user">Nombre</label>
+                <input type="text" name="name" id="name-user" placeholder="*" minlength="5">
+            </div>
+            <div class="input-data">
+                <label for="lastname-user">Apellido</label>
+                <input type="text" name="lastname" id="lastname-user" placeholder="*" minlength="5">
+            </div>
+            <div class="input-data">
+                <label for="email-user">Dirección de correo eléctronico</label>
+                <input type="email" name="email" id="email-user" placeholder="*">
+            </div>
+            <div class="input-data">
+                <label for="direction-user">Domicilio</label>
+                <input type="text" name="direction" id="direction-user" placeholder="*">
+            </div>
+            <div class="input-data">
+                <label for="password-user">Contraseña</label>
+                <input type="password" name="password" id="password-user" placeholder="*">
+            </div>
+            <div class="input-data">
+                <label for="confirm-password-user">Confirmar contraseña</label>
+                <input type="password" name="confirm-password" id="confirm-password-user" placeholder="*">
+            </div>
+            <div class="info-text-form">
+                <p>Tus datos personales se utilizarán para procesar tu pedido, mejorar tu experiencia en esta web, gestionar el acceso a tu cuenta y otros propósitos.</p>
+            </div>
+            <div class="input-data">
+                <button type="submit">Registrarse</button>
+            </div>
+            <div class="login-link">
+                <p>¿Ya tienes una cuenta? <a href="/login">Ingresá</a></p>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

@@ -88,3 +88,24 @@ header div{
 }
 .fas.fa-bars{
     color:white}
+
+@media(min-width:768px){
+    header div p {
+        font-size: 30px;
+    }
+    .burger-menu{
+        display:none;}
+    .header__nav1 {
+        font-size: 20px;
+    }
+    .header__nav2 {
+        gap: 10%;
+    font-size: 32px;
+    width: 41%;
+    }
+    #div {
+        margin-bottom: 0%;
+    }
+    .fa-solid.fa-magnifying-glass{    
+        margin-left: -5%;}
+}

@@ -1,0 +1,9 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    box-sizing: border-box;
+}

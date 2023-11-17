@@ -1,9 +1,38 @@
+:root {
+    --color-violet: #551CA6;
+    --color-ligth-violet: #AD2AB4;
+    --color-dark-cyan: #0098B6;
+    --color-turquoise: #04BFBF;
+    --color-midnight-blue: #00001E;
+}
 *{
     font-family: 'Roboto', sans-serif;
     list-style: none;
     text-decoration: none;
     margin: 0;
     padding: 0;
-    color: #000;
+    color: #fff;
     box-sizing: border-box;
+
+
+}
+
+.body{
+    background-color: var(--color-midnight-blue);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.detalle-img{
+width: 60%;
+height: 60%;
+margin: 0 auto;
+}
+
+.home__main__article img{
+width: 60%;
+height: 60%;
 }

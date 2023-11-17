@@ -1,129 +1,90 @@
-.header_home{
-    background-color:var(--Amarillo);
+*{text-decoration: none;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+  
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+:root{
+}
+
+#input{
+    border: 1px solid white;
+    font-size: 16px;
+    width: 84%;
+    height: 58%;
+    border-radius:0.2em;
+    padding: 1%;
+}
+#div{
+    width: 85%;
+    justify-content: center;
+    align-items: center;
+    right: -1%;
+    margin-bottom: 3%;
+}
+.fa-solid.fa-magnifying-glass{
+    color: var(--Gris-oscuro);
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 16%;
+    margin-left: -4%;
+    height: 58%;
+    padding: 5px;
+}
+#logo{
+    width: 25%;
+    transform: scaleX(-1);
+}
+header{
+    background-color: rgb(11, 3, 46);
     width: 100%;
+    box-sizing: border-box;
 }
-
-.home-menu-hamburguesa{
-    background-color: #1259c3;
-    display: block;
-    text-align: center;
+header p {
     color: white;
-    margin: auto;
-    border-radius: 5px;
-    /* padding: 14px -34px; */
-    width: 2em;
-    height: 2em;
-   /*  font-size: 2em; */
-    /* border: #000 3px solid; */
-    
-}
-.fa-solid.fa-bars.fa-sm{
-    margin-top: 15px;
-     width: 2em;
-    height: 2em; 
-    margin-right: 0px; 
-  /*    font-size: 2em; */
-    /* border: #000 3px solid; */}
-
-.logo{
-  /*   background-image: url("../images/logo-mercado-liebre.svg"); */
-    height: 150px;
-/*     width: 250px; */
-/*     background-position: top left;
-    background-repeat: no-repeat; */
-   /*  border: solid 3px black; */
-  /*  display: block;
-   margin-bottom: -70px; */
-   margin-top: -25px;
-
-}
-.busqueda{
-    display: block;
-   /*  display: inline;
-    margin-right: 750px; */
-}
-.compra-cuotas{
-    margin-left: 30px;
 }
 
-.busqueda{
-    margin-left: 10px;
-}
-.logo{
-   
-        margin-left: 10px;
-}
-.home_busqueda2{
-    background-color: var(--Gris-claro);
-    border: var(--Azul) 1px solid;
-}
-.home_header_texto{
-    font-size: 12px;
-    color: black;
-    text-decoration: none;
-    display: none;
-}
-@media(max-width:320px){
-    .home_cuerpos_texto1{
-       display: none;
-       
-    }
-   
-   
-   }
-   
-   @media(min-width:768px){
-   .home-menu-hamburguesa{
-       display: none;}
-       .home_header_texto{
-        display: block;
-       }
-      
-       .home_header_texto a{
-           font-size:16px
-       }
-       .compra-cuotas{
-           font-size: 15px;
-       }
-   
-    
-    
-    .home_nav_cuerpos{
-       display: flex;
-       justify-content: space-between;
-   }
-   .home_nav_cuerpos ul {
-       display: flex;
-       justify-content: space-between;
-       gap:10px;
-       list-style: none;
-   }
-       .home_cuerpos_texto2{
-           margin-left: 300px;
-       }
-   
-   }
-
-@media(min-width:1024px){
-    .home-menu-hamburguesa{
-        display: none;
-    }
-    .home_header_texto{
-        display: block;
-    }
-
-    .home_header_texto a{
-        font-size:17px
-    }
-    .compra-cuotas{
-        font-size: 16px;
-    }
-
-.home_cuerpos_texto2{
-        margin-left: 420px;
-    }
+header div p{
+    top: 55%;
+    left: 21%;
+    align-self: center;
+    color: white;
+    font-family: 'Pixelify Sans', sans-serif;
+    position: absolute;
+    font-size: 20px;
 
 }
-@media(min-width:1439px){
+header div{
+    display: flex;
+    position: relative;
 
 }
+.header__nav1{
+    display: inline-flex;
+    width: 47%;
+    gap: 6%;
+    font-size: 16px;
+    margin: 3%;
+}
+
+.header__nav2{
+    display: inline-flex;
+    width: 27%;
+    justify-content: right;
+    gap: 24%;
+    font-size: 22px;
+}
+
+.burger-menu{
+    display: inline-flex;
+    width: 10%;
+    background-color: #AD2AB4;
+    padding: 9px;
+    border-radius: 10%;
+    margin-bottom: 2%;
+}
+.fas.fa-bars{
+    color:white}

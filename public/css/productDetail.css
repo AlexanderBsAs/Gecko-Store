@@ -5,6 +5,7 @@
     --color-turquoise: #04BFBF;
     --color-midnight-blue: #00001E;
 }
+
 *{
     font-family: 'Roboto', sans-serif;
     list-style: none;
@@ -13,17 +14,33 @@
     padding: 0;
     color: #fff;
     box-sizing: border-box;
-
-
 }
 
 .body{
-    background-color: var(--color-midnight-blue);
+    background-color: #060638;
 }
 
 .main {
+    padding: 12px;
+    width: 100%;
     display: flex;
     flex-direction: column;
+
+}
+.detalle-img{
+    width: 100%;
+    height: 40px;
+
+}
+.descripcion-producto{
+    text-align: center;
+}
+.contenido-producto{
+    background-color: var(--color-midnight-blue);
+    padding: 10px;
+    width: 100%;
+    border-radius: 4% 4% 0% 0%; 
+    gap: 10px;
 }
 
 .detalle-img{
@@ -36,3 +53,33 @@ margin: 0 auto;
 width: 60%;
 height: 60%;
 }
+
+.otros-productos{
+    display: none;
+}
+/* 
+h1{
+    font-size: 10px;
+} 
+h2{
+    font-size: 10px;
+}
+h3{
+    font-size: 10px;
+}
+
+h4{
+    font-size: 10px;
+}
+p{
+    font-size: 10px;
+}
+*/
+
+.color-turquesa{
+background:var(--color-turquoise);
+}
+.color-violeta{
+    background: var(--color-violet);
+}
+

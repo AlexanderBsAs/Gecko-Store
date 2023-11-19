@@ -11,11 +11,11 @@
 }
 
 #input{
+    
     border: 1px solid white;
     font-size: 16px;
     width: 71%;
-    height: 58%;
-    border-radius:0.2em;
+    border-radius: 0.2em;
     padding: 1%;
 }
 #div{
@@ -31,7 +31,6 @@
     border: 1px solid white;
     border-radius: 16%;
     margin-left: -4%;
-    height: 58%;
     padding: 2%;
     margin-right: -2%;
 }
@@ -42,7 +41,9 @@
 header{
     background-color: rgb(11, 3, 46);
     width: 100%;
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 header p {
     color: white;
@@ -72,13 +73,12 @@ header div{
 }
 
 .header__nav2{
-    width: 52%;
+    width: 49%;
     justify-content: right;
     gap: 20px;
     font-size: 24px;
-    display: inline-flex;
-    position: absolute;
-    right: 28%;
+    display: flex;
+    margin-left: 32%;
 }
 
 .burger-menu{
@@ -102,39 +102,35 @@ header div{
 
     }
     header div{  
-        margin-bottom: -2%;}
+          margin-bottom: -2%;
+          order: 1;}
     header div p {
         font-size: 36px;
     }
     .burger-menu{
         display:none;}
     .header__nav1 {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 12%;
-        right: -35%;
-        gap: 10px;
+       display:none;
     }
     
     .header__nav2 {
-        gap: 10%;
-        width: 41%;
-        top: 17%;
-        font-size: 40px;
-        right: 19%;
+        margin-top: 9%;
+        display: inline-flex;
+        width: 1%;
+        order: 1;
+        gap: 40px;
+        font-size: 30px;
     }
     
     #div {
         margin-bottom: 2%;
         justify-content: flex-start;
+        order: 3;
     }
     .fa-solid.fa-magnifying-glass{    
         margin-right: -1%;
         padding: 0.54em;}
-    .header__nav1{
-        display: inline-flex;
-    }
+
     #div a{
         font-size: 30px;
     color: white;
@@ -147,26 +143,17 @@ header div{
         }  
 }
 @media(min-width:1024px){
-    .header__nav1 {font-size: 24px;
-        top: 10%;
-    }
+    
     .header__nav2 {
-        top: 16%;
+        margin-left: 46%;
     font-size: 45px;}
     #logo{
-        width: 19%;
+        width: 36%;
     }
     header div p {
-        left: 16%;
+        left: 30%;
 }}
 @media(min-width: 1440px){
-    #logo{
-        
-    }
-    .header__nav1 {
-        top:14%;
-    }
-    .header__nav2{
-        top:21%;
-    } 
+    .header__nav2 {
+        margin-left: 60%;}
 }

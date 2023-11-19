@@ -2,24 +2,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
 .register-body {
     font-family: 'Prompt', sans-serif;
-    background-repeat: no-repeat;
-    background-size:cover;
-    width: 100%;
-    background-image: url("/img/bg-body-register.png");
+}
+
+.form-box {
+    margin-bottom: 15%;
+    padding-top: 15%;
 }
 .register-logo {
     position: absolute;
     width: 40%;
     left: 30%;
-    top: -50px;
+    top: -10px;
     font-size: 20px;
     margin: auto;
 }
 .register-main-body {
+    background-image: url("/img/bg-body-register.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 100%;
     position: relative;
-    margin-top: 10%;
     padding: 5%;
-    margin-bottom: 10%;
 }
 .register-form h2 {
     font-size: 24px;
@@ -115,7 +118,7 @@
         left: 34%;
         text-align: center;
         margin: auto;
-        top: -70px;
+        top: 20px;
     }
 }
 @media (min-width: 1024px){
@@ -132,6 +135,6 @@
         width: 30%;
         left: 34%;
         text-align: center;
-        top: -75px;
+        top: 20px;
     }
 }

@@ -8,6 +8,7 @@
   
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
 :root{
+    
 }
 
 #input{
@@ -44,6 +45,7 @@ header{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    border-bottom:#AD2AB4 4px solid;
 }
 header p {
     color: white;

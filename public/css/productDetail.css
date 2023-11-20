@@ -1,3 +1,6 @@
+@import url(header.css);
+@import url(footer);
+
 :root {
     --color-violet: #551CA6;
     --color-ligth-violet: #AD2AB4;
@@ -28,13 +31,24 @@
 
 }
 .detalle-img{
-    width: 100%;
-    height: 40px;
+width: 40%;
+height: 60%;
+margin: 0 auto;
+} 
 
+.articulo_producto_venta{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
+
+
+
 .descripcion-producto{
     text-align: center;
 }
+
 .contenido-producto{
     background-color: var(--color-midnight-blue);
     padding: 10px;
@@ -43,20 +57,37 @@
     gap: 10px;
 }
 
-.detalle-img{
-width: 60%;
-height: 60%;
-margin: 0 auto;
+.contenedor-producto-caja{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.home__main__article img{
-width: 60%;
-height: 60%;
+/* .contenido-producto{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+} */
+
+.home__main__article{
+width: 300px;
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
 }
 
 .otros-productos{
     display: none;
 }
+
+
 /* 
 h1{
     font-size: 10px;
@@ -76,10 +107,76 @@ p{
 }
 */
 
+.container-button{
+width: 90%;
+height: auto;
+display: flex;
+flex-direction: column;
+gap: 5px;
+}
+
 .color-turquesa{
 background:var(--color-turquoise);
 }
 .color-violeta{
-    background: var(--color-violet);
+    background: var(--color-violet);  
 }
 
+.boton-product{
+    border-radius: 15px;
+    width: 200px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.boton-product i{
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.contenido-producto-texto-logo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.logo2{
+    width: 300px;
+    height: 100px;
+}
+
+.contenido-producto-texto{
+    width: 300px;
+    height: auto;
+display: flex;
+flex-direction: column;
+gap: 5px;
+background: var(--color-violet);  
+padding: 10px 0;
+}
+
+.contenido-producto-texto--contenido{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+    }
+
+    .conte{
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background:var(--color-turquoise);
+        width: 45%;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .conte:hover{
+        background: red;
+    }
+
+
+   

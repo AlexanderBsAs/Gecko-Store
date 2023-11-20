@@ -1,9 +1,10 @@
 body{
-    background-image: url("/images/fondo.svg");
+    /* background-image: url("/images/fondo.jpeg");
     background-repeat: no-repeat;
-    background-size: cover;
-
-}
+    
+    width: 100%;
+    background-size: cover;*/
+} 
 :root{
     --Amarillo: #EAC926;
  --Azul: #03264C;
@@ -25,7 +26,11 @@ body{
 } */
 
 main{
-  
+    background-image: url("/images/fondo.jpeg");
+    background-repeat: no-repeat;
+    
+    width: 100%;
+    background-size: cover;
 /*     background-repeat: no-repeat;
     background-size: cover; */
     color: aliceblue;
@@ -55,6 +60,7 @@ main{
     position: relative;
     display: flex;
     flex-direction: column;
+    
 }
 .main_carrito h2{
     text-align: center;

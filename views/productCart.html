@@ -3,87 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercado Liebre</title>
+    <title>Mi Carrito</title>
     <script src="https://kit.fontawesome.com/9c1f0497c6.js" crossorigin="anonymous"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
 rel="stylesheet" />
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <header  class="header_home" >
-
-<section class="home-logo-busqueda"><img class="logo" src="/images/logo-mercado-liebre.svg" alt="logo" height="200" width="200">  
-<!--   <section  align="top" class="busqueda"> <nav class="busqueda">Buscar productos</nav></section> --></section> 
-  <section class="busqueda"> <form action="/busqueda" method="get"><input class="busqueda"  type="text" placeholder="buscar"></form>
-<i class="fa-solid fa-magnifying-glass home_busqueda2" ></i></section>
-<br><br>
-  <p  class="compra-cuotas">
-    <i class="fa-solid fa-hand-holding-dollar"></i>Compra en cuotas y sin tarjeta de credito!!
-  </p>
-<br>
-  <nav class="home_nav_cuerpos" ><!-- <i class="fa-solid fa-bars fa-beat-fade fa-2xl"></i> -->
-<ul type="none"  class="home_header_texto home_cuerpos_texto1">
-    <li><a href="#"> Ofertas</a></li>
-    <li><a href="#"> Tiendas Oficiales</a></li>
-    <li><a href="#"> Vender</a></li>
-    <li><a href="#"> Ayuda</a></li>
-    <br></ul> 
-    <ul class="home_header_texto home_cuerpos_texto2">
-    <li><a href="/register"> Creá tu cuenta <i class="fa-solid fa-id-card"></i></a></li>
-    <li><a href="/login"> Ingresá <i class="fa-solid fa-right-to-bracket"></i></a></li>
-    <li><a href="#"> Mis compras <i class="fas fa-shopping-cart"></i></a></li>
-</ul>
-    
+  <header>
+    <div>
+    <img id="logo" src ="/img/logo.png"></img>
+    <p>GeekcoStore</p> </div>
+    <div id="div"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="input" placeholder="Buscar productos,marcas..." >
+        <a href="/">Categorias</a></div>
+        
+    <nav class="header__nav1">
+        <p>Ingresar</p>
+        <p>Registrarse</p>
+    </nav> 
+    <div class="burger-menu"><i class="fas fa-bars"></i></div>
+    <nav class="header__nav2">
+        <a href ="/carrito"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
+        <a href ="/"><i class="fa-regular fa-circle-user" style="color: #ffffff;"></i></a>
+    </nav> 
     
 
+</header>
 
-</nav>
+    <main class="main_carrito">
+      <!--   <img class="background" src="/images/fondo.jpg" alt="background"> -->
+  
+    <section> 
+        <h2>Mi Compra</h2>
+      <nav>
+      
+        <ul class="ul_nav">
+          <li><h4>Mi Carrito</h4></li>
+          <li><h4>Envío y Pago</h4></li>
+          <li><h4> Verificar y Analizar</h4></li>
+        </ul>
+      </nav>
+    </section>
+    <section class="carrito_section2"> <!-- le agregue 2 section mas una con 2 articulos y otra con otros 2 articulos
+    si en algun momento te trae problemas borralos -->
+  <section class="section-producto">
+      <article class ="article-nav2"><nav>
+        <ul class="ul_nav2">
+          <li>
+            <i class="fa-solid fa-camera"></i>
+          </li>
+          <li><p>
+           articulo</p>
+          </li>
+          <li><p>
+            cantidad</p>
+          </li>
+          <li>
+            <p>precio</p>
+          </li>
+          
+        </ul>
+      </nav></article>
+      <article class="article-nav3"><nav>
+        <ul class="ul_nav3">
+          <li><img class="tidus" src="/images/FF10.jpg" alt="tidus"></li>
+          <li><p> Figura Tidus</p></li>
+          <li><input type="text" id="cantidad"></li>
+          <li><p>$50000</p></li>
+        </ul>
+        <ul class="ul_nav3">
+          <li> <img class="tidus" src="/images/crono.jpg" alt="tidus"></li>
+          <li><p> Figura Chrono Cross </p></li>
+          <li><input type="text" name="" id="cantidad"></li>
+          <li><p>$40000</p></li>
+      <!--     <li><p>$40000</p></li> -->
+        </ul>
+      </nav></article></section>
+       
+    <section class="section-codigo"> <article class="codigo-descuento">
+        <div class="boleta"><form action=""><label for="codigo" class="descuentosino"><p>Tenes un codigo de descuento?</p></label>
+        <input type="text" name="codigo" id="codigo"></div>
+      <div class="boleta"><p>Subtotal: $40000</p>
+      <p>Descuentos: 0$</p>
+    <p>Total: $40000</p></div>
+      <!-- <div class="codigo-button"> --><button type="submit" class="boton">Continuar</button><!-- </div> -->
+    
+  </form>
+    <h4>Agregar mas productos</h4>
+    </article></section> 
+    </section>
+      </main>
 
-<article class="home-menu-hamburguesa">
-    <i class="fa-solid fa-bars fa-sm" style="color: #ffffff;"></i> </article>
-
-    </header>
-
-    <main class="main_home">
-    </main>
-
-    <footer class="footer_home">
-
-        <section class="home_descripciones home_descripciones2" >
-            <article class="home_tarjeta">
-                <i class="fa-solid fa-credit-card fa-2xl" style="color: #1259c3;"></i>
-              <p><strong>● Pagá con tarjeta o en efectivo</strong> <br>
-                Con Mercado Liebre Cash, tenés cuotas sin <br>
-                 interés con tarjeta o efectivo en
-                puntos de <br>
-                 pago. ¡Y siempre es seguro!</p>  
-            </article>
-            <br>
-            <article class="home_envios">
-                <i class="fa-solid fa-gift fa-2xl" style="color: #1259c3;"></i>
-               <p> <strong>● Envío gratis desde $ 2.500 </strong><br>
-Solo por estar registrad@ en Mercado Liebre <br>
- tenés envíos gratis en miles de
-productos. Es <br>
- un beneficio de Mercado Puntos.</p>
-            </article>
-            <br>
-            <article class="home_protegido">
-                <i class="fa-solid fa-user-shield fa-2xl" style="color: #1259c3;"></i>
-                <p><strong>● Seguridad, de principio a fin</strong> <br>
-¿No te gusta? ¡Devolvelo! En Mercado Liebre, <br>
- no hay nada que no puedas hacer,
-porque <br>
- estás siempre protegid@.</p>
-            </article>
-            <br>
-            
-        </section><article>
-
-
-               <p class="home_copyright" > ● Copyright © 1999-2020 MercadoLiebre S.R.L.</p>
-            </article>
-    </footer>
+      <body >
+        
+        <footer class="footer-body">
+            <section class="section-redes">
+                
+                <div class="footer-contacto">
+                    
+                    <article class="footer-iconos">
+                    <a href="">Soporte</a>
+                    <img class="img-soporte" src="img/icons8-mensaje-48.png" alt="">
+                </article>
+                <article class="footer-iconos">
+                    <a  href="">Contacto</a>
+                    <img class="img-contacto" src="img/icons8-whatsapp-48.png" alt="Whatsapp-icon">
+                </article>
+                
+                    </div>
+                 <div class="section-div-redes">
+                   
+                    <p>¡Seguinos!</p>
+                    <section class="section-redes-iconos">
+                    <a href=""><img src="img/icons8-instagram-48.png" alt=""></a>
+                    <a href=""><img src="img/icons8-facebook-48.png" alt=""></a>
+                </section>
+                    
+                    </div>
+                <div class="section-logo">
+                    
+                <img src="/img/logogecko-removebg-preview.png" alt="logo">
+                <p>GeekcoStore</p>
+                 </div>
+                
+                 
+            </section>
+                <article class="footer-quienes">
+                  <span>Nosotros</span>
+                  <p>Somos un e-commerce donde vas a encontrar todo lo relacionado con videojuegos y series, desde juegos fisicos, consolas y figuras!!.  <br>Hecha con amor por: Alejandro Vera Alexander Ureta Liliana Almirón Gabriel Robles Fernando Ortiz</p>
+                </article>
+               
+            <section class="section-copyright">
+                
+                <p>2023-GeekcoStore-Todos los derechos reservados</p>
+                <p>Team Owners</p>
+            </section>
+        </footer>
 
 </body>
 </html>

@@ -8,22 +8,23 @@
   
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
 :root{
+    
 }
 
 #input{
+    
     border: 1px solid white;
     font-size: 16px;
-    width: 84%;
-    height: 58%;
-    border-radius:0.2em;
+    width: 71%;
+    border-radius: 0.2em;
     padding: 1%;
 }
 #div{
-    width: 85%;
-    justify-content: center;
+    width: 100%;
     align-items: center;
-    right: -1%;
-    margin-bottom: 3%;
+    background-color: #551CA6;
+    padding: 2% 12% 2% 9%;
+    margin-bottom: 10px;
 }
 .fa-solid.fa-magnifying-glass{
     color: var(--Gris-oscuro);
@@ -31,8 +32,8 @@
     border: 1px solid white;
     border-radius: 16%;
     margin-left: -4%;
-    height: 58%;
-    padding: 5px;
+    padding: 2%;
+    margin-right: -2%;
 }
 #logo{
     width: 25%;
@@ -41,7 +42,10 @@
 header{
     background-color: rgb(11, 3, 46);
     width: 100%;
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-bottom:#AD2AB4 4px solid;
 }
 header p {
     color: white;
@@ -63,7 +67,7 @@ header div{
 
 }
 .header__nav1{
-    display: inline-flex;
+    display: none;
     width: 47%;
     gap: 6%;
     font-size: 16px;
@@ -71,20 +75,87 @@ header div{
 }
 
 .header__nav2{
-    display: inline-flex;
-    width: 27%;
+    width: 49%;
     justify-content: right;
-    gap: 24%;
-    font-size: 22px;
+    gap: 20px;
+    font-size: 24px;
+    display: flex;
+    margin-left: 32%;
 }
 
 .burger-menu{
     display: inline-flex;
-    width: 10%;
-    background-color: #AD2AB4;
+    width: 34px;
+    background-color: #551CA6;
     padding: 9px;
     border-radius: 10%;
     margin-bottom: 2%;
+    margin-left: 2%;
 }
 .fas.fa-bars{
     color:white}
+#div a{
+    display:none
+}
+
+@media(min-width:768px){
+    header{
+        padding: 0.5px;
+
+    }
+    header div{  
+          margin-bottom: -2%;
+          order: 1;}
+    header div p {
+        font-size: 36px;
+    }
+    .burger-menu{
+        display:none;}
+    .header__nav1 {
+       display:none;
+    }
+    
+    .header__nav2 {
+        margin-top: 9%;
+        display: inline-flex;
+        width: 1%;
+        order: 1;
+        gap: 40px;
+        font-size: 30px;
+    }
+    
+    #div {
+        margin-bottom: 2%;
+        justify-content: flex-start;
+        order: 3;
+    }
+    .fa-solid.fa-magnifying-glass{    
+        margin-right: -1%;
+        padding: 0.54em;}
+
+    #div a{
+        font-size: 30px;
+    color: white;
+    display: flex;
+    position: absolute;
+    right:6%;
+    }     
+     #input{
+            padding: 0.39em;
+        }  
+}
+@media(min-width:1024px){
+    
+    .header__nav2 {
+        margin-left: 46%;
+    font-size: 45px;}
+    #logo{
+        width: 36%;
+    }
+    header div p {
+        left: 30%;
+}}
+@media(min-width: 1440px){
+    .header__nav2 {
+        margin-left: 60%;}
+}

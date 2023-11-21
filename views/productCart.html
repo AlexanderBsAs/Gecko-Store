@@ -31,8 +31,8 @@ rel="stylesheet" />
 </header>
 
     <main class="main_carrito">
+         <!--     <img class="fondo-carrito" src="/images/fondo-carrito.jpeg" alt=""> -->
       <!--   <img class="background" src="/images/fondo.jpg" alt="background"> -->
-  
     <section> 
         <h2>Mi Compra</h2>
       <nav>
@@ -44,9 +44,13 @@ rel="stylesheet" />
         </ul>
       </nav>
     </section>
-    <section class="carrito_section2"> <!-- le agregue 2 section mas una con 2 articulos y otra con otros 2 articulos
+    <section class="carrito_section2"> 
+ 
+
+      <!-- le agregue 2 section mas una con 2 articulos y otra con otros 2 articulos
     si en algun momento te trae problemas borralos -->
-  <section class="section-producto">
+  <section class="section-producto"> 
+    
       <article class ="article-nav2"><nav>
         <ul class="ul_nav2">
           <li>
@@ -81,14 +85,26 @@ rel="stylesheet" />
       </nav></article></section>
        
     <section class="section-codigo"> <article class="codigo-descuento">
-        <div class="boleta"><form action=""><label for="codigo" class="descuentosino"><p>Tenes un codigo de descuento?</p></label>
-        <input type="text" name="codigo" id="codigo"></div>
+        <div class="boleta"><form action="/" method="post"><label for="codigo" class="descuentosino"><p>Tenes un codigo de descuento?</p></label>
+        <input type="text" name="codigo" id="codigo"></form></div>  
+        <div class="envios"><form action="/" method="post"> 
+          <label for="envios" class="envios2"><p>Deseas recibirlo por envio?</p></label>
+          <label>Si <input type="radio" name="envios" id="envios" value="si"></label>
+          <label for="">No <input type="radio" name="envios" id="envios" value="no"></label>
+ </form> </div> <!-- <div>
+          <label for="pagos"><p class="metodos">Metodos de Pago: </p></label>
+          <label ><p>Tarjeta de Credito <input type="radio" name="pagos" id="pagos" value="credito"></p> </label>
+          <label ><p>Transferencia Bancaria <input type="radio" name="pagos" id="pagos" value="Transferencia"></p></label>
+          <label> <p>Efectivo <input type="radio" name="pagos" id="pagos" value="Efectivo"></p></label>
+       
+
+       </div> --> </form>
       <div class="boleta"><p>Subtotal: $40000</p>
       <p>Descuentos: 0$</p>
     <p>Total: $40000</p></div>
       <!-- <div class="codigo-button"> --><button type="submit" class="boton">Continuar</button><!-- </div> -->
     
-  </form>
+
     <h4>Agregar mas productos</h4>
     </article></section> 
     </section>

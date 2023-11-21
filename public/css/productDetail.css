@@ -170,7 +170,7 @@ p{
 .conte {
     text-align: center;
     padding-top: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 44px;
     background: var(--color-turquoise);
     width: 45%;
     height: 40px;
@@ -178,10 +178,11 @@ p{
 }
 
 .conte:hover {
-    background: red;
+    background: #000;
 }
 
 .boton-product-2{
+    background-color: var(--color-midnight-blue);
     border-radius: 15px;
     width: 293px;
     height: 40px;
@@ -214,6 +215,12 @@ padding-top: 50px;
     .contenido-producto-texto {
         width: 397px;
     }
+    .boton-product-2{
+        width: 718px;
+        height: 44px;
+        margin: 10px auto;
+    }
+    
 }
 
 @media  (min-width: 1024px){

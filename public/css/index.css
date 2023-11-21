@@ -19,7 +19,7 @@ overflow: hidden;
     display: flex;
     padding:0;
     width:400%;
-    animation: slide 20s infinite alternate ease-in-out;
+    animation: slide 10s infinite alternate ease-in-out;
 }
 .home__carrousel li{
     width: 100%;

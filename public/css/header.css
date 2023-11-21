@@ -1,129 +1,161 @@
-.header_home{
-    background-color:var(--Amarillo);
+*{text-decoration: none;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+  
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+:root{
+    
+}
+
+#input{
+    
+    border: 1px solid white;
+    font-size: 16px;
+    width: 71%;
+    border-radius: 0.2em;
+    padding: 1%;
+}
+#div{
     width: 100%;
+    align-items: center;
+    background-color: #551CA6;
+    padding: 2% 12% 2% 9%;
+    margin-bottom: 10px;
 }
-
-.home-menu-hamburguesa{
-    background-color: #1259c3;
-    display: block;
-    text-align: center;
+.fa-solid.fa-magnifying-glass{
+    color: var(--Gris-oscuro);
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 16%;
+    margin-left: -4%;
+    padding: 2%;
+    margin-right: -2%;
+}
+#logo{
+    width: 25%;
+    transform: scaleX(-1);
+}
+header{
+    background-color: rgb(11, 3, 46);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-bottom:#AD2AB4 4px solid;
+}
+header p {
     color: white;
-    margin: auto;
-    border-radius: 5px;
-    /* padding: 14px -34px; */
-    width: 2em;
-    height: 2em;
-   /*  font-size: 2em; */
-    /* border: #000 3px solid; */
-    
-}
-.fa-solid.fa-bars.fa-sm{
-    margin-top: 15px;
-     width: 2em;
-    height: 2em; 
-    margin-right: 0px; 
-  /*    font-size: 2em; */
-    /* border: #000 3px solid; */}
-
-.logo{
-  /*   background-image: url("../images/logo-mercado-liebre.svg"); */
-    height: 150px;
-/*     width: 250px; */
-/*     background-position: top left;
-    background-repeat: no-repeat; */
-   /*  border: solid 3px black; */
-  /*  display: block;
-   margin-bottom: -70px; */
-   margin-top: -25px;
-
-}
-.busqueda{
-    display: block;
-   /*  display: inline;
-    margin-right: 750px; */
-}
-.compra-cuotas{
-    margin-left: 30px;
 }
 
-.busqueda{
-    margin-left: 10px;
+header div p{
+    top: 55%;
+    left: 21%;
+    align-self: center;
+    color: white;
+    font-family: 'Pixelify Sans', sans-serif;
+    position: absolute;
+    font-size: 20px;
+
 }
-.logo{
-   
-        margin-left: 10px;
+header div{
+    display: flex;
+    position: relative;
+
 }
-.home_busqueda2{
-    background-color: var(--Gris-claro);
-    border: var(--Azul) 1px solid;
-}
-.home_header_texto{
-    font-size: 12px;
-    color: black;
-    text-decoration: none;
+.header__nav1{
     display: none;
+    width: 47%;
+    gap: 6%;
+    font-size: 16px;
+    margin: 3%;
 }
-@media(max-width:320px){
-    .home_cuerpos_texto1{
-       display: none;
-       
-    }
-   
-   
-   }
-   
-   @media(min-width:768px){
-   .home-menu-hamburguesa{
-       display: none;}
-       .home_header_texto{
-        display: block;
-       }
-      
-       .home_header_texto a{
-           font-size:16px
-       }
-       .compra-cuotas{
-           font-size: 15px;
-       }
-   
-    
-    
-    .home_nav_cuerpos{
-       display: flex;
-       justify-content: space-between;
-   }
-   .home_nav_cuerpos ul {
-       display: flex;
-       justify-content: space-between;
-       gap:10px;
-       list-style: none;
-   }
-       .home_cuerpos_texto2{
-           margin-left: 300px;
-       }
-   
-   }
 
+.header__nav2{
+    width: 49%;
+    justify-content: right;
+    gap: 20px;
+    font-size: 24px;
+    display: flex;
+    margin-left: 32%;
+}
+
+.burger-menu{
+    display: inline-flex;
+    width: 34px;
+    background-color: #551CA6;
+    padding: 9px;
+    border-radius: 10%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+}
+.fas.fa-bars{
+    color:white}
+#div a{
+    display:none
+}
+
+@media(min-width:768px){
+    header{
+        padding: 0.5px;
+
+    }
+    header div{  
+          margin-bottom: -2%;
+          order: 1;}
+    header div p {
+        font-size: 36px;
+    }
+    .burger-menu{
+        display:none;}
+    .header__nav1 {
+       display:none;
+    }
+    
+    .header__nav2 {
+        margin-top: 9%;
+        display: inline-flex;
+        width: 1%;
+        order: 1;
+        gap: 40px;
+        font-size: 30px;
+    }
+    
+    #div {
+        margin-bottom: 2%;
+        justify-content: flex-start;
+        order: 3;
+    }
+    .fa-solid.fa-magnifying-glass{    
+        margin-right: -1%;
+        padding: 0.54em;}
+
+    #div a{
+        font-size: 30px;
+    color: white;
+    display: flex;
+    position: absolute;
+    right:6%;
+    }     
+     #input{
+            padding: 0.39em;
+        }  
+}
 @media(min-width:1024px){
-    .home-menu-hamburguesa{
-        display: none;
+    
+    .header__nav2 {
+        margin-left: 46%;
+    font-size: 45px;}
+    #logo{
+        width: 36%;
     }
-    .home_header_texto{
-        display: block;
-    }
-
-    .home_header_texto a{
-        font-size:17px
-    }
-    .compra-cuotas{
-        font-size: 16px;
-    }
-
-.home_cuerpos_texto2{
-        margin-left: 420px;
-    }
-
-}
-@media(min-width:1439px){
-
+    header div p {
+        left: 30%;
+}}
+@media(min-width: 1440px){
+    .header__nav2 {
+        margin-left: 60%;}
 }

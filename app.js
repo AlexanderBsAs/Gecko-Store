@@ -22,6 +22,14 @@ app.get("/carrito", function (req, res) {
   res.sendFile(path.join(__dirname + "/views/productCart.html"));
 });
 
+app.get("/",function(req,res){
+    res.sendFile(path.join(__dirname+"/views/index.html"))
+})
+
+
+app.get("/footer",function(req,res){
+    res.sendFile(path.join(__dirname+"/views/footer.html"))
+})
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname + "/views/index.html"));
 });

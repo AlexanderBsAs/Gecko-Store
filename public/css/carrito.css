@@ -4,14 +4,9 @@ body{
     
     width: 100%;
     background-size: cover;*/
+   
 } 
 :root{
-    --Amarillo: #EAC926;
- --Azul: #03264C;
---Celeste: #1259c3;
---Gris-oscuro: #666;
---Gris-claro: #ebebeb;
---Verde: #39b54a;
      --color-violet: #551CA6;
     --color-ligth-violet: #AD2AB4;
     --color-dark-cyan: #0098B6;
@@ -166,7 +161,7 @@ h4{
 }
 
 .carrito_section2{
-    background:linear-gradient(#AD2AB4, #551CA6);
+    background:linear-gradient(#ad2ab4d9, #561ca6d5);
     margin-bottom: 5%;
     display: flex;
     flex-direction: column;
@@ -180,7 +175,7 @@ h4{
  .ul_nav3{
     display: flex;
     flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
     gap: 10px;
     flex-wrap: nowrap;
 
@@ -192,7 +187,7 @@ h4{
    
     display: flex;
     flex-direction: row;
-     justify-content: space-around;
+     justify-content: space-between;
     gap:15px;
    padding: 5%;
  
@@ -342,6 +337,30 @@ background-color: #0098B6;
     background-color: #0098b679;
     border-radius: 5px;
 }
+#cantidad{
+    width: 60%;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+.envios label{
+    font-size: 13px;
+}
+.envios label p{
+    margin-top: 5px;
+    padding: 5px;
+        
+
+
+}
+.envios .envios2 p{
+    background-color: #0098b671;
+
+}
+.metodos{
+     background-color: #0098b671;
+}
+
+
 @media (min-width:768px){
     .carrito_section2{
         flex-direction: row;
@@ -393,15 +412,56 @@ background-color: #0098B6;
     .boleta p {
         font-size: 16px;
         color: #000;
-        font-weight: bold;
+        font-weight: 600;
     /*     height: 2em; */
-       
+       border-bottom: #000 1px solid;
     }
     .boleta input{
         width: 40%;
     }
     .boleta label{
-        font-size: 18px;
+        font-size: 16px;
+    }
+    #cantidad{
+        width: 40%;
+    }
+    h4{
+        font-size: 20px;
+    }
+}
+@media (min-width:1024px){
+    #cantidad{
+        width: 30%;
+    }
+
+    .ul_nav2 li p{
+        font-size: 20px;
+        width: 30px;    
+        width:100%;
+        gap: 10px;
     }
     
+    
+    .ul_nav3 li p{
+        font-size: 18px;
+         width: 40px;    
+          width:100%;
+    }
+    .boleta p {
+        font-size: 16px;
+        color: #000;
+        font-weight: 600;
+    /*     height: 2em; */
+       border-bottom: #000 1px solid;
+    }
+    .boleta input{
+        width: 40%;
+    }
+    .boleta label{
+        font-size: 16px;
+    }
+    #cantidad{
+        width: 40%;
+    }
+    h4{font-size: 20px;}
 }

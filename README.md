@@ -22,6 +22,7 @@ Se va a encargar del carrito de compras, y repositorios
 Gabriel Robles:
 Se va a encargar del formulario de registro, detalles del producto y tipografia
 
+Fernando Ortiz: Es el nuevo integrante del grupo!
 # Geekco store
 
 ## logo

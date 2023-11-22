@@ -1,17 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-*{
-    padding: 0;
-    margin: 0;
+* {
     box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
     list-style: none;
-    font-family: 'Prompt', sans-serif;;
 }
+<<<<<<< HEAD
 
 :root{
 
      --color-violet: #551CA6;
+=======
+:root {
+    --color-violet: #551CA6;
+>>>>>>> cb587fe8170c1800dbac6c0f2ea2a93255c723fe
     --color-ligth-violet: #AD2AB4;
     --color-dark-cyan: #0098B6;
     --color-turquoise: #04BFBF;
-    --color-midnight-blue: #00001E;
+    --color-midnight-blue: #00001E;
 }
+
+

@@ -38,10 +38,7 @@ app.get("/carrito",function(req,res){
 app.get("/",function(req,res){
     res.sendFile(path.join(__dirname+"/views/index.html"))
 })
-<<<<<<< HEAD
 
-=======
->>>>>>> cb587fe8170c1800dbac6c0f2ea2a93255c723fe
 
 app.get("/footer",function(req,res){
     res.sendFile(path.join(__dirname+"/views/footer.html"))

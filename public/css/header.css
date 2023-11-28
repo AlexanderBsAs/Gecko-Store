@@ -147,7 +147,7 @@ header div{
 @media(min-width:1024px){
     
     .header__nav2 {
-        margin-left: 46%;
+        margin-left:45%;
     font-size: 45px;}
     #logo{
         width: 36%;
@@ -155,7 +155,10 @@ header div{
     header div p {
         left: 30%;
 }}
-@media(min-width: 1440px){
+@media(min-width: 1400px){
+    .home__carrousel img {
+        height: 580px;
+    }
     .header__nav2 {
         margin-left: 60%;}
 }

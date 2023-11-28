@@ -80,7 +80,7 @@ header div{
     gap: 20px;
     font-size: 24px;
     display: flex;
-    margin-left: 32%;
+    margin-left: 47%;
 }
 
 .burger-menu{
@@ -90,15 +90,71 @@ header div{
     padding: 9px;
     border-radius: 10%;
     margin-bottom: 2%;
-    margin-left: 2%;
+}
+.nav {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 1rem;
+    position: absolute;
+    left: 0;
+    top: 129px;
+    background-color: #551CA6;
+    padding: 31px 0px 4px 0px;
+    width: 110px;
+}
+.nav-list li{
+    border-top: 1px solid #00001E;
+}
+
+.nav.visible {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
+.nav-list {
+    flex-direction: column;
+    align-items: end;
+    text-align: center;
+    width: 100%;
+}
+
+.nav-list li a {
+    color: #ecececec;
 }
 .fas.fa-bars{
     color:white}
 #div a{
     display:none
 }
+.abrir-menu{
+    position: absolute;
+    top: 130px;
+    background-color: #551CA6;
+}
+.cerrar-menu {
+    position: absolute;
+    top: 133px;
+    z-index: 2;
+    left: 6px;
+    display:none;
+    background-color: #AD2AB4;
+    padding: 1px;
+    color: white;
+}
+
 
 @media(min-width:768px){
+    .nav-list {
+        display:none
+    }
+    .abrir-menu,
+.cerrar-menu {
+    display: none;
+}
     header{
         padding: 0.5px;
 
@@ -156,9 +212,6 @@ header div{
         left: 30%;
 }}
 @media(min-width: 1400px){
-    .home__carrousel img {
-        height: 580px;
-    }
     .header__nav2 {
         margin-left: 60%;}
 }

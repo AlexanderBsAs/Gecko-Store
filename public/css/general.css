@@ -5,15 +5,9 @@
     text-decoration: none;
     list-style: none;
 }
-<<<<<<< HEAD
 
-:root{
-
-     --color-violet: #551CA6;
-=======
 :root {
     --color-violet: #551CA6;
->>>>>>> cb587fe8170c1800dbac6c0f2ea2a93255c723fe
     --color-ligth-violet: #AD2AB4;
     --color-dark-cyan: #0098B6;
     --color-turquoise: #04BFBF;

@@ -68,12 +68,20 @@ header div{
 }
 .header__nav1{
     display: none;
-    width: 47%;
-    gap: 6%;
+    background-color: #551CA6;
+    position: absolute;
     font-size: 16px;
     margin: 3%;
+    top: 161px;
+    z-index: 10;
+    right: -12px;
 }
-
+.header__nav1 ul {
+    padding: 5px;
+}
+.header__nav1 ul li a{
+    color: white;
+}
 .header__nav2{
     width: 49%;
     justify-content: right;
@@ -93,16 +101,14 @@ header div{
 }
 .nav {
     opacity: 0;
-    visibility: hidden;
     display: flex;
     flex-direction: column;
     align-items: end;
     gap: 1rem;
     position: absolute;
     left: 0;
-    top: 129px;
+    top: 171px;
     background-color: #551CA6;
-    padding: 31px 0px 4px 0px;
     width: 110px;
 }
 .nav-list li{
@@ -123,7 +129,7 @@ header div{
 }
 
 .nav-list li a {
-    color: #ecececec;
+    color: white;
 }
 .fas.fa-bars{
     color:white}
@@ -146,7 +152,6 @@ header div{
     color: white;
 }
 
-
 @media(min-width:768px){
     .nav-list {
         display:none
@@ -168,7 +173,14 @@ header div{
     .burger-menu{
         display:none;}
     .header__nav1 {
-       display:none;
+        display: none;
+        background-color:transparent;
+        position: absolute;
+        font-size: 16px;
+        margin: 3%;
+        top: 43px;
+        z-index: 10;
+        right: 141px;
     }
     
     .header__nav2 {
@@ -210,8 +222,19 @@ header div{
     }
     header div p {
         left: 30%;
+}
+.header__nav1 {
+    right: -28px;
+}.header__nav1 ul {
+    font-size: 26px;
+    gap: 13px;
+    display: flex;
 }}
 @media(min-width: 1400px){
     .header__nav2 {
         margin-left: 48%;}
+        .header__nav1 {
+            right: -36px;
+            top: -9px;
+        }
 }

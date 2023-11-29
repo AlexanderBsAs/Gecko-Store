@@ -1,18 +1,22 @@
 const nav = document.querySelector("#nav");
 const abrir = document.querySelector("#abrir");
-const cerrar = document.querySelector("#cerrar");
+const abrirlog = document.querySelector("#abrir__logeo1");
+const navlog = document.querySelector("#nav__logeo1");
+
+abrirlog.addEventListener("click",()=>{
+if (navlog.style.display === "none") {
+    navlog.style.display = "block";
+} else {
+    navlog.style.display = "none";
+}})
 
 abrir.addEventListener("click", () => {
     nav.classList.add("visible");
-    if (cerrar.style.display = "none"){
-        cerrar.style.display = "block"
-    }
-    
+    if (nav.style.visibility === "hidden") {
+        nav.style.visibility = "visible";
+    } else {
+        nav.style.visibility = "hidden";
+    } 
 })
 
-cerrar.addEventListener("click", () => {
-    nav.classList.remove("visible");
-    if (cerrar.style.display = "block"){
-        cerrar.style.display = "none"
-    }
-})
+

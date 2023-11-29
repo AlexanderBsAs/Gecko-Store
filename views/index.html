@@ -21,14 +21,9 @@
         <div id="div"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="input" placeholder="Buscar productos,marcas..." >
             <a href="/">Categorias</a></div>
             
-        <nav class="header__nav1">
-            <p>Ingresar</p>
-            <p>Registrarse</p>
         </nav>
-        <button id="abrir" class="abrir-menu"><div class="burger-menu"><i class="fas fa-bars" onclick="changeIcon(this)"></i></div></button>
-        <button  class="cerrar-menu" id="cerrar"><i class="fa-solid fa-x"></i></button>
+        <button id="abrir" class="abrir-menu"><div class="burger-menu"><i class="fas fa-bars"></i></div></button>
         <nav class="nav" id="nav">
-       
             <ul class="nav-list">
                 <li><a href="#">Figuras</a></li>
                 <li><a href="#">Consolas</a></li>
@@ -40,8 +35,13 @@
         </div> 
         <nav class="header__nav2">
             <a href ="/carrito"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
-            <a href ="/login"><i class="fa-regular fa-circle-user" style="color: #ffffff;"></i></a>
+            <span id="abrir__logeo1" class="btn__log"><i class="fa-regular fa-circle-user" style="color: #ffffff;"></i></span>
+            <nav id="nav__logeo1" class="header__nav1">
+                <ul>
+                    <li><a href="">Ingresar</a></li>
+                    <li><a href="">Registrarse</a></li></ul>
         </nav> 
+        </nav>
     </header>
     <main class="index__main">
         <div class="home__carrousel">

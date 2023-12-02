@@ -1,13 +1,13 @@
 const usersController = {
     login: (req,res)=>{
-        res.render("login")
+        res.render("users/login")
     },
     userLogin: (req,res)=>{
         console.log(req.body);
         res.redirect("/")
     },
     register: (req,res)=>{
-        res.render("register")
+        res.render("users/register")
     },
     userRegister: (req,res)=>{
         console.log(req.body)

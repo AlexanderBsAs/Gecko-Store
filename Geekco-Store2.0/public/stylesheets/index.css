@@ -141,7 +141,15 @@ position: relative;
     }
 }
 @media(min-width:1024px){
+    .home__carrousel img {
+        height: 500px;
+    }
     .index__main article {
         width: 32%;
     }
 }
+@media(min-width:1400px){
+       .index__banner2 {
+        height: 550px;
+    }
+    }

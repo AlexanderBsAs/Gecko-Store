@@ -25,11 +25,8 @@ app.get("/carrito", function (req, res) {
 app.get("/",function(req,res){
     res.sendFile(path.join(__dirname+"/views/index.html"))
 })
-<<<<<<< HEAD
-=======
 
 
 app.get("/footer",function(req,res){
     res.sendFile(path.join(__dirname+"/views/footer.html"))
 })
->>>>>>> carrito

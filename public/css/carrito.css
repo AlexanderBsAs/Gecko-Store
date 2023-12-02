@@ -1,5 +1,5 @@
 body{
-    /* background-image: url("/images/fondo.jpeg");
+    /* background-image: url("/img/fondo.jpeg");
     background-repeat: no-repeat;
     
     width: 100%;
@@ -21,7 +21,7 @@ body{
 } */
 
 main{
-    background-image: url("/images/fondo.jpeg");
+    background-image: url("/img/fondo.jpeg");
     background-repeat: no-repeat;
     
     width: 100%;

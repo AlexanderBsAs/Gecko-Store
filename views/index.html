@@ -21,22 +21,34 @@
         <div id="div"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="input" placeholder="Buscar productos,marcas..." >
             <a href="/">Categorias</a></div>
             
-        <nav class="header__nav1">
-            <p>Ingresar</p>
-            <p>Registrarse</p>
-        </nav> 
-        <div class="burger-menu"><i class="fas fa-bars"></i></div>
+        </nav>
+        <button id="abrir" class="abrir-menu"><div class="burger-menu"><i class="fas fa-bars"></i></div></button>
+        <nav class="nav" id="nav">
+            <ul class="nav-list">
+                <li><a href="#">Figuras</a></li>
+                <li><a href="#">Consolas</a></li>
+                <li><a href="#">Juegos</a></li>
+                <li><a href="#">Marcas</a></li>
+                <li><a href="#">Accesorios</a></li>
+            </ul>
+        </nav>
+        </div> 
         <nav class="header__nav2">
             <a href ="/carrito"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
-            <a href ="/login"><i class="fa-regular fa-circle-user" style="color: #ffffff;"></i></a>
+            <span id="abrir__logeo1" class="btn__log"><i class="fa-regular fa-circle-user" style="color: #ffffff;"></i></span>
+            <nav id="nav__logeo1" class="header__nav1">
+                <ul>
+                    <li><a href="">Ingresar</a></li>
+                    <li><a href="">Registrarse</a></li></ul>
         </nav> 
+        </nav>
     </header>
     <main class="index__main">
         <div class="home__carrousel">
             <ul>
                 <li> <img src="/img/banner1.jpg"></img></li>
                 <li><img src="/img/freddy.jpg" ></img></li>
-                <li><img src="/img/batman.jpg" ></img></li>
+                <li><img src="/img/ps4.jpg" ></img></li>
                 <li><img src="/img/heman.jpg"></img></li>
             </ul>
           </div>
@@ -139,6 +151,6 @@
                 <p>Team Owners</p>
             </section>
         </footer>
-    
+        <script src="./js/main.js"></script>   
 </body>
 </html>

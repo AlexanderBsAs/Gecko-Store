@@ -33,7 +33,7 @@
     text-align: center;
 }
 .register-form p  {
-    font-size: 15px;
+    font-size: 18px;
 }
 .register-form {
     
@@ -60,17 +60,37 @@
     padding: 10px;
     width: 85%;
     margin: auto;
+    position: relative;
 }
+
 .input-data button {
     color: #fff;
     padding: 10px;
     border-radius: 10px;
     border: 1px;
     background-color: var(--color-turquoise);
-    transition: all 550ms;
+    transition: all 1000ms;
 }
+.input-data label{
+    margin-bottom: 5px;
+}
+
 .input-data button:hover {
+    animation: register 1000ms infinite;
     box-shadow: 0px 0px 20px var(--color-midnight-blue);
+}
+@keyframes register {
+    0% {background-color: var(--color-turquoise);}
+    50% {background-color: var(--color-violet);}
+    100% {background-color: var(--color-turquoise);}
+
+}
+
+.asterisk-form {
+    position: absolute;
+    right: -15px;
+    font-size: 40px;
+    top: 20px;
 }
 
 .register-form div input {
@@ -100,7 +120,7 @@
 
 @keyframes logink {
     0% {background-color: var(--color-turquoise);}
-    50% {background-color: var(--color-v);}
+    50% {background-color: var(--color-violet);}
     100% {background-color: var(--color-turquoise);}
 
 }

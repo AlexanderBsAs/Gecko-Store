@@ -3,5 +3,6 @@
 @import "/css/registro.css";
 @import "/css/header.css";
 @import "/css/footer.css";
+@import url("carrito.css");
 @import "/css/login.css";
 @import "productDetail.css";

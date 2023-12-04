@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include("../partials/head.ejs")%>
+<body class="body">
+    <%-include("../partials/header.ejs")%>
+    <main class="main">
+        <section class="contenido-producto">
+            <article class="articulo_producto_venta">
+                <div class="detalle-img">
+                    <div id="carouselExample" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="/images/halo-1.jpg" class="d-block w-100" alt="halo-1.jpg">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/images/halo-2.jpg" class="d-block w-100" alt="halo-2.jpg">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/images/halo-3.jpg" class="d-block w-100" alt="halo-3.jpg">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="contenedor-detalle-info">
+                    <div class="detalle-info">
+                        <div class="nombre-producto">
+                            <h3><%= producto.name %></h3>
+                            <h4></h4>
+                            <h4>$9.990</h4>
+                            <h4>En 12x $1.878 </h4>
+                        </div>
+                        <div class="container-button">
+                            <button class="boton-product boton__comprar color-turquesa flex flex-row"><i
+                                    class="fas fa-shopping-cart"></i>Comprar Ahora </button>
+                            <button class="boton-product boton__añadir color-violeta flex flex-row"> <i
+                                    class="fas fa-shopping-cart"></i>Añadir al Carrito</button>
+                        </div>
+                        <div>Metodos de pago
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <div class="container-button">
+                        <button class="boton-product boton__soporte color-turquesa"></i>Soporte</button>
+                        <button class="boton-product boton__consultas color-turquesa"></i>Consultas</button>
+                    </div>
+                </div>
+            </article>
+            <div class="descripcion-producto">
+                <h1>Descripción</h1>
+                <p><%= producto.principalDescription %></p>
+            </div>
+        </section>
+        <section class="contenido-producto">
+            <div>
+                <h2> Especificaciones del producto </h2>
+            </div>
+            <div class="contenido-producto-texto-logo">
+                <div class="contenido-producto-texto">
+                    <div class="contenido-producto-texto--contenido">
+                        <h4 class="conte">Plataforma:</h4>
+                        <p class="conte">Merchandising Juguetes</p>
+                    </div>
+                    <div class="contenido-producto-texto--contenido">
+                        <h4 class="conte">Franquicia:</h4>
+                        <p class="conte">Halo</p>
+                    </div>
+                    <div class="contenido-producto-texto--contenido">
+                        <h4 class="conte">Limite:</h4>
+                        <p class="conte">Sin limite</p>
+                    </div>
+                    <div class="contenido-producto-texto--contenido">
+                        <h4 class="conte">Peso:</h4>
+                        <h4 class="conte">Plataforma:</h4>
+                    </div>
+                    <div class="contenido-producto-texto--contenido">
+                        <h4 class="conte">Largo:</h4>
+                        <h4 class="conte">Plataforma:</h4>
+                    </div>
+                    <div class="contenido-producto-texto--contenido">
+                        <h4 class="conte"></h4>
+                        <h4 class="conte"></h4>
+                    </div>
+                    <div class="contenido-producto-texto--contenido">
+                        <h4 class="conte"></h4>
+                        <h4 class="conte"></h4>
+                    </div>
+                </div>
+                <div>
+                    <img class="logo2" src="/images/logo.png" alt="logo-2">
+                </div>
+            </div>
+        </section>
+        <section class="contenido-producto">
+            <h2>Productos Similares </h2>
+            <div class="contenedor-producto-caja">
+                <% products.slice(1, 5).forEach(element =>{ %>
+                <article class="home__main__article">
+                    <div class="caja-img">
+                        <img class="w-100" src="/images/<%- element.image %>" alt="<%= element.name %>">
+                    </div>
+                    <h3><%= element.name %></h3>
+                    <h3>$<%= element.price %></h3>
+                    <h3>Disponibles:<%= element.stock %></h3>
+                    <p><%= element.description %></p>
+                    <button class="boton-product color-turquesa flex flex-row">Ver más</button>
+                </article>
+                <% }); %>
+            </div>
+        </section>
+        <section class="contenido-producto">
+            <h2>Otros productos que podrían
+                interesarte</h2>
+            <div class="contenedor-producto-caja">
+                <% products.slice(4, 8).forEach(element =>{ %>
+                <article class="home__main__article">
+                    <div class="caja-img">
+                        <img class="w-100" src="/images/<%- element.image %>" alt="<%= element.name %>">
+                    </div>
+                    <h3><%= element.name %></h3>
+                    <h3>$<%= element.price %></h3>
+                    <h3>Disponibles: <%= element.stock %></h3>
+                    <p><%= element.description %></p>
+                    <button class="boton-product color-turquesa flex flex-row">Ver más</button>
+                </article>
+                <% }); %>
+            </div>
+        </section>
+        <button class="boton-product-2 flex flex-row">
+            <a href="#header">Volver arriba</a>
+        </button>
+    </main>
+    <%-include("../partials/footer.ejs")%>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+</html>

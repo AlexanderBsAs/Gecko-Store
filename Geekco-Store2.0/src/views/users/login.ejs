@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include("../partials/head.ejs")%>
+  <body class="body-login">
+    <%-include("../partials/header.ejs")%>
+    <section class="section-login">
+      <div class="logo-titulo">
+        <h1>GeekcoStore</h1>
+
+        <img src="/images/logogecko-removebg-preview.png" alt="logo" />
+      </div>
+      <form action="/">
+        <h2>Bienvenido</h2>
+        <label for="">Usuario</label>
+        <input type="text" />
+        <label for="">Contraseña</label>
+        <input type="text" />
+        <a href="">¿Olvidaste tu contraseña?</a>
+        <button>LOGIN</button>
+        <a href="/users/registro">Registrate</a>
+      </form>
+    </section>
+  </body>
+  <%-include("../partials/footer.ejs")%>
+</html>

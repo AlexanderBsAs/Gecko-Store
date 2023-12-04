@@ -13,8 +13,8 @@
     z-index: -1;
 } */
 
-main{
-    background-image: url("/img/fondo.jpeg");
+.main_carrito{
+    background-image: url("/images/fondo.jpeg");
     background-repeat: no-repeat;
     
     width: 100%;

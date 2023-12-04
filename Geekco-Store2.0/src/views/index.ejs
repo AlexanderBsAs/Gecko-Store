@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include("./partials/head.ejs")%>
+<body>
+   <%-include("./partials/header.ejs")%>
+    <main class="index__main">
+        <div class="home__carrousel">
+            <ul>
+                <li> <img src="/images/banner1.jpg"></img></li>
+                <li><img src="/images/freddy.jpg" ></img></li>
+                <li><img src="/images/ps4.jpg" ></img></li>
+                <li><img src="/images/heman.jpg"></img></li>
+            </ul>
+          </div>
+       <h4>Productos destacados</h4>
+        <section>
+            <% products.slice(0, 6).forEach (element => { %>
+            <article>
+                <img id="img1" src="/images/<%= element.image  %>" alt="">
+                    <div>
+                        <p><%= element.name %></p>
+                        <p><%= element.precio %></p><a href="/productos/detalles/<%= element.id  %>">Ver más</a>
+                    </div>
+                </img>
+            </article>
+            <% }); %>
+        </section>
+        <div class="index__banner2__div">
+        <img class="index__banner2" src="/images/banner2.jpg"></img>
+        <p>Seccion de computadoras</p>
+          </div>
+        </main>
+        <%-include("./partials/footer.ejs")%>
+        <script src="./js/main.js"></script>   
+</body>
+</html>

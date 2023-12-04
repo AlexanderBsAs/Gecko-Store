@@ -39,54 +39,16 @@
           </div>
        <h4>Productos destacados</h4>
         <section>
+            <% products.slice(0, 6).forEach (element => { %>
             <article>
-                <img id="img1" src="/images/heman.jpg" alt="">
+                <img id="img1" src="/images/<%= element.image  %>" alt="">
                     <div>
-                        <p>Descripción de producto</p>
-                        <p>$100,00</p><a href="/productos/detalles">Ver más</a>
+                        <p><%= element.name %></p>
+                        <p><%= element.precio %></p><a href="/productos/detalles/<%= element.id  %>">Ver más</a>
                     </div>
                 </img>
             </article>
-            <article>
-                <img id="img2" src="/images/hollow.jpg" alt="">
-                    <div>
-                        <p>Descripción de producto</p>
-                        <p>$100,00</p><a href="/productos/detalles">Ver más</a>
-                    </div>
-                </img>
-            </article>
-            <article>
-                <img  id="img3"src="/images/halo-1.jpg" alt="">
-                    <div>
-                        <p>Descripción de producto</p>
-                        <p>$100,00</p><a href="/productos/detalles">Ver más</a>
-                    </div>
-                </img>
-            </article>
-            <article>
-                <img id="img4" src="/images/freddy.jpg" alt="">
-                    <div>
-                        <p>Descripción de producto</p>
-                        <p>$100,00</p><a href="/productos/detalles">Ver más</a>
-                    </div>
-                </img>
-            </article>
-            <article>
-                <img id="img5" src="/images/batman.jpg" alt="">
-                    <div>
-                        <p>Descripción de producto</p>
-                        <p>$100,00</p><a href="/productos/detalles">Ver más</a>
-                    </div>
-                </img>
-            </article>
-            <article>
-                <img id="img6" src="/images/dethstroke.jpg" alt="">
-                    <div>
-                        <p>Descripción de producto</p>
-                        <p>$100,00</p><a href="/productos/detalles">Ver más</a>
-                    </div>
-                </img>
-            </article>
+            <% }); %>
         </section>
         <div class="index__banner2__div">
         <img class="index__banner2" src="/images/banner2.jpg"></img>

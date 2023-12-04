@@ -1,37 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/5f01a917de.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/ab4152bd85.js"crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/stylesheets/style.css">
-    <title>Document</title>
-</head>
-
+    <%-include("../partials/head.ejs")%>
 <body class="body">
-    <header id="header">
-        <div>
-        <a href="/"><img id="logo" src ="/images/logo.png"></img></a>
-        <p>GeekcoStore</p> </div>
-        <div id="div"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="input" placeholder="Buscar productos,marcas..." >
-            <a href="/">Categorias</a></div>
-            
-        <nav class="header__nav1">
-            <p>Ingresar</p>
-            <p>Registrarse</p>
-        </nav> 
-        <div class="burger-menu"><i class="fas fa-bars"></i></div>
-        <nav class="header__nav2">
-            <a href ="/productos/carrito"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
-            <a href ="/users/login"><i class="fa-regular fa-circle-user" style="color: #ffffff;"></i></a>
-        </nav> 
-    </header>
+    <%-include("../partials/header.ejs")%>
     <main class="main">
         <section class="contenido-producto">
             <article class="articulo_producto_venta">
@@ -63,8 +34,8 @@
                 <div class="contenedor-detalle-info">
                     <div class="detalle-info">
                         <div class="nombre-producto">
-                            <h3>Figura Halo Master Chief </h3>
-                            <h4>30 Cm 86117</h4>
+                            <h3><%= producto.name %></h3>
+                            <h4></h4>
                             <h4>$9.990</h4>
                             <h4>En 12x $1.878 </h4>
                         </div>
@@ -86,23 +57,7 @@
             </article>
             <div class="descripcion-producto">
                 <h1>Descripción</h1>
-                <p>Sumérgete en el universo de Halo con esta increíble figura de acción de Master Chief de 30 cm,
-                    fabricada
-                    por Wicked Cool Toys.
-                    Forma parte de la prestigiosa colección Halo y es perfecta para coleccionistas y fanáticos
-                    de la saga. Con su diseño detallado y materiales de alta calidad en plástico,
-                    esta figura de Master Chief no solo luce espectacular, sino que también es duradera y
-                    resistente.
-                    Además, es articulada, lo que te permite recr
-                    ear tus escenas favoritas del videojuego o inventar tus propias aventuras. Apto para niños
-                    mayores
-                    de 3 años, este juguete es ideal para compartir
-                    momentos de diversión y entretenimiento en familia. No pierdas la oportunidad de tener en tus
-                    manos
-                    a
-                    uno de los personajes más icónicos de la historia de los videojuegos. ¡Agrega a Master Chief a
-                    tu
-                    colección y vive la emoción de Halo en tu hogar!</p>
+                <p><%= producto.principalDescription %></p>
             </div>
         </section>
         <section class="contenido-producto">
@@ -148,174 +103,43 @@
         <section class="contenido-producto">
             <h2>Productos Similares </h2>
             <div class="contenedor-producto-caja">
+                <% products.slice(1, 5).forEach(element =>{ %>
                 <article class="home__main__article">
                     <div class="caja-img">
-                        <img class="w-100" src="/images/batman.jpg" alt="imagen de producto">
+                        <img class="w-100" src="/images/<%- element.image %>" alt="<%= element.name %>">
                     </div>
-                    <h3>Nombre del producto</h3>
-                    <h3>$9,996</h3>
-                    <h3>Stock: Disponible</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore beatae dolorem natus ea
-                        laudantium!
-                        Excepturi, quaerat. Architecto laborum provident quidem! Quam velit provident sunt
-                        voluptatibus
-                        libero dicta tenetur natus nihil.</p>
+                    <h3><%= element.name %></h3>
+                    <h3>$<%= element.price %></h3>
+                    <h3>Disponibles:<%= element.stock %></h3>
+                    <p><%= element.description %></p>
                     <button class="boton-product color-turquesa flex flex-row">Ver más</button>
                 </article>
-                <article class="home__main__article">
-                    <div class="caja-img resolucion">
-                        <img class="w-100" src="/images/heman.jpg" alt="imagen de producto">
-                    </div>
-                    <h3>Nombre del producto</h3>
-                    <h3>$9,996</h3>
-                    <h3>Stock: Disponible</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore beatae dolorem natus ea
-                        laudantium!
-                        Excepturi, quaerat. Architecto laborum provident quidem! Quam velit provident sunt
-                        voluptatibus
-                        libero dicta tenetur natus nihil.</p>
-                    <button class="boton-product color-turquesa flex flex-row">Ver más </button>
-                </article>
-                <article class="home__main__article">
-                    <div class="caja-img">
-                        <img class="w-100" src="/images/dethstroke.jpg" alt="imagen de producto">
-                    </div>
-                    <h3>Nombre del producto</h3>
-                    <h3>$9,996</h3>
-                    <h3>Stock: Disponible</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore beatae dolorem natus ea
-                        laudantium!
-                        Excepturi, quaerat. Architecto laborum provident quidem! Quam velit provident sunt
-                        voluptatibus
-                        libero dicta tenetur natus nihil.</p>
-                    <button class="boton-product color-turquesa flex flex-row">Ver más </button>
-                </article>
-                <article class="home__main__article">
-                    <div class="caja-img resolucion">
-                        <img class="w-100" src="/images/freddy.jpg" alt="imagen de producto">
-                    </div>
-                    <h3>Nombre del producto</h3>
-                    <h3>$9,996</h3>
-                    <h3>Stock: Disponible</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore beatae dolorem natus ea
-                        laudantium!
-                        Excepturi, quaerat. Architecto laborum provident quidem! Quam velit provident sunt
-                        voluptatibus
-                        libero dicta tenetur natus nihil.</p>
-                    <button class="boton-product color-turquesa flex flex-row">Ver más </button>
-                </article>
+                <% }); %>
             </div>
-
         </section>
         <section class="contenido-producto">
             <h2>Otros productos que podrían
                 interesarte</h2>
             <div class="contenedor-producto-caja">
+                <% products.slice(4, 8).forEach(element =>{ %>
                 <article class="home__main__article">
                     <div class="caja-img">
-                        <img class="w-100" src="/images/hollow.jpg" alt="imagen de producto">
+                        <img class="w-100" src="/images/<%- element.image %>" alt="<%= element.name %>">
                     </div>
-                    <h3>Nombre del producto</h3>
-                    <h3>$9,996</h3>
-                    <h3>Stock: Disponible</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore beatae dolorem natus ea
-                        laudantium!
-                        Excepturi, quaerat. Architecto laborum provident quidem! Quam velit provident sunt
-                        voluptatibus
-                        libero dicta tenetur natus nihil.</p>
-                    <button class="boton-product color-turquesa flex flex-row">Ver más </button>
+                    <h3><%= element.name %></h3>
+                    <h3>$<%= element.price %></h3>
+                    <h3>Disponibles: <%= element.stock %></h3>
+                    <p><%= element.description %></p>
+                    <button class="boton-product color-turquesa flex flex-row">Ver más</button>
                 </article>
-                <article class="home__main__article">
-                    <div class="caja-img resolucion">
-                        <img class="w-100" src="/images/ps4.jpg" alt="imagen de producto">
-                    </div>
-                    <h3>Nombre del producto</h3>
-                    <h3>$9,996</h3>
-                    <h3>Stock: Disponible</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore beatae dolorem natus ea
-                        laudantium!
-                        Excepturi, quaerat. Architecto laborum provident quidem! Quam velit provident sunt
-                        voluptatibus
-                        libero dicta tenetur natus nihil.</p>
-                    <button class="boton-product color-turquesa flex flex-row">Ver más </button>
-                </article>
-                <article class="home__main__article">
-                    <div class="caja-img">
-                        <img class="w-100" src="/images/assassinody.jpg" alt="imagen de producto">
-                    </div>
-                    <h3>Nombre del producto</h3>
-                    <h3>$9,996</h3>
-                    <h3>Stock: Disponible</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore beatae dolorem natus ea
-                        laudantium!
-                        Excepturi, quaerat. Architecto laborum provident quidem! Quam velit provident sunt
-                        voluptatibus
-                        libero dicta tenetur natus nihil.</p>
-                    <button class="boton-product color-turquesa flex flex-row">Ver más </button>
-                </article>
-                <article class="home__main__article ">
-                    <div class="caja-img">
-                        <img class="w-100" src="/images/dont.jpg" alt="imagen de producto">
-                    </div>
-                    <h3>Nombre del producto</h3>
-                    <h3>$9,996</h3>
-                    <h3>Stock: Disponible</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore beatae dolorem natus ea
-                        laudantium!
-                        Excepturi, quaerat. Architecto laborum provident quidem! Quam velit provident sunt
-                        voluptatibus
-                        libero dicta tenetur natus nihil.</p>
-                    <button class="boton-product color-turquesa flex flex-row">Ver más </button>
-                </article>
+                <% }); %>
             </div>
         </section>
         <button class="boton-product-2 flex flex-row">
             <a href="#header">Volver arriba</a>
         </button>
     </main>
-    <footer class="footer-body">
-        <section class="section-redes">
-            
-            <div class="footer-contacto">
-                
-                <article class="footer-iconos">
-                <a href="">Soporte</a>
-                <img class="img-soporte" src="/images/icons8-mensaje-48.png" alt="">
-            </article>
-            <article class="footer-iconos">
-                <a  href="">Contacto</a>
-                <img class="img-contacto" src="/images/icons8-whatsapp-48.png" alt="Whatsapp-icon">
-            </article>
-            
-                </div>
-             <div class="section-div-redes">
-               
-                <p>¡Seguinos!</p>
-                <section class="section-redes-iconos">
-                <a href=""><img src="/images/icons8-instagram-48.png" alt=""></a>
-                <a href=""><img src="/images/icons8-facebook-48.png" alt=""></a>
-            </section>
-                
-                </div>
-            <div class="section-logo">
-                
-            <img src="/images/logogecko-removebg-preview.png" alt="logo">
-            <p>GeekcoStore</p>
-             </div>
-            
-             
-        </section>
-            <article class="footer-quienes">
-              <span>Nosotros</span>
-              <p>Somos un e-commerce donde vas a encontrar todo lo relacionado con videojuegos y series, desde juegos fisicos, consolas y figuras!!.  <br>Hecha con amor por: Alejandro Vera Alexander Ureta Liliana Almirón Gabriel Robles Fernando Ortiz</p>
-            </article>
-           
-        <section class="section-copyright">
-            
-            <p>2023-GeekcoStore-Todos los derechos reservados</p>
-            <p>Team Owners</p>
-        </section>
-    </footer>
+    <%-include("../partials/footer.ejs")%>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

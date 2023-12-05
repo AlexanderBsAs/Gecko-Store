@@ -11,7 +11,8 @@
     "franchise": "Videogame..",
     "limit": "Sin limite",
     "weight": "300gr",
-    "large": "20cm"
+    "large": "20cm",
+    "category": "Figura"
 },{
 
     "id": 2,
@@ -25,7 +26,8 @@
     "franchise": "Videogame..",
     "limit": "Sin limite",
     "weight": "300gr",
-    "large": "20cm"
+    "large": "20cm",
+    "category": "Figura"
 },
 {
     "id": 2,
@@ -39,7 +41,8 @@
     "franchise": "Videogame..",
     "limit": "Sin limite",
     "weight": "300gr",
-    "large": "20cm"
+    "large": "20cm",
+    "category": "Figura"
 },
 {
     "id": 3,
@@ -53,7 +56,8 @@
     "franchise": "Videogame..",
     "limit": "Sin limite",
     "weight": "300gr",
-    "large": "20cm"
+    "large": "20cm",
+    "category": "Figura"
 },
 {
     "id": 4,
@@ -67,7 +71,8 @@
     "franchise": "Videogame..",
     "limit": "Sin limite",
     "weight": "300gr",
-    "large": "20cm"
+    "large": "20cm",
+    "category": "Figura"
 },
 {
     "id": 5,
@@ -81,7 +86,8 @@
     "franchise": "Videogame..",
     "limit": "Sin limite",
     "weight": "300gr",
-    "large": "20cm"
+    "large": "20cm",
+    "category": "Videojuegos"
 },
 {
     "id": 6,
@@ -95,7 +101,8 @@
     "franchise": "Videogame..",
     "limit": "Sin limite",
     "weight": "300gr",
-    "large": "20cm"
+    "large": "20cm",
+    "category": "Videojuegos"
 },
 {
     "id": 7,
@@ -109,7 +116,8 @@
     "franchise": "Videogame..",
     "limit": "Sin limite",
     "weight": "300gr",
-    "large": "20cm"
+    "large": "20cm",
+    "category": "Videojuegos"
 },
 {
     "id": 8,
@@ -123,5 +131,6 @@
     "franchise": "Videogame..",
     "limit": "Sin limite",
     "weight": "300gr",
-    "large": "20cm"
+    "large": "20cm",
+    "category": "Videojuegos"
 }]

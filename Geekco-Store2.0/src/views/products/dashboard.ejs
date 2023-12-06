@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include("../partials/head.ejs")%>
+  <body>
+    <%-include("../partials/header.ejs")%>
+    <main>
+      <!-- <% products.forEach(product => {%>
+      <p><%= product.name %></p>
+      <p><%= product.price %></p>
+      <p><%= product.description %></p>
+      <p><%= product.weight %></p>
+      <p><%= product.large %></p>
+      <% });%> -->
+      <a href="/productos/productForm"><button>Crear producto</button></a>
+      <table>
+        <thead>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Peso</th>
+          <th>Altura</th>
+          <th>Acciones</th>
+        </thead>
+        <tbody>
+          <% products.forEach(product => {%>
+          <tr>
+            <td><%= product.name %></td>
+            <td><%= product.price %></td>
+            <td><%= product.weight %></td>
+            <td><%= product.large %></td>
+            <td>
+              <div>
+                <a href=/productos/detalles/<%= product.id %> 
+                  ><button>Detalles</button></a
+                >
+                <a href="/"><button>Editar</button></a>
+                <a href="/"><button>Eliminar</button></a>
+              </div>
+            </td>
+          </tr>
+
+          <% });%>
+        </tbody>
+      </table>
+    </main>
+    <%-include("../partials/footer.ejs")%>
+  </body>
+</html>

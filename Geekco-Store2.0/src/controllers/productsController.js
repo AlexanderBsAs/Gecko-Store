@@ -16,6 +16,15 @@ const productsController = {
     },
     productForm: (req,res)=>{
         res.render("products/productForm")
+    },
+    create: (req,res)=>{
+        const product = req.body;
+        console.log(product);
+        product.id = products[products.length-1].id +1;
+        products.push(product);
+        const productjson = JSON.stringify(products);
+        fs.writeFileSync(path.join(__dirname,"../database/products.json"),productjson,"utf-8");
+        res.redirect("/")
     }
 }
 

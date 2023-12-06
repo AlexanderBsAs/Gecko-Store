@@ -13,6 +13,9 @@ const productsController = {
         const id = req.params.idProducto
         const producto = products.find(element => element.id == id);
         res.render("products/productDetail",{producto,products})
+    },
+    productForm: (req,res)=>{
+        res.render("products/productForm")
     }
 }
 

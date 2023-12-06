@@ -1,13 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<%-include("../partials/head.ejs")%>
 <body>
-    <div>
-        
-    </div>
+    <%-include("../partials/header.ejs")%>
+    <main class="productForm__main">
+        <div class="productForm__div">
+            <h2>Formulario de Carga de Productos</h2>
+            <form action="/ruta-donde-enviar-el-formulario" method="POST" enctype="multipart/form-data">
+                <input class="productForm__input" type="text" id="name" name="name" placeholder="Nombre">
+                
+                <input class="productForm__input" type="number" id="price" name="price" placeholder="Precio">
+                
+                <input class="productForm__input" type="number" id="stock" name="stock" placeholder="Stock">
+                
+                <textarea class="productForm__input" id="description" name="description" placeholder="Descripción"></textarea>
+                
+                <textarea class="productForm__input" id="principalDescription" name="principalDescription" placeholder="Descripción Principal"></textarea>
+                
+                <input class="productForm__input__image" type="file" id="image" name="image" placeholder="Imagen">
+                
+                <input class="productForm__input" type="text" id="plataform" name="plataform" placeholder="Plataforma">
+                
+                <input class="productForm__input" type="text" id="franchise" name="franchise" placeholder="Franquicia">
+                
+                <input class="productForm__input" type="number" id="limit" name="limit" placeholder="Límite">
+                
+                <input class="productForm__input" type="text" id="weight" name="weight" placeholder="Peso">
+                
+                <input class="productForm__input" type="text" id="large" name="large" placeholder="Tamaño">
+                
+                <input class="productForm__input" type="text" id="category" name="category" placeholder="Categoría">
+                
+                <input class="productForm__input__enviar" type="submit" value="Enviar">
+              </form>
+        </div>
+       
+    </main>
+    <%-include("../partials/footer.ejs")%>
 </body>
 </html>

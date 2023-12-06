@@ -4,8 +4,10 @@ const {login,userLogin,register,userRegister} = require("../controllers/usersCon
 
 /* GET users listing. */
 router.get('/login',login );
-router.get('/login',userLogin );
+router.post('/login',userLogin );
+
 router.get('/registro',register );
-router.get('/registro',userRegister );
+router.post('/registro',userRegister );
+
 
 module.exports = router;

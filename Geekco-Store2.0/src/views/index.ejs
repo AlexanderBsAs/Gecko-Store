@@ -16,10 +16,10 @@
         <section>
             <% products.slice(0, 6).forEach (element => { %>
             <article>
-                <img id="img1" src="/images/<%= element.image  %>" alt="">
+                <img id="img1" src="/images/<%= element.image  %>" alt="<%= element.image  %>">
                     <div>
                         <p><%= element.name %></p>
-                        <p><%= element.precio %></p><a href="/productos/detalles/<%= element.id  %>">Ver más</a>
+                        <p>$<%= element.price %></p><a href="/productos/detalles/<%= element.id  %>">Ver más</a>
                     </div>
                 </img>
             </article>

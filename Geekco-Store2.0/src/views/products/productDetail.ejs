@@ -108,7 +108,9 @@
                     <h3>$<%= product.price %></h3>
                     <h3>Disponibles:<%= product.stock %></h3>
                     <p><%= product.description %></p>
-                    <button class="boton-product color-turquesa flex flex-row">Ver más</button>
+                    <button class="boton-product color-turquesa flex flex-row">
+                        <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
+                    </button>
                 </article>
                 <% }); %>
             </div>
@@ -126,7 +128,9 @@
                     <h3>$<%= product.price %></h3>
                     <h3>Disponibles: <%= product.stock %></h3>
                     <p><%= product.description %></p>
-                    <button class="boton-product color-turquesa flex flex-row">Ver más</button>
+                    <button class="boton-product color-turquesa flex flex-row">
+                        <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
+                    </button>
                 </article>
                 <% }); %>
             </div>

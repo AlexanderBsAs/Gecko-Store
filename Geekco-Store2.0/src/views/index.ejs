@@ -18,9 +18,10 @@
             <article>
                 <img id="img1" src="/images/<%= product.image  %>" alt="<%= product.image  %>">
                     <div>
-                        <h4><%= product.name %></h4>
-                        <h5>$<%= product.price %></h4>
-                    <p><%= product.description %></p>
+                        <h3><%= product.name %></h3>
+                        <h3>$<%= product.price %></h3>
+                        <h3>Disponibles: <%= product.stock %></h3>
+                        <p><%= product.description %></p>
                         <button class="boton-product color-turquesa flex flex-row">
                             <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
                         </button>

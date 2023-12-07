@@ -7,6 +7,7 @@ const json = fs.readFileSync(
 const products = JSON.parse(json);
 
 const productsController = {
+
     carrito: (req,res)=>{
         res.render("products/productCart")
     },
@@ -26,19 +27,10 @@ const productsController = {
         const productjson = JSON.stringify(products);
         fs.writeFileSync(path.join(__dirname,"../database/products.json"),productjson,"utf-8");
         res.redirect("/")
-    }
-}
-  carrito: (req, res) => {
-    res.render("products/productCart");
-  },
-  productDetail: (req, res) => {
-    const id = req.params.idProducto;
-    const producto = products.find((element) => element.id == id);
-    res.render("products/productDetail", { producto, products });
-  },
+    },
   dashboard: (req, res) => {
     res.render("products/dashboard", { title: "dashboard", products });
-  },
+  }
 };
 
 module.exports = productsController;

@@ -1,6 +1,4 @@
-*{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
+
 .home__banner{
     width: 100%;
     height: 210px;
@@ -42,6 +40,23 @@ overflow: hidden;
 .index__main{
 background-color: #00001e;
 }
+.index__main .title-home-h2 {
+    color: white;
+    text-align: center;
+    margin: 10px 0px;
+    background-color: var(--color-turquoise);
+    padding: 5px 0px;
+    animation: title 1000ms;
+    animation-iteration-count: 10;
+    transition: all 1000ms;
+}
+
+@keyframes title {
+    0% {background-color: var(--color-turquoise);}
+    50% {background-color: var(--color-ligth-violet);}
+    100% {background-color: var(--color-turquoise);}
+
+}
 .index__main h4{
     color: white;
     font-size:24px;
@@ -58,15 +73,17 @@ background-color: #00001e;
     background-color: white;
     border:3px solid #551ca6;
     border-radius:1%;
+    margin-bottom: 5px;
 }
 .index__main article p{
-    color: white;
     padding:5px;
     font-weight: 600;
 }
 .index__main article div{
     border-top: 3px solid #551ca6;
-    background-color: #561ca66e;
+    background-color: var(--color-violet);
+    text-align: center;
+    color: white;
 }
 #img1{
     width: 100%;

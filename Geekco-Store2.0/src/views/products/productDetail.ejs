@@ -68,31 +68,27 @@
                 <div class="contenido-producto-texto">
                     <div class="contenido-producto-texto--contenido">
                         <h4 class="conte">Plataforma:</h4>
-                        <p class="conte">Merchandising Juguetes</p>
+                        <p class="conte"><%= producto.plataform %></p>
                     </div>
                     <div class="contenido-producto-texto--contenido">
                         <h4 class="conte">Franquicia:</h4>
-                        <p class="conte">Halo</p>
+                        <p class="conte"><%= producto.franchise%></p>
                     </div>
                     <div class="contenido-producto-texto--contenido">
                         <h4 class="conte">Limite:</h4>
-                        <p class="conte">Sin limite</p>
+                        <p class="conte"><%= producto.limit%></p>
                     </div>
                     <div class="contenido-producto-texto--contenido">
                         <h4 class="conte">Peso:</h4>
-                        <h4 class="conte">Plataforma:</h4>
+                        <h4 class="conte"><%= producto.weight%></h4>
                     </div>
                     <div class="contenido-producto-texto--contenido">
                         <h4 class="conte">Largo:</h4>
-                        <h4 class="conte">Plataforma:</h4>
+                        <h4 class="conte"><%= producto.large%></h4>
                     </div>
                     <div class="contenido-producto-texto--contenido">
-                        <h4 class="conte"></h4>
-                        <h4 class="conte"></h4>
-                    </div>
-                    <div class="contenido-producto-texto--contenido">
-                        <h4 class="conte"></h4>
-                        <h4 class="conte"></h4>
+                        <h4 class="conte">Categoría:</h4>
+                        <h4 class="conte"><%= producto.category%></h4>
                     </div>
                 </div>
                 <div>
@@ -103,16 +99,18 @@
         <section class="contenido-producto">
             <h2>Productos Similares </h2>
             <div class="contenedor-producto-caja">
-                <% products.slice(1, 5).forEach(element =>{ %>
+                <% products.slice(1, 5).forEach(product =>{ %>
                 <article class="home__main__article">
                     <div class="caja-img">
-                        <img class="w-100" src="/images/<%- element.image %>" alt="<%= element.name %>">
+                        <img class="w-100" src="/images/<%- product.image %>" alt="<%= product.name %>">
                     </div>
-                    <h3><%= element.name %></h3>
-                    <h3>$<%= element.price %></h3>
-                    <h3>Disponibles:<%= element.stock %></h3>
-                    <p><%= element.description %></p>
-                    <button class="boton-product color-turquesa flex flex-row">Ver más</button>
+                    <h3><%= product.name %></h3>
+                    <h3>$<%= product.price %></h3>
+                    <h3>Disponibles:<%= product.stock %></h3>
+                    <p><%= product.description %></p>
+                    <button class="boton-product color-turquesa flex flex-row">
+                        <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
+                    </button>
                 </article>
                 <% }); %>
             </div>
@@ -121,16 +119,18 @@
             <h2>Otros productos que podrían
                 interesarte</h2>
             <div class="contenedor-producto-caja">
-                <% products.slice(4, 8).forEach(element =>{ %>
+                <% products.slice(4, 8).forEach(product =>{ %>
                 <article class="home__main__article">
                     <div class="caja-img">
-                        <img class="w-100" src="/images/<%- element.image %>" alt="<%= element.name %>">
+                        <img class="w-100" src="/images/<%- product.image %>" alt="<%= product.name %>">
                     </div>
-                    <h3><%= element.name %></h3>
-                    <h3>$<%= element.price %></h3>
-                    <h3>Disponibles: <%= element.stock %></h3>
-                    <p><%= element.description %></p>
-                    <button class="boton-product color-turquesa flex flex-row">Ver más</button>
+                    <h3><%= product.name %></h3>
+                    <h3>$<%= product.price %></h3>
+                    <h3>Disponibles: <%= product.stock %></h3>
+                    <p><%= product.description %></p>
+                    <button class="boton-product color-turquesa flex flex-row">
+                        <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
+                    </button>
                 </article>
                 <% }); %>
             </div>

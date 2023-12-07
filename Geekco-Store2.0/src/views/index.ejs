@@ -12,14 +12,19 @@
                 <li><img src="/images/heman.jpg"></img></li>
             </ul>
           </div>
-       <h4>Productos destacados</h4>
+       <h2 class="title-home-h2">Productos destacados</h2>
         <section>
-            <% products.slice(0, 6).forEach (element => { %>
+            <% products.slice(0, 6).forEach (product => { %>
             <article>
-                <img id="img1" src="/images/<%= element.image  %>" alt="<%= element.image  %>">
+                <img id="img1" src="/images/<%= product.image  %>" alt="<%= product.image  %>">
                     <div>
-                        <p><%= element.name %></p>
-                        <p>$<%= element.price %></p><a href="/productos/detalles/<%= element.id  %>">Ver más</a>
+                        <h3><%= product.name %></h3>
+                        <h3>$<%= product.price %></h3>
+                        <h3>Disponibles: <%= product.stock %></h3>
+                        <p><%= product.description %></p>
+                        <button class="boton-product color-turquesa flex flex-row">
+                            <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
+                        </button>
                     </div>
                 </img>
             </article>

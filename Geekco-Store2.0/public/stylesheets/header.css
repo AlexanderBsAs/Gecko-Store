@@ -1,5 +1,7 @@
 
+
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+
 
 #input{
     
@@ -22,7 +24,7 @@
     border: 1px solid white;
     border-radius: 16%;
     margin-left: -4%;
-    padding: 2%;
+    padding: 0.41em;
     margin-right: -2%;
 }
 #logo{
@@ -62,9 +64,9 @@ header div{
     position: absolute;
     font-size: 16px;
     margin: 3%;
-    top: 161px;
+    top: 156px;
     z-index: 10;
-    right: -12px;
+    right: -11px;
 }
 .header__nav1 ul {
     padding: 5px;
@@ -83,23 +85,23 @@ header div{
 
 .burger-menu{
     display: inline-flex;
-    width: 34px;
+    width: 27px;
     background-color: #551CA6;
-    padding: 9px;
+    padding: 6px;
     border-radius: 10%;
     margin-bottom: 2%;
 }
 .nav {
-    opacity: 0;
+    visibility:hidden;
     display: flex;
     flex-direction: column;
     align-items: end;
     gap: 1rem;
     position: absolute;
     left: 0;
-    top: 171px;
+    top: 166px;
     background-color: #551CA6;
-    width: 110px;
+    z-index: 10;
 }
 .nav-list li{
     border-top: 1px solid #00001E;
@@ -115,7 +117,6 @@ header div{
     flex-direction: column;
     align-items: end;
     text-align: center;
-    width: 100%;
 }
 
 .nav-list li a {
@@ -130,16 +131,6 @@ header div{
     position: absolute;
     top: 130px;
     background-color: #551CA6;
-}
-.cerrar-menu {
-    position: absolute;
-    top: 133px;
-    z-index: 2;
-    left: 6px;
-    display:none;
-    background-color: #AD2AB4;
-    padding: 1px;
-    color: white;
 }
 
 @media(min-width:768px){
@@ -189,7 +180,7 @@ header div{
     }
     .fa-solid.fa-magnifying-glass{    
         margin-right: -1%;
-        padding: 0.54em;}
+        padding: 0.66em;}
 
     #div a{
         font-size: 30px;

@@ -11,12 +11,10 @@ if (navlog.style.display === "none") {
 }})
 
 abrir.addEventListener("click", () => {
-    nav.classList.add("visible");
     if (nav.style.visibility === "hidden") {
         nav.style.visibility = "visible";
     } else {
         nav.style.visibility = "hidden";
-    } 
-})
+    }})
 
 

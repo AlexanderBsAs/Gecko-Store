@@ -7,6 +7,27 @@ const json = fs.readFileSync(
 const products = JSON.parse(json);
 
 const productsController = {
+    carrito: (req,res)=>{
+        res.render("products/productCart")
+    },
+    productDetail: (req,res)=>{
+        const id = req.params.idProducto
+        const producto = products.find(element => element.id == id);
+        res.render("products/productDetail",{producto,products})
+    },
+    productForm: (req,res)=>{
+        res.render("products/productForm")
+    },
+    create: (req,res)=>{
+        const product = req.body;
+        console.log(product);
+        product.id = products[products.length-1].id +1;
+        products.push(product);
+        const productjson = JSON.stringify(products);
+        fs.writeFileSync(path.join(__dirname,"../database/products.json"),productjson,"utf-8");
+        res.redirect("/")
+    }
+}
   carrito: (req, res) => {
     res.render("products/productCart");
   },

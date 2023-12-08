@@ -30,7 +30,13 @@ const productsController = {
     },
   dashboard: (req, res) => {
     res.render("products/dashboard", { title: "dashboard", products });
-  }
-};
+  },
+    formUpdate: (req, res) => {
+      res.render("products/formUpdate")
+},
+    update: (req, res) => {
+      res.render("products/update");
+}
+}
 
 module.exports = productsController;

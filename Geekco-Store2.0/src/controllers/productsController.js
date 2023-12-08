@@ -31,12 +31,15 @@ const productsController = {
   dashboard: (req, res) => {
     res.render("products/dashboard", { title: "dashboard", products });
   },
-    formUpdate: (req, res) => {
-      res.render("products/formUpdate")
+    formUpdate: (req,res)=>{
+      const id = req.params.idProducto
+      const producto = products.find(element => element.id == id);
+      res.render("products/formUpdate",{producto,products})
+
 },
-    update: (req, res) => {
-      res.render("products/update");
-}
+//     update: (req, res) => {
+//       res.render("products/update");
+// }
 }
 
 module.exports = productsController;

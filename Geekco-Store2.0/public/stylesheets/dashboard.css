@@ -1,0 +1,132 @@
+.main-dashboard {
+  background-color: #060638;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.contenedor-tabla {
+  overflow-x: auto;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+.crear-producto {
+  align-self: flex-start;
+  text-decoration: none;
+  background-color: var(--color-turquoise);
+  border-radius: 8px;
+  padding: 5px;
+  margin: 10px;
+  color: black;
+  font-family: "Pixelify sans";
+  font-size: 20px;
+}
+
+.crear-producto:hover {
+  padding: 8px;
+}
+
+.crear-producto a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+}
+
+.crear-producto p {
+  margin-top: 5px;
+}
+
+.lista-tabla {
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.table-dash {
+  width: 90vw;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 3px solid var(--color-turquoise);
+  border-radius: 50px;
+  border-collapse: inherit;
+}
+.table-dash th {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 25px;
+  font-family: "Pixelify sans";
+}
+.table-dash td {
+  padding: 20px 0px;
+  font-size: 22px;
+  font-family: "Prompt";
+  border-bottom: 1px solid black;
+}
+.icono-dash {
+  width: 30px;
+}
+
+.icono-dash:hover {
+  width: 40px;
+}
+.icono-crear {
+  width: 35px;
+  margin-left: 10px;
+}
+.contenedor-botones {
+  display: flex;
+  justify-content: space-around;
+}
+@media (max-width: 480px) {
+  .icono-crear {
+    width: 15px;
+    margin: 0;
+    margin-bottom: 1px;
+  }
+
+  .icono-crear:hover {
+    margin: 2px;
+  }
+
+  .crear-producto {
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+    width: 30px;
+    height: 30px;
+  }
+  .crear-producto p {
+    display: none;
+  }
+
+  .table-dash {
+    border-radius: 5px;
+  }
+  .table-dash th {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 10px;
+    padding: 2px;
+    font-family: "Pixelify sans";
+  }
+  .table-dash td {
+    padding: 5px 0px;
+    font-size: 10px;
+    font-family: "Prompt";
+    border-bottom: 1px solid black;
+  }
+  .icono-dash {
+    width: 15px;
+  }
+
+  .icono-dash:hover {
+    width: 18px;
+  }
+}
+
+@media (max-width: 769px) {
+  .table-dash {
+    border-radius: 5px;
+  }
+}

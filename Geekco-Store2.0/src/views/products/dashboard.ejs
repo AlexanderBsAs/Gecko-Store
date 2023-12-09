@@ -3,16 +3,11 @@
   <%-include("../partials/head.ejs")%>
   <body>
     <%-include("../partials/header.ejs")%>
-    <main>
-      <!-- <% products.forEach(product => {%>
-      <p><%= product.name %></p>
-      <p><%= product.price %></p>
-      <p><%= product.description %></p>
-      <p><%= product.weight %></p>
-      <p><%= product.large %></p>
-      <% });%> -->
-      <a href="/productos/productForm"><button>Crear producto</button></a>
-      <table>
+    <main class="main-dashboard">
+    
+      <div class="crear-producto"><a  href="/productos/productForm"><p>CREAR PRODUCTO</p><img class="icono-crear" src="/images/create.png" alt=""></a>
+      </div>
+        <div class="contenedor-tabla"><table class="table-dash">
         <thead>
           <th>Nombre</th>
           <th>Precio</th>
@@ -22,25 +17,25 @@
         </thead>
         <tbody>
           <% products.forEach(product => {%>
-          <tr>
+          <tr class="lista-tabla">
             <td><%= product.name %></td>
             <td><%= product.price %></td>
             <td><%= product.weight %></td>
             <td><%= product.large %></td>
             <td>
-              <div>
+              <div class="contenedor-botones">
                 <a href=/productos/detalles/<%= product.id %> 
-                  ><button>Detalles</button></a
+                  ><img class="icono-dash" src="/images/vermas.png" alt="vermas"></a
                 >
-                <a href="/"><button>Editar</button></a>
-                <a href="/"><button>Eliminar</button></a>
+                <a href="/productos/formUpdate/<%= product.id %>"><img class="icono-dash" src="/images/edit.png" alt="edit"></a>
+                <a href="/"> <img class="icono-dash" src="/images/delete.png" alt="delete"></a>
               </div>
             </td>
           </tr>
 
           <% });%>
         </tbody>
-      </table>
+      </table></div>
     </main>
     <%-include("../partials/footer.ejs")%>
   </body>

@@ -20,13 +20,34 @@ const productsController = {
         res.render("products/productForm")
     },
     create: (req,res)=>{
-        const product = req.body;
-        console.log(product);
-        product.id = products[products.length-1].id +1;
+      const files = req.files;
+if (!files || !files.length){
+    return res.status(400).send('Por favor seleccione un archivo');
+  }else{
+        const {name,price,stock,description,principalDescription,image,
+        plataform,franchise,limit,weight,large,category} = req.body;
+        console.log(req.body);
+        let newId = Date.now()
+        const product = {
+          id: newId,
+          name: name.trim(),
+          price: parseFloat(price),
+          stock: parseInt(stock),
+          description: description.trim(),
+          principalDescription: principalDescription.trim(),
+          image: files.map(file => file.filename),
+          plataform: plataform.trim(),
+          franchise: franchise.trim(),
+          limit: parseInt(limit),
+          weight: weight.trim(),
+          large: large.trim(),
+          category: category.trim()
+        }
+      
         products.push(product);
         const productjson = JSON.stringify(products);
         fs.writeFileSync(path.join(__dirname,"../database/products.json"),productjson,"utf-8");
-        res.redirect("/")
+        res.redirect("/productos/dashboard")}
     },
   dashboard: (req, res) => {
     res.render("products/dashboard", { title: "dashboard", products });

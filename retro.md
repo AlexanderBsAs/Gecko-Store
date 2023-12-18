@@ -52,3 +52,65 @@ Volviendo a pensar en lo antes mencionado no tenemos mucho que decir o agregar, 
 Definiendo una acción de mejora
 
 Mejorar la comunicación, si bien ya hay algo decente, cada vez va a haber más dudas al ser el trabajo progresivamente más complejo.
+
+
+--------------------
+8/12/23
+--------------------
+
+SPRINT 2
+
+-------------------------------------------------------------------------------- 
+Cambios
+
+Se integró un nuevo miembro (Fernando Ortiz) y la verdad nos sentimos muy 
+cómodos con el, y el se adaptó rapidamente al grupo, fue a mitad del sprint
+que el se unió y lo ayudamos para que pueda estar al día en su trabajo
+asignado
+El motivo por lo que Fer se unió al grupo fue porque su anterior equipo dejaron
+de conectarse al curso, pero lo bueno que el se siente comodo en nuestro grupo.
+
+-------------------------------------------------------------------------------
+Como nos sentimos durante el segundo sprint?
+
+La verdad que nos sentimos mucho mejor en cuanto a las conexiones que 
+tenemos, quizas el lazo que nos conecta se esta reforzando.
+Al ingresar fernando ortiz quizas necesitaba ser guiado un poco pero
+rapidamente tomo carrera y ahora estamos muy unidos en los trabajos.
+
+-------------------------------------------------------------------------------
+Comenzar hacer
+
+Deberiamos empezar a reunirnos unos 15 minutos en un horario fijo donde 
+podamos asistir todos los integrantes del grupo.
+Empezar a implementar lo de las retros.
+
+
+-------------------------------------------------------------------------------
+Hacer mas
+
+Empezar a estar mas atentos al jira y al github para poder estar actualizados
+ante las revisiones de los profesores (jira), y tambien estar mas atentos
+a los cambios de cada rama respectiva del proyecto en github.
+
+-------------------------------------------------------------------------------
+Continuar haciendo
+
+Seguir organizandonos de la manera en que lo haciamos, y seguir siendo
+responsables cada uno con nuestra parte del proyecto, apoyandonos unos al
+otro en lo que quizas nos cueste entender.
+
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+Hacer menos
+
+Deberiamos sobrecargarnos menos con las tareas de proyecto, y dividir 
+nuestros tiempos a lo largo de cada sprint, sin sobrecargarse.
+
+-------------------------------------------------------------------------------
+
+Dejar de hacer
+
+Dejar de suponer de los demas compañeros del grupo, 
+y no perder la comunicación al finalizar los sprints.

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include("../partials/head.ejs")%>
+  <body>
+    <%-include("../partials/header.ejs")%>
+    <main class="main-dashboard">
+    
+      <div class="crear-producto"><a  href="/productos/productForm"><p>CREAR PRODUCTO</p><img class="icono-crear" src="/images/create.png" alt=""></a>
+      </div>
+        <div class="contenedor-tabla"><table class="table-dash">
+        <thead>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Peso</th>
+          <th>Altura</th>
+          <th>Acciones</th>
+        </thead>
+        <tbody>
+          <% products.forEach(product => {%>
+          <tr class="lista-tabla">
+            <td><%= product.name %></td>
+            <td><%= product.price %></td>
+            <td><%= product.weight %></td>
+            <td><%= product.large %></td>
+            <td>
+              <div class="contenedor-botones">
+                <a href=/productos/detalles/<%= product.id %> 
+                  ><img class="icono-dash" src="/images/vermas.png" alt="vermas"></a
+                >
+                <a href="/productos/formUpdate/<%= product.id %>"><img class="icono-dash" src="/images/edit.png" alt="edit"></a>
+                <a href="/"> <img class="icono-dash" src="/images/delete.png" alt="delete"></a>
+              </div>
+            </td>
+          </tr>
+
+          <% });%>
+        </tbody>
+      </table></div>
+    </main>
+    <%-include("../partials/footer.ejs")%>
+  </body>
+</html>

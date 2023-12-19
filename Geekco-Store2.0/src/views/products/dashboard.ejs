@@ -11,17 +11,16 @@
         <thead>
           <th>Nombre</th>
           <th>Precio</th>
-          <th>Peso</th>
-          <th>Altura</th>
+          <th>Descuento</th>
           <th>Acciones</th>
         </thead>
         <tbody>
           <% products.forEach(product => {%>
           <tr class="lista-tabla">
             <td><%= product.name %></td>
-            <td><%= product.price %></td>
-            <td><%= product.weight %></td>
-            <td><%= product.large %></td>
+            <td>$<%= product.price %></td>
+            <td><%= product.discount ?  product.discount + "%" : "-" %></td>
+            
             <td>
               <div class="contenedor-botones">
                 <a href=/productos/detalles/<%= product.id %> 

@@ -15,7 +15,7 @@
     "id": 2,
     "name": "Batman",
     "price": 9.99,
-    "discount": null,
+    "discount": 3,
     "stock": 20,
     "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore beatae dolorem natus ealaudantium! Excepturi, quaerat.",
     "image": "batman.jpg",
@@ -27,19 +27,19 @@
     "id": 3,
     "name": "He man",
     "price": 9.99,
-    "discount": null,
+    "discount": 4,
     "stock": 20,
     "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore beatae dolorem natus ealaudantium! Excepturi, quaerat.",
     "image": "heman.jpg",
     "platform": "Merchandising Juguetes",
     "category": "Toy",
-    "installments": 0
+    "installments": 3
   },
   {
     "id": 4,
     "name": "Dethsroke",
     "price": 12.99,
-    "discount": null,
+    "discount": 2,
     "stock": 20,
     "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore beatae dolorem natus ealaudantium! Excepturi, quaerat.",
     "image": "dethstroke.jpg",
@@ -51,13 +51,13 @@
     "id": 5,
     "name": "Freddy",
     "price": 8.99,
-    "discount": null,
+    "discount": 2,
     "stock": 20,
     "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore beatae dolorem natus ealaudantium! Excepturi, quaerat.",
     "image": "freddy.jpg",
     "platform": "Merchandising Juguetes",
     "category": "Toy",
-    "installments": 0
+    "installments": 3
   },
   {
     "id": 6,
@@ -81,7 +81,7 @@
     "image": "ps4.jpg",
     "platform": null,
     "category": "Video Game",
-    "installments": 0
+    "installments": 3
   },
   {
     "id": 8,
@@ -99,13 +99,13 @@
     "id": 9,
     "name": "Don't Starve Together",
     "price": 12.99,
-    "discount": null,
+    "discount": 3,
     "stock": 20,
     "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore beatae dolorem natus ealaudantium! Excepturi, quaerat.",
     "image": "dont.jpg",
     "platform": "PC",
     "category": "Video Game",
-    "installments": 0
+    "installments": 3
   },
   {
     "id": 10,
@@ -113,7 +113,7 @@
     "price": 39.99,
     "stock": 60,
     "description": "The latest installment in the FIFA video game series.",
-    "discount": null,
+    "discount": 4,
     "category": "Video Game",
     "platform": "PlayStation",
     "image": "fifa_22.jpg",
@@ -173,7 +173,7 @@
     "price": 100.49,
     "stock": 100,
     "description": "A free-to-play battle royale game with intense combat.",
-    "discount": null,
+    "discount": 5,
     "category": "Video Game",
     "platform": "PC",
     "image": "warzone.jpg",
@@ -185,7 +185,7 @@
     "price": 29.99,
     "stock": 80,
     "description": "Create thrilling Hot Wheels tracks with this set.",
-    "discount": null,
+    "discount": 3,
     "category": "Toy",
     "platform": null,
     "image": "hot_wheels_track_builder.jpg",
@@ -197,7 +197,7 @@
     "price": 24.99,
     "stock": 70,
     "description": "Explore and build in the blocky world of Minecraft.",
-    "discount": null,
+    "discount": 2,
     "category": "Video Game",
     "platform": "PC",
     "image": "minecraft.png",
@@ -209,7 +209,7 @@
     "price": 69.99,
     "stock": 50,
     "description": "Experience immersive gaming with the PS5 controller.",
-    "discount": null,
+    "discount": 4,
     "category": "Accessory",
     "platform": "PlayStation",
     "image": "ps5_controller.jpg",
@@ -221,7 +221,7 @@
     "price": 49.99,
     "stock": 60,
     "description": "Replica of the Fortnite blaster for Nerf battles.",
-    "discount": null,
+    "discount": 4,
     "category": "Toy",
     "platform": null,
     "image": "nerf_fortnite_blaster.webp",
@@ -236,7 +236,7 @@
     "discount": 10,
     "category": "Console",
     "platform": "Nintendo 3DS",
-    "image": "nintendo_3ds_xl.jpg",
+    "image": "nintendo_3ds_xl.jfif",
     "installments": 12
   },
   {
@@ -245,11 +245,11 @@
     "price": 29.99,
     "stock": 40,
     "description": "Classic Monopoly board game for family fun.",
-    "discount": null,
+    "discount": 5,
     "category": "Board Game",
     "platform": null,
     "image": "monopoly_board_game.jpg",
-    "installments": 0
+    "installments": 3
   },
   {
     "id": 22,
@@ -293,11 +293,11 @@
     "price": 39.99,
     "stock": 30,
     "description": "Collectible action figure of the Autobot leader.",
-    "discount": null,
+    "discount": 10,
     "category": "Toy",
     "platform": null,
     "image": "optimus_prime_figure.jpg",
-    "installments": 0
+    "installments": 3
   },
   {
     "id": 26,
@@ -305,7 +305,7 @@
     "price": 59.99,
     "stock": 50,
     "description": "Experience the excitement of NFL football in Madden 22.",
-    "discount": null,
+    "discount": 10,
     "category": "Video Game",
     "platform": "Xbox",
     "image": "madden_nfl_22.jpg",
@@ -329,7 +329,7 @@
     "price": 59.99,
     "stock": 40,
     "description": "Official Xbox wireless controller for gaming.",
-    "discount": null,
+    "discount": 6,
     "category": "Accessory",
     "platform": "Xbox",
     "image": "xbox_controller.jpg",
@@ -341,11 +341,11 @@
     "price": 24.99,
     "stock": 25,
     "description": "Begin your journey into the world of Dungeons & Dragons.",
-    "discount": null,
+    "discount": 5,
     "category": "Board Game",
     "platform": null,
     "image": "dnd_starter_set.jpg",
-    "installments": 0
+    "installments": 3
   },
   {
     "id": 30,
@@ -353,7 +353,7 @@
     "price": 69.99,
     "stock": 30,
     "description": "High-performance controller for the Nintendo Switch.",
-    "discount": null,
+    "discount": 6,
     "category": "Accessory",
     "platform": "Nintendo Switch",
     "image": "switch_pro_controller.jpg",

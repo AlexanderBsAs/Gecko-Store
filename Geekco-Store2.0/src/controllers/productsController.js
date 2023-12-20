@@ -40,6 +40,11 @@ const productsController = {
 
 }, */
 edit: (req, res) => {
+  const json = fs.readFileSync(
+    path.join(__dirname, "../database/products.json"),
+    "utf-8"
+  );
+  const products = JSON.parse(json);
   const id = +req.params.id
   let productos = products.find((elemento) => {
 

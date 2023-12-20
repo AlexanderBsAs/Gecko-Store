@@ -7,14 +7,15 @@ const path=require ( "path")
 
 let storage= multer.diskStorage({
     destination:(req,file,cb)=>{
-        cb(null,path.join(__dirname, "../","../","public/images/products"))
+      return  cb(null,"../../public/images/products")
     },
     filename:(req,file,cb)=>{
         let newfile= file.originalname + "-"+ Date.now()+ path.extname(file.originalname)
-        cb(null,newfile)
+      console.log(file)
+       return cb(null,newfile)
     }
 })
-
+  
 let upload= multer({storage:storage})
 
 router.get("/carrito", carrito);

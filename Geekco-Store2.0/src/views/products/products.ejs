@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include("../partials/head.ejs")%>
+
+<body>
+    <%-include("../partials/header.ejs")%>
+    <main class="product-list-main">
+        <section class="product-list-section">
+        <% products.forEach(product => {%>
+            <div class="product-box">
+            <article class="home__main__article">
+                <div class="caja-img">
+                    <img class="w-100" src="/images/<%- product.image %>" alt="<%= product.name %>">
+                </div>
+                <h3><%= product.name %></h3>
+                <h3>$<%= product.price %></h3>
+                <h3>Disponibles:<%= product.stock %></h3>
+                <div>
+                </div>
+                <button class="boton-product color-turquesa flex flex-row">
+                    <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
+                </button>
+            </article>
+        </div>
+            <% }) %>
+    </main>
+    <%-include("../partials/footer.ejs")%>
+
+</body>
+</html>

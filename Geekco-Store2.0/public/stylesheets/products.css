@@ -1,0 +1,22 @@
+.product-list-section {
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+    justify-content: space-around;
+    padding: 30px;
+}
+
+.product-box {
+    background-color: var(--color-violet);
+}
+.product-list-main {
+    background-image: url("/images/bg-body-register.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.product-list-section img {
+    height: 200px;
+    top: 0;
+}

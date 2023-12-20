@@ -36,10 +36,11 @@ const productsController = {
       const producto = products.find(element => element.id == id);
       res.render("products/formUpdate",{producto,products})
 
-},
-//     update: (req, res) => {
-//       res.render("products/update");
-// }
+  },
+	productsList: (req,res)=>{
+		res.render("products/products", {products})
+	}
+
 }
 
 module.exports = productsController;

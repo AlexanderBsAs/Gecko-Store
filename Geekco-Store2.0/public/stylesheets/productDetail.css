@@ -177,9 +177,10 @@ p{
     color: #fff;
 }
 
-.caja-img{
-    height: 293px;
+.caja-img {
+    height: 230px;
     width: 226px;
+    padding: 5px;
 }
 
 .resolucion{

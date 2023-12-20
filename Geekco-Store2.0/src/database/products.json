@@ -116,7 +116,7 @@
     "discount": null,
     "category": "Video Game",
     "platform": "PlayStation",
-    "image": "fifa_22.jpg",
+    "image": "fifa_22.jfif",
     "installments": 6
   },
   {
@@ -236,7 +236,7 @@
     "discount": 10,
     "category": "Console",
     "platform": "Nintendo 3DS",
-    "image": "nintendo_3ds_xl.jpg",
+    "image": "nintendo_3ds_xl.jfif",
     "installments": 12
   },
   {

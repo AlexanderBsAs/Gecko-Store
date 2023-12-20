@@ -1,9 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const json = fs.readFileSync(
-  path.join(__dirname, "../database/products.json"),
-  "utf-8"
-);
+const json = fs.readFileSync(path.join(__dirname, "../database/products.json"),"utf-8");
 const products = JSON.parse(json);
 
 const productsController = {
@@ -19,29 +16,30 @@ const productsController = {
     productForm: (req,res)=>{
         res.render("products/productForm")
     },
-    create: (req,res)=>{
+    create: (req,res,next)=>{
       const files = req.files;
-if (!files || !files.length){
-    return res.status(400).send('Por favor seleccione un archivo');
-  }else{
-        const {name,price,stock,description,principalDescription,image,
-        plataform,franchise,limit,weight,large,category} = req.body;
-        console.log(req.body);
+      const filename = files.map(file => file.filename)
+      const json = fs.readFileSync(path.join(__dirname, "../database/products.json"), "utf-8");
+      const products = JSON.parse(json);
+        
+      if (!files || !files.length){
+     return res.status(400).send('Por favor seleccione un archivo');
+       }else{
+        const {name,price,stock,description,image,
+        platform,category,installments,discount} = req.body;
+        console.log(req.body+filename);
         let newId = Date.now()
         const product = {
           id: newId,
           name: name.trim(),
           price: parseFloat(price),
+          discount:parseInt(discount),
           stock: parseInt(stock),
           description: description.trim(),
-          principalDescription: principalDescription.trim(),
-          image: files.map(file => file.filename),
-          plataform: plataform.trim(),
-          franchise: franchise.trim(),
-          limit: parseInt(limit),
-          weight: weight.trim(),
-          large: large.trim(),
-          category: category.trim()
+          image: filename,
+          platform: platform.trim(),
+          category: category.trim(),
+          installments: parseInt(installments)
         }
       
         products.push(product);
@@ -49,6 +47,7 @@ if (!files || !files.length){
         fs.writeFileSync(path.join(__dirname,"../database/products.json"),productjson,"utf-8");
         res.redirect("/productos/dashboard")}
     },
+
   dashboard: (req, res) => {
     res.render("products/dashboard", { title: "dashboard", products });
   },

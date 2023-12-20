@@ -7,9 +7,14 @@
     justify-content: space-around;
     padding: 30px;
 }
-
+.product-card-info {
+    height: 50px;
+}
 .product-box {
     background-color: var(--color-violet);
+    margin-bottom: 15px;
+    padding: 5px;
+    text-align: center;
 }
 .product-list-main {
     background-image: url("/images/bg-body-register.png");
@@ -19,4 +24,5 @@
 .product-list-section img {
     height: 200px;
     top: 0;
+    width: 200px;
 }

@@ -12,14 +12,14 @@
                 <div class="caja-img">
                     <img class="w-100" src="/images/<%- product.image %>" alt="<%= product.name %>">
                 </div>
-                <h3><%= product.name %></h3>
-                <h3>$<%= product.price %></h3>
-                <h3>Disponibles:<%= product.stock %></h3>
+                <h4 class="product-card-info"><%= product.name %></h4>
+                <h4>$<%= product.price %></h4>
+                <h5 >Disponibles:<%= product.stock %></h5>
                 <div>
-                </div>
                 <button class="boton-product color-turquesa flex flex-row">
                     <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
                 </button>
+            </div>
             </article>
         </div>
             <% }) %>

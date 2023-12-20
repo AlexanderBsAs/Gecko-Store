@@ -59,6 +59,12 @@ edit: (req, res) => {
 update: (req,res)=>{
   const { name, price, stock, discount, platform, category, description, image, installments}=req.body
   const id= +req.params.id
+/*    const files=req.files
+  const filename=files.map((elemento)=>{
+     elemento.filename
+  })  */
+  let group=req.body
+
   let nuevobjeto={
    id,
    name,
@@ -73,7 +79,7 @@ update: (req,res)=>{
   }
   let producto = products.map((elemento) => {
     if (elemento.id == id) {
-      nuevobjeto.imagen = elemento.image
+      /* nuevobjeto.image = elemento.image */
 
       return nuevobjeto
     }

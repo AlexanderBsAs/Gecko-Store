@@ -54,6 +54,7 @@
 .table-dash th {
   text-transform: uppercase;
   text-align: center;
+  width: 25%;
   font-size: 25px;
   font-family: "Pixelify sans";
 }
@@ -112,7 +113,7 @@
   }
   .table-dash td {
     padding: 5px 0px;
-    font-size: 10px;
+    font-size: 8px;
     font-family: "Prompt";
     border-bottom: 1px solid black;
   }
@@ -125,8 +126,14 @@
   }
 }
 
-@media (max-width: 769px) {
+@media (min-width: 480px) {
   .table-dash {
     border-radius: 5px;
+  }
+  .table-dash th {
+    font-size: 18px;
+  }
+  .table-dash td {
+    font-size: 15px;
   }
 }

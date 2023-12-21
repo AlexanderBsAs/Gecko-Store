@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%-include("../partials/head.ejs",{title: 'Todos los productos'})%>
+    <%-include("./partials/head.ejs",{title: 'Resultados de la busqueda'})%>
 
 <body>
-    <%-include("../partials/header.ejs")%>
+    <%-include("./partials/header.ejs")%>
+
+
     <main class="index__main">
-        <h2 id="products-list-headtext">Todos los productos</h2>
         <section>
-            <% products.forEach (product => { %>
+    <% if (search[0]) { %>
+        <% search.forEach(product => { %>
             <article class="card">
                 <img id="img1" src="/images/<%= product.image  %>" alt="<%= product.image  %>">
                     <div class="index__cardinfo">
@@ -21,10 +23,16 @@
                     </div>
                 </img>
             </article>
-            <% }); %>
-        </section>
-    </main>
-    <%-include("../partials/footer.ejs")%>
+            <%}); %>
+    <% } else { %>
+        <div>
+            <p>No hay productos que coincidan con esa búsqueda</p>
+        </div>
+        <% } %>
+</main>
+<%-include("./partials/footer.ejs")%>
+
 
 </body>
+
 </html>

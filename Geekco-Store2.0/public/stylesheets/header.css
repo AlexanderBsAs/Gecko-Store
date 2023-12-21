@@ -81,6 +81,9 @@ header div{
     position: relative;
 
 }
+.navbar-form {
+    width: 100%;
+}
 .header__nav1{
     display: none;
     background-color: #551CA6;

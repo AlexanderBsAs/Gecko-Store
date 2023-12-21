@@ -1,4 +1,33 @@
+.card {
+    overflow: hidden;
+    position: relative;
+  }
+  .index__cardinfo {
+    position: absolute;
+    transform: translateY(100%); /* Para ocultar la información al inicio */
+    transition: transform 0.3s ease; /* Transición suave */
+    opacity: 0.85;
 
+  }
+  
+  .card:hover .index__cardinfo {
+    transform: translateY(13%); /* Muestra la información al pasar el ratón */
+    transition: transform 0.3s ease; /* Transición suave */
+  }
+  
+  .index__pd {
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Transición suave */
+  }
+  
+  .card:hover .index__pd {
+    opacity: 1; /* Muestra la descripción al pasar el ratón */
+    transition: opacity 0.3s ease; /* Transición suave */
+  }
+.index__gradient{
+    position: relative;
+    top: 9px;
+}
 .home__banner{
     width: 100%;
     height: 210px;
@@ -46,9 +75,9 @@ background-color: #00001e;
     margin: 10px 0px;
     background-color: var(--color-turquoise);
     padding: 5px 0px;
-    animation: title 1000ms;
-    animation-iteration-count: 10;
-    transition: all 1000ms;
+    animation: title 7s ;
+    animation-iteration-count: infinite;
+    transition: all 10s;
 }
 
 @keyframes title {

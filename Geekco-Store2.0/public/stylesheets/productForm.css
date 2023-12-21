@@ -41,7 +41,7 @@
 
 @media(min-width:768px){
     .productForm__input {
-        margin: 2%;
+        margin: 10px 40px;
     }
     .productForm__main {
         height: 850px;
@@ -51,11 +51,11 @@
     .productForm__main { 
         height: 964px;}
     .productForm__input {
-            margin: 12px 141px;
+            margin: 12px 198px;
             width: 65%;
             padding: 2px;
         }
     .productForm__input__image{
-        margin: 10px 142px;}
+        margin: 10px 199px;}
         
 }

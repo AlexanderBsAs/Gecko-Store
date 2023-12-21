@@ -61,10 +61,16 @@ update: (req,res)=>{
     path.join(__dirname, "../database/products.json"),
     "utf-8"
   );
-  const { name, price, stock, discount, platform, category, description, installments}=req.body
+
+  try { 
+    const { name, price, stock, discount, platform, category, description, installments}=req.body
   const id= +req.params.id
 
 const file=req.file
+ if(!file){
+  throw new Error("Debe elegir una imagen")
+ }
+
 /*  console.log(file) */
   let nuevobjeto={
    id,
@@ -96,6 +102,11 @@ const file=req.file
 fs.writeFileSync(path.join(__dirname, "../database/products.json"),json2,"utf-8")  
  /* console.log(req.body) */
   res.redirect("/productos/dashboard")
+
+}catch(error){
+  res.send("Error, debes elegir una imagen")
+}
+
 }
 //     update: (req, res) => {
 //       res.render("products/update");

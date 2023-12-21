@@ -3,6 +3,9 @@
         <div>
         <a href="/"><img id="logo" src ="/images/logo.png"></img></a>
         <p>GeekcoStore</p> </div>
+        
+        <div id="div"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="input" placeholder="Buscar productos,marcas..." >
+            <a href="/productos/productsList">Todos los productos</a></div>
         <div id="div"><i class="fa-solid fa-magnifying-glass"></i>
             <form action="/search" method="GET" class="navbar-form">
             <input name="keywords" type="text" id="input" placeholder="Buscar productos,marcas..." >
@@ -14,15 +17,16 @@
         <button id="abrir" class="abrir-menu"><div class="burger-menu"><i class="fas fa-bars"></i></div></button>
         <nav class="nav" id="nav">
             <ul class="nav-list">
-                <li><a href="#">Figuras</a></li>
-                <li><a href="#">Consolas</a></li>
-                <li><a href="#">Juegos</a></li>
-                <li><a href="#">Marcas</a></li>
-                <li><a href="#">Accesorios</a></li>
+                <li><a href="#"> Figuras</a></li>
+                <li><a href="#"> Consolas</a></li>
+                <li><a href="#"> Juegos</a></li>
+                <li><a href="#"> Marcas</a></li>
+                <li><a href="#"> Accesorios</a></li>
             </ul>
         </nav>
         </div> 
         <nav class="header__nav2">
+            
             <a href ="../productos/carrito"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
             <span id="abrir__logeo1" class="btn__log"><i class="fa-regular fa-circle-user" style="color: #ffffff;"></i></span>
             <nav id="nav__logeo1" class="header__nav1">
@@ -31,5 +35,6 @@
                     <li><a href="../users/registro">Registrarse</a></li></ul>
         </nav> 
         </nav>
+        <div class="header__gradient"></div>
     </header>
     <script src="/js/main.js"></script>   

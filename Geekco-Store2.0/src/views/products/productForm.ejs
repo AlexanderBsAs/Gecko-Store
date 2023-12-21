@@ -2,34 +2,28 @@
 <html lang="en">
 <%-include("../partials/head.ejs")%>
 <body>
-    <%-include("../partials/header.ejs")%>
+    <%-include("../partials/header.ejs",{title: 'Formulario de Carga de Productos'})%>
     <main class="productForm__main">
         <div class="productForm__div">
             <h2>Formulario de Carga de Productos</h2>
-            <form action="/productos/create" method="POST" >
-                <input class="productForm__input" type="text" id="name" name="name" placeholder="Nombre">
+            <form action="/productos/create" method="POST" enctype="multipart/form-data">
+                <input class="productForm__input" type="text" id="name" name="name" placeholder="Nombre" required>
                 
-                <input class="productForm__input" type="number" id="price" name="price" placeholder="Precio">
+                <input class="productForm__input" type="number" id="price" name="price" placeholder="Precio" required>
+
+                <input class="productForm__input" type="text" id="franchise" name="discount" placeholder="Descuento">
                 
-                <input class="productForm__input" type="number" id="stock" name="stock" placeholder="Stock">
+                <input class="productForm__input" type="number" id="limit" name="installments" placeholder="Cuotas">
                 
-                <textarea class="productForm__input" id="description" name="description" placeholder="Descripción"></textarea>
+                <input class="productForm__input" type="number" id="stock" name="stock" placeholder="Stock" required>
                 
-                <textarea class="productForm__input" id="principalDescription" name="principalDescription" placeholder="Descripción Principal"></textarea>
+                <textarea class="productForm__input" id="description" name="description" placeholder="Descripción" required></textarea>
                 
-                <input class="productForm__input__image" type="file" id="image" name="image" placeholder="Imagen">
+                <input class="productForm__input" type="text" id="plataform" name="platform" placeholder="Plataforma">
                 
-                <input class="productForm__input" type="text" id="plataform" name="plataform" placeholder="Plataforma">
-                
-                <input class="productForm__input" type="text" id="franchise" name="franchise" placeholder="Franquicia">
-                
-                <input class="productForm__input" type="number" id="limit" name="limit" placeholder="Límite">
-                
-                <input class="productForm__input" type="text" id="weight" name="weight" placeholder="Peso">
-                
-                <input class="productForm__input" type="text" id="large" name="large" placeholder="Tamaño">
-                
-                <input class="productForm__input" type="text" id="category" name="category" placeholder="Categoría">
+                <input class="productForm__input" type="text" id="category" name="category" placeholder="Categoría" required>
+               
+                <input class="productForm__input__image" type="file" id="image" name="image" placeholder="Imagen" multiple required>
                 
                 <input class="productForm__input__enviar" type="submit" value="Enviar">
               </form>

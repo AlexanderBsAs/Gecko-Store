@@ -2,13 +2,13 @@
     overflow: hidden;
     position: relative;
   }
-  .index__cardinfo {
+.index__cardinfo {
     position: absolute;
-    transform: translateY(100%); /* Para ocultar la información al inicio */
-    transition: transform 0.3s ease; /* Transición suave */
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
     opacity: 0.85;
-
-  }
+    width: 100%;
+}
   
   .card:hover .index__cardinfo {
     transform: translateY(13%); /* Muestra la información al pasar el ratón */
@@ -72,7 +72,6 @@ background-color: #00001e;
 .index__main .title-home-h2 {
     color: white;
     text-align: center;
-    margin: 10px 0px;
     background-color: var(--color-turquoise);
     padding: 5px 0px;
     animation: title 7s ;

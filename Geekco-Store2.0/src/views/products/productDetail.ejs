@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%-include("../partials/head.ejs")%>
+  <%-include("../partials/head.ejs",{title: producto.name})%>
   <body class="body" id="header">
     <%-include("../partials/header.ejs")%>
     <main class="main">
@@ -156,7 +156,8 @@
       <section class="contenido-producto">
         <h2>Productos Similares</h2>
         <div class="contenedor-producto-caja">
-          <% products.slice(1, 5).forEach(product =>{ %>
+          <% for(let i = 0; i < 4; i++){ %>
+            <% let product = products[Math.floor(Math.random() * products.length)] %>
           <article class="home__main__article">
             <div class="caja-img">
               <img
@@ -173,13 +174,14 @@
               <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
             </button>
           </article>
-          <% }); %>
+          <% }; %>
         </div>
       </section>
       <section class="contenido-producto">
         <h2>Otros productos que podrían interesarte</h2>
         <div class="contenedor-producto-caja">
-          <% products.slice(4, 8).forEach(product =>{ %>
+          <% for(let i = 0; i < 4; i++){ %>
+            <% let product = products[Math.floor(Math.random() * products.length)] %>
           <article class="home__main__article">
             <div class="caja-img">
               <img
@@ -196,7 +198,7 @@
               <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
             </button>
           </article>
-          <% }); %>
+          <% }; %>
         </div>
       </section>
       <button class="boton-product-2 flex flex-row">

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%-include("./partials/head.ejs")%>
+    <%-include("./partials/head.ejs",{title: 'Inicio'})%>
 <body>
    <%-include("./partials/header.ejs")%>
     <main class="index__main">
@@ -14,7 +14,8 @@
           </div>
        <h2 class="title-home-h2">Productos destacados</h2>
         <section>
-            <% products.slice(0, 6).forEach (product => { %>
+            <% for(let i = 0; i < 6; i++){ %>
+            <% let product = products[Math.floor(Math.random() * products.length)] %>
             <article class="card">
                 <img id="img1" src="/images/<%= product.image  %>" alt="<%= product.image  %>">
                     <div class="index__cardinfo">
@@ -28,7 +29,7 @@
                     </div>
                 </img>
             </article>
-            <% }); %>
+            <% }; %>
         </section>
         <div class="header__gradient index__gradient"></div>
         <div class="index__banner2__div">

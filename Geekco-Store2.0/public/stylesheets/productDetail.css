@@ -185,13 +185,17 @@ p{
 }
 
 .caja-img {
-    height: 230px;
-    width: 226px;
-    padding: 5px;
+  height: 230px;
+  width: 205px;
+  padding: 5px;
 }
 
 .resolucion {
   padding-top: 50px;
+}
+
+.home__main__article {
+  background-color: var(--color-violet);
 }
 
 @media (min-width: 768px) {
@@ -200,8 +204,8 @@ p{
     height: 384px;
   }
   .home__main__article {
-    width: 236px;
-  }
+    width: 35%;
+}
   .contenido-producto-texto {
     width: 397px;
   }
@@ -220,4 +224,7 @@ p{
   .contenido-producto-texto {
     width: 615px;
   }
+  .home__main__article {
+    width: 24%;
+}
 }

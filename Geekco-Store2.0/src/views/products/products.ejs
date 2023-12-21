@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%-include("../partials/head.ejs")%>
+    <%-include("../partials/head.ejs",{title: 'Todos los productos'})%>
 
 <body>
     <%-include("../partials/header.ejs")%>
-    <main class="product-list-main">
-        <section class="product-list-section">
-        <% products.forEach(product => {%>
-            <div class="product-box">
-            <article class="home__main__article">
-                <div class="caja-img">
-                    <img class="w-100" src="/images/<%- product.image %>" alt="<%= product.name %>">
-                </div>
-                <h4 class="product-card-info"><%= product.name %></h4>
-                <h4>$<%= product.price %></h4>
-                <h5 >Disponibles:<%= product.stock %></h5>
-                <div>
-                <button class="boton-product color-turquesa flex flex-row">
-                    <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
-                </button>
-            </div>
+    <main class="index__main">
+        <h2 class="title-home-h2">Todos los productos</h2>
+        <section>
+            <% products.forEach (product => { %>
+            <article class="card">
+                <img id="img1" src="/images/<%= product.image  %>" alt="<%= product.image  %>">
+                    <div class="index__cardinfo">
+                        <h3><%= product.name %></h3>
+                        <h3>$<%= product.price %></h3>
+                        <h3>Disponibles: <%= product.stock %></h3>
+                        <p class="index__pd"><%= product.description %></p>
+                        <button class="boton-product color-turquesa flex flex-row">
+                            <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
+                        </button>
+                    </div>
+                </img>
             </article>
-        </div>
-            <% }) %>
+            <% }); %>
+        </section>
     </main>
     <%-include("../partials/footer.ejs")%>
 

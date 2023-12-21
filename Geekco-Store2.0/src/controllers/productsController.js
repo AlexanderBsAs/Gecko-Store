@@ -49,18 +49,88 @@ const productsController = {
     },
 
   dashboard: (req, res) => {
+    let json = fs.readFileSync(path.join(__dirname, "../database/products.json"), "utf-8");
+    const products = JSON.parse(json);
     res.render("products/dashboard", { title: "dashboard", products });
   },
-    formUpdate: (req,res)=>{
-      const id = req.params.idProducto
+  formUpdate: (req,res)=>{
+      const id = req.params.id
       const producto = products.find(element => element.id == id);
-      res.render("products/formUpdate",{producto,products})
+      res.render("products/formUpdate",{producto,products,id})
 
   },
 	productsList: (req,res)=>{
 		res.render("products/products", {products})
-	}
+	},
+edit: (req, res) => {
+  const json = fs.readFileSync(
+    path.join(__dirname, "../database/products.json"),
+    "utf-8"
+  );
+  const products = JSON.parse(json);
+  const id = +req.params.id
+  let productos = products.find((elemento) => {
 
+    return elemento.id == id
+
+  })
+  console.log(productos)
+
+  res.render("products/formupdate", { productos, id })
+
+},
+update: (req,res)=>{
+  const json = fs.readFileSync(
+    path.join(__dirname, "../database/products.json"),
+    "utf-8"
+  );
+
+  try { 
+    const { name, price, stock, discount, platform, category, description, installments}=req.body
+  const id= +req.params.id
+
+const file=req.file
+ if(!file){
+  throw new Error("Debe elegir una imagen")
+ }
+
+/*  console.log(file) */
+  let nuevobjeto={
+   id,
+   name,
+   price: +price,
+   discount:+discount,
+   stock:+stock,
+   description,
+   image:file? file.filename:null,
+   platform,
+   category,
+   installments
+  }
+  console.log(nuevobjeto.image)
+  let producto = products.map((elemento) => {
+    if (elemento.id == id) {
+      /* nuevobjeto.image = elemento.image */
+
+      return nuevobjeto
+    }
+   
+  return elemento
+  }) 
+/*   console.log(producto) */
+/*  console.log(producto) */
+/* console.log(producto) */
+  let json2=JSON.stringify(producto)
+/*     console.log(json2) */
+fs.writeFileSync(path.join(__dirname, "../database/products.json"),json2,"utf-8")  
+ /* console.log(req.body) */
+  res.redirect("/productos/dashboard")
+
+}catch(error){
+  res.send("Error, debes elegir una imagen")
+}
+
+}
 }
 
 module.exports = productsController;

@@ -63,10 +63,7 @@ update: (req,res)=>{
   );
   const { name, price, stock, discount, platform, category, description, installments}=req.body
   const id= +req.params.id
-/*    const files=req.files
-  const filename=files.map((elemento)=>{
-     elemento.filename
-  })  */
+
 const file=req.file
 /*  console.log(file) */
   let nuevobjeto={

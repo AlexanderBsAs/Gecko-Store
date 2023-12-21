@@ -57,26 +57,31 @@ edit: (req, res) => {
 
 },
 update: (req,res)=>{
-  const { name, price, stock, discount, platform, category, description, image, installments}=req.body
+  const json = fs.readFileSync(
+    path.join(__dirname, "../database/products.json"),
+    "utf-8"
+  );
+  const { name, price, stock, discount, platform, category, description, installments}=req.body
   const id= +req.params.id
 /*    const files=req.files
   const filename=files.map((elemento)=>{
      elemento.filename
   })  */
-  let group=req.body
-
+const file=req.file
+/*  console.log(file) */
   let nuevobjeto={
    id,
    name,
    price: +price,
-   stock:+stock,
    discount:+discount,
+   stock:+stock,
+   description,
+   image:file? file.filename:null,
    platform,
    category,
-   description,
-   image,
    installments
   }
+  console.log(nuevobjeto.image)
   let producto = products.map((elemento) => {
     if (elemento.id == id) {
       /* nuevobjeto.image = elemento.image */
@@ -86,13 +91,13 @@ update: (req,res)=>{
    
   return elemento
   }) 
-  console.log(producto)
+/*   console.log(producto) */
 /*  console.log(producto) */
 /* console.log(producto) */
   let json2=JSON.stringify(producto)
 /*     console.log(json2) */
 fs.writeFileSync(path.join(__dirname, "../database/products.json"),json2,"utf-8")  
- console.log(req.body)
+ /* console.log(req.body) */
   res.redirect("/productos/dashboard")
 }
 //     update: (req, res) => {

@@ -6,7 +6,7 @@
         <main class="productForm__main">
             <div class="productForm__div">
                 <h2>Formulario de Edicion</h2>
-                <form action="/productos/formUpdate/<%=id%>?_method=PUT" method="POST" >
+                <form action="/productos/formUpdate/<%=id%>?_method=PUT" method="POST" enctype="multipart/form-data">
                     <label class="edicion" for="name" id="name"> Ingrese el nombre del producto</label>
                     <input class="productForm__input" type="text" id="name" name="name" placeholder="Nombre"  value="<%=productos.name%>">
                     <label class="edicion" for="price" id="name"> Ingrese el precio del producto</label>
@@ -15,10 +15,10 @@
                     <input class="productForm__input" type="number" id="stock" name="stock"placeholder="Stock" value="<%=productos.stock%>">
                     <label class="edicion" for="description" id="name"> Ingrese la descripcion</label>
                     <textarea class="productForm__input" id="description" name="description"placeholder="Descripcion" value="<%=productos.description%>"></textarea>
-                    <label class="edicion" for="image" id="name"> Ingrese una imagen</label>
+                    <label class="edicion" for="image" > Ingrese una imagen</label>
                     <input class="productForm__input__image" type="file" id="image" name="image" value="<%=productos.image%>">
                     <label class="edicion" for="plataform" id="name"> Elegir plataforma del producto</label>
-                    <input class="productForm__input" type="text" id="plataform" name="plataform"placeholder="Plataforma" value="<%=productos.platform%>">
+                    <input class="productForm__input" type="text" id="platform" name="platform"placeholder="Plataforma" value="<%=productos.platform%>">
                     <label class="edicion" for="category" id="name"> Elegir la categoria del producto</label>                                              
                     <input class="productForm__input" type="text" id="category" name="category"placeholder="Categoria" value="<%=productos.category%>">
                     <label class="edicion" for="discount" id="name"> De cuanto es el descuento?</label>

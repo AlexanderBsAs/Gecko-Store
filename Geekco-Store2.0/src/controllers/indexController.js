@@ -7,6 +7,16 @@ const products = JSON.parse(json);
 const indexController = {
     home: (req,res)=>{
         res.render("index",{products})
+    },
+    search: (req,res)=>{
+        let {keywords} = req.query;
+        let search = [];
+        products.forEach(product => {
+            if(product.name.toLowerCase() == keywords.toLowerCase()){
+                search.push(product)
+            }
+        });
+        res.render("results",{search,keywords})
     }
 }
 

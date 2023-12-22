@@ -53,12 +53,6 @@ const productsController = {
     const products = JSON.parse(json);
     res.render("products/dashboard", { title: "dashboard", products });
   },
-  formUpdate: (req,res)=>{
-      const id = req.params.id
-      const producto = products.find(element => element.id == id);
-      res.render("products/formUpdate",{producto,products,id})
-
-  },
 	productsList: (req,res)=>{
 		res.render("products/products", {products})
 	},

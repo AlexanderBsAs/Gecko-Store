@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {carrito,productDetail,productForm,create,dashboard,formUpdate,productsList} = require("../controllers/productsController")
+const {carrito,productDetail,productForm,create,dashboard,edit,productsList} = require("../controllers/productsController")
 const path = require("path")
 const multer = require('multer')
 
@@ -24,7 +24,7 @@ router.get('/detalles/:idProducto', productDetail)
 router.get("/productForm",productForm)
 router.post("/create", fileUpload.array("image"), create)
 router.get("/dashboard", dashboard);
-router.get("/formUpdate/:id",formUpdate);
+router.get("/formUpdate/:id", edit);
 router.get("/productsList", productsList)
 // router.put('/update', update);
 

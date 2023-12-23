@@ -124,6 +124,15 @@ fs.writeFileSync(path.join(__dirname, "../database/products.json"),json2,"utf-8"
   res.send("Error, debes elegir una imagen")
 }
 
+},
+destroy: (req, res) => {
+  const { id } = req.params;
+  const json = fs.readFileSync(path.join(__dirname, "../database/products.json"), "utf-8");
+  const products = JSON.parse(json);
+  const updatedProducts = products.filter(producto => producto.id != id);
+  const updatedJson = JSON.stringify(updatedProducts);
+  fs.writeFileSync(path.join(__dirname, "../database/products.json"), updatedJson, "utf-8");
+  res.redirect("/productos/dashboard");
 }
 }
 

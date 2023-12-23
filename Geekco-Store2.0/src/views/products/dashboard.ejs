@@ -27,7 +27,11 @@
                   ><img class="icono-dash" src="/images/vermas.png" alt="vermas"></a
                 >
                 <a href="/productos/formUpdate/<%= product.id %>"><img class="icono-dash" src="/images/edit.png" alt="edit"></a>
-                <a href="/"> <img class="icono-dash" src="/images/delete.png" alt="delete"></a>
+<a href="/productos/delete/<%= product.id %>">
+  <img class="icono-dash" src="/images/delete.png" alt="delete">
+  <form action="/productos/delete/<%= product.id %>?_method=DELETE" method="post">
+  </form>
+</a>
               </div>
             </td>
           </tr>

@@ -114,3 +114,43 @@ Dejar de hacer
 
 Dejar de suponer de los demas compañeros del grupo, 
 y no perder la comunicación al finalizar los sprints.
+
+
+
+------------------------RETRO SPRINT 3-----------------------------------------
+
+17/12/23
+
+-------------------------------------------------------------------------------
+¿Cómo nos sentimos respecto al anterior Sprint?
+
+Charlando entre todos llegamos a la conclusión que a diferencia de los anteriores sprints este fue un poco más liviano, lo que nos ayudó a lograr entender de una manera más completa cada tarea y responsabilidad del Sprint para su finalización, respecto al nuevo integrante, notamos que gracias a su incorporación y su adaptación se nos hizo más ameno el proceso del mismo, por lo cual sirve como incentivo para de cara a un futuro poder reconocer de manera más sencilla fortalezas o debilidades de cada integrante.
+
+-------------------------------------------------------------------------------
+Comenzar a hacer
+
+Si bien creemos que está bien organizar un horario fijo para las reuniones, también queremos empezar a cordinar un día fijo pero con un horario dinámico, para poder concretar este weekly, o también implementar reuniones de emergencias en caso de algún bloqueo o similar.
+
+-------------------------------------------------------------------------------
+Hacer más
+
+Revisar continuamente el trabajo, en busca de mejoras ya sea visuales o funcionales, siendo fiel al estilo original.
+
+-------------------------------------------------------------------------------
+Continuar haciendo
+
+Seguir siendo presentes en el uso de jira y github o cualquier medio de comunicación con los profesores.
+
+-------------------------------------------------------------------------------
+Hacer menos
+
+Enfocar demasiado tiempo en una tarea extra, para poder preguntar a los demás si necesitan ayuda en caso de no haber acabado con su tarea.
+
+-------------------------------------------------------------------------------
+Dejar de hacer
+
+Dejar tareas para los últimos días de Sprint por considerar su importancia menor a la de las demás responsabilidades.
+
+
+
+

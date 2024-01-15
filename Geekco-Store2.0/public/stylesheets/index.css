@@ -68,6 +68,9 @@ overflow: hidden;
 }
 .index__main{
 background-color: #00001e;
+background-image: url("/images/bg-body-register.png");
+background-repeat: no-repeat;
+background-size: cover;
 }
 .index__main .title-home-h2 {
     color: white;

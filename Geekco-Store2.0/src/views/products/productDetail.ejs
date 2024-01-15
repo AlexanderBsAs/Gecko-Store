@@ -3,7 +3,7 @@
   <%-include("../partials/head.ejs",{title: producto.name})%>
   <body class="body" id="header">
     <%-include("../partials/header.ejs")%>
-    <main class="main">
+    <main class="main" class="results-section">
       <section class="contenido-producto">
         <article class="articulo_producto_venta">
           <div class="detalle-img">
@@ -11,7 +11,7 @@
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <img
-                    src="/images/<%= producto.image %>"
+                    src="/images/products/<%= producto.image %>"
                     class="d-block w-100"
                     alt="halo-1.jpg"
                   />
@@ -162,7 +162,7 @@
             <div class="caja-img">
               <img
                 class="w-100"
-                src="/images/<%- product.image %>"
+                src="/images/products/<%- product.image %>"
                 alt="<%= product.name %>"
               />
             </div>
@@ -186,7 +186,7 @@
             <div class="caja-img">
               <img
                 class="w-100"
-                src="/images/<%- product.image %>"
+                src="/images/products/<%- product.image %>"
                 alt="<%= product.name %>"
               />
             </div>

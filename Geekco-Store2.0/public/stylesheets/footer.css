@@ -8,9 +8,9 @@
 .footer-body {
     display: flex;
     position: relative;
-
     flex-direction: column;
     background-image: linear-gradient(#00001e66, #551ca6);
+    padding: 1% 0px;
 }
 
 .section-redes {

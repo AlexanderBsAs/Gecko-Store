@@ -276,6 +276,11 @@ header div{
 }
 }
 @media(min-width: 1400px){
+    .session__header__on{
+        font-size: 20px;
+        color: aliceblue;
+        display: contents;
+    }
     .nav-list {
         gap: 140px;
         margin-left: 16%;

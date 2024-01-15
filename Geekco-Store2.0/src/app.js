@@ -8,7 +8,7 @@ const session = require("express-session")
 var indexRouter = require('./routes/index.js');
 var usersRouter = require('./routes/users.js');
 var productsRouter = require('./routes/products.js');
-
+var rememberMiddleware = require("./Middlewares/rememberMe.js")
 var app = express();
 
 // view engine setup
@@ -21,8 +21,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(methodOverride("_method"))
-app.use(session({secret: "Secretgecko123"}))
-
+app.use(session({secret: "Secretgecko123",resave: true,
+saveUninitialized: true}))
+app.use((req, res, next) => {
+  res.locals.user = req.session.user;
+  next();
+});
+app.use(rememberMiddleware)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/productos', productsRouter);

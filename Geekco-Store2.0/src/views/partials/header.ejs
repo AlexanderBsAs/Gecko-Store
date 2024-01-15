@@ -8,8 +8,6 @@
             <input name="keywords" type="text" id="input" placeholder="Buscar productos,marcas..." >
             </form>
             <a href="/productos/productsList">Todos los productos</a></div>
-
-            
         </nav>
         <button id="abrir" class="abrir-menu"><div class="burger-menu"><i class="fas fa-bars"></i></div></button>
         <nav class="nav" id="nav">
@@ -22,15 +20,25 @@
             </ul>
         </nav>
         </div> 
+        
         <nav class="header__nav2">
+            <div class="session__header__on">
+                <% if (locals.user) { %>
+                    <!-- Mostrar contenido cuando el usuario está autenticado -->
+                    Bienvenido, <%= locals.user.first_name %> <%= locals.user.last_name %> </div>
+                    <a href="../productos/carrito"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
+                <% } else { %>
+                    <!-- Mostrar contenido cuando el usuario no está autenticado -->
+                    ¡Inicia sesión!
+                    <span id="abrir__logeo1" class="btn__log"><i class="fa-regular fa-circle-user" style="color: #ffffff;"></i></span>
+                    <nav id="nav__logeo1" class="header__nav1">
+                        <ul>
+                            <li><a href="../users/login">Ingresar</a></li>
+                            <li><a href="../users/registro">Registrarse</a></li>
+                        </ul>
+                    </nav>
+                <% } %> 
             
-            <a href ="../productos/carrito"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
-            <span id="abrir__logeo1" class="btn__log"><i class="fa-regular fa-circle-user" style="color: #ffffff;"></i></span>
-            <nav id="nav__logeo1" class="header__nav1">
-                <ul>
-                    <li><a href="../users/login">Ingresar</a></li>
-                    <li><a href="../users/registro">Registrarse</a></li></ul>
-        </nav> 
         </nav>
         <div class="header__gradient"></div>
     </header>

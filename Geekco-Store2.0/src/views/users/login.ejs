@@ -11,11 +11,20 @@
       </div>
       <form action="/users/login" method="POST">
         <h2>Bienvenido</h2>
+        <% if (locals.errors && locals.errors.length > 0) { %>
+          <div class="error-message">
+            <% locals.errors.forEach(error => { %>
+              <p><%= error.msg %></p>
+            <% }); %>
+          </div>
+        <% } %>
         <label for="">Correo electronico</label>
         <input type="email" name="email" required>
         <label for="">Contraseña</label>
         <input type="password" name="password" required>
         <a href="">¿Olvidaste tu contraseña?</a>
+        <label for="remember">Recordarme</label>
+        <input type="checkbox" id="remember" name="remember">
        <input id="login__submit" type="submit" value="Login">
         <a href="/users/registro">Registrate</a>
       </form>

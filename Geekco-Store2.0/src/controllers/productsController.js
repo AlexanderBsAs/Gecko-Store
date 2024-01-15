@@ -27,7 +27,6 @@ const productsController = {
        }else{
         const {name,price,stock,description,image,
         platform,category,installments,discount} = req.body;
-        console.log(req.body+filename);
         let newId = Date.now()
         const product = {
           id: newId,

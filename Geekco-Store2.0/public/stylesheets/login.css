@@ -67,7 +67,7 @@
   font-weight: lighter;
 }
 
-.section-login form button {
+#login__submit {
   background-color: #04bfbf;
   border-radius: 20px;
   padding: 5px 15px;
@@ -75,7 +75,7 @@
   box-shadow: 3px 3px 3px 0px #00001e66;
   font-family: "Pixelify sans";
 }
-.section-login form button:hover {
+#login__submit:hover {
   width: 90px;
 }
 @media (min-width: 480px) {
@@ -112,7 +112,7 @@
   .section-login form a {
     font-size: 30px;
   }
-  .section-login form button {
+  #login__submit {
     font-size: 30px;
   }
   .section-login form label {
@@ -121,7 +121,7 @@
   .section-login form h2 {
     font-size: 60px;
   }
-  .section-login form button:hover {
+  #login__submit:hover {
     width: 130px;
   }
 }

@@ -7,7 +7,7 @@ const multer = require('multer')
 //**Disk Storage**//
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        const dataBase = path.join(__dirname, "../../public/images/products");
+        const dataBase = path.join(__dirname, "../../public/images");
       cb(null, dataBase)
     },
     filename:  (req, file, cb) =>{
@@ -22,7 +22,7 @@ router.get("/carrito", carrito);
 // router.get('/detalles',detalles );
 router.get('/detalles/:idProducto', productDetail)
 router.get("/productForm",productForm)
-router.post("/create", fileUpload.array("image"), create)
+router.post("/create", fileUpload.single("image"), create);
 router.get("/dashboard", dashboard);
 router.get("/formUpdate/:id", edit);
 router.put("/formUpdate/:id",fileUpload.single("image"), update)

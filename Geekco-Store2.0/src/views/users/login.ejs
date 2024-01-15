@@ -9,14 +9,14 @@
 
         <img src="/images/logogecko-removebg-preview.png" alt="logo" />
       </div>
-      <form action="/">
+      <form action="/users/login" method="POST">
         <h2>Bienvenido</h2>
-        <label for="">Usuario</label>
-        <input type="text" />
+        <label for="">Correo electronico</label>
+        <input type="email" name="email" required>
         <label for="">Contraseña</label>
-        <input type="text" />
+        <input type="password" name="password" required>
         <a href="">¿Olvidaste tu contraseña?</a>
-        <button>LOGIN</button>
+       <input id="login__submit" type="submit" value="Login">
         <a href="/users/registro">Registrate</a>
       </form>
     </section>

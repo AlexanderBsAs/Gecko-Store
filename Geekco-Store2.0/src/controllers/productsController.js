@@ -9,6 +9,8 @@ const productsController = {
         res.render("products/productCart")
     },
     productDetail: (req,res)=>{
+      const json = fs.readFileSync(path.join(__dirname, "../database/products.json"), "utf-8");
+      const products = JSON.parse(json);
         const id = req.params.idProducto
         const producto = products.find(element => element.id == id);
         res.render("products/productDetail",{producto,products})
@@ -17,13 +19,15 @@ const productsController = {
         res.render("products/productForm")
     },
     create: (req,res,next)=>{
-      const files = req.files;
-      const filename = files.map(file => file.filename)
+      console.log('Files:', req.file.filename);
+      console.log('Body:', req.body);
+      const filename = req.file.filename;
       const json = fs.readFileSync(path.join(__dirname, "../database/products.json"), "utf-8");
       const products = JSON.parse(json);
         
-      if (!files || !files.length){
-     return res.status(400).send('Por favor seleccione un archivo');
+      if (!req.file){
+     return res.status(400).send('Por favor seleccione un archivo'); 
+     
        }else{
         const {name,price,stock,description,image,
         platform,category,installments,discount} = req.body;

@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const methodOverride = require('method-override')
-
+const session = require("express-session")
 var indexRouter = require('./routes/index.js');
 var usersRouter = require('./routes/users.js');
 var productsRouter = require('./routes/products.js');
@@ -21,6 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(methodOverride("_method"))
+app.use(session({secret: "Secretgecko123"}))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

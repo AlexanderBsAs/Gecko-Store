@@ -6,10 +6,10 @@
     <main class="index__main">
         <div class="home__carrousel">
             <ul>
-                <li> <img src="/images/banner1.jpg"></img></li>
-                <li><img src="/images/freddy.jpg" ></img></li>
-                <li><img src="/images/ps4.jpg" ></img></li>
-                <li><img src="/images/heman.jpg"></img></li>
+                <li> <img src="/images/products/banner1.jpg"></img></li>
+                <li><img src="/images/products/freddy.jpg" ></img></li>
+                <li><img src="/images/products/ps4.jpg" ></img></li>
+                <li><img src="/images/products/heman.jpg"></img></li>
             </ul>
           </div>
        <h2 class="title-home-h2">Productos destacados</h2>
@@ -17,7 +17,7 @@
             <% for(let i = 0; i < 6; i++){ %>
             <% let product = products[Math.floor(Math.random() * products.length)] %>
             <article class="card">
-                <img id="img1" src="/images/<%= product.image  %>" alt="<%= product.image  %>">
+                <img id="img1" src="/images/products/<%= product.image  %>" alt="<%= product.image  %>">
                     <div class="index__cardinfo">
                         <h3><%= product.name %></h3>
                         <h3>$<%= product.price %></h3>

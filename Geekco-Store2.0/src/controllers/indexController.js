@@ -7,7 +7,7 @@ const products = JSON.parse(json);
 
 const indexController = {
     home: (req,res)=>{
- const json = fs.readFileSync(path.join(__dirname,"../database/products.json"),"utf-8")
+const json = fs.readFileSync(path.join(__dirname,"../database/products.json"),"utf-8")
 const products = JSON.parse(json);
         res.render("index",{products})
     },
@@ -19,7 +19,6 @@ const products = JSON.parse(json);
                 search.push(product)
             }
         });
-        console.log(search);
         res.render("results",{search,keywords})
     }
 }

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {carrito,productDetail,productForm,create,dashboard,edit,productsList,update} = require("../controllers/productsController")
+const {carrito,productDetail,productForm,create,dashboard,edit,productsList,update, destroy} = require("../controllers/productsController")
 const path = require("path")
 const multer = require('multer')
 
@@ -27,6 +27,7 @@ router.get("/dashboard", dashboard);
 router.get("/formUpdate/:id", edit);
 router.put("/formUpdate/:id",fileUpload.single("image"), update)
 router.get("/productsList", productsList)
+router.delete('/delete/:id', destroy)
 // router.put('/update', update);
 
 module.exports = router;

@@ -4,10 +4,11 @@
   <body class="body-login">
     <%-include("../partials/header.ejs")%>
     <section class="section-login">
-      <div class="logo-titulo">
-        <h1>GeekcoStore</h1>
+      <h1>GeekcoStore</h1>
 
-        <img src="/images/logogecko-removebg-preview.png" alt="logo" />
+      <div class="logo-titulo">
+
+        <img src="/images/logo.png" alt="logo" />
       </div>
       <form action="/users/login" method="POST">
         <h2>Bienvenido</h2>
@@ -18,13 +19,19 @@
             <% }); %>
           </div>
         <% } %>
-        <label for="">Correo electronico</label>
-        <input type="email" name="email" required>
-        <label for="">Contraseña</label>
-        <input type="password" name="password" required>
-        <a href="">¿Olvidaste tu contraseña?</a>
-        <label for="remember">Recordarme</label>
-        <input type="checkbox" id="remember" name="remember">
+        <div class="input-box-login">
+          <label for="">Correo electronico</label>
+          <input type="email" name="email" required>
+        </div>
+        <div class="input-box-login">
+          <label for="">Contraseña</label>
+          <input type="password" name="password" required>
+        </div>
+          <a href="">¿Olvidaste tu contraseña?</a>
+        <div class="rememberMe-box">
+          <label class="label-rememberMe" for="remember">Recordarme</label>
+          <input type="checkbox" id="remember" name="remember">
+        </div>
        <input id="login__submit" type="submit" value="Login">
         <a href="/users/registro">Registrate</a>
       </form>

@@ -1,7 +1,11 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
-
+.session__header__on  a{
+    list-style-type: none;
+    text-decoration: none;
+    color: var(--color-turquoise);
+}
 .header__gradient {
     height: 5px; /* Altura de la barra */
     width: 100%; /* Ancho completo del header */

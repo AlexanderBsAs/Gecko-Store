@@ -1,7 +1,7 @@
 const fs = require("fs")
 const path = require("path")
 const { validationResult } = require('express-validator');
-
+const {getJson, setJson} = require('../utility/jsonMethod')
 const usersController = {
     login: (req,res)=>{
         if (res.locals.errors) {
@@ -16,8 +16,7 @@ const usersController = {
             res.locals.errors = errors.array();
             return res.render('users/login', { errors: res.locals.errors });
         }
-        const json = fs.readFileSync(path.join(__dirname, "../database/users.json"),"utf-8");
-        const users = JSON.parse(json);
+        const users = getJson('users')
         const { email, password, remember } = req.body;
         const userLogged = users.find(user => user.email === email && user.password === password);
         if (remember) {
@@ -29,16 +28,18 @@ const usersController = {
             last_name: userLogged.last_name
         }
         res.locals.user = req.session.user;
-        console.log(req.session.user)
-        console.log('Usuario autenticado:', userLogged);
         res.redirect('/');
     },
     register: (req,res)=>{
         res.render("users/register")
     },
     userRegister: (req,res)=>{
-        console.log(req.body)
         res.redirect("/")
+    },
+    logout: (req,res)=>{
+        res.clearCookie('remember')
+        req.session.destroy();
+        return res.redirect('/')
     }
 }
 

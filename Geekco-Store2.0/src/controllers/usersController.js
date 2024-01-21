@@ -67,14 +67,13 @@ const usersController = {
         users.push(newUser);
         fs.writeFileSync(usersPath, JSON.stringify(users), "utf-8");
         
-        res.redirect('users/login');}
+        res.redirect('/');}
         
        
         else{
-            /* console.log("Errores:", errors);
+            console.log("Errores:", errors);
             console.log(req.body)
-             res.render('users/register', { errors:errors.array(), old:req.body, title: "registro" }); */
-            res.send(req.body) }
+             res.render('users/register', { errors:errors.array(), old:req.body, title: "registro" });
 /*         if (!errores.isEmpty()) {
             console.log("Errores:", errores);
             console.log(req.body)
@@ -100,5 +99,5 @@ const usersController = {
         res.redirect('users/login');} */
     }
 }
-
+}
 module.exports = usersController;

@@ -298,5 +298,35 @@
     "adress": "calle falsa 123",
     "admin": false,
     "image": "gatopan.jpg"
+  },
+  {
+    "id": 1705816322677,
+    "first_name": "asd",
+    "last_name": "asd",
+    "email": "alexitorjlanus@gmail.com",
+    "password": "$2a$10$zGIvZ7J3MAxB2Tac0tHZW.l3nnjH.nuP.ZO0Q51a2y0qMz9LO3TDe",
+    "adress": "asddd",
+    "admin": false,
+    "image": "default.jpg"
+  },
+  {
+    "id": 1705863894471,
+    "first_name": "asddd",
+    "last_name": "aaaaaaaaaaaaaaa",
+    "email": "alexitorjlanus@gmail.com",
+    "password": "$2a$10$M5y4I1XySIVROihBKe5dVepo1jrZkHugygTC27RZXztC0vyDaDGiC",
+    "adress": "asd",
+    "admin": false,
+    "image": "default.jpg"
+  },
+  {
+    "id": 1705864565100,
+    "first_name": "asddddddddddd",
+    "last_name": "asdasd",
+    "email": "alexitorjlanus@gmail.com",
+    "password": "$2a$10$M5c0JsMcCW6txzgjH6ejlug73Fy9FjAnT1xaqFTl0ejbYy2RSvzhS",
+    "adress": "asd",
+    "admin": false,
+    "image": "default.jpg"
   }
 ]

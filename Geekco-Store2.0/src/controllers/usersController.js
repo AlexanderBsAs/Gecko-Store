@@ -63,40 +63,15 @@ const usersController = {
             admin: false,
             image: req.file ? req.file.filename : "default.jpg",
         };
-
         users.push(newUser);
         fs.writeFileSync(usersPath, JSON.stringify(users), "utf-8");
         
         res.redirect('/');}
         
-       
         else{
             console.log("Errores:", errors);
             console.log(req.body)
-             res.render('users/register', { errors:errors.array(), old:req.body, title: "registro" });
-/*         if (!errores.isEmpty()) {
-            console.log("Errores:", errores);
-            console.log(req.body)
-             res.render('users/register', { errores:errores.array(), old:req.body, title: "registro" });
-        }
-        else{
-        const {first_name, last_name, email, password, adress } = req.body;
-        const id = Date.now();
-        const newUser = {
-            id,
-            first_name: first_name.trim(),
-            last_name: last_name.trim(),
-            email: email.trim(),
-            password: bcrypt.hashSync(password, 10),
-            adress: adress.trim(),
-            admin: false,
-            image: req.file ? req.file.filename : "default.jpg",
-        };
-
-        users.push(newUser);
-        fs.writeFileSync(usersPath, JSON.stringify(users), "utf-8");
-        
-        res.redirect('users/login');} */
+            res.render('users/register', { errors:errors.array(), old:req.body, title: "registro" });
     }
 }
 }

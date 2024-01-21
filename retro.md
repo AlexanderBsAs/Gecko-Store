@@ -173,11 +173,14 @@ Preocuparse más por el trabajo de los demás, no dejar de lado nada, todo está
 Continuar haciendo 
 
 Distribuyendo la tareas de manera que si alguien está en desacuerdo poder escucharle y discutirlo.
+
 Seguir comprendiendo las diferentes situaciones de los integrantes, todo para llegar a un buen resultado.
+
 ------------------------------------------------------------------------------------------------------- 
 Hacer menos 
 
 Quedarse con dudas y trabajar aún con ellas.
+
 ------------------------------------------------------------------------------- 
 Dejar de hacer 
 

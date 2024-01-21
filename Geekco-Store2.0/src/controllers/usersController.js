@@ -51,8 +51,7 @@ const usersController = {
         return res.redirect('/')
     },
     userRegister: (req, res) => {
-        const json = fs.readFileSync(usersPath, "utf-8");
-        const users = JSON.parse(json);
+        const users = getJson('users')
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             const {first_name, last_name, email, password, adress } = req.body;
@@ -68,10 +67,12 @@ const usersController = {
             image: req.file ? req.file.filename : "default.jpg",
         };
         users.push(newUser);
-        fs.writeFileSync(usersPath, JSON.stringify(users), "utf-8");
+        setJson(users, 'users')
         res.redirect('/');}
         
         else{
+            console.log('Erorrs: ' + errors);
+            console.log(req.body);
             res.render('users/register', { errors:errors.array(), old:req.body, title: "registro" });
     }
 }

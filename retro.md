@@ -151,6 +151,73 @@ Dejar de hacer
 
 Dejar tareas para los últimos días de Sprint por considerar su importancia menor a la de las demás responsabilidades.
 
+------------------------RETRO SPRINT 3-----------------------------------------
+
+17/12/23
+
+-------------------------------------------------------------------------------
+¿Cómo nos sentimos respecto al anterior Sprint?
+
+Charlando entre todos llegamos a la conclusión que a diferencia de los anteriores sprints este fue un poco más liviano, lo que nos ayudó a lograr entender de una manera más completa cada tarea y responsabilidad del Sprint para su finalización, respecto al nuevo integrante, notamos que gracias a su incorporación y su adaptación se nos hizo más ameno el proceso del mismo, por lo cual sirve como incentivo para de cara a un futuro poder reconocer de manera más sencilla fortalezas o debilidades de cada integrante.
+
+-------------------------------------------------------------------------------
+Comenzar a hacer
+
+Si bien creemos que está bien organizar un horario fijo para las reuniones, también queremos empezar a cordinar un día fijo pero con un horario dinámico, para poder concretar este weekly, o también implementar reuniones de emergencias en caso de algún bloqueo o similar.
+
+-------------------------------------------------------------------------------
+Hacer más
+
+Revisar continuamente el trabajo, en busca de mejoras ya sea visuales o funcionales, siendo fiel al estilo original.
+
+-------------------------------------------------------------------------------
+Continuar haciendo
+
+Seguir siendo presentes en el uso de jira y github o cualquier medio de comunicación con los profesores.
+
+-------------------------------------------------------------------------------
+Hacer menos
+
+Enfocar demasiado tiempo en una tarea extra, para poder preguntar a los demás si necesitan ayuda en caso de no haber acabado con su tarea.
+
+-------------------------------------------------------------------------------
+Dejar de hacer
+
+Dejar tareas para los últimos días de Sprint por considerar su importancia menor a la de las demás responsabilidades.
+
+
+
+------------------------RETRO SPRINT 4-------------------------------------------------------------------------------------------
+
+----------------------------- 
+¿Cómo nos sentimos respecto al anterior Sprint? 
+
+Respecto al sprint anterior nos sentíamos algo preocupados por algunos descuidos a la hora de presentar las ultimas tareas hechas y entre tantas cosas que hacer nos olvidabamos de los ultimos detalles como fusionar las ramas, por otro lado sentimos que fue bastante tranquilo el desarrollo del mismo y sirvió para poder ponernos al día en diferentes temas.
+
+------------------------------------------------------------------------------- 
+Comenzar a hacer 
+
+Hablar de cómo va el trabajo en general y realizar conversaciones de cara a la entrega final, lo que queremos presentar.
+
+------------------------------------------------------------------------------- 
+
+Hacer más
+Preocuparse más por el trabajo de los demás, no dejar de lado nada, todo está conectado por lo que todo es importante de realizar correctamente.
+
+------------------------------------------------------------------------------- 
+Continuar haciendo 
+
+Distribuyendo la tareas de manera que si alguien está en desacuerdo poder escucharle y discutirlo.
+Seguir comprendiendo las diferentes situaciones de los integrantes, todo para llegar a un buen resultado.
+------------------------------------------------------------------------------------------------------- 
+Hacer menos 
+
+Quedarse con dudas y trabajar aún con ellas.
+------------------------------------------------------------------------------- 
+Dejar de hacer 
+
+Esperar que se ponga en duda el cómo va el proceso de ralización de una tarea y no comunicarlo.
+
 
 
 

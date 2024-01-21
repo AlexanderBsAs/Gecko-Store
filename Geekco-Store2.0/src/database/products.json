@@ -358,5 +358,17 @@
         "platform": "Nintendo Switch",
         "price": 69.99,
         "stock": 30
+    },
+    {
+        "category": "Figuras",
+        "description": "Figura pikachu oficial",
+        "discount": 25,
+        "id": 1705874605812,
+        "image": "image-1705874605783.jpg",
+        "installments": 6,
+        "name": "Figura pikachu",
+        "platform": "Merchandising Juguetes",
+        "price": 100000,
+        "stock": 12
     }
 ]

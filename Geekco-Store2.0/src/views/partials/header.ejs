@@ -26,13 +26,15 @@
                 <% if (locals.user) { %>
                     <!-- Mostrar contenido cuando el usuario está autenticado -->
                     <a href="/"><%= locals.user.first_name %> <%= locals.user.last_name %></a> 
+                    <a href="/users/logout">Cerrar sesión <i class="fa-solid fa-right-from-bracket"></i></a>
+
                 </div>
                     <a href="../productos/carrito"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
                 <% } else { %>
                     <!-- Mostrar contenido cuando el usuario no está autenticado -->
                     <span class="message-login-user">¡Inicia sesión!</span>
                     <span id="abrir__logeo1" class="btn__log"><i class="fa-regular fa-circle-user" style="color: #ffffff;"></i></span>
-                    <nav id="nav__logeo1" class="header__nav1">
+                    <nav class="header__nav1">
                         <ul>
                             <li><a href="../users/login">Ingresar</a></li>
                             <li><a href="../users/registro">Registrarse</a></li>
@@ -43,4 +45,4 @@
         </nav>
         <div class="header__gradient"></div>
     </header>
-    <script src="/js/main.js"></script>   
+    <script src="../../../public/js/main.js"></script>   

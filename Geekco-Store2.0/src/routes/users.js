@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {body}=require("express-validator")
-const {login,userLogin,register,userRegister} = require("../controllers/usersController")
+const {login,userLogin,register,userRegister,logout} = require("../controllers/usersController")
 const {loginValidationRules,validation} = require("../validations/loginValidator")
 const guestMiddleware = require('../Middlewares/guestMiddleware')
 const userAuthMiddleware = require('../Middlewares/userAuthMiddleware')
@@ -28,6 +27,10 @@ router.post('/login',loginValidationRules(), userLogin );
 
 router.get('/registro',register );
 router.post('/registro',userRegister );
+
+// Ruta de logout del usuario
+
+router.get('/logout', logout)
 
 
 module.exports = router;

@@ -19,7 +19,7 @@ let storage=multer.diskStorage({
     }
   })
   
-  let upload=multer({storage:storage})
+  let upload = multer({ storage: storage }).single('imagen');git 
 /* const {validacionRegistro} = require("../validations/registerValidator") */
 /* GET users listing. */
 router.get('/login',guestMiddleware,login );

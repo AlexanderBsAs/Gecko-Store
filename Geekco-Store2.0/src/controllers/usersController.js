@@ -70,6 +70,7 @@ const usersController = {
         users.push(newUser);
         fs.writeFileSync(usersPath, JSON.stringify(users), "utf-8");
         res.redirect('/');}
+        
         else{
             res.render('users/register', { errors:errors.array(), old:req.body, title: "registro" });
     }

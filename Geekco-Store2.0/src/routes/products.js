@@ -4,6 +4,7 @@ const {carrito,productDetail,productForm,create,dashboard,edit,productsList,upda
 const path = require("path")
 const multer = require('multer')
 const userAuthMiddleware = require('../Middlewares/userAuthMiddleware')
+const adminAuthMiddleware = require('../Middlewares/adminAuthMIddleware')
 
 //**Disk Storage**//
 var storage = multer.diskStorage({
@@ -24,7 +25,7 @@ router.get("/carrito",userAuthMiddleware, carrito);
 router.get('/detalles/:idProducto', productDetail)
 router.get("/productForm",userAuthMiddleware,productForm)
 router.post("/create", fileUpload.single("image"), create);
-router.get("/dashboard",userAuthMiddleware, dashboard);
+router.get("/dashboard",userAuthMiddleware ,adminAuthMiddleware, dashboard);
 router.get("/formUpdate/:id",userAuthMiddleware, edit);
 router.put("/formUpdate/:id",fileUpload.single("image"), update)
 router.get("/productsList",userAuthMiddleware, productsList)

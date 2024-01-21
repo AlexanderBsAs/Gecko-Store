@@ -3,6 +3,8 @@ const router = express.Router();
 const {body}=require("express-validator")
 const {login,userLogin,register,userRegister} = require("../controllers/usersController")
 const {loginValidationRules,validation} = require("../validations/loginValidator")
+const guestMiddleware = require('../Middlewares/guestMiddleware')
+const userAuthMiddleware = require('../Middlewares/userAuthMiddleware')
 const {validacionRegistro} = require("../validations/registerValidator")
 const multer=require("multer")
 const path=require("path")
@@ -25,7 +27,7 @@ router.get('/login',guestMiddleware,login );
 router.post('/login',loginValidationRules(), userLogin );
 
 router.get('/registro',register );
-router.post('/registro',upload.single(),validacionRegistro,userRegister );
+router.post('/registro',userRegister );
 
 
 module.exports = router;

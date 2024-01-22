@@ -52,7 +52,6 @@ const usersController = {
     },
     userRegister: (req, res) => {
         const errors = validationResult(req);
-
         if (errors.isEmpty()) {
         const users = getJson('users')
             const {first_name, last_name, email, password, adress } = req.body;
@@ -72,6 +71,7 @@ const usersController = {
         res.redirect('/');}
         
         else{
+
             res.render('users/register', { errors:errors.mapped(), old:req.body});
     }
 }

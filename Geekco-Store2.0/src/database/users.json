@@ -298,45 +298,5 @@
         "image": "gatopan.jpg",
         "last_name": "Smith",
         "password": "bO8>zPJsG?=>$D{"
-    },
-    {
-        "admin": false,
-        "adress": "asddd",
-        "email": "alexitorjlanus@gmail.com",
-        "first_name": "asd",
-        "id": 1705816322677,
-        "image": "default.jpg",
-        "last_name": "asd",
-        "password": "$2a$10$zGIvZ7J3MAxB2Tac0tHZW.l3nnjH.nuP.ZO0Q51a2y0qMz9LO3TDe"
-    },
-    {
-        "admin": false,
-        "adress": "asd",
-        "email": "alexitorjlanus@gmail.com",
-        "first_name": "asddd",
-        "id": 1705863894471,
-        "image": "default.jpg",
-        "last_name": "aaaaaaaaaaaaaaa",
-        "password": "$2a$10$M5y4I1XySIVROihBKe5dVepo1jrZkHugygTC27RZXztC0vyDaDGiC"
-    },
-    {
-        "admin": false,
-        "adress": "asd",
-        "email": "alexitorjlanus@gmail.com",
-        "first_name": "asddddddddddd",
-        "id": 1705864565100,
-        "image": "default.jpg",
-        "last_name": "asdasd",
-        "password": "$2a$10$M5c0JsMcCW6txzgjH6ejlug73Fy9FjAnT1xaqFTl0ejbYy2RSvzhS"
-    },
-    {
-        "admin": false,
-        "adress": "callefalsa123",
-        "email": "salomevega@gmail.com",
-        "first_name": "Salomé",
-        "id": 1705879023543,
-        "image": "image-1705879023403.jpg",
-        "last_name": "Vega",
-        "password": "$2a$10$owar5Ry3hFCPnR5qR8AA.OGOpPbUESS2TlrdVkpqxFIEwQxn5ibLG"
     }
 ]

@@ -37,51 +37,18 @@ let validacionRegistro=[
         return true
     }
     }),
-    body("confirm-password")
-   /*  .custom((value,{req})=>{
-        if(req.body.password==req.body.confirm-password){
-            return true
-        }
-        else{
-            throw new Error("las contraseñas no coinciden")
-        }
-    }) */
+    body("confirm_password")
     .custom((value,{req}) => {
         //Verifica que la contraseña sea idéntica a la confirmación de contraseña
         return value == req.body.password
     }).withMessage('Las contraseñas no coinciden'),
-    body("imagen")
+    body("image")
     .custom((value,{req})=>{
-       let extensiones=[".jpg",".jpeg",".png",".gif"]
-      if(req.file){
-        let extensionFile=path.extname(req.file.originalname)
-        if(extensiones.includes(extensionFile)){
-            return true
-        }
-        else{
-            throw new Error("Las extensiones permitidas son: "+extensiones.join(", "))
-        }
-
-      }
-      else{
-        throw new Error("debes cargar una imagen")
-      }
-/*        if(req.file)
-       { let extensionFile=path.extname(req.file.originalname)
-       let extension=extensiones.find(elemento=>{
-        elemento==extensionFile
-       })
-        if(extension){
-            return true
-          
-        }
-        else {  
-            throw new Error("las extensiones de archivos validas son: "+extensiones.join(", "))
-    }}
-    else{
-        throw new Error("Debes poner una imagen")
-    } */
-    }),
+    if (req.errorValidationImage) {
+        return false;
+    };
+    return true;
+    }).withMessage("No es un tipo de archivo valido")
     
-  ]
+]
 module.exports={validacionRegistro}

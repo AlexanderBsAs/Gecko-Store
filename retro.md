@@ -152,5 +152,39 @@ Dejar de hacer
 Dejar tareas para los últimos días de Sprint por considerar su importancia menor a la de las demás responsabilidades.
 
 
+------------------------RETRO SPRINT 4-------------------------------------------------------------------------------------------
+
+----------------------------- 
+¿Cómo nos sentimos respecto al anterior Sprint? 
+
+Respecto al sprint anterior nos sentíamos algo preocupados por algunos descuidos a la hora de presentar las ultimas tareas hechas y entre tantas cosas que hacer nos olvidabamos de los ultimos detalles como fusionar las ramas, por otro lado sentimos que fue bastante tranquilo el desarrollo del mismo y sirvió para poder ponernos al día en diferentes temas.
+
+------------------------------------------------------------------------------- 
+Comenzar a hacer 
+
+Hablar de cómo va el trabajo en general y realizar conversaciones de cara a la entrega final, lo que queremos presentar.
+
+------------------------------------------------------------------------------- 
+
+Hacer más
+Preocuparse más por el trabajo de los demás, no dejar de lado nada, todo está conectado por lo que todo es importante de realizar correctamente.
+
+------------------------------------------------------------------------------- 
+Continuar haciendo 
+
+Distribuyendo la tareas de manera que si alguien está en desacuerdo poder escucharle y discutirlo.
+
+Seguir comprendiendo las diferentes situaciones de los integrantes, todo para llegar a un buen resultado.
+
+------------------------------------------------------------------------------------------------------- 
+Hacer menos 
+
+Quedarse con dudas y trabajar aún con ellas.
+
+------------------------------------------------------------------------------- 
+Dejar de hacer 
+
+Esperar que se ponga en duda el cómo va el proceso de ralización de una tarea y no comunicarlo.
+
 
 

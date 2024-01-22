@@ -1,7 +1,12 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
-
+.session__header__on  a{
+    list-style-type: none;
+    text-decoration: none;
+    color: var(--color-turquoise);
+    font-size: 14px;
+}
 .header__gradient {
     height: 5px; /* Altura de la barra */
     width: 100%; /* Ancho completo del header */
@@ -27,6 +32,13 @@
       background-position: 100% 0; /* Mueve el gradiente hacia la derecha */
     }
   }
+  .session__header__on a {
+    list-style-type: none;
+    text-decoration: none;
+    color: var(--color-turquoise);
+    font-size: 8px;
+    padding: 0 3px;
+}
 #input{
     
     border: 1px solid white;
@@ -57,8 +69,10 @@
 }
 .message-login-user {
     color: #fff;
-    
+    font-size: 22px;
 }
+    
+
 header{
     background-color: rgb(11, 3, 46);
     width: 100%;
@@ -90,13 +104,7 @@ header div{
 }
 .header__nav1{
     display: none;
-    background-color: #551CA6;
-    position: absolute;
-    font-size: 16px;
-    margin: 3%;
-    top: 156px;
-    z-index: 10;
-    right: -11px;
+    
 }
 .header__nav1 ul {
     padding: 5px;
@@ -111,6 +119,8 @@ header div{
     font-size: 24px;
     display: flex;
     margin-left: 47%;
+    align-items: center;
+    gap: 5%;
 }
 
 .burger-menu{
@@ -164,6 +174,17 @@ header div{
 }
 
 @media(min-width:768px){
+    .session__header__on a {
+        list-style-type: none;
+        text-decoration: none;
+        color: var(--color-turquoise);
+        font-size: 15px;
+        padding: 0 3px;
+    }
+    .message-login-user {
+        color: #fff;
+        font-size: 27px;
+    }
     .nav-list li {
         list-style: none; 
         display: inline-block;
@@ -235,7 +256,7 @@ header div{
         padding: 0.66em;}
 
     #div a{
-        font-size: 30px;
+        font-size: 20px;
     color: white;
     display: flex;
     position: absolute;
@@ -250,6 +271,17 @@ header div{
         }
 }
 @media(min-width:1024px){
+    .session__header__on a {
+        list-style-type: none;
+        text-decoration: none;
+        color: var(--color-turquoise);
+        font-size: 20px;
+        padding: 0 5px;
+    }
+    .message-login-user {
+        color: #fff;
+        font-size: 40px;
+    }
     #div{
         margin-bottom:5%;
     }
@@ -260,6 +292,7 @@ header div{
     
     .header__nav2 {
         margin-left:45%;
+        gap: 5%;
     font-size: 45px;}
     #logo{
         width: 36%;
@@ -268,7 +301,15 @@ header div{
         left: 30%;
 }
 .header__nav1 {
+    background-color: var(--color-turquoise);
+    position: absolute;
+    font-size: 16px;
+    margin: 3%;
+    top: 70px;
+    z-index: 10;
     right: -28px;
+    border-radius: 20%;
+
 }.header__nav1 ul {
     font-size: 26px;
     gap: 13px;
@@ -290,6 +331,13 @@ header div{
         right: 7%;
         top: 13%;
     }
+    .header__nav2 {
+        margin-left: 48%;
+        align-items: center;
+        gap: 5%;
+        
+    }
+  
     .session__header__on{
         color: aliceblue;
         display: contents;
@@ -300,8 +348,6 @@ header div{
         margin-left: 16%;
         top: 45px;
     }
-    .header__nav2 {
-        margin-left: 48%;}
         .header__nav1 {
             right: -36px;
             top: -9px;

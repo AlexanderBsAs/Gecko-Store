@@ -1,6 +1,7 @@
 const fs = require("fs")
 const path = require("path")
 const { validationResult } = require('express-validator');
+const {getJson, setJson} = require('../utility/jsonMethod')
 const bcrypt = require('bcryptjs');
 const usersPath = path.join(__dirname, "../database/users.json");
 const json = fs.readFileSync(usersPath, "utf-8");
@@ -12,8 +13,8 @@ const usersController = {
         
     },
     userLogin: (req, res) => {  
-        const json = fs.readFileSync(usersPath, "utf-8");
-        const users = JSON.parse(json);
+        const users = getJson('users')
+   
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             console.log(errors);
@@ -29,9 +30,11 @@ const usersController = {
         req.session.user = {
             email: userLogged.email,
             first_name: userLogged.first_name,
-            last_name: userLogged.last_name
+            last_name: userLogged.last_name,
+            admin: userLogged.admin
         }
         res.locals.user = req.session.user;
+     
         console.log(req.session.user)
         console.log('Usuario autenticado:', userLogged);
         res.redirect('/');}
@@ -41,11 +44,15 @@ const usersController = {
         const users = JSON.parse(json);
         res.render("users/register")
     },
+    logout: (req,res)=>{
+        res.clearCookie('remember')
+        req.session.destroy();
+        return res.redirect('/')
+    },
     userRegister: (req, res) => {
-        const json = fs.readFileSync(usersPath, "utf-8");
-        const users = JSON.parse(json);
-        let errors = validationResult(req);
+        const errors = validationResult(req);
         if (errors.isEmpty()) {
+        const users = getJson('users')
             const {first_name, last_name, email, password, adress } = req.body;
         const id = Date.now();
         const newUser = {
@@ -59,14 +66,12 @@ const usersController = {
             image: req.file ? req.file.filename : "default.jpg",
         };
         users.push(newUser);
-        fs.writeFileSync(usersPath, JSON.stringify(users), "utf-8");
-        
+        setJson(users, 'users')
         res.redirect('/');}
         
         else{
-            console.log("Errores:", errors);
-            console.log(req.body)
-            res.render('users/register', { errors:errors.array(), old:req.body, title: "registro" });
+
+            res.render('users/register', { errors:errors.mapped(), old:req.body});
     }
 }
 }

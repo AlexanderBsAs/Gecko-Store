@@ -25,7 +25,7 @@ router.get('/login',login );
 router.post('/login',loginValidationRules(), userLogin );
 
 router.get('/registro',register );
-router.post('/registro',upload.single(),validacionRegistro,userRegister );
+router.post('/registro',upload.single("imagen"),validacionRegistro,userRegister );
 
 
 module.exports = router;

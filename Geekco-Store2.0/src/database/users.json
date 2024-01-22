@@ -298,5 +298,15 @@
         "image": "gatopan.jpg",
         "last_name": "Smith",
         "password": "bO8>zPJsG?=>$D{"
+    },
+    {
+        "id": 1705945961392,
+        "first_name": "alejandrito",
+        "last_name": "Vera",
+        "email": "ale@ale.com",
+        "password": "$2a$10$WInTt.Jnj/jh0qd4Chf7R.RwuWU2afG5bzP/TRCmY7h4nPWynxO0G",
+        "adress": "123",
+        "admin": false,
+        "image": "default.jpg"
     }
 ]

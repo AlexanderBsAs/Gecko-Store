@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {body}=require("express-validator")
 const {login,userLogin,register,userRegister} = require("../controllers/usersController")
-const {loginValidationRules,validation} = require("../validations/loginValidator")
+const loginValidationRules = require("../validations/loginValidator")
 const {validacionRegistro} = require("../validations/registerValidator")
 const multer=require("multer")
 const path=require("path")
@@ -18,14 +18,14 @@ let storage=multer.diskStorage({
     }
   })
   
-  let upload = multer({ storage: storage }).single('imagen');git 
+  let upload = multer({ storage: storage })
 /* const {validacionRegistro} = require("../validations/registerValidator") */
 /* GET users listing. */
 router.get('/login',login );
-router.post('/login',loginValidationRules(), userLogin );
+router.post('/login',loginValidationRules, userLogin );
 
 router.get('/registro',register );
-router.post('/registro',upload.single(),validacionRegistro,userRegister );
+router.post('/registro',upload.single("image"),validacionRegistro,userRegister );
 
 
 module.exports = router;

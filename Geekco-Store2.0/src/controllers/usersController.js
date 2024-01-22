@@ -8,13 +8,8 @@ const users = JSON.parse(json);
 
 const usersController = {
     login: (req, res) => {
-        const json = fs.readFileSync(usersPath, "utf-8");
-        const users = JSON.parse(json);
-        if (res.locals.errors) {
-            res.render('users/login', { errors: res.locals.errors });
-        } else {
-            res.render('users/login', { errors: [] });
-        }
+            res.render('users/login');
+        
     },
     userLogin: (req, res) => {  
               const json = fs.readFileSync(usersPath, "utf-8");
@@ -22,8 +17,7 @@ const usersController = {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             console.log(errors);
-            res.locals.errors = errors.array();
-            return res.render('users/login', { errors: res.locals.errors });
+            return res.render('users/login', { errors: errors.array() });
         }
 
         const { email, password, remember } = req.body;

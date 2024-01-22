@@ -1,7 +1,7 @@
 const nav = document.querySelector("#nav");
 const abrir = document.querySelector("#abrir");
 const abrirlog = document.querySelector("#abrir__logeo1");
-const navlog = document.querySelector("#nav__logeo1");
+const navlog = document.querySelector(".header__nav1");
 
 abrirlog.addEventListener("click",()=>{
 if (navlog.style.display === "none") {

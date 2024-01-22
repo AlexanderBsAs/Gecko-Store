@@ -3,11 +3,13 @@ const router = express.Router();
 const {carrito,productDetail,productForm,create,dashboard,edit,productsList,update, destroy} = require("../controllers/productsController")
 const path = require("path")
 const multer = require('multer')
+const userAuthMiddleware = require('../Middlewares/userAuthMiddleware')
+const adminAuthMiddleware = require('../Middlewares/adminAuthMIddleware')
 
 //**Disk Storage**//
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        const dataBase = path.join(__dirname, "../../public/images");
+        const dataBase = path.join(__dirname, "../../public/images/products");
       cb(null, dataBase)
     },
     filename:  (req, file, cb) =>{
@@ -18,15 +20,15 @@ var storage = multer.diskStorage({
 var fileUpload = multer({ storage: storage })
 //__________________________________________________//
 
-router.get("/carrito", carrito);
+router.get("/carrito",userAuthMiddleware, carrito);
 // router.get('/detalles',detalles );
 router.get('/detalles/:idProducto', productDetail)
-router.get("/productForm",productForm)
+router.get("/productForm",userAuthMiddleware,productForm)
 router.post("/create", fileUpload.single("image"), create);
-router.get("/dashboard", dashboard);
-router.get("/formUpdate/:id", edit);
+router.get("/dashboard",userAuthMiddleware ,adminAuthMiddleware, dashboard);
+router.get("/formUpdate/:id",userAuthMiddleware, edit);
 router.put("/formUpdate/:id",fileUpload.single("image"), update)
-router.get("/productsList", productsList)
+router.get("/productsList",userAuthMiddleware, productsList)
 router.delete('/delete/:id', destroy)
 // router.put('/update', update);
 

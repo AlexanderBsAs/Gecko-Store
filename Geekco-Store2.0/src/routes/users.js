@@ -5,25 +5,31 @@ const {
   userLogin,
   register,
   userRegister,
+  logout,
   userUpdateForm,
   userUpdate,
   updatePasswordForm,
   updatePassword,
 } = require("../controllers/usersController");
-const {
-  loginValidationRules,
-  validation,
-} = require("../validations/loginValidator");
+const loginValidationRules = require("../validations/loginValidator")
+const guestMiddleware = require('../Middlewares/guestMiddleware')
+const userAuthMiddleware = require('../Middlewares/userAuthMiddleware')
+const {validacionRegistro} = require("../validations/registerValidator")
+const upload = require('../validations/uploadUser');
+
 const {
   userUpdateValidator,
   userUpdatePasswordValidator,
 } = require("../validations/userUpdateValidator");
-/* GET users listing. */
-router.get("/login", login);
-router.post("/login", loginValidationRules(), userLogin);
 
-router.get("/registro", register);
-router.post("/registro", userRegister);
+
+/* GET users listing. */
+router.get('/login',guestMiddleware,login );
+router.post('/login',loginValidationRules, userLogin );
+router.get('/registro',guestMiddleware,register );
+router.post('/registro',upload.single('image'),validacionRegistro,userRegister );
+// Ruta de logout del usuario
+router.get('/logout', logout)
 
 router.get("/update/:id", userUpdateForm);
 router.put("/update/:id", userUpdateValidator(), userUpdate);

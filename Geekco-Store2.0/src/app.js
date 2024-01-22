@@ -11,6 +11,11 @@ var productsRouter = require('./routes/products.js');
 var rememberMiddleware = require("./Middlewares/rememberMe.js")
 var app = express();
 
+const bodyParser = require('body-parser');
+
+// Configurar body-parser para analizar datos de formulario
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -21,7 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(methodOverride("_method"))
-app.use(session({secret: "Secretgecko123",resave: true,
+app.use(session({secret: "Secretgecko123",resave: false,
 saveUninitialized: true}))
 app.use((req, res, next) => {
   res.locals.user = req.session.user;

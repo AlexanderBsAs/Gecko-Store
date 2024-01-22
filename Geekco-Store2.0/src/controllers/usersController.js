@@ -70,7 +70,7 @@ const usersController = {
         res.redirect('/');}
         
         else{
-
+          console.log(errors);
             res.render('users/register', { errors:errors.mapped(), old:req.body});
     }
 },

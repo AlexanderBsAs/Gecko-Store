@@ -2,16 +2,6 @@
     {
         "admin": true,
         "adress": "calle falsa 123",
-        "email": "lili.49_@outlook.com",
-        "first_name": "Liliana",
-        "id": 1,
-        "image": "gatopan.jpg",
-        "last_name": "Almirón",
-        "password": "wB6%649qz5A>7rN>"
-    },
-    {
-        "admin": true,
-        "adress": "calle falsa 123",
         "email": "gaby_robles@outlook.com",
         "first_name": "Gabriel",
         "id": 2,
@@ -300,13 +290,23 @@
         "password": "bO8>zPJsG?=>$D{"
     },
     {
-        "id": 1705945961392,
-        "first_name": "alejandrito",
-        "last_name": "Vera",
-        "email": "ale@ale.com",
-        "password": "$2a$10$WInTt.Jnj/jh0qd4Chf7R.RwuWU2afG5bzP/TRCmY7h4nPWynxO0G",
-        "adress": "123",
         "admin": false,
-        "image": "default.jpg"
+        "adress": "123",
+        "email": "ale@ale.com",
+        "first_name": "alejandrito",
+        "id": 1705945961392,
+        "image": "default.jpg",
+        "last_name": "Vera",
+        "password": "$2a$10$WInTt.Jnj/jh0qd4Chf7R.RwuWU2afG5bzP/TRCmY7h4nPWynxO0G"
+    },
+    {
+        "admin": false,
+        "adress": "calle falsa 123",
+        "email": "lili.49_@outlook.com",
+        "first_name": "Liliana",
+        "id": 1705961748593,
+        "image": "image-1705961748418.jpg",
+        "last_name": "Almirón",
+        "password": "$2a$10$iZ1kDPcrQBE/5MqbIcvFDepwtAhHdKQ08kS0ITNepqDhQQ3kuwvaW"
     }
 ]

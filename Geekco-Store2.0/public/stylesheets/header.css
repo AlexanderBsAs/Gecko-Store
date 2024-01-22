@@ -280,10 +280,20 @@ header div{
 }
 }
 @media(min-width: 1400px){
+    #abrir__logeo1{
+        font-size: 42px;
+    }
+    .message-login-user {
+        color: #fff;
+        font-size: 25px;
+        position: absolute;
+        right: 7%;
+        top: 13%;
+    }
     .session__header__on{
-        font-size: 20px;
         color: aliceblue;
         display: contents;
+        font-size: 23px;
     }
     .nav-list {
         gap: 140px;

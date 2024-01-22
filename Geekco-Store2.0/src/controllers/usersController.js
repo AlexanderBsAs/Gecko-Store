@@ -12,7 +12,7 @@ const usersController = {
         
     },
     userLogin: (req, res) => {  
-              const json = fs.readFileSync(usersPath, "utf-8");
+        const json = fs.readFileSync(usersPath, "utf-8");
         const users = JSON.parse(json);
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -21,7 +21,8 @@ const usersController = {
         }
 
         const { email, password, remember } = req.body;
-        const userLogged = users.find(user => user.email === email && user.password === password);
+        const userLogged = users.find(user => user.email === email);
+        if (userLogged && bcrypt.compareSync(password, userLogged.password)) {    
         if (remember) {
             res.cookie('remember', 'true', { maxAge: 30 * 24 * 60 * 60 * 1000 }); // Cookie válida por 30 días
         }
@@ -33,7 +34,7 @@ const usersController = {
         res.locals.user = req.session.user;
         console.log(req.session.user)
         console.log('Usuario autenticado:', userLogged);
-        res.redirect('/');
+        res.redirect('/');}
     },
     register: (req, res) => {
         const json = fs.readFileSync(usersPath, "utf-8");

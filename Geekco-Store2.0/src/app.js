@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(methodOverride("_method"))
-app.use(session({secret: "Secretgecko123",resave: true,
+app.use(session({secret: "Secretgecko123",resave: false,
 saveUninitialized: true}))
 app.use((req, res, next) => {
   res.locals.user = req.session.user;

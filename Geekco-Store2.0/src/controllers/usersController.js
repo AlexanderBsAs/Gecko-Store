@@ -51,9 +51,10 @@ const usersController = {
         return res.redirect('/')
     },
     userRegister: (req, res) => {
-        const users = getJson('users')
-        let errors = validationResult(req);
+        const errors = validationResult(req);
+
         if (errors.isEmpty()) {
+        const users = getJson('users')
             const {first_name, last_name, email, password, adress } = req.body;
         const id = Date.now();
         const newUser = {
@@ -71,9 +72,7 @@ const usersController = {
         res.redirect('/');}
         
         else{
-            console.log('Erorrs: ' + errors);
-            console.log(req.body);
-            res.render('users/register', { errors:errors.array(), old:req.body, title: "registro" });
+            res.render('users/register', { errors:errors.mapped(), old:req.body});
     }
 }
 }

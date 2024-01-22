@@ -73,6 +73,131 @@ const usersController = {
 
             res.render('users/register', { errors:errors.mapped(), old:req.body});
     }
-}
+},
+userUpdateForm: (req, res) => {
+    const usuarios = fs.readFileSync(
+      path.join(__dirname, "../database/users.json"),
+      "utf-8"
+    );
+    const users = JSON.parse(usuarios);
+
+    const id = +req.params.id;
+    const usuario = users.find((usuario) => usuario.id == id);
+    console.log(usuario);
+    res.render("users/userUpdate", {
+      usuario,
+      id,
+    });
+  },
+  userUpdate: (req, res) => {
+    try {
+      const usuarios = fs.readFileSync(
+        path.join(__dirname, "../database/users.json"),
+        "utf-8"
+      );
+      const { first_name, last_name, adress } = req.body;
+      const { id } = req.params;
+      const users = JSON.parse(usuarios);
+      const usuario = users.find((usuario) => usuario.id == id);
+      const errores = validationResult(req);
+      if (!errores.isEmpty()) {
+        res.render("users/userUpdate", {
+          usuario,
+          id,
+          errores: errores.mapped(),
+        });
+      } else {
+        const userUpdate = {
+          id: usuario.id,
+          first_name,
+          last_name,
+          email: usuario.email,
+          admin: usuario.admin,
+          password: usuario.password,
+          adress,
+          image: usuario.image,
+        };
+        let usersList = users.map((elemento) => {
+          if (elemento.id == id) {
+            return userUpdate;
+          } else {
+            return elemento;
+          }
+        });
+        let jsonUpdate = JSON.stringify(usersList);
+
+        fs.writeFileSync(
+          path.join(__dirname, "../database/users.json"),
+          jsonUpdate,
+          "utf-8"
+        );
+        res.redirect("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  updatePasswordForm: (req, res) => {
+    const usuarios = fs.readFileSync(
+      path.join(__dirname, "../database/users.json"),
+      "utf-8"
+    );
+    const users = JSON.parse(usuarios);
+
+    const id = +req.params.id;
+    const usuario = users.find((usuario) => usuario.id == id);
+    console.log(usuario);
+    res.render("users/passwordUpdate", { usuario, id });
+  },
+
+  updatePassword: (req, res) => {
+    try {
+      const usuarios = fs.readFileSync(
+        path.join(__dirname, "../database/users.json"),
+        "utf-8"
+      );
+      const { password } = req.body;
+      const { id } = req.params;
+      const users = JSON.parse(usuarios);
+      const usuario = users.find((usuario) => usuario.id == id);
+      const errores = validationResult(req);
+      if (!errores.isEmpty()) {
+        res.render("users/passwordUpdate", {
+          usuario,
+          id,
+          errores: errores.mapped(),
+        });
+      } else {
+        const userUpdate = {
+          id: usuario.id,
+          first_name: usuario.first_name,
+          last_name: usuario.last_name,
+          email: usuario.email,
+          admin: usuario.admin,
+          password: bcrypt.hashSync(password, 10),
+          adress: usuario.adress,
+          image: usuario.image,
+        };
+        let usersList = users.map((elemento) => {
+          if (elemento.id == id) {
+            return userUpdate;
+          } else {
+            return elemento;
+          }
+        });
+        let jsonUpdate = JSON.stringify(usersList);
+
+        fs.writeFileSync(
+          path.join(__dirname, "../database/users.json"),
+          jsonUpdate,
+          "utf-8"
+        );
+        res.redirect("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 module.exports = usersController;

@@ -26,6 +26,7 @@
                 <% if (locals.user) { %>
                     <!-- Mostrar contenido cuando el usuario está autenticado -->
                     <a href="/"><%= locals.user.first_name %> <%= locals.user.last_name %></a> 
+                    <a href="/users/update/<%= locals.user.id %>">Editar perfil</a>
                     <a href="/users/logout">Cerrar sesión <i class="fa-solid fa-right-from-bracket"></i></a>
 
                 </div>

@@ -46,7 +46,7 @@ const userUpdatePasswordValidator = () => {
         );
         const users = JSON.parse(usuarios);
         const usuario = users.find((usuario) => usuario.id == id);
-        return !bcrypt.compareSync(value, usuario.password);
+        return bcrypt.compareSync(value, usuario.password);
       })
       .withMessage("Contraseña incorrecta")
       .bail(),

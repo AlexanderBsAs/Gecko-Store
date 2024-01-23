@@ -25,18 +25,7 @@ let validacionRegistro=[
     })
     .isEmail().withMessage("debes escribir un mail valido"),
     body("password").notEmpty().withMessage("*Debes especificar una contraseña").bail(),
-    body("adress").notEmpty().withMessage("*Debes poner una direccion").bail()
-    .custom((value,{req})=>{
-        let adress=users.find((elemento)=>{
-            return elemento.adress==req.body.adress
-        })
-        if(adress){
-            throw new Error("esa direccion ya existe")
-        }
-        else {
-        return true
-    }
-    }),
+    body("adress").notEmpty().withMessage("*Debes poner una direccion").bail(),
     body("confirm_password")
     .custom((value,{req}) => {
         //Verifica que la contraseña sea idéntica a la confirmación de contraseña

@@ -25,13 +25,14 @@ const usersController = {
         const userLogged = users.find(user => user.email === email);
         if (userLogged && bcrypt.compareSync(password, userLogged.password)) {    
         if (remember) {
-            res.cookie('remember', 'true', { maxAge: 30 * 24 * 60 * 60 * 1000 }); // Cookie válida por 30 días
+            res.cookie('remember', req.body.email, { maxAge: 30 * 24 * 60 * 60 * 1000 }); // Cookie válida por 30 días
         }
         req.session.user = {
             email: userLogged.email,
             first_name: userLogged.first_name,
             last_name: userLogged.last_name,
-            admin: userLogged.admin
+            admin: userLogged.admin,
+            id: userLogged.id
         }
         res.locals.user = req.session.user;
      

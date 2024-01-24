@@ -25,7 +25,12 @@
             <div class="session__header__on">
                 <% if (locals.user) { %>
                     <!-- Mostrar contenido cuando el usuario está autenticado -->
+<<<<<<< HEAD
                     <a href="/users/update/<%=locals.user.id %>"><%= locals.user.first_name %> <%= locals.user.last_name %></a> 
+=======
+                    <a href="/"><%= locals.user.first_name %> <%= locals.user.last_name %></a> 
+                    <a href="/users/update/<%= locals.user.id %>">Editar perfil</a>
+>>>>>>> 091d9e3f2c6bf0b2d94c05319745eebe0f7c3d1b
                     <a href="/users/logout">Cerrar sesión <i class="fa-solid fa-right-from-bracket"></i></a>
 
                 </div>

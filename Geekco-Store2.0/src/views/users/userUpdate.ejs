@@ -15,7 +15,12 @@
 
           <div class="input-data">
             <label for="first_name">Nombre</label>
-            <input type="text" name="first_name" id="first_name" />
+            <input
+              type="text"
+              name="first_name"
+              id="first_name"
+              value="<%=usuario.first_name %>"
+            />
             <span class="asterisk-form">*</span>
             <p>
               <%= locals.errores && errores.first_name ? errores.first_name.msg
@@ -24,7 +29,12 @@
           </div>
           <div class="input-data">
             <label for="last_name">Apellido</label>
-            <input type="text" name="last_name" id="last_name" />
+            <input
+              type="text"
+              name="last_name"
+              id="last_name"
+              value="<%=usuario.last_name %>"
+            />
             <span class="asterisk-form">*</span>
             <p>
               <%= locals.errores && errores.last_name ? errores.last_name.msg :
@@ -34,7 +44,12 @@
 
           <div class="input-data">
             <label for="adress">Domicilio</label>
-            <input type="text" name="adress" id="adress" />
+            <input
+              type="text"
+              name="adress"
+              id="adress"
+              value="<%=usuario.adress %>"
+            />
             <p>
               <%= locals.errores && errores.adress ? errores.adress.msg : null
               %>

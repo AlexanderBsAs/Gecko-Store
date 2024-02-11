@@ -19,7 +19,7 @@ const userUpdateValidator = () => {
       .isLength({ min: 3, max: 10 })
       .withMessage("Debe tener entre 3 y 10 caracteres")
       .bail(),
-    body("adress")
+    body("address")
       .notEmpty()
       .withMessage("Introducir domicilio")
       .bail()

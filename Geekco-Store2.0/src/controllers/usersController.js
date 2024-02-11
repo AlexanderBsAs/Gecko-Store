@@ -54,7 +54,7 @@ const usersController = {
         const errors = validationResult(req);
         if (errors.isEmpty()) {
         const users = getJson('users')
-            const {first_name, last_name, email, password, adress } = req.body;
+            const {first_name, last_name, email, password, address } = req.body;
         const id = Date.now();
         const newUser = {
             id,
@@ -62,7 +62,7 @@ const usersController = {
             last_name: last_name.trim(),
             email: email.trim(),
             password: bcrypt.hashSync(password, 10),
-            adress: adress.trim(),
+            address: address.trim(),
             admin: false,
             image: req.file ? req.file.filename : "default.jpg",
         };
@@ -96,7 +96,7 @@ userUpdateForm: (req, res) => {
         path.join(__dirname, "../database/users.json"),
         "utf-8"
       );
-      const { first_name, last_name, adress } = req.body;
+      const { first_name, last_name, address } = req.body;
       const { id } = req.params;
       const users = JSON.parse(usuarios);
       const usuario = users.find((usuario) => usuario.id == id);
@@ -115,7 +115,7 @@ userUpdateForm: (req, res) => {
           email: usuario.email,
           admin: usuario.admin,
           password: usuario.password,
-          adress,
+          address,
           image: usuario.image,
         };
         let usersList = users.map((elemento) => {
@@ -177,7 +177,7 @@ userUpdateForm: (req, res) => {
           email: usuario.email,
           admin: usuario.admin,
           password: bcrypt.hashSync(password, 10),
-          adress: usuario.adress,
+          address: usuario.address,
           image: usuario.image,
         };
         let usersList = users.map((elemento) => {

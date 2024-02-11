@@ -23,10 +23,10 @@ var fileUpload = multer({ storage: storage })
 router.get("/carrito",userAuthMiddleware, carrito);
 // router.get('/detalles',detalles );
 router.get('/detalles/:idProducto', productDetail)
-router.get("/productForm",userAuthMiddleware,productForm)
+router.get("/productForm",userAuthMiddleware,adminAuthMiddleware,productForm)
 router.post("/create", fileUpload.single("image"), create);
 router.get("/dashboard",userAuthMiddleware ,adminAuthMiddleware, dashboard);
-router.get("/formUpdate/:id",userAuthMiddleware, edit);
+router.get("/formUpdate/:id",userAuthMiddleware,adminAuthMiddleware, edit);
 router.put("/formUpdate/:id",fileUpload.single("image"), update)
 router.get("/productsList",userAuthMiddleware, productsList)
 router.delete('/delete/:id', destroy)

@@ -26,15 +26,15 @@ const {
 /* GET users listing. */
 router.get('/login',guestMiddleware,login );
 router.post('/login',loginValidationRules, userLogin );
-router.get('/registro',guestMiddleware,register );
+router.get('/registro',guestMiddleware,validacionRegistro,register );
 router.post('/registro',upload.single('image'),validacionRegistro,userRegister );
 // Ruta de logout del usuario
 router.get('/logout', logout)
 
-router.get("/update/:id", userUpdateForm);
+router.get("/update/:id",userAuthMiddleware, userUpdateForm);
 router.put("/update/:id", userUpdateValidator(), userUpdate);
 
-router.get("/passwordUpdate/:id", updatePasswordForm);
+router.get("/passwordUpdate/:id",userAuthMiddleware, updatePasswordForm);
 router.put(
   "/passwordUpdate/:id",
   userUpdatePasswordValidator(),

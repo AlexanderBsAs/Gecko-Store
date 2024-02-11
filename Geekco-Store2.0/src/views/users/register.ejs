@@ -47,10 +47,10 @@
                 </div>
             </div>
             <div class="input-data">
-                <label for="adress">Domicilio</label>
-                <input type="text" name="adress" id="direction-user" value="<%= locals.old&&old.adress? old.adress:``  %>">
+                <label for="direction-user">Domicilio</label>
+                <input type="text" name="address" id="direction-user" value="<%= locals.old&&old.address? old.address:``  %>">
                 <div class="text-error">
-                <% if(locals.errors && errors.adress){ %>
+                <% if(locals.errors && errors.address){ %>
                     <p><%= errors.address.msg  %></p>
                     <% } %>
                 </div>

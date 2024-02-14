@@ -25,7 +25,7 @@ let validacionRegistro=[
     })
     .isEmail().withMessage("debes escribir un mail valido"),
     body("password").notEmpty().withMessage("*Debes especificar una contraseña").bail(),
-    body("adress").notEmpty().withMessage("*Debes poner una direccion").bail(),
+    body("address").notEmpty().withMessage("*Debes poner una direccion").bail(),
     body("confirm_password")
     .custom((value,{req}) => {
         //Verifica que la contraseña sea idéntica a la confirmación de contraseña

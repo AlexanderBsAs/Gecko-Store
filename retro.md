@@ -186,5 +186,36 @@ Dejar de hacer
 
 Esperar que se ponga en duda el cómo va el proceso de ralización de una tarea y no comunicarlo.
 
+---------------------------------------------------------Retro Sprint 5------------------------------------------------------------------------
+----------------------------- 14/02/2024.
+¿Cómo nos sentimos respecto al anterior Sprint? 
+
+-Nos sentimos un poco mas fluidos, controlando cada vez mas los tiempos de desarrollo y entrega.
+------------------------------
+Comenzar a hacer 
 
 
+-Mejorar la organización del grupo en cuanto a lo cooperativo
+
+------------------------------
+Hacer más
+
+-Apoyarnos en las tareas mas complejas
+
+------------------------------
+Continuar haciendo 
+
+
+-Seguir en comunicación
+
+-------------------------------
+Hacer menos 
+
+-Dejar para ultimo ciertas actividades
+
+-------------------------------
+Dejar de hacer 
+
+-Procastinar 
+
+-------------------------------------------------------------------------------FIN------------------------------------------------------------------

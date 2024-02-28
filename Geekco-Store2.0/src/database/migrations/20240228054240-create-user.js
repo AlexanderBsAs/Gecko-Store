@@ -16,7 +16,7 @@ module.exports = {
         unsigned:true,
         references:{
           model:{
-            tableName:"Rols"
+            tableName:"rols"
           },
           key:"id"
         },

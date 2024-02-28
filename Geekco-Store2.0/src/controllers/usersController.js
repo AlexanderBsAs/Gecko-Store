@@ -6,6 +6,9 @@ const bcrypt = require('bcryptjs');
 const usersPath = path.join(__dirname, "../database/users.json");
 const json = fs.readFileSync(usersPath, "utf-8");
 const users = JSON.parse(json);
+const db = require('../models/index');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
 
 const usersController = {
     login: (req, res) => {
@@ -199,6 +202,17 @@ userUpdateForm: (req, res) => {
     } catch (error) {
       console.log(error);
     }
+  },
+  listUsers:(req,res)=>{
+    console.log(db.User)
+    db.User.findAll()
+    .then(resultado=>{
+          res.render("users/listUsers",{users:resultado})
+    })
+    .catch(error=>{
+      res.send(error)
+    })
+
   }
 }
 module.exports = usersController;

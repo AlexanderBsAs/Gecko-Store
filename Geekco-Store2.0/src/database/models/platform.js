@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.hasMany(models.Product,{
-        as:"platforms",
+        as:"products",
         foreignKey:"platform_id"
       })
     }

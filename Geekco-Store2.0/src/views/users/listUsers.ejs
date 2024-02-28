@@ -20,13 +20,19 @@
     <br><br>
     <h1>LISTADO DE ACTORES</h1>
     <ul>
-        <% for( let i = 0; i <users.length; i++ ) { %>
-        <li>
-            <a href="/actors/detail/<%= users[i].id %>"><%= users[i].first_name+ " "+ users[i].last_name %></a>
+ 
 
+        <p><% products.forEach(elemento=>{%>
+            <%= elemento.name   %>
+            <br>
+            <%= "categoria"+ " " + elemento.categories.name %>
+            <br>
+            <%= "platform "+ " "+ (elemento.platforms ? elemento.platforms.name : "no tiene plataforma") %>
+            <br>
+            <%= "brands "+ " "+ (elemento.brands ? elemento.brands.name : "no tiene plataforma") %>
+            -----------------------
+        <%  }) %></p>
 
-        </li>
-        <% } %>
 
 
 

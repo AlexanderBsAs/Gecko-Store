@@ -204,15 +204,27 @@ userUpdateForm: (req, res) => {
     }
   },
   listUsers:(req,res)=>{
-    console.log(db.User)
-    db.User.findAll()
+    /* console.log(db.User) */
+/*     db.User.findAll({
+      include: [
+        { association: "rols" },
+      ],
+    })
     .then(resultado=>{
           res.render("users/listUsers",{users:resultado})
     })
     .catch(error=>{
       res.send(error)
+    }) */
+    db.Product.findAll({
+      include:[{association:"categories"},
+    {association:"platforms"},{association:"brands"}]
+    }).then(resultado=>{
+      res.render("users/listUsers",{products:resultado})
     })
-
+    .catch(error=>{
+      res.send(error)
+    })
   }
 }
 module.exports = usersController;

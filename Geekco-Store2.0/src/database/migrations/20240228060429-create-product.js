@@ -22,7 +22,7 @@ module.exports = {
         allowNull: false,
         unsigned:true
       },
-      installmentes: {
+      installments: {
         type: Sequelize.INTEGER,
         allowNull: true,
         unsigned:true

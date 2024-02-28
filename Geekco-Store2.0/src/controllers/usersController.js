@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 const usersPath = path.join(__dirname, "../database/users.json");
 const json = fs.readFileSync(usersPath, "utf-8");
 const users = JSON.parse(json);
-const db = require('../models/index');
+const db = require('../database/models/index');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 

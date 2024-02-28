@@ -11,6 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.hasMany(models.User,{
+        as:"users",
+        foreignKey:"user_id"
+      })
+      this.hasMany(models.Status,{
+        as:"statuses",
+        foreignKey:"statuses_io"
+      })
     }
   }
   Cart.init({

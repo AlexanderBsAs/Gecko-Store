@@ -205,9 +205,9 @@ userUpdateForm: (req, res) => {
   },
   listUsers:(req,res)=>{
     /* console.log(db.User) */
-/*     db.User.findAll({
+    db.User.findAll({
       include: [
-        { association: "rols" },
+        { association: "rols" },{association:"carts"},{association:"addresses"}
       ],
     })
     .then(resultado=>{
@@ -215,8 +215,8 @@ userUpdateForm: (req, res) => {
     })
     .catch(error=>{
       res.send(error)
-    }) */
-    db.Product.findAll({
+    })
+    /* db.Product.findAll({
       include:[{association:"categories"},
     {association:"platforms"},{association:"brands"}]
     }).then(resultado=>{
@@ -224,7 +224,7 @@ userUpdateForm: (req, res) => {
     })
     .catch(error=>{
       res.send(error)
-    })
+    }) */
   }
 }
 module.exports = usersController;

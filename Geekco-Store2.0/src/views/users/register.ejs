@@ -56,6 +56,15 @@
                 </div>
             </div>
             <div class="input-data">
+                <label for="birthday-user">Fecha de nacimiento</label>
+                <input type="date" name="birthday" id="birthday-user" value="<%= locals.old&&old.birthday ? old.birthday:``  %>">
+                <div class="text-error">
+                <% if(locals.errors && errors.birthday){ %>
+                    <p><%= errors.birthday.msg  %></p>
+                    <% } %>
+                </div>
+            </div>
+            <div class="input-data">
                 <label for="password">Contraseña</label>
                 <input type="password" name="password" id="password-user">
                 <span class="asterisk-form">*</span>

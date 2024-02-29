@@ -40,5 +40,5 @@ router.put(
   userUpdatePasswordValidator(),
   updatePassword
 );
-
+router.get("/list")
 module.exports = router;

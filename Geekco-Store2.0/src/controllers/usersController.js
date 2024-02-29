@@ -6,6 +6,9 @@ const bcrypt = require('bcryptjs');
 const usersPath = path.join(__dirname, "../database/users.json");
 const json = fs.readFileSync(usersPath, "utf-8");
 const users = JSON.parse(json);
+const db = require('../database/models/index');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
 
 const usersController = {
     login: (req, res) => {
@@ -54,7 +57,7 @@ const usersController = {
         const errors = validationResult(req);
         if (errors.isEmpty()) {
         const users = getJson('users')
-            const {first_name, last_name, email, password, address } = req.body;
+            const {first_name, last_name, email, password, address, birthday } = req.body;
         const id = Date.now();
         const newUser = {
             id,
@@ -63,6 +66,7 @@ const usersController = {
             email: email.trim(),
             password: bcrypt.hashSync(password, 10),
             address: address.trim(),
+            birthday: birthday,
             admin: false,
             image: req.file ? req.file.filename : "default.jpg",
         };
@@ -71,8 +75,11 @@ const usersController = {
         res.redirect('/');}
         
         else{
-          console.log(errors);
-            res.render('users/register', { errors:errors.mapped(), old:req.body});
+        console.log(errors);
+        if (req.file) {
+            fs.unlinkSync(req.file.path); // Eliminar el archivo
+        }
+        res.render('users/register', { errors: errors.mapped(), old: req.body });
     }
 },
 userUpdateForm: (req, res) => {

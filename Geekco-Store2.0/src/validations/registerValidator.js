@@ -26,6 +26,30 @@ let validacionRegistro=[
     .isEmail().withMessage("debes escribir un mail valido"),
     body("password").notEmpty().withMessage("*Debes especificar una contraseña").bail(),
     body("address").notEmpty().withMessage("*Debes poner una direccion").bail(),
+    body('birthday')
+    .notEmpty().withMessage("Ingrese una fecha correcta").bail()
+    .custom((value) => {
+        // Verifica si la fecha de nacimiento proporcionada es mayor a 18 años
+    let fechaNacimiento = new Date(value);
+    let hoy = new Date();
+    let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+
+    // Ajusta la edad si el cumpleaños aún no ha pasado este año
+    if (
+      hoy.getMonth() < fechaNacimiento.getMonth() ||
+      (hoy.getMonth() === fechaNacimiento.getMonth() && hoy.getDate() < fechaNacimiento.getDate())
+    ) {
+      edad--;
+    }
+
+    // Verifica si la edad es mayor o igual a 18
+    if (edad < 18) {
+      throw new Error('Debes ser mayor de 18 años para registrarte.');
+    }
+
+    // Devuelve true si la validación es exitosa
+    return true;
+    }),
     body("confirm_password")
     .custom((value,{req}) => {
         //Verifica que la contraseña sea idéntica a la confirmación de contraseña

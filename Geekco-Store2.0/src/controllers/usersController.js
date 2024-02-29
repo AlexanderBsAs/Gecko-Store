@@ -206,17 +206,6 @@ userUpdateForm: (req, res) => {
     } catch (error) {
       console.log(error);
     }
-  },
-  listUsers:(req,res)=>{
-    console.log(db.User)
-    db.User.findAll()
-    .then(resultado=>{
-          res.render("users/listUsers",{users:resultado})
-    })
-    .catch(error=>{
-      res.send(error)
-    })
-
   }
 }
 module.exports = usersController;

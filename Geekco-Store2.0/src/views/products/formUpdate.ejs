@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include("../partials/head.ejs",{title: 'Formulario de edición de producto'})%>
+    <body>
+        <%-include("../partials/header.ejs")%>
+        <main class="productForm__main">
+            <div class="productForm__div">
+                <h2>Formulario de Edicion</h2>
+                <form action="/productos/formUpdate/<%=id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <label class="edicion" for="name" id="name"> Ingrese el nombre del producto</label>
+                    <input class="productForm__input" type="text" id="name" name="name" placeholder="Nombre"  value="<%=productos.name%>">
+                    <label class="edicion" for="price" id="name"> Ingrese el precio del producto</label>
+                    <input class="productForm__input" type="number" id="price" name="price"placeholder="Precio" value="<%=productos.price%>">
+                    <label class="edicion" for="stock" id="name"> Ingrese el stock</label>
+                    <input class="productForm__input" type="number" id="stock" name="stock"placeholder="Stock" value="<%=productos.stock%>">
+                    <label class="edicion" for="description" id="name"> Ingrese la descripcion</label>
+                    <textarea class="productForm__input" id="description" name="description"placeholder="Descripcion"><%=productos.description%></textarea>
+                    <label class="edicion" for="image" > Ingrese una imagen</label>
+                    <input class="productForm__input__image" type="file" id="image" name="image" value="<%=productos.image%>">
+                    <label class="edicion" for="plataform" id="name"> Elegir plataforma del producto</label>
+                    <input class="productForm__input" type="text" id="platform" name="platform"placeholder="Plataforma" value="<%=productos.platform%>">
+                    <label class="edicion" for="category" id="name"> Elegir la categoria del producto</label>                                              
+                    <input class="productForm__input" type="text" id="category" name="category"placeholder="Categoria" value="<%=productos.category%>">
+                    <label class="edicion" for="discount" id="name"> De cuanto es el descuento?</label>
+                    <input class="productForm__input" type="text" id="discount" name="discount"placeholder="Descuentos" value="<%=productos.discount%>">
+                    <label class="edicion" for="installments" id="name"> Ingrese el numero de cuotas</label>
+                    <input class="productForm__input" type="text" id="installments" name="installments"placeholder="Cuotas" value="<%=productos.installments%>">
+                    <input class="productForm__input__enviar" type="submit" value="Actualizar">
+                  </form>
+    
+            </div>
+           
+        </main>
+        <%-include("../partials/footer.ejs")%>
+    </body>
+</html>

@@ -1,333 +1,91 @@
 [
     {
-        "address": "calle falsa 123",
-        "admin": true,
-        "email": "gaby_robles@outlook.com",
-        "first_name": "Gabriel",
-        "id": 2,
-        "image": "gatopan.jpg",
-        "last_name": "Robles",
-        "password": "cR5<g/q0Jk,"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": true,
-        "email": "ale_vera@outlook.com",
-        "first_name": "Alejandro",
-        "id": 3,
-        "image": "gatopan.jpg",
-        "last_name": "Vera",
-        "password": "wA0$ki!O1"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": true,
-        "email": "fer_ortiz@outlook.com",
-        "first_name": "Fernando",
-        "id": 4,
-        "image": "gatopan.jpg",
-        "last_name": "Ortiz",
-        "password": "kS1/9wh$"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": true,
-        "email": "alex_ureta@outlook.com",
-        "first_name": "Alexander",
-        "id": 5,
-        "image": "gatopan.jpg",
-        "last_name": "Ureta",
-        "password": "yW0?oc}Zd\"p"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "kdurrad5@nbcnews.com",
-        "first_name": "Kipper",
-        "id": 6,
-        "image": "gatopan.jpg",
-        "last_name": "Durrad",
-        "password": "rM1~~Dj=5"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "vbuyers6@seesaa.net",
-        "first_name": "Vincents",
-        "id": 7,
-        "image": "gatopan.jpg",
-        "last_name": "Buyers",
-        "password": "wS4=+dv$@Nr'U"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "lgilkes7@acquirethisname.com",
-        "first_name": "Lauri",
-        "id": 8,
-        "image": "gatopan.jpg",
-        "last_name": "Gilkes",
-        "password": "nD7\"AtYt)"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "cpeartree8@g.co",
-        "first_name": "Candi",
-        "id": 9,
-        "image": "gatopan.jpg",
-        "last_name": "Peartree",
-        "password": "zZ5<Y?b`H%Y_%@"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "amattersley9@shareasale.com",
-        "first_name": "Alexi",
-        "id": 10,
-        "image": "gatopan.jpg",
-        "last_name": "Mattersley",
-        "password": "qS0>6ZG+2EWoiH"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "brottchera@exblog.jp",
-        "first_name": "Bartolomeo",
-        "id": 11,
-        "image": "gatopan.jpg",
-        "last_name": "Rottcher",
-        "password": "yT9>l7n|bX1QuRD"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "bsturgisb@blog.com",
-        "first_name": "Bentlee",
-        "id": 12,
-        "image": "gatopan.jpg",
-        "last_name": "Sturgis",
-        "password": "rT3#~QEhw"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "jjacquesc@artisteer.com",
-        "first_name": "Jesse",
-        "id": 13,
-        "image": "gatopan.jpg",
-        "last_name": "Jacques",
-        "password": "gZ8`$PZ#}Q=bUmG"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "wopied@google.de",
-        "first_name": "Windham",
-        "id": 14,
-        "image": "gatopan.jpg",
-        "last_name": "Opie",
-        "password": "pN1<rs&Q\\u$!XdE`"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "cgennere@ed.gov",
-        "first_name": "Caresse",
-        "id": 15,
-        "image": "gatopan.jpg",
-        "last_name": "Genner",
-        "password": "kZ1}gJZU"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "eoxbrowf@paginegialle.it",
-        "first_name": "Even",
-        "id": 16,
-        "image": "gatopan.jpg",
-        "last_name": "Oxbrow",
-        "password": "vP9>lyk)\"e1>6eo"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "jledbetterg@google.com",
-        "first_name": "Jelene",
-        "id": 17,
-        "image": "gatopan.jpg",
-        "last_name": "Ledbetter",
-        "password": "rS9#@v?8Ki/ybolB"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "pbentoh@opensource.org",
-        "first_name": "Philippine",
-        "id": 18,
-        "image": "gatopan.jpg",
-        "last_name": "Bento",
-        "password": "uC3`ipSrk9,s_>\\R"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "mhazemani@free.fr",
-        "first_name": "Margalit",
-        "id": 19,
-        "image": "gatopan.jpg",
-        "last_name": "Hazeman",
-        "password": "pY1<Q9?T3PZcnW9"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "fbecarisj@twitpic.com",
-        "first_name": "Fidela",
-        "id": 20,
-        "image": "gatopan.jpg",
-        "last_name": "Becaris",
-        "password": "uJ0@(E%BcLn)Xrce"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "scrumbyk@fema.gov",
-        "first_name": "Sindee",
-        "id": 21,
-        "image": "gatopan.jpg",
-        "last_name": "Crumby",
-        "password": "gB2*JY#!4u.rlq"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "kmoodiel@unesco.org",
-        "first_name": "Kristan",
-        "id": 22,
-        "image": "gatopan.jpg",
-        "last_name": "Moodie",
-        "password": "nH3'#_PTwFTJr"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "mcaugheym@cmu.edu",
-        "first_name": "Marjorie",
-        "id": 23,
-        "image": "gatopan.jpg",
-        "last_name": "Caughey",
-        "password": "oI2)ixH_sq@zl"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "skybirdn@hugedomains.com",
-        "first_name": "Stern",
-        "id": 24,
-        "image": "gatopan.jpg",
-        "last_name": "Kybird",
-        "password": "oP5*}wJ>zOz`"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "mroddicko@addtoany.com",
-        "first_name": "Mireille",
-        "id": 25,
-        "image": "gatopan.jpg",
-        "last_name": "Roddick",
-        "password": "kE5~'_+<Og"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "ghanbidgep@twitpic.com",
-        "first_name": "Gris",
-        "id": 26,
-        "image": "gatopan.jpg",
-        "last_name": "Hanbidge",
-        "password": "kY7?Z8jxo\\_"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "gclewq@list-manage.com",
-        "first_name": "Georgiana",
-        "id": 27,
-        "image": "gatopan.jpg",
-        "last_name": "Clew",
-        "password": "bL0}tFPhE5RsW"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "eridgewayr@go.com",
-        "first_name": "Etty",
-        "id": 28,
-        "image": "gatopan.jpg",
-        "last_name": "Ridgeway",
-        "password": "aB2\\cn01Sr~Y1kB'"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "apoluzzis@deviantart.com",
-        "first_name": "Annabal",
-        "id": 29,
-        "image": "gatopan.jpg",
-        "last_name": "Poluzzi",
-        "password": "pZ7~)=>10"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
-        "email": "msmitht@boston.com",
-        "first_name": "Marylin",
-        "id": 30,
-        "image": "gatopan.jpg",
-        "last_name": "Smith",
-        "password": "bO8>zPJsG?=>$D{"
-    },
-    {
-        "address": "123",
-        "admin": false,
-        "email": "ale@ale.com",
-        "first_name": "alejandrito",
-        "id": 1705945961392,
-        "image": "default.jpg",
-        "last_name": "Vera",
-        "password": "$2a$10$WInTt.Jnj/jh0qd4Chf7R.RwuWU2afG5bzP/TRCmY7h4nPWynxO0G"
-    },
-    {
-        "address": "calle falsa 123",
-        "admin": false,
+        "rol_id": 2,
         "email": "lili.49_@outlook.com",
         "first_name": "Liliana",
-        "id": 1705961748593,
         "image": "image-1705961748418.jpg",
         "last_name": "Almirón",
-        "password": "$2a$10$iZ1kDPcrQBE/5MqbIcvFDepwtAhHdKQ08kS0ITNepqDhQQ3kuwvaW"
+        "password": "123456789",
+        "birthday": "1995-05-15"
+    },{
+        "rol_id": 2,
+        "email": "gaby_robles@outlook.com",
+        "first_name": "Gabriel",
+        "image": "gatopan.jpg",
+        "last_name": "Robles",
+        "password": "12345678",
+        "birthday": "1990-05-15"
     },
     {
-        "address": "asd234",
-        "admin": false,
-        "email": "probando@email.com",
-        "first_name": "Nombre",
-        "id": 1705968148116,
-        "image": "image-1705968148082.jpg",
-        "last_name": "Apellido",
-        "password": "$2a$10$P7NaB/y/SG2iACKHA3USnerwnGhWnisxf0OMh..cm4C8p8YvVN8IO"
+        "rol_id": 2,
+        "email": "ale_vera@outlook.com",
+        "first_name": "Alejandro",
+        "image": "gatopan.jpg",
+        "last_name": "Vera",
+        "password": "abc12345",
+        "birthday": "1988-08-20"
     },
     {
-        "address": "callecitafalsa123",
-        "admin": false,
-        "birthday": "2003-02-22",
-        "email": "melstrack@gmail.com",
-        "first_name": "Melany",
-        "id": 1709151892917,
-        "image": "image-1709151892796.png",
-        "last_name": "Strack",
-        "password": "$2a$10$IQdiK8Dhj7DIuudVv/Z0fOskyNoaypM5MMf1KAUf1y/hggoxhRFru"
+        "rol_id": 2,
+        "email": "fer_ortiz@outlook.com",
+        "first_name": "Fernando",
+        "image": "gatopan.jpg",
+        "last_name": "Ortiz",
+        "password": "password",
+        "birthday": "1975-03-10"
+    },
+    {
+        "rol_id": 2,
+        "email": "alex_ureta@outlook.com",
+        "first_name": "Alexander",
+        "image": "gatopan.jpg",
+        "last_name": "Ureta",
+        "password": "qwerty12",
+        "birthday": "1982-11-28"
+    },
+    {
+        "rol_id": 1,
+        "email": "kdurrad5@nbcnews.com",
+        "first_name": "Kipper",
+        "image": "gatopan.jpg",
+        "last_name": "Durrad",
+        "password": "letmein123",
+        "birthday": "1978-09-03"
+    },
+    {
+        "rol_id": 1,
+        "email": "vbuyers6@seesaa.net",
+        "first_name": "Vincents",
+        "image": "gatopan.jpg",
+        "last_name": "Buyers",
+        "password": "welcome1",
+        "birthday": "1993-12-17"
+    },
+    {
+        "rol_id": 1,
+        "email": "lgilkes7@acquirethisname.com",
+        "first_name": "Lauri",
+        "image": "gatopan.jpg",
+        "last_name": "Gilkes",
+        "password": "sunshine",
+        "birthday": "1986-06-25"
+    },
+    {
+        "rol_id": 1,
+        "email": "cpeartree8@g.co",
+        "first_name": "Candi",
+        "image": "gatopan.jpg",
+        "last_name": "Peartree",
+        "password": "12345678",
+        "birthday": "1995-02-12"
+    },
+    {
+        "rol_id": 1,
+        "email": "amattersley9@shareasale.com",
+        "first_name": "Alexi",
+        "image": "gatopan.jpg",
+        "last_name": "Mattersley",
+        "password": "abc12345",
+        "birthday": "1980-07-08"
     }
 ]

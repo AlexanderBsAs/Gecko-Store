@@ -1,24 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const {carrito,productDetail,productForm,create,dashboard,edit,productsList,update, destroy} = require("../controllers/productsController")
-const path = require("path")
-const multer = require('multer')
 const userAuthMiddleware = require('../Middlewares/userAuthMiddleware')
 const adminAuthMiddleware = require('../Middlewares/adminAuthMIddleware')
-
-//**Disk Storage**//
-var storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        const dataBase = path.join(__dirname, "../../public/images/products");
-      cb(null, dataBase)
-    },
-    filename:  (req, file, cb) =>{
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
-  }
-  })
-   
-var fileUpload = multer({ storage: storage })
-//__________________________________________________//
+const fileUpload = require("../Middlewares/productMulter")
 
 router.get("/carrito",userAuthMiddleware, carrito);
 // router.get('/detalles',detalles );

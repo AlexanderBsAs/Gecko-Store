@@ -142,27 +142,24 @@
       <section class="contenido-producto">
         <h2>Productos Similares</h2>
         <div class="contenedor-producto-caja">
-          <% for(let i = 0; i < 4; i++){ %>
-            <% let product = products[Math.floor(Math.random() * products.length)] %>
-          <article class="home__main__article">
-            <div class="caja-img">
-              <img
-                class="w-100"
-                src="/images/products/<%- product.image %>"
-                alt="<%= product.name %>"
-              />
-            </div>
-            <h3><%= product.name %></h3>
-            <h3>$<%= product.price %></h3>
-            <h3>Disponibles:<%= product.stock %></h3>
-            <p><%= product.description %></p>
-            <button class="boton-product color-turquesa flex flex-row">
-              <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
-            </button>
-          </article>
-          <% }; %>
+            <% for(let i = 0; i < 4; i++){ %>
+                <% let randomIndex = Math.floor(Math.random() * products.length) %>
+                <% let product = products[randomIndex] %>
+                <article class="home__main__article">
+                    <div class="caja-img">
+                        <img class="w-100" src="/images/products/<%- product.image %>" alt="<%= product.name %>"/>
+                    </div>
+                    <h3><%= product.name %></h3>
+                    <h3>$<%= product.price %></h3>
+                    <h3>Disponibles: <%= product.stock %></h3>
+                    <p><%= product.description %></p>
+                    <button class="boton-product color-turquesa flex flex-row">
+                        <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
+                    </button>
+                </article>
+            <% } %>
         </div>
-      </section>
+    </section>
       <section class="contenido-producto">
         <h2>Otros productos que podrían interesarte</h2>
         <div class="contenedor-producto-caja">

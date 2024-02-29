@@ -2,60 +2,80 @@ const fs = require("fs");
 const path = require("path");
 const json = fs.readFileSync(path.join(__dirname, "../database/products.json"),"utf-8");
 const products = JSON.parse(json);
+const db = require('../database/models/index');
+const { validationResult } = require('express-validator');
+const fileUpload = require("../Middlewares/productMulter")
 
 const productsController = {
 
     carrito: (req,res)=>{
         res.render("products/productCart")
     },
-    productDetail: (req,res)=>{
-      const json = fs.readFileSync(path.join(__dirname, "../database/products.json"), "utf-8");
-      const products = JSON.parse(json);
-        const id = req.params.idProducto
-        const producto = products.find(element => element.id == id);
-        res.render("products/productDetail",{producto,products})
-    },
-    productForm: (req,res)=>{
-        res.render("products/productForm")
-    },
-    create: (req,res,next)=>{
-      console.log('Files:', req.file.filename);
-      console.log('Body:', req.body);
-      const filename = req.file.filename;
-      const json = fs.readFileSync(path.join(__dirname, "../database/products.json"), "utf-8");
-      const products = JSON.parse(json);
-        
-      if (!req.file){
-     return res.status(400).send('Por favor seleccione un archivo'); 
-     
-       }else{
-        const {name,price,stock,description,image,
-        platform,category,installments,discount} = req.body;
-        let newId = Date.now()
-        const product = {
-          id: newId,
-          name: name.trim(),
-          price: parseFloat(price),
-          discount:parseInt(discount),
-          stock: parseInt(stock),
-          description: description.trim(),
-          image: filename,
-          platform: platform.trim(),
-          category: category.trim(),
-          installments: parseInt(installments)
-        }
-      
-        products.push(product);
-        const productjson = JSON.stringify(products);
-        fs.writeFileSync(path.join(__dirname,"../database/products.json"),productjson,"utf-8");
-        res.redirect("/productos/dashboard")}
-    },
-
-  dashboard: (req, res) => {
-    let json = fs.readFileSync(path.join(__dirname, "../database/products.json"), "utf-8");
-    const products = JSON.parse(json);
-    res.render("products/dashboard", { title: "dashboard", products });
+    productDetail : async (req, res) => {
+      try {
+          const productId = req.params.idProducto;
+          const producto = await db.Product.findByPk(productId);
+          const products = await db.Product.findAll();
+            if (!producto) {
+              return res.status(404).send("Producto no encontrado");
+          }
+          res.render("products/productDetail", { producto,products });
+      } catch (error) {
+          console.error("Error al obtener detalles del producto:", error);
+          res.status(500).send("Error al obtener detalles del producto");
+      }
+  },  
+    
+    productForm : async (req, res) => {
+      try {
+          const brands = await db.Brand.findAll();
+          const platforms = await db.Platform.findAll();
+          const categories = await db.Category.findAll();
+            res.render('products/productForm', { brands, platforms, categories });
+      } catch (error) {
+          console.error('Error al obtener marcas, plataformas y categorías:', error);
+          res.status(500).send('Error interno del servidor');
+      }
   },
+    create: async (req, res, next) => {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+          return res.status(400).json({ errors: errors.array() });
+      }
+      const { name, price, stock, description, platform_id, category_id, installments, discount,brand_id } = req.body;
+      console.log(req.body)
+      try {
+          const newProduct = await db.Product.create({
+              name: name.trim(),
+              price: parseFloat(price),
+              stock: parseInt(stock),
+              description: description,
+              platform_id: platform_id,
+              category_id: category_id,
+              brand_id: brand_id,
+              installments: parseInt(installments),
+              discount: parseInt(discount),
+              image: req.file.filename
+          });
+
+          res.redirect("/productos/dashboard");
+      } catch (error) {
+
+          console.error("Error al crear el producto:", error);
+          res.status(500).send("Error al crear el producto");
+      }},
+
+    dashboard : async (req, res) => {
+      try {
+        // Obtener todos los productos desde la base de datos
+        const products = await db.Product.findAll();
+        res.render('products/dashboard', { title: 'dashboard', products });
+      } catch (error) {
+        console.error('Error al obtener los productos:', error);
+        res.status(500).send('Error al obtener los productos');
+      }
+    },
+    
 	productsList: (req,res)=>{
 		res.render("products/products", {products})
 	},

@@ -26,24 +26,18 @@ const productsController = {
       }
   },  
     
-    productForm : async (req, res) => {
-      try {
-          const brands = await db.Brand.findAll();
-          const platforms = await db.Platform.findAll();
-          const categories = await db.Category.findAll();
-            res.render('products/productForm', { brands, platforms, categories });
-      } catch (error) {
-          console.error('Error al obtener marcas, plataformas y categorías:', error);
-          res.status(500).send('Error interno del servidor');
-      }
+    productForm : (req, res) => {
+      res.render('products/productForm');
   },
     create: async (req, res, next) => {
       const errors = validationResult(req);
+      console.log("body:",req.body, "File:",req.file)
       if (!errors.isEmpty()) {
-          return res.status(400).json({ errors: errors.array() });
-      }
+        console.log("errores:", errors)
+         return res.render("products/productForm", { errors: errors.mapped(), old: req.body });
+      }; 
       const { name, price, stock, description, platform_id, category_id, installments, discount,brand_id } = req.body;
-      console.log(req.body)
+      console.log("body:",req.body, "File:",req.file)
       try {
           const newProduct = await db.Product.create({
               name: name.trim(),
@@ -55,7 +49,7 @@ const productsController = {
               brand_id: brand_id,
               installments: parseInt(installments),
               discount: parseInt(discount),
-              image: req.file.filename
+              image: req.file ? req.file.filename : "default.jpg",
           });
 
           res.redirect("/productos/dashboard");

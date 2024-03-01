@@ -8,7 +8,13 @@
             <h2>Formulario de Carga de Productos</h2>
             <form action="/productos/create" method="POST" enctype="multipart/form-data">
                 <input class="productForm__input" type="text" id="name" name="name" placeholder="Nombre" required>
-                
+                <% if (locals.errors && locals.errors.length > 0) { %>
+                    <div class="error-message">
+                      <% locals.errors.forEach(error => { %>
+                        <p><%= error.msg %></p>
+                      <% }); %>
+                    </div>
+                  <% } %>
                 <input class="productForm__input" type="number" id="price" name="price" placeholder="Precio" required>
             
                 <input class="productForm__input" type="text" id="franchise" name="discount" placeholder="Descuento">
@@ -33,6 +39,7 @@
                     <option value="10">Disney</option>
                     <option value="11">Sony</option>
                     <option value="12">Ubisoft</option>
+                    <option value="13">Bandai</option>
                 </select>
                 
                 <select class="productForm__input" id="platform" name="platform_id" placeholder="Plataforma" required>

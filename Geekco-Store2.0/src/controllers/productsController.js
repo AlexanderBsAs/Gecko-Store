@@ -195,9 +195,6 @@ update: (req,res)=>{
         },
     })
     .then(product => {
-        if (!product) {
-            return res.status(404).send('Producto no encontrado');
-        }
         const imageName = product.image;
         const imagePath = `public/images/products/${imageName}`;
         fs.unlink(imagePath, (err) => {

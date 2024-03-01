@@ -27,6 +27,7 @@ const {
 router.get('/login',guestMiddleware,login );
 router.post('/login',loginValidationRules, userLogin );
 router.get('/registro',guestMiddleware,validacionRegistro,register );
+
 router.post('/registro',upload.single('image'),validacionRegistro,userRegister );
 // Ruta de logout del usuario
 router.get('/logout', logout)

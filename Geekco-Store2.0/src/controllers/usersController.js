@@ -84,7 +84,6 @@ const usersController = {
         res.redirect('/');}
         
         else{
-        console.log(errors);
         if (req.file) {
             fs.unlinkSync(req.file.path); // Eliminar el archivo
         }
@@ -215,6 +214,15 @@ userUpdateForm: (req, res) => {
     } catch (error) {
       console.log(error);
     }
+  },
+  destroy: (req,res)=>{
+    const userId = req.params.id
+    db.User.destroy({
+      where: userId
+    })
+    .then((resp)=>{
+      return res.redirect("/users/dashboard")
+    })
   }
 }
 module.exports = usersController;

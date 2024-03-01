@@ -31,11 +31,16 @@ const productCreateValidator = [
     .notEmpty().withMessage('El campo Descripción es obligatorio'),
 
   // Validación del campo "platform" (opcional)
-  body('platform')
+  body('platform_id')
     .optional(),
 
+
+    // Validación del campo "category"
+  body('brand_id')
+  .notEmpty().withMessage('El campo Marca es obligatorio'),
+
   // Validación del campo "category"
-  body('category')
+  body('category_id')
     .notEmpty().withMessage('El campo Categoría es obligatorio'),
 
   // Validación del campo "image"

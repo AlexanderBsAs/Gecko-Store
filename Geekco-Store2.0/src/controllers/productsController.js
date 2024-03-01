@@ -168,7 +168,6 @@ const productsController = {
         json2,
         "utf-8"
       );
-      /* console.log(req.body) */
       res.redirect("/productos/dashboard");
     } catch (error) {
       res.send("Error, debes elegir una imagen");
@@ -176,16 +175,37 @@ const productsController = {
   },
   destroy: (req, res) => {
     const productId = req.params.id;
-    db.Product.destroy({
-      where: {
-        id: req.params.id,
-      },
+
+    db.Product.findOne({
+        where: {
+            id: productId,
+        },
     })
-      .then((resp) => {
-        res.redirect("/productos/dashboard");
-      })
-      .catch((err) => err);
-  },
+    .then(product => {
+        if (!product) {
+            return res.status(404).send('Producto no encontrado');
+        }
+        const imageName = product.image;
+        const imagePath = `public/images/products/${imageName}`;
+        fs.unlink(imagePath, (err) => {
+            if (err) {
+                console.error('Error al eliminar la imagen:', err);
+            } else {
+                db.Product.destroy({
+                    where: {
+                        id: productId,
+                    },
+                })
+                .then(() => {
+                    res.redirect("/productos/dashboard");
+                })
+                .catch(err => console.error('Error al eliminar el producto:', err));
+            }
+        });
+    })
+    .catch(err => console.error('Error al buscar el producto:', err));
+}
+
 };
 
 module.exports = productsController;

@@ -4,7 +4,8 @@ const { body } = require("express-validator");
 const productCreateValidator = [
   // Validación del campo "name"
   body('name')
-    .notEmpty().withMessage('El campo Nombre es obligatorio'),
+    .notEmpty().withMessage('El campo Nombre es obligatorio')
+    .isLength({min: 10, max: 40}).withMessage('La cantidad mínima de carácteres es de 10 y la máxima de 40'),
 
   // Validación del campo "price"
   body('price')

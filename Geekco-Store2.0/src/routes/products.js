@@ -4,12 +4,12 @@ const {carrito,productDetail,productForm,create,dashboard,edit,productsList,upda
 const userAuthMiddleware = require('../Middlewares/userAuthMiddleware')
 const adminAuthMiddleware = require('../Middlewares/adminAuthMIddleware')
 const fileUpload = require("../Middlewares/productMulter")
-
+const productCreateValidator = require('../validations/productCreateValidator')
 router.get("/carrito",userAuthMiddleware, carrito);
 // router.get('/detalles',detalles );
 router.get('/detalles/:idProducto', productDetail)
 router.get("/productForm",userAuthMiddleware,adminAuthMiddleware,productForm)
-router.post("/create", fileUpload.single("image"), create);
+router.post("/create", fileUpload.single("image"),productCreateValidator, create);
 router.get("/dashboard",userAuthMiddleware ,adminAuthMiddleware, dashboard);
 router.get("/formUpdate/:id",userAuthMiddleware,adminAuthMiddleware, edit);
 router.put("/formUpdate/:id",fileUpload.single("image"), update)

@@ -7,7 +7,8 @@
     "migrate": "npx sequelize-cli db:migrate",
     "migrate:undo": "npx sequelize-cli db:migrate:undo:all",
     "seed": "npx sequelize db:seed:all",
-    "seed:undo": "npx sequelize db:seed:undo:all"
+    "seed:undo": "npx sequelize db:seed:undo:all",
+    "db": "sequelize db:drop & sequelize db:create & sequelize db:migrate & sequelize db:seed:all"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",

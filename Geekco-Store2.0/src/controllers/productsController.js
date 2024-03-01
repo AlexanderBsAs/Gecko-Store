@@ -83,39 +83,52 @@ const productsController = {
     }
   },
 
-  dashboard: async (req, res) => {
-    try {
-      // Obtener todos los productos desde la base de datos
-      const products = await db.Product.findAll();
-      res.render("products/dashboard", { title: "dashboard", products });
-    } catch (error) {
-      console.error("Error al obtener los productos:", error);
-      res.status(500).send("Error al obtener los productos");
-    }
-  },
+    dashboard : async (req, res) => {
+      try {
+        // Obtener todos los productos desde la base de datos
+        const products = await db.Product.findAll();
+        res.render('products/dashboard', { title: 'dashboard', products });
+      } catch (error) {
+        console.error('Error al obtener los productos:', error);
+        res.status(500).send('Error al obtener los productos');
+      }
+    },
+    
+    productsList : async (req, res) => {
+      try {
+          const products = await db.Product.findAll();
+          
+          if (!products || products.length === 0) {
+              return res.status(404).send("Producto no encontrado");
+          }
+          res.render("products/products", { products });
+      } catch (error) {
+          console.error("Error al obtener la lista de productos:", error);
+          res.status(500).send("Error interno del servidor");
+      }
+  },  
+edit: (req, res) => {
+  const json = fs.readFileSync(
+    path.join(__dirname, "../database/products.json"),
+    "utf-8"
+  );
+  const products = JSON.parse(json);
+  const id = +req.params.id
+  let productos = products.find((elemento) => {
 
-  productsList: (req, res) => {
-    res.render("products/products", { products });
-  },
-  edit: (req, res) => {
-    const json = fs.readFileSync(
-      path.join(__dirname, "../database/products.json"),
-      "utf-8"
-    );
-    const products = JSON.parse(json);
-    const id = +req.params.id;
-    let productos = products.find((elemento) => {
-      return elemento.id == id;
-    });
-    console.log(productos);
+    return elemento.id == id
 
-    res.render("products/formupdate", { productos, id });
-  },
-  update: (req, res) => {
-    const json = fs.readFileSync(
-      path.join(__dirname, "../database/products.json"),
-      "utf-8"
-    );
+  })
+  console.log(productos)
+
+  res.render("products/formupdate", { productos, id })
+
+},
+update: (req,res)=>{
+  const json = fs.readFileSync(
+    path.join(__dirname, "../database/products.json"),
+    "utf-8"
+  );
 
     try {
       const {

@@ -66,6 +66,11 @@ module.exports = {
           createdAt: new Date,
           updatedAt: new Date
         },
+        {
+          name: "Bandai",
+          createdAt: new Date,
+          updatedAt: new Date
+        }
       ],
       {}
     );

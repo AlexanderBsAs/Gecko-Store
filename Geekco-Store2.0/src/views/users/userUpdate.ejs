@@ -10,6 +10,7 @@
           action="/users/update/<%=id%>?_method=PUT"
           class="register-form"
           method="POST"
+          enctype="multipart/form-data"
         >
           <h2>EDITAR PERFIL</h2>
 
@@ -41,20 +42,23 @@
               null %>
             </p>
           </div>
-
           <div class="input-data">
-            <label for="address">Domicilio</label>
+            <label for="date">Fecha de nacimiento</label>
             <input
-              type="text"
-              name="address"
-              id="address"
-              value="<%=address.address %>"
+              type="date"
+              name="birthday"
+              id="birthday"
+              value="<%=usuario.birthday %>"
             />
             <p>
-              <%= locals.errores && errores.address ? errores.address.msg : null
+              <%= locals.errores && errores.birthday ? errores.birthday.msg : null
               %>
             </p>
           </div>
+          <img src="/images/users/<%= usuario.image %>" alt="">
+          
+          <label class="edicion" for="imagen">Cambiar imagen para el usuario</label>
+          <input type="file" name="image" id="imagen" value="<%= usuario.image %>">          
           <div class="input-data">
             <a href="/users/passwordUpdate/<%-usuario.id %>"
               >Cambiar Contraseña</a

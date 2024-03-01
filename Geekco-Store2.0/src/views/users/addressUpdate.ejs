@@ -7,19 +7,18 @@
       <div class="form-box">
         <img class="register-logo" src="/images/logo.png" alt="" />
         <form
-          action="/users/passwordUpdate/<%=id%>?_method=PUT"
+          action="/users/addressUpdate/<%=id%>?_method=PUT"
           class="register-form"
           method="POST"
         >
           <h2>EDITAR DOMICILIO</h2>
-
           <div class="input-data">
             <label for="country">Pais</label>
             <input type="text" name="country" id="country" value="<%=address.country %>"
             />
             <p>
-              <%= locals.errores && errores.passwordActual ?
-              errores.passwordActual.msg : null %>
+              <%= locals.errores && errores.country ?
+              errores.country.msg : null %>
             </p>
           </div>
           <div class="input-data">
@@ -31,15 +30,15 @@
               value="<%=address.province %>"
             />
             <p>
-              <%= locals.errores && errores.confirmPassword ?
-              errores.confirmPassword.msg : null %>
+              <%= locals.errores && errores.province ?
+              errores.province.msg : null %>
             </p>
           </div>
           <div class="input-data">
             <label for="city">Ciudad</label>
             <input type="text" name="city" id="city" value="<%=address.city %>"/>
             <p>
-              <%= locals.errores && errores.password ? errores.password.msg :
+              <%= locals.errores && errores.city? errores.city.msg :
               null %>
             </p>
           </div>
@@ -52,8 +51,8 @@
               value="<%=address.address %>"
             />
             <p>
-              <%= locals.errores && errores.confirmPassword ?
-              errores.confirmPassword.msg : null %>
+              <%= locals.errores && errores.address ?
+              errores.address.msg : null %>
             </p>
           </div>
 

@@ -33,31 +33,23 @@ const userUpdatePasswordValidator = () => {
       .notEmpty()
       .withMessage("Introducir contraseña actual")
       .bail()
-      .isLength({ min: 3, max: 10 })
-      .withMessage("La contraseña actual debe tener entre 3 y 10 caracteres")
+      .isLength({ min: 5, max: 20 })
+      .withMessage("La contraseña actual debe tener entre 5 y 20 caracteres")
       .bail()
       .custom((value, { req }) => {
         const { id } = req.params;
-        db.User.findByPk(id)
-        .then(function(usuario){
-          return bcrypt.compareSync(value, usuario.password);
-        })
-        // const usuarios = fs.readFileSync(
-        //   path.join(__dirname, "../database/users.json"),
-        //   "utf-8"
-        // );
-        // const users = JSON.parse(usuarios);
-        // const usuario = users.find((usuario) => usuario.id == id);
-        //return bcrypt.compareSync(value, usuario.password);
-      })
-      .withMessage("Contraseña incorrecta")
-      .bail(),
-
+        return db.User.findByPk(id)
+          .then(function(usuario){
+            if (!bcrypt.compareSync(value, usuario.password)) {
+              throw new Error("Contraseña incorrecta");
+            }
+          });
+      }),
     body("password")
       .notEmpty()
       .withMessage("Introducir contraseña")
       .bail()
-      .isLength({ min: 3, max: 10 })
+      .isLength({ min: 5, max: 20 })
       .withMessage("Debe tener entre 3 y 10 caracteres")
       .bail(),
     body("confirmPassword")
@@ -112,4 +104,5 @@ const addressUpdateValidator = () => {
 module.exports = {
   userUpdateValidator,
   userUpdatePasswordValidator,
+  addressUpdateValidator
 };

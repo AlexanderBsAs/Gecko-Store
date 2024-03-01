@@ -107,84 +107,76 @@ const productsController = {
           res.status(500).send("Error interno del servidor");
       }
   },  
-edit: (req, res) => {
-  const json = fs.readFileSync(
-    path.join(__dirname, "../database/products.json"),
-    "utf-8"
-  );
-  const products = JSON.parse(json);
-  const id = +req.params.id
-  let productos = products.find((elemento) => {
+  edit: (req, res) => {
+    const { id } = req.params;
+    Promise.all([
+      db.Product.findByPk(id, {
+        include: ["brands", "categories", "platforms"],
+      }),
+      db.Brand.findAll(),
+      db.Category.findAll(),
+      db.Platform.findAll()
+    ])
+    .then(function ([product,brands,categories,platforms]) {
+      res.render("products/formUpdate", { productos: product,brands,categories,platforms, id });
+    });
+  },
 
-    return elemento.id == id
-
-  })
-  console.log(productos)
-
-  res.render("products/formupdate", { productos, id })
-
-},
-update: (req,res)=>{
-  const json = fs.readFileSync(
-    path.join(__dirname, "../database/products.json"),
-    "utf-8"
-  );
-
-    try {
-      const {
-        name,
-        price,
-        stock,
-        discount,
-        platform,
-        category,
-        description,
-        installments,
-      } = req.body;
-      const id = +req.params.id;
-
-      const file = req.file;
+  update: (req, res) => {
+    const { id } = req.params;
+    const {
+      name,
+      price,
+      stock,
+      description,
+      brands,
+      platform,
+      category,
+      discount,
+      installments
+    } = req.body;
+    const errores = validationResult(req);
+    if (!errores.isEmpty()) {
+      console.log(errores);
+      Promise.all([
+        db.Product.findByPk(id, {
+          include: ["brands", "categories", "platforms"],
+        }),
+        db.Brand.findAll(),
+        db.Category.findAll(),
+        db.Platform.findAll()
+      ])
+      .then(function ([product,brands,categories,platforms]) {
+        return res.render('products/formUpdate', { errores: errores.mapped(),productos:product,brands,categories,platforms,id });
+      })
+    } else {
+    const file = req.file;
       if (!file) {
         throw new Error("Debe elegir una imagen");
       }
-
-      /*  console.log(file) */
-      let nuevobjeto = {
-        id,
+    db.Product.update(
+      {
         name,
-        price: +price,
-        discount: +discount,
-        stock: +stock,
+        price,
+        stock,
         description,
-        image: file ? file.filename : null,
-        platform,
-        category,
-        installments,
-      };
-      console.log(nuevobjeto.image);
-      let producto = products.map((elemento) => {
-        if (elemento.id == id) {
-          /* nuevobjeto.image = elemento.image */
-
-          return nuevobjeto;
-        }
-
-        return elemento;
-      });
-      /*   console.log(producto) */
-      /*  console.log(producto) */
-      /* console.log(producto) */
-      let json2 = JSON.stringify(producto);
-      /*     console.log(json2) */
-      fs.writeFileSync(
-        path.join(__dirname, "../database/products.json"),
-        json2,
-        "utf-8"
-      );
-      res.redirect("/productos/dashboard");
-    } catch (error) {
-      res.send("Error, debes elegir una imagen");
-    }
+        image: file ? file.filename: "default.webp",
+        brand_id: brands,
+        platform_id: platform != 0 ? platform : null,
+        category_id: category,
+        discount,
+        installments
+      },
+      {
+        where: { id },
+      },
+      {
+        include: ["brands", "categories", "platforms"],
+      }
+    ).then(function (product) {
+      res.send(product);
+    });
+  }
   },
   destroy: (req, res) => {
     const productId = req.params.id;

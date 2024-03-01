@@ -10,6 +10,8 @@ const {
   userUpdate,
   updatePasswordForm,
   updatePassword,
+  updateAddressForm,
+  updateAddress
 } = require("../controllers/usersController");
 const loginValidationRules = require("../validations/loginValidator");
 const guestMiddleware = require("../Middlewares/guestMiddleware");
@@ -20,6 +22,7 @@ const upload = require("../validations/uploadUser");
 const {
   userUpdateValidator,
   userUpdatePasswordValidator,
+  addressUpdateValidator
 } = require("../validations/userUpdateValidator");
 
 /* GET users listing. */
@@ -32,19 +35,25 @@ router.post('/registro',upload.single('image'),validacionRegistro,userRegister )
 router.get("/logout", logout);
 
 router.get("/update/:id", 
-userAuthMiddleware, 
+//userAuthMiddleware,
 userUpdateForm);
-router.put("/update/:id", 
-//userUpdateValidator(), 
+router.put("/update/:id",
+upload.single('image'), 
+userUpdateValidator(), 
 userUpdate);
 
-router.get("/passwordUpdate/:id", 
-userAuthMiddleware,
- updatePasswordForm);
-router.put(
-  "/passwordUpdate/:id",
-// userUpdatePasswordValidator(),
-  updatePassword
-);
-router.get("/list")
+router.get("/passwordUpdate/:id",
+//userAuthMiddleware,
+updatePasswordForm);
+router.put( "/passwordUpdate/:id",
+userUpdatePasswordValidator(),
+updatePassword);
+
+router.get("/addressUpdate/:id", 
+// userAuthMiddleware, 
+updateAddressForm);
+router.put("/addressUpdate/:id", 
+addressUpdateValidator(), 
+updateAddress);
+
 module.exports = router;

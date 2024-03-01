@@ -40,6 +40,7 @@ const usersController = {
           email: user.email,
           first_name: user.first_name,
           last_name: user.last_name,
+          image: user.image,
           admin: (user.rol_id === 2) ,
           id: user.id
         };
@@ -107,11 +108,15 @@ userUpdateForm: (req, res) => {
   },
   userUpdate: (req, res) => {
     const {id} = req.params;
-    const {first_name, last_name, birthday, image} = req.body;
-    const file = req.file;
-      if (!file) {
-        throw new Error("Debe elegir una imagen");
-      }
+    const {first_name, last_name, birthday} = req.body;
+    const errors = validationResult(req);
+    
+        if (!errors.isEmpty()) {
+          db.User.findByPk(id).then(function(user){
+            res.render("users/userUpdate",{errores: errors.mapped(), old: req.body, usuario:user, id})
+          })
+        }else {
+    const file = req.file
     db.User.update(
       {
         first_name,
@@ -121,8 +126,16 @@ userUpdateForm: (req, res) => {
       },
       {where: {id}}
     ).then(function(){
+      req.session.user = {
+        first_name,
+        last_name,
+        image : file ? file.filename : "default.webp",
+        id
+      };
+      res.locals.user = req.session.user;
       res.redirect("/");
     })
+  }
   },
 
   updatePasswordForm: (req, res) => {
@@ -136,14 +149,21 @@ userUpdateForm: (req, res) => {
   updatePassword: (req, res) => {
     const {id} = req.params;
     const {password} = req.body;
+    const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+          console.log(errors)
+          db.User.findByPk(id).then(function(user){
+            res.render("users/passwordUpdate",{errores: errors.mapped(), old: req.body, usuario:user, id})
+          })
+        }else {
     db.User.update(
       {
         password: bcrypt.hashSync(password, 10)
       },
       {where: {id}}
-    ).then(function(user){
-      res.send(user)
-    })
+    ).then(function(){
+      res.redirect("/")
+    })}
   },
   updateAddressForm:(req,res)=>{
     const {id} = req.params
@@ -159,6 +179,17 @@ userUpdateForm: (req, res) => {
   updateAddress:(req,res)=>{
     const {id} = req.params
     const {country, province, city,address}= req.body
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      console.log("errores",errors)
+      Promise.all([
+        db.User.findByPk(id),
+        db.Address.findOne(
+          {where:{user_id : id}}
+      )]).then(function([user,address]){
+        res.render("users/addressUpdate",{errores: errors.mapped(), old: req.body, usuario:user,address, id})
+      })
+    }else {
     db.Address.update(
       {
         country, province, city, address
@@ -167,7 +198,10 @@ userUpdateForm: (req, res) => {
         where:{user_id:id}
       }
       )
-    
+    .then(function(){
+      res.redirect("/")
+    })
+  }
   },
   destroy: (req,res)=>{
     const userId = req.params.id

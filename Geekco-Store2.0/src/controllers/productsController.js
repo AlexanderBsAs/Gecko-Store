@@ -76,9 +76,19 @@ const productsController = {
       }
     },
     
-	productsList: (req,res)=>{
-		res.render("products/products", {products})
-	},
+    productsList : async (req, res) => {
+      try {
+          const products = await db.Product.findAll();
+          
+          if (!products || products.length === 0) {
+              return res.status(404).send("Producto no encontrado");
+          }
+          res.render("products/products", { products });
+      } catch (error) {
+          console.error("Error al obtener la lista de productos:", error);
+          res.status(500).send("Error interno del servidor");
+      }
+  },  
 edit: (req, res) => {
   const json = fs.readFileSync(
     path.join(__dirname, "../database/products.json"),

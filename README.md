@@ -27,7 +27,7 @@ Fernando Ortiz: Es el nuevo integrante del grupo!
 
 ## logo
 
-![logo](./example/desing/logo/logogecko-removebg-preview.png)
+![logo](./example//logo.png)
 
 ## Investigación
 [cdMarket](https://www.cdmarket.com.ar/tienda/juegos-y-juguetes/figuras-y-estatuillas-y-estatuillas-3594) usamos esta referencia, por su tipo de productos y por su estetica

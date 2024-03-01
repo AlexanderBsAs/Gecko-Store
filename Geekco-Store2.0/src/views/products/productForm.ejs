@@ -8,9 +8,15 @@
             <h2>Formulario de Carga de Productos</h2>
             <form action="/productos/create" method="POST" enctype="multipart/form-data">
                 <input class="productForm__input" type="text" id="name" name="name" placeholder="Nombre" required>
-                
+                <% if (locals.errors && locals.errors.length > 0) { %>
+                    <div class="error-message">
+                      <% locals.errors.forEach(error => { %>
+                        <p><%= error.msg %></p>
+                      <% }); %>
+                    </div>
+                  <% } %>
                 <input class="productForm__input" type="number" id="price" name="price" placeholder="Precio" required>
-
+            
                 <input class="productForm__input" type="text" id="franchise" name="discount" placeholder="Descuento">
                 
                 <input class="productForm__input" type="number" id="limit" name="installments" placeholder="Cuotas">
@@ -19,14 +25,54 @@
                 
                 <textarea class="productForm__input" id="description" name="description" placeholder="Descripción" required></textarea>
                 
-                <input class="productForm__input" type="text" id="plataform" name="platform" placeholder="Plataforma">
-               
-                <input class="productForm__input" type="text" id="category" name="category" placeholder="Categoría" required>
-               
+                <select class="productForm__input" id="brand" name="brand_id" placeholder="Marca" required>
+                    <option value="">Selecciona una marca</option>
+                    <option value="1">DC</option>
+                    <option value="2">LEGO</option>
+                    <option value="3">Nintendo</option>
+                    <option value="4">PlayStation</option>
+                    <option value="5">Nerf</option>
+                    <option value="6">Xbox</option>
+                    <option value="7">Marvel</option>
+                    <option value="8">Hasbro</option>
+                    <option value="9">Mattel</option>
+                    <option value="10">Disney</option>
+                    <option value="11">Sony</option>
+                    <option value="12">Ubisoft</option>
+                    <option value="13">Bandai</option>
+                </select>
+                
+                <select class="productForm__input" id="platform" name="platform_id" placeholder="Plataforma" required>
+                    <option value="">Selecciona una plataforma</option>
+                    <option value="1">Ps4</option>
+                    <option value="2">PC</option>
+                    <option value="3">PlayStation</option>
+                    <option value="4">Nintendo Switch</option>
+                    <option value="5">Nintendo 3DS</option>
+                    <option value="6">Xbox</option>
+                    <option value="7">Android</option>
+                    <option value="8">iOS</option>
+                    <option value="9">Xbox Series X</option>
+                    <option value="10">PlayStation 5</option>
+                    <option value="11">Nintendo Wii</option>
+                    <option value="12">PC Gaming</option>
+                </select>
+                
+                <select class="productForm__input" id="category" name="category_id" placeholder="Categoría" required>
+                    <option value="">Selecciona una categoría</option>
+                    <option value="1">Toy</option>
+                    <option value="2">Video Game</option>
+                    <option value="3">Console</option>
+                    <option value="4">Accessory</option>
+                    <option value="5">Board Game</option>
+                    <option value="6">Figuras</option>
+                </select>
+        
+                
                 <input class="productForm__input__image" type="file" id="image" name="image" placeholder="Imagen" required>
                 
                 <input class="productForm__input__enviar" type="submit" value="Enviar">
-              </form>
+            </form>
         </div>
        
     </main>

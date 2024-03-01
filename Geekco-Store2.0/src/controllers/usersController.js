@@ -15,33 +15,42 @@ const usersController = {
             res.render('users/login');
         
     },
-    userLogin: (req, res) => {  
-        const users = getJson('users')
-   
+   userLogin : async (req, res) => {
+      try {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            console.log(errors);
-            return res.render('users/login', { errors: errors.array() });
+          console.log(errors);
+          return res.render('users/login', { errors: errors.array() });
         }
-
-        const { email, password, remember } = req.body;
-        const userLogged = users.find(user => user.email === email);
-        if (userLogged && bcrypt.compareSync(password, userLogged.password)) {    
+    
+        const { email, remember } = req.body;
+        // Buscar el usuario por su correo electrónico en la base de datos
+        const user = await db.User.findOne({ where: { email } });
+        if (!user) {
+          throw new Error('Correo electrónico no encontrado');
+        }
+    
+        // Si se recuerda al usuario, establecer una cookie
         if (remember) {
-            res.cookie('remember', req.body.email, { maxAge: 30 * 24 * 60 * 60 * 1000 }); // Cookie válida por 30 días
+          res.cookie('remember', email, { maxAge: 30 * 24 * 60 * 60 * 1000 }); // Cookie válida por 30 días
         }
+    
+        // Establecer la sesión del usuario
         req.session.user = {
-            email: userLogged.email,
-            first_name: userLogged.first_name,
-            last_name: userLogged.last_name,
-            admin: userLogged.admin,
-            id: userLogged.id
-        }
+          email: user.email,
+          first_name: user.first_name,
+          last_name: user.last_name,
+          admin: (user.rol_id === 2) ,
+          id: user.id
+        };
         res.locals.user = req.session.user;
-     
-        console.log(req.session.user)
-        console.log('Usuario autenticado:', userLogged);
-        res.redirect('/');}
+    
+        console.log('Usuario autenticado:', user.email,user.rol_id);
+        res.redirect('/');
+      } catch (error) {
+        console.error('Error al autenticar al usuario:', error.message);
+        res.status(500).send('Error al autenticar al usuario');
+      }
     },
     register: (req, res) => {
         const json = fs.readFileSync(usersPath, "utf-8");
@@ -75,7 +84,6 @@ const usersController = {
         res.redirect('/');}
         
         else{
-        console.log(errors);
         if (req.file) {
             fs.unlinkSync(req.file.path); // Eliminar el archivo
         }
@@ -159,6 +167,17 @@ userUpdateForm: (req, res) => {
         where:{user_id:id}
       }
       )
-    }
+    
+  },
+  destroy: (req,res)=>{
+    const userId = req.params.id
+    db.User.destroy({
+      where: userId
+    })
+    .then((resp)=>{
+      return res.redirect("/users/dashboard")
+    })
+  }
 }
+
 module.exports = usersController;

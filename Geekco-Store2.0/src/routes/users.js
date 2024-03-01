@@ -10,9 +10,6 @@ const {
   userUpdate,
   updatePasswordForm,
   updatePassword,
-  updateAddressForm,
-  updateAddress,
-  listUsers,
 } = require("../controllers/usersController");
 const loginValidationRules = require("../validations/loginValidator");
 const guestMiddleware = require("../Middlewares/guestMiddleware");
@@ -26,15 +23,11 @@ const {
 } = require("../validations/userUpdateValidator");
 
 /* GET users listing. */
-router.get("/login", guestMiddleware, login);
-router.post("/login", loginValidationRules, userLogin);
-router.get("/registro", guestMiddleware, validacionRegistro, register);
-router.post(
-  "/registro",
-  upload.single("image"),
-  validacionRegistro,
-  userRegister
-);
+router.get('/login',guestMiddleware,login );
+router.post('/login',loginValidationRules, userLogin );
+router.get('/registro',guestMiddleware,validacionRegistro,register );
+
+router.post('/registro',upload.single('image'),validacionRegistro,userRegister );
 // Ruta de logout del usuario
 router.get("/logout", logout);
 
@@ -53,8 +46,5 @@ router.put(
 // userUpdatePasswordValidator(),
   updatePassword
 );
-router.get("/addressUpdate/:id",updateAddressForm);
-router.put("/addressUpdate/:id",updateAddress);
-//router.get("/list",listUsers)
-
+router.get("/list")
 module.exports = router;

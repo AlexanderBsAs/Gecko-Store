@@ -1,6 +1,6 @@
 function guestMiddleware(req,res,next){
     if(req.session.user){
-        res.redirect('/')
+        res.send('No sos admin disculpa, bichito de lú')
     } else {
         next();
     }

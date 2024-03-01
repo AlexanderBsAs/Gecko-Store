@@ -2,6 +2,7 @@ const { body } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
 const bcrypt = require("bcryptjs");
+const db = require("../database/models")
 
 const userUpdateValidator = () => {
   return [
@@ -19,13 +20,10 @@ const userUpdateValidator = () => {
       .isLength({ min: 3, max: 10 })
       .withMessage("Debe tener entre 3 y 10 caracteres")
       .bail(),
-    body("address")
+      body("birthday")
       .notEmpty()
-      .withMessage("Introducir domicilio")
+      .withMessage("Introducir fecha de nacimiento")
       .bail()
-      .isLength({ min: 5, max: 20 })
-      .withMessage("Debe tener entre 5 y 20 caracteres")
-      .bail(),
   ];
 };
 
@@ -40,13 +38,17 @@ const userUpdatePasswordValidator = () => {
       .bail()
       .custom((value, { req }) => {
         const { id } = req.params;
-        const usuarios = fs.readFileSync(
-          path.join(__dirname, "../database/users.json"),
-          "utf-8"
-        );
-        const users = JSON.parse(usuarios);
-        const usuario = users.find((usuario) => usuario.id == id);
-        return bcrypt.compareSync(value, usuario.password);
+        db.User.findByPk(id)
+        .then(function(usuario){
+          return bcrypt.compareSync(value, usuario.password);
+        })
+        // const usuarios = fs.readFileSync(
+        //   path.join(__dirname, "../database/users.json"),
+        //   "utf-8"
+        // );
+        // const users = JSON.parse(usuarios);
+        // const usuario = users.find((usuario) => usuario.id == id);
+        //return bcrypt.compareSync(value, usuario.password);
       })
       .withMessage("Contraseña incorrecta")
       .bail(),
@@ -71,6 +73,39 @@ const userUpdatePasswordValidator = () => {
         }
         return true;
       }),
+  ];
+};
+
+const addressUpdateValidator = () => {
+  return [
+    body("country")
+      .notEmpty()
+      .withMessage("Este campo no puede estar vacío")
+      .bail()
+      .isLength({ min: 3, max: 45 })
+      .withMessage("El nombre debe tener entre 3 y 45 caracteres")
+      .bail(),
+    body("province")
+      .notEmpty()
+      .withMessage("Este campo no puede estar vacío")
+      .bail()
+      .isLength({ min: 3, max: 45 })
+      .withMessage("Debe tener entre 3 y 45 caracteres")
+      .bail(),
+      body("city")
+      .notEmpty()
+      .withMessage("Este campo no puede estar vacío")
+      .bail()
+      .isLength({ min: 3, max: 45 })
+      .withMessage("Debe tener entre 3 y 45 caracteres")
+      .bail(),
+      body("address")
+      .notEmpty()
+      .withMessage("Este campo no puede estar vacío")
+      .bail()
+      .isLength({ min: 3, max: 45 })
+      .withMessage("Debe tener entre 3 y 45 caracteres")
+      .bail(),
   ];
 };
 

@@ -7,43 +7,44 @@
       <div class="form-box">
         <img class="register-logo" src="/images/logo.png" alt="" />
         <form
-          action="/users/update/<%=id%>?_method=PUT"
+          action="/users/passwordUpdate/<%=id%>?_method=PUT"
           class="register-form"
           method="POST"
         >
-          <h2>EDITAR PERFIL</h2>
+          <h2>EDITAR DOMICILIO</h2>
 
           <div class="input-data">
-            <label for="first_name">Nombre</label>
-            <input
-              type="text"
-              name="first_name"
-              id="first_name"
-              value="<%=usuario.first_name %>"
+            <label for="country">Pais</label>
+            <input type="text" name="country" id="country" value="<%=address.country %>"
             />
-            <span class="asterisk-form">*</span>
             <p>
-              <%= locals.errores && errores.first_name ? errores.first_name.msg
-              : null %>
+              <%= locals.errores && errores.passwordActual ?
+              errores.passwordActual.msg : null %>
             </p>
           </div>
           <div class="input-data">
-            <label for="last_name">Apellido</label>
+            <label for="province">Provincia</label>
             <input
               type="text"
-              name="last_name"
-              id="last_name"
-              value="<%=usuario.last_name %>"
+              name="province"
+              id="province"
+              value="<%=address.province %>"
             />
-            <span class="asterisk-form">*</span>
             <p>
-              <%= locals.errores && errores.last_name ? errores.last_name.msg :
+              <%= locals.errores && errores.confirmPassword ?
+              errores.confirmPassword.msg : null %>
+            </p>
+          </div>
+          <div class="input-data">
+            <label for="city">Ciudad</label>
+            <input type="text" name="city" id="city" value="<%=address.city %>"/>
+            <p>
+              <%= locals.errores && errores.password ? errores.password.msg :
               null %>
             </p>
           </div>
-
           <div class="input-data">
-            <label for="address">Domicilio</label>
+            <label for="address">Dirección</label>
             <input
               type="text"
               name="address"
@@ -51,14 +52,9 @@
               value="<%=address.address %>"
             />
             <p>
-              <%= locals.errores && errores.address ? errores.address.msg : null
-              %>
+              <%= locals.errores && errores.confirmPassword ?
+              errores.confirmPassword.msg : null %>
             </p>
-          </div>
-          <div class="input-data">
-            <a href="/users/passwordUpdate/<%-usuario.id %>"
-              >Cambiar Contraseña</a
-            >
           </div>
 
           <div class="input-data">

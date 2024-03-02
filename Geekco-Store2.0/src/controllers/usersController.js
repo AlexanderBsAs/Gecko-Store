@@ -40,6 +40,7 @@ const usersController = {
           email: user.email,
           first_name: user.first_name,
           last_name: user.last_name,
+          image: user.image,
           admin: (user.rol_id === 2) ,
           id: user.id
         };
@@ -91,129 +92,116 @@ const usersController = {
     }
 },
 userUpdateForm: (req, res) => {
-    const usuarios = fs.readFileSync(
-      path.join(__dirname, "../database/users.json"),
-      "utf-8"
-    );
-    const users = JSON.parse(usuarios);
-
-    const id = +req.params.id;
-    const usuario = users.find((usuario) => usuario.id == id);
-    console.log(usuario);
-    res.render("users/userUpdate", {
-      usuario,
-      id,
-    });
+  const {id} = req.params
+  
+  Promise.all([db.User.findByPk(
+    id,
+    {
+      include: ["rols","addresses"],
+    }
+    ),
+    db.Address.findOne(
+      {where:{user_id : id}}
+  )]).then(function([user,address]){
+    res.render("users/userUpdate",{usuario:user,address, id})
+  })
   },
   userUpdate: (req, res) => {
-    try {
-      const usuarios = fs.readFileSync(
-        path.join(__dirname, "../database/users.json"),
-        "utf-8"
-      );
-      const { first_name, last_name, address } = req.body;
-      const { id } = req.params;
-      const users = JSON.parse(usuarios);
-      const usuario = users.find((usuario) => usuario.id == id);
-      const errores = validationResult(req);
-      if (!errores.isEmpty()) {
-        res.render("users/userUpdate", {
-          usuario,
-          id,
-          errores: errores.mapped(),
-        });
-      } else {
-        const userUpdate = {
-          id: usuario.id,
-          first_name,
-          last_name,
-          email: usuario.email,
-          admin: usuario.admin,
-          password: usuario.password,
-          address,
-          image: usuario.image,
-        };
-        let usersList = users.map((elemento) => {
-          if (elemento.id == id) {
-            return userUpdate;
-          } else {
-            return elemento;
-          }
-        });
-        let jsonUpdate = JSON.stringify(usersList);
-
-        fs.writeFileSync(
-          path.join(__dirname, "../database/users.json"),
-          jsonUpdate,
-          "utf-8"
-        );
-        res.redirect("/");
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    const {id} = req.params;
+    const {first_name, last_name, birthday} = req.body;
+    const errors = validationResult(req);
+    
+        if (!errors.isEmpty()) {
+          db.User.findByPk(id).then(function(user){
+            res.render("users/userUpdate",{errores: errors.mapped(), old: req.body, usuario:user, id})
+          })
+        }else {
+    const file = req.file
+    db.User.update(
+      {
+        first_name,
+        last_name, 
+        birthday, 
+        image : file ? file.filename : "default.webp",
+      },
+      {where: {id}}
+    ).then(function(){
+      req.session.user = {
+        first_name,
+        last_name,
+        image : file ? file.filename : "default.webp",
+        id
+      };
+      res.locals.user = req.session.user;
+      res.redirect("/");
+    })
+  }
   },
 
   updatePasswordForm: (req, res) => {
-    const usuarios = fs.readFileSync(
-      path.join(__dirname, "../database/users.json"),
-      "utf-8"
-    );
-    const users = JSON.parse(usuarios);
-
-    const id = +req.params.id;
-    const usuario = users.find((usuario) => usuario.id == id);
-    console.log(usuario);
-    res.render("users/passwordUpdate", { usuario, id });
+    const { id } = req.params;
+    db.User.findByPk(id)
+    .then(function(resultado){
+      res.render("users/passwordUpdate", { usuario: resultado, id })
+    })
   },
 
   updatePassword: (req, res) => {
-    try {
-      const usuarios = fs.readFileSync(
-        path.join(__dirname, "../database/users.json"),
-        "utf-8"
-      );
-      const { password } = req.body;
-      const { id } = req.params;
-      const users = JSON.parse(usuarios);
-      const usuario = users.find((usuario) => usuario.id == id);
-      const errores = validationResult(req);
-      if (!errores.isEmpty()) {
-        res.render("users/passwordUpdate", {
-          usuario,
-          id,
-          errores: errores.mapped(),
-        });
-      } else {
-        const userUpdate = {
-          id: usuario.id,
-          first_name: usuario.first_name,
-          last_name: usuario.last_name,
-          email: usuario.email,
-          admin: usuario.admin,
-          password: bcrypt.hashSync(password, 10),
-          address: usuario.address,
-          image: usuario.image,
-        };
-        let usersList = users.map((elemento) => {
-          if (elemento.id == id) {
-            return userUpdate;
-          } else {
-            return elemento;
-          }
-        });
-        let jsonUpdate = JSON.stringify(usersList);
-
-        fs.writeFileSync(
-          path.join(__dirname, "../database/users.json"),
-          jsonUpdate,
-          "utf-8"
-        );
-        res.redirect("/");
+    const {id} = req.params;
+    const {password} = req.body;
+    const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+          console.log(errors)
+          db.User.findByPk(id).then(function(user){
+            res.render("users/passwordUpdate",{errores: errors.mapped(), old: req.body, usuario:user, id})
+          })
+        }else {
+    db.User.update(
+      {
+        password: bcrypt.hashSync(password, 10)
+      },
+      {where: {id}}
+    ).then(function(){
+      res.redirect("/")
+    })}
+  },
+  updateAddressForm:(req,res)=>{
+    const {id} = req.params
+    Promise.all([
+      db.User.findByPk(id),
+      db.Address.findOne(
+        {where:{user_id : id}}
+    )]).then(function([user,address]){
+      console.log(address)
+    res.render("users/addressUpdate",{usuario:user,address, id})
+  })
+  },
+  updateAddress:(req,res)=>{
+    const {id} = req.params
+    const {country, province, city,address}= req.body
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      console.log("errores",errors)
+      Promise.all([
+        db.User.findByPk(id),
+        db.Address.findOne(
+          {where:{user_id : id}}
+      )]).then(function([user,address]){
+        res.render("users/addressUpdate",{errores: errors.mapped(), old: req.body, usuario:user,address, id})
+      })
+    }else {
+    db.Address.update(
+      {
+        country, province, city, address
+      },
+      {
+        where:{user_id:id}
       }
-    } catch (error) {
-      console.log(error);
-    }
+      )
+    .then(function(){
+      res.redirect("/")
+    })
+  }
   },
   destroy: (req,res)=>{
     const userId = req.params.id
@@ -225,4 +213,5 @@ userUpdateForm: (req, res) => {
     })
   }
 }
+
 module.exports = usersController;

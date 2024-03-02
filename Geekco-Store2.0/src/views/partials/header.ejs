@@ -27,6 +27,9 @@
                     <!-- Mostrar contenido cuando el usuario está autenticado -->
                     <a href="/"><%= locals.user.first_name %> <%= locals.user.last_name %></a> 
                     <a href="/users/update/<%= locals.user.id %>">Editar perfil</a>
+                    <a href="/users/addressUpdate/<%= locals.user.id %>">Domicilio</a>
+                    <img class="image-perfil" src="/images/users/<%= locals.user.image %>" alt="">
+
                     <a href="/users/logout">Cerrar sesión <i class="fa-solid fa-right-from-bracket"></i></a>
 
                 </div>

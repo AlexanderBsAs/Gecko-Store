@@ -7,6 +7,13 @@
     color: var(--color-turquoise);
     font-size: 14px;
 }
+
+.image-perfil  {
+   height: 50px;
+   border-radius: 30px;
+   border: solid 2px white;
+   padding: 2px;
+}
 .header__gradient {
     height: 5px; /* Altura de la barra */
     width: 100%; /* Ancho completo del header */

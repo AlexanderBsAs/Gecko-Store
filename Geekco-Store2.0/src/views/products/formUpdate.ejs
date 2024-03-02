@@ -1,30 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <%-include("../partials/head.ejs",{title: 'Formulario de edición de producto'})%>
-    <body>
+    <body class="productForm__body">
         <%-include("../partials/header.ejs")%>
         <main class="productForm__main">
             <div class="productForm__div">
-                <h2>Formulario de Edicion</h2>
+                <h2>Formulario de Edición</h2>
                 <form action="/productos/formUpdate/<%=id%>?_method=PUT" method="POST" enctype="multipart/form-data">
                     <label class="edicion" for="name" id="name"> Ingrese el nombre del producto</label>
                     <input class="productForm__input" type="text" id="name" name="name" placeholder="Nombre"  value="<%=productos.name%>">
+                    <p class="p-errores">
+                        <%= locals.errores && errores.name ? errores.name.msg : null %>
+                      </p>
                     <label class="edicion" for="price" id="name"> Ingrese el precio del producto</label>
                     <input class="productForm__input" type="number" id="price" name="price"placeholder="Precio" value="<%=productos.price%>">
+                    <p class="p-errores">
+                        <%= locals.errores && errores.price ?
+                        errores.price.msg : null %>
+                      </p>
                     <label class="edicion" for="stock" id="name"> Ingrese el stock</label>
                     <input class="productForm__input" type="number" id="stock" name="stock"placeholder="Stock" value="<%=productos.stock%>">
+                    <p class="p-errores">
+                        <%= locals.errores && errores.stock ?
+                        errores.stock.msg : null %>
+                      </p>
                     <label class="edicion" for="description" id="name"> Ingrese la descripcion</label>
                     <textarea class="productForm__input" id="description" name="description"placeholder="Descripcion"><%=productos.description%></textarea>
+                    <p class="p-errores">
+                        <%= locals.errores && errores.description ?
+                        errores.description.msg : null %>
+                      </p>
                     <label class="edicion" for="image" > Ingrese una imagen</label>
                     <input class="productForm__input__image" type="file" id="image" name="image" value="<%=productos.image%>">
+                    <p class="p-errores">
+                        <%= locals.errores && errores.image ?
+                        errores.image.msg : null %>
+                      </p>
                     <label class="edicion" for="plataform" id="name"> Elegir plataforma del producto</label>
-                    <input class="productForm__input" type="text" id="platform" name="platform"placeholder="Plataforma" value="<%=productos.platform%>">
-                    <label class="edicion" for="category" id="name"> Elegir la categoria del producto</label>                                              
-                    <input class="productForm__input" type="text" id="category" name="category"placeholder="Categoria" value="<%=productos.category%>">
+                    <select class="productForm__input" name="platform" id="platform" required>
+                        <% platforms.forEach(platform => { %>
+                        <option value="<%= platform.id %>" <% if (productos.platform_id == platform.id) { %><%= 'selected' %><% }; %>><%= platform.name %></option>
+                        <% }); %>
+                        <option value="0">No contiene</option>
+
+                    </select>
+                    <p class="p-errores">
+                        <%= locals.errores && errores.platform ?
+                        errores.platform.msg : null %>
+                      </p>
+                    <label class="edicion" for="category" id="name"> Elegir categoría del producto</label>
+                    <select class="productForm__input" name="category" id="category" required>
+                        <% categories.forEach(category => { %>
+                        <option value="<%= category.id %>" <% if (productos.category_id == category.id) { %><%= 'selected' %><% }; %>><%= category.name %></option>
+                        <% }); %>
+                    </select>
+                    <p class="p-errores">
+                        <%= locals.errores && errores.category ?
+                        errores.category.msg : null %>
+                      </p>
+                    <label class="edicion" for="brand" id="name"> Elegir marca del producto</label>
+                    <select class="productForm__input" name="brand" id="brand" required>
+                        <% brands.forEach(brand => { %>
+                        <option value="<%= brand.id %>" <% if (productos.brand_id == brand.id) { %><%= 'selected' %><% }; %>><%= brand.name %></option>
+                        <% }); %>
+                    </select>
+                    <p class="p-errores">
+                        <%= locals.errores && errores.brand ?
+                        errores.brand.msg : null %>
+                      </p>
                     <label class="edicion" for="discount" id="name"> De cuanto es el descuento?</label>
                     <input class="productForm__input" type="text" id="discount" name="discount"placeholder="Descuentos" value="<%=productos.discount%>">
+                    <p class="p-errores">
+                        <%= locals.errores && errores.discount ?
+                        errores.discount.msg : null %>
+                      </p>
                     <label class="edicion" for="installments" id="name"> Ingrese el numero de cuotas</label>
                     <input class="productForm__input" type="text" id="installments" name="installments"placeholder="Cuotas" value="<%=productos.installments%>">
+                    <p class="p-errores">
+                        <%= locals.errores && errores.installments ?
+                        errores.installments.msg : null %>
+                      </p>
                     <input class="productForm__input__enviar" type="submit" value="Actualizar">
                   </form>
     

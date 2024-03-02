@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include("../partials/head.ejs",{title: 'Editar Usuario'})%>
+  <body class="register-body">
+    <%-include("../partials/header.ejs")%>
+    <main class="register-main-body">
+      <div class="form-box">
+        <img class="register-logo" src="/images/logo.png" alt="" />
+        <form
+          action="/users/addressUpdate/<%=id%>?_method=PUT"
+          class="register-form"
+          method="POST"
+        >
+          <h2>EDITAR DOMICILIO</h2>
+          <div class="input-data">
+            <label for="country">Pais</label>
+            <input type="text" name="country" id="country" value="<%=address.country %>"
+            />
+            <p>
+              <%= locals.errores && errores.country ?
+              errores.country.msg : null %>
+            </p>
+          </div>
+          <div class="input-data">
+            <label for="province">Provincia</label>
+            <input
+              type="text"
+              name="province"
+              id="province"
+              value="<%=address.province %>"
+            />
+            <p>
+              <%= locals.errores && errores.province ?
+              errores.province.msg : null %>
+            </p>
+          </div>
+          <div class="input-data">
+            <label for="city">Ciudad</label>
+            <input type="text" name="city" id="city" value="<%=address.city %>"/>
+            <p>
+              <%= locals.errores && errores.city? errores.city.msg :
+              null %>
+            </p>
+          </div>
+          <div class="input-data">
+            <label for="address">Dirección</label>
+            <input
+              type="text"
+              name="address"
+              id="address"
+              value="<%=address.address %>"
+            />
+            <p>
+              <%= locals.errores && errores.address ?
+              errores.address.msg : null %>
+            </p>
+          </div>
+
+          <div class="input-data">
+            <button type="submit">Actualizar</button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <%-include("../partials/footer.ejs")%>
+  </body>
+</html>

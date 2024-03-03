@@ -1,4 +1,4 @@
-
+const { Op } = require('sequelize');
 const { Product } = require('../database/models/index');
 
 const indexController = {
@@ -17,7 +17,7 @@ const indexController = {
             const searchResults = await Product.findAll({
                 where: {
                     name: {
-                        [Op.iLike]: `%${keywords}%` // Búsqueda insensible a mayúsculas y minúsculas
+                        [Op.like]: `%${keywords}%` // Búsqueda insensible a mayúsculas y minúsculas en MySQL
                     }
                 }
             });

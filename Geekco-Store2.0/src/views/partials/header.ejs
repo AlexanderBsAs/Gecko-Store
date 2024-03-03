@@ -23,8 +23,13 @@
         
         <nav class="header__nav2">
             <div class="session__header__on">
+
+                
                 <% if (locals.user) { %>
                     <!-- Mostrar contenido cuando el usuario está autenticado -->
+                    <% if (locals.user.admin) { %>
+                        <a href="/productos/dashboard">Dashboard</a>
+                    <% } %>
                     <a href="/"><%= locals.user.first_name %> <%= locals.user.last_name %></a> 
                     <a href="/users/update/<%= locals.user.id %>">Editar perfil</a>
                     <a href="/users/addressUpdate/<%= locals.user.id %>">Domicilio</a>

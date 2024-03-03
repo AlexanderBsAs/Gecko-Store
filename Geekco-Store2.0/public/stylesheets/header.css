@@ -339,9 +339,10 @@ header div{
         top: 13%;
     }
     .header__nav2 {
-        margin-left: 48%;
+        margin-top: auto;
+        margin-left: auto;
         align-items: center;
-        gap: 5%;
+        gap: 4%;
         
     }
   

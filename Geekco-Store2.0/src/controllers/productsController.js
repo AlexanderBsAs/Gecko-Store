@@ -5,7 +5,7 @@ const json = fs.readFileSync(
   "utf-8"
 );
 const products = JSON.parse(json);
-const db = require("../database/models/index");
+const db = require('../database/models');
 const { validationResult } = require("express-validator");
 const fileUpload = require("../Middlewares/productMulter");
 
@@ -14,21 +14,31 @@ const productsController = {
     carrito: (req,res)=>{
         res.render("products/productCart")
     },
-    productDetail : async (req, res) => {
-      try {
-          const productId = req.params.idProducto;
-          const producto = await db.Product.findByPk(productId);
-          const products = await db.Product.findAll();
-            if (!producto) {
-              return res.status(404).send("Producto no encontrado");
-          }
-          res.render("products/productDetail", { producto,products });
-      } catch (error) {
-          console.error("Error al obtener detalles del producto:", error);
-          res.status(500).send("Error al obtener detalles del producto");
+    productDetail : (req,res) => {
+      db.Product.findByPk(req.params.idProducto,{
+        include: [
+          { association: "categories" },{association:"brands"},{association:"platforms"}
+        ],
+      })
+      .then(resultado=>{
+        db.Product.findAll({
+          include: [
+            { association: "categories" },{association:"brands"},{association:"platforms"}
+          ],
+        })
+        .then(resultados=>{
+           console.log(resultado)
+        res.render("products/productDetail",{
+          producto:resultado,products:resultados
+        })
+        })
+       
       }
-  },  
-    
+        )
+        .catch(error=>{
+          res.send(error)
+        })
+    },    
     productForm :  (req, res) => {
      
             res.render('products/productForm', );
@@ -73,18 +83,14 @@ const productsController = {
         res.status(500).send('Error al obtener los productos');
       }
     },
-    
-    productsList : async (req, res) => {
-      try {
-          const products = await db.Product.findAll();
-          if (!products || products.length === 0) {
-              return res.status(404).send("Producto no encontrado");}
-          res.render("products/products", { products });
-      } catch (error) {
-          console.error("Error al obtener la lista de productos:", error);
-          res.status(500).send("Error interno del servidor");
-      }
-  },  
+  productsList:(req,res)=>{
+      db.Product.findAll()
+      .then(resultado=>{
+        res.render("products/products",{
+          products:resultado
+        })
+      })
+  } ,
   edit: (req, res) => {
     const { id } = req.params;
     Promise.all([

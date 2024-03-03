@@ -1,62 +1,53 @@
-const fs = require("fs")
-const path = require("path")
 const { validationResult } = require('express-validator');
-const {getJson, setJson} = require('../utility/jsonMethod')
 const bcrypt = require('bcryptjs');
-const usersPath = path.join(__dirname, "../database/users.json");
-const json = fs.readFileSync(usersPath, "utf-8");
-const users = JSON.parse(json);
 const db = require('../database/models/index');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 
 const usersController = {
-    login: (req, res) => {
-            res.render('users/login');
-        
-    },
-   userLogin : async (req, res) => {
-      try {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-          console.log(errors);
-          return res.render('users/login', { errors: errors.array() });
-        }
-    
-        const { email, remember } = req.body;
-        // Buscar el usuario por su correo electrónico en la base de datos
-        const user = await db.User.findOne({ where: { email } });
-        if (!user) {
-          throw new Error('Correo electrónico no encontrado');
-        }
-    
-        // Si se recuerda al usuario, establecer una cookie
-        if (remember) {
-          res.cookie('remember', email, { maxAge: 30 * 24 * 60 * 60 * 1000 }); // Cookie válida por 30 días
-        }
-    
-        // Establecer la sesión del usuario
-        req.session.user = {
-          email: user.email,
-          first_name: user.first_name,
-          last_name: user.last_name,
-          image: user.image,
-          admin: (user.rol_id === 2) ,
-          id: user.id
-        };
-        res.locals.user = req.session.user;
-    
-        console.log('Usuario autenticado:', user.email,user.rol_id);
-        res.redirect('/');
-      } catch (error) {
-        console.error('Error al autenticar al usuario:', error.message);
-        res.status(500).send('Error al autenticar al usuario');
+  login: (req, res) => {
+    res.render('users/login');
+
+  },
+  userLogin: async (req, res) => {
+    try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        console.log(errors);
+        return res.render('users/login', { errors: errors.array() });
       }
-    },
-    register: (req, res) => {
-        const json = fs.readFileSync(usersPath, "utf-8");
-        const users = JSON.parse(json);
-        res.render("users/register")
+
+      const { email, remember } = req.body;
+      // Buscar el usuario por su correo electrónico en la base de datos
+      const user = await db.User.findOne({ where: { email } });
+      if (!user) {
+        throw new Error('Correo electrónico no encontrado');
+      }
+
+      // Si se recuerda al usuario, restablecer la cookie
+      if (remember) {
+        res.cookie('remember', email, { maxAge: 30 * 24 * 60 * 60 * 1000 }); // Cookie válida por 30 días
+      }
+
+      // Establecer la sesión del usuario
+      req.session.user = {
+        email: user.email,
+        first_name: user.first_name,
+        last_name: user.last_name,
+        image: user.image,
+        admin: (user.rol_id === 2),
+        id: user.id
+      };
+      res.locals.user = req.session.user;
+
+      console.log('Usuario autenticado:', user.email, user.rol_id);
+      res.redirect('/');
+    } catch (error) {
+      console.log(err);
+    }
+  },
+  register: (req, res) => {
+    res.render("users/register")
     },
     logout: (req,res)=>{
         res.clearCookie('remember')
@@ -64,33 +55,35 @@ const usersController = {
         return res.redirect('/')
     },
     userRegister: (req, res) => {
-        const errors = validationResult(req);
-        if (errors.isEmpty()) {
-        const users = getJson('users')
-            const {first_name, last_name, email, password, address, birthday } = req.body;
-        const id = Date.now();
-        const newUser = {
-            id,
-            first_name: first_name.trim(),
-            last_name: last_name.trim(),
-            email: email.trim(),
-            password: bcrypt.hashSync(password, 10),
-            address: address.trim(),
-            birthday: birthday,
-            admin: false,
-            image: req.file ? req.file.filename : "default.jpg",
-        };
-        users.push(newUser);
-        setJson(users, 'users')
-        res.redirect('/');}
-        
-        else{
-        if (req.file) {
-            fs.unlinkSync(req.file.path); // Eliminar el archivo
-        }
-        res.render('users/register', { errors: errors.mapped(), old: req.body });
-    }
-},
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+          console.log(errors);
+          if (req.file) {
+              fs.unlinkSync(req.file.path); // Eliminar el archivo
+          }
+          return res.render('users/register', { errors: errors.mapped(), old: req.body });
+      }
+  
+      const { first_name, last_name, email, password, address, birthday } = req.body;
+      db.User.create({
+        first_name,
+        last_name,
+        email,
+        password: bcrypt.hashSync(password, 10),
+        address,
+        birthday,
+        admin: false,
+        image: req.file ? req.file.filename : "default.jpg",
+    })
+    
+      .then(newUser => {
+          console.log('Usuario creado:', newUser.email);
+          res.redirect('/');
+      })
+      .catch((err) => {
+        console.log(err);
+    });
+  },  
 userUpdateForm: (req, res) => {
   const {id} = req.params
   

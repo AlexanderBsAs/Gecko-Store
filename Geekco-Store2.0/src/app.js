@@ -31,7 +31,12 @@ app.use(methodOverride("_method"))
 app.use(session({secret: "Secretgecko123",resave: false,
 saveUninitialized: true}))
 app.use((req, res, next) => {
-  res.locals.user = req.session.user;
+  if (req.session.user) {
+    const { rol_id } = req.session.user;
+    const isAdmin = rol_id === 2;
+    res.locals.user = req.session.user;
+    res.locals.isAdmin = isAdmin;
+  }
   next();
 });
 app.use(rememberMiddleware)

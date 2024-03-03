@@ -18,13 +18,6 @@ const productUpdateValidator = () => {
       .isLength({ min: 3, max: 300 })
       .withMessage("Debe tener entre 3 y 300 caracteres")
       .bail(),
-    body("image")
-      .notEmpty()
-      .withMessage("Introducir una imagen")
-      .bail()
-      .isLength({ min: 3, max: 100 })
-      .withMessage("El nombre del archivo debe ser entre 5 y 100 caracteres")
-      .bail(),
       body("price")
       .notEmpty()
       .withMessage("Introducir precio")

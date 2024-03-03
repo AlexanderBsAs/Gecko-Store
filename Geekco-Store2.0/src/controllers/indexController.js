@@ -1,40 +1,31 @@
-const db = require("../database/models");
+const { Op } = require('sequelize');
+const { Product } = require('../database/models/index');
 
 const indexController = {
-    home: (req, res) => {
-        db.Product.findAll({
-            include: [
-                { association: 'Image_products' }, 
-                { association: 'Category_products', attributes: ['category'] } 
-            ]
-        })
-        .then(products => {
+    home: async (req, res) => {
+        try {
+            const products = await Product.findAll();
             res.render("index", { products });
-        })
-        .catch((error) => console.log(error));
+        } catch (error) {
+            console.error("Error al cargar productos:", error);
+            res.status(500).send("Error al cargar productos");
+        }
     },
-    search: (req, res) => {
-        let { keywords } = req.query;
-        db.Product.findAll({
-            where: {
-                name: {
-                    [db.Sequelize.Op.iLike]: `%${keywords}%`
+    search: async (req, res) => {
+        try {
+            const { keywords } = req.query;
+            const searchResults = await Product.findAll({
+                where: {
+                    name: {
+                        [Op.like]: `%${keywords}%` // Búsqueda insensible a mayúsculas y minúsculas en MySQL
+                    }
                 }
-            },
-            include: [
-                { 
-                    association: 'Image_products' 
-                }, 
-                { 
-                    association: 'Category_products',
-                    attributes: ['category'] 
-                    } 
-            ]
-        })
-        .then(search => {
-            res.render("results", { search, keywords });
-        })
-        .catch((error) => console.log(error));
+            });
+            res.render("results", { search: searchResults, keywords });
+        } catch (error) {
+            console.error("Error al buscar productos:", error);
+            res.status(500).send("Error al buscar productos");
+        }
     }
 };
 

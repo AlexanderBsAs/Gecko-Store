@@ -1,7 +1,7 @@
 const db = require('../database/models');
 const { validationResult } = require("express-validator");
 const fileUpload = require("../Middlewares/productMulter");
-
+const fs = require('fs');
 const productsController = {
 
   carrito: (req, res) => {
@@ -52,16 +52,17 @@ const productsController = {
         price: parseFloat(price),
         stock: parseInt(stock),
         description: description,
-        platform_id: platform_id,
+        platform_id: platform_id ? platform_id : null,
         category_id: category_id,
         brand_id: brand_id,
-        installments: parseInt(installments),
-        discount: parseInt(discount),
+        installments: installments ? parseInt(installments) : null,
+        discount: discount ? parseInt(discount) : null,
         image: req.file ? req.file.filename : "default.jpg",
       });
 
       res.redirect("/productos/dashboard");
     } catch (error) {
+      
       console.error("Error al crear el producto:", error);
       res.status(500).send("Error al crear el producto");
     }

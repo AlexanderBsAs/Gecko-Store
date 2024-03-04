@@ -48,8 +48,15 @@
               <div class="nombre-producto">
                 <h3><%= producto.name %></h3>
 
-                <h4 class="precioFinal">$<%= producto.price %></h4>
-                <h4>con <%= producto.discount %>% de descuento</h4>
+                
+                <% if (producto.discount!=null && producto.discount!=0) { %>
+                  <h4 class="precioFinal">$<%= producto.price %></h4>
+                  <h4>
+                    con <%= producto.discount %>% de descuento
+                  </h4>
+               <% } else { %>
+                
+                <% } %>
                 <h4 class="precioDescuento">
                   $<%= (producto.price - ( producto.price * producto.discount /
                   100)).toFixed(2) %>
@@ -61,6 +68,7 @@
                <% } else { %>
                 
                 <% } %>
+
               </div>
              <div class="container-button">
                 <button

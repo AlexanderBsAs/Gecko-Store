@@ -57,6 +57,9 @@ const usersController = {
     userRegister: (req, res) => {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
+        if (req.file) {
+          fs.unlinkSync(req.file.path); // Eliminar el archivo
+      }
           console.log(errors);
           if (req.file) {
               fs.unlinkSync(req.file.path); // Eliminar el archivo

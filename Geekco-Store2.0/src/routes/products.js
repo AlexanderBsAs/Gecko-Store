@@ -9,7 +9,6 @@ const {productUpdateValidator} = require("../validations/uploadProduct")
 
 
 router.get("/carrito",userAuthMiddleware, carrito);
-router.get('/detalles',detalles );
 router.get('/detalles/:idProducto', productDetail)
 router.get("/productForm",userAuthMiddleware,adminAuthMiddleware,productForm)
 router.post("/create",userAuthMiddleware, fileUpload.single("image"),productCreateValidator, create);

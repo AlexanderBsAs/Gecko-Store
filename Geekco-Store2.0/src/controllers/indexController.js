@@ -27,6 +27,6 @@ const indexController = {
             res.status(500).send("Error al buscar productos");
         }
     }
-}
+};
 
 module.exports = indexController;

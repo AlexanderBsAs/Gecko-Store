@@ -41,6 +41,9 @@ const productsController = {
     const errors = validationResult(req);
     console.log("body:", req.body, "File:", req.file)
     if (!errors.isEmpty()) {
+      if (req.file) {
+        fs.unlinkSync(req.file.path); // Eliminar el archivo
+    }
       console.log("errores:", errors)
       return res.render("products/productForm", { errors: errors.mapped(), old: req.body });
     };

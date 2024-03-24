@@ -1,5 +1,5 @@
 const { body } = require("express-validator")
-
+const db = require('../database/models')
 
 let validacionRegistro = [
     body("first_name")
@@ -8,18 +8,22 @@ let validacionRegistro = [
     body("last_name").notEmpty().withMessage("* Debes poner un APELLIDO").bail()
         .isLength({ min: 2, max: 25 }).withMessage("Debe ser entre 2 y 25 caracteres"),
     body("email").notEmpty().withMessage("*Debes especificar un email").bail()
-        .custom((value, { req }) => {
-            let adress = users.find((elemento) => {
-                return elemento.email == req.body.email
-            })
-            if (adress) {
-                throw new Error("ese email ya existe")
-            }
-            else {
-                return true
+    .custom(value => {
+        return db.User.findOne({
+            where: {
+                email: value
             }
         })
-        .isEmail().withMessage("debes escribir un mail valido"),
+            .then(user => {
+                if (user) {
+                    return Promise.reject('El email se encuentra registrado')
+                }
+            })
+            .catch(() => {
+                return Promise.reject('El email se encuentra registrado')
+            })
+    })
+    .isEmail().withMessage("debes escribir un mail valido"),
     body("password").notEmpty().withMessage("*Debes especificar una contraseña").bail(),
     body("address").notEmpty().withMessage("*Debes poner una direccion").bail(),
     body('birthday')

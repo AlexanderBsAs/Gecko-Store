@@ -55,7 +55,9 @@
               %>
             </p>
           </div>
-          <img src="/images/users/<%= usuario.image %>" alt="">
+          <div class="userImage-box">
+            <img src="/images/users/<%= usuario.image %>" alt="">
+          </div>
           
           <label class="edicion" for="imagen">Cambiar imagen para el usuario</label>
           <input type="file" name="image" id="imagen" value="<%= usuario.image %>">          

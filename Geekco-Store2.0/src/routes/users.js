@@ -35,7 +35,7 @@ router.post('/registro',upload.single('image'),validacionRegistro,userRegister )
 router.get("/logout", logout);
 
 router.get("/update/:id", 
-//userAuthMiddleware,
+userAuthMiddleware,
 userUpdateForm);
 router.put("/update/:id",
 upload.single('image'), 
@@ -43,14 +43,14 @@ userUpdateValidator(),
 userUpdate);
 
 router.get("/passwordUpdate/:id",
-//userAuthMiddleware,
+userAuthMiddleware,
 updatePasswordForm);
 router.put( "/passwordUpdate/:id",
 userUpdatePasswordValidator(),
 updatePassword);
 
 router.get("/addressUpdate/:id", 
-// userAuthMiddleware, 
+userAuthMiddleware, 
 updateAddressForm);
 router.put("/addressUpdate/:id", 
 addressUpdateValidator(), 

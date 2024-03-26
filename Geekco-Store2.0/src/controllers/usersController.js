@@ -4,6 +4,7 @@ const db = require('../database/models/index');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 const fs = require('fs');
+const moment = require('moment');
 
 const usersController = {
   login: (req, res) => {
@@ -83,52 +84,77 @@ const usersController = {
         console.log(err);
     });
   },  
-userUpdateForm: (req, res) => {
-  const {id} = req.params
+  userUpdateForm: (req, res) => {
+    const { id } = req.params;
   
-  Promise.all([db.User.findByPk(
-    id,
-    {
-      include: ["rols","addresses"],
-    }
-    ),
-    db.Address.findOne(
-      {where:{user_id : id}}
-  )]).then(function([user,address]){
-    res.render("users/userUpdate",{usuario:user,address, id})
-  })
+    Promise.all([
+      db.User.findByPk(
+        id,
+        {
+          include: ["rols","addresses"],
+        }
+      ),
+      db.Address.findOne(
+        { where: { user_id: id } }
+      )
+    ]).then(function([user, address]) {
+      user.dataValues.birthday = moment(user.dataValues.birthday).format('YYYY-MM-DD');
+      console.log(user.dataValues.birthday);
+  
+      res.render("users/userUpdate", { usuario: user, address, id });
+    }).catch(err => {
+      console.error("Error:", err);
+      res.status(500).send("Error interno del servidor");
+    });
   },
+  
   userUpdate: (req, res) => {
-    const {id} = req.params;
-    const {first_name, last_name, birthday} = req.body;
+    const { id } = req.params;
+    const { first_name, last_name, birthday } = req.body;
     const errors = validationResult(req);
-    
-        if (!errors.isEmpty()) {
-          db.User.findByPk(id).then(function(user){
-            res.render("users/userUpdate",{errores: errors.mapped(), old: req.body, usuario:user, id})
-          })
-        }else {
-    const file = req.file
-    db.User.update(
-      {
-        first_name,
-        last_name, 
-        birthday, 
-        image : file ? file.filename : "default.webp",
-      },
-      {where: {id}}
-    ).then(function(){
-      req.session.user = {
-        first_name,
-        last_name,
-        image : file ? file.filename : "default.webp",
-        id
-      };
-      res.locals.user = req.session.user;
-      res.redirect("/");
-    })
-  }
-  },
+
+    if (!errors.isEmpty()) {
+        db.User.findByPk(id).then(function(user) {
+            res.render("users/userUpdate", { errores: errors.mapped(), old: req.body, usuario: user, id });
+        });
+    } else {
+        const file = req.file;
+        console.log(req.file);
+
+        db.User.findByPk(id).then(function(user) {
+            let oldImage = user.image;
+
+            if (file) {
+                // Si se ha subido un nuevo archivo, eliminar el archivo anterior
+                if (oldImage !== "default.webp") {
+                    // Verificar si la imagen no es la predeterminada para evitar su eliminación accidental
+                    const imagePath = `public/images/users/${oldImage}`;
+                    fs.unlinkSync(imagePath);
+                }
+            }
+
+            db.User.update(
+                {
+                    first_name,
+                    last_name,
+                    birthday,
+                    image: file ? file.filename : "default.webp",
+                },
+                { where: { id } }
+            ).then(function() {
+                req.session.user = {
+                    first_name,
+                    last_name,
+                    image: file ? file.filename : "default.webp",
+                    id,
+                };
+                res.locals.user = req.session.user;
+                res.redirect(`/users/update/${id}`);
+            });
+        });
+    }
+},
+
 
   updatePasswordForm: (req, res) => {
     const { id } = req.params;

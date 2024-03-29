@@ -4,21 +4,17 @@
 <body class="register-body">
     <%-include("../partials/header.ejs")%>
     <main class="register-main-body">
-
-          
         <div class="form-box">
         <img class="register-logo" src="/images/logo.png" alt="">
-
-
         <form action="/users/registro" class="register-form" method="POST" enctype="multipart/form-data"> 
-        
             <h2>Registrarse</h2>
             <div class="info-text-form">
-            <p>Los campos con "*" son obligatorios"</p>
+            <p>Los campos con "*" son obligatorios</p>
             </div>
             <div class="input-data">
                 <label for="first_name">Nombre</label>
-                <input type="text" name="first_name" id="name-user" value="<%=locals.old&&old.first_name? old.first_name:`` %>">
+                <input type="text" name="first_name" id="name-user" 
+                value="<%= locals.old && old.first_name ? old.first_name:`` %>">
                 <span class="asterisk-form">*</span>
                 <div class="text-error">
                 <% if(locals.errors && errors.first_name){ %>
@@ -28,9 +24,10 @@
             </div>
             <div class="input-data">
                 <label for="last_name">Apellido</label>
-                <input type="text" name="last_name" id="lastname-user"value="<%= locals.old&&old.last_name? old.last_name:``  %>">
+                <input type="text" name="last_name" id="lastname-user"
+                value="<%= locals.old && old.last_name ? old.last_name:``  %>">
                 <span class="asterisk-form">*</span>
-                <div class="text-error">
+                <div class="error-lastname">
                 <% if(locals.errors && errors.last_name){ %>
                     <p><%= errors.last_name.msg  %></p>
                     <% } %>
@@ -38,9 +35,10 @@
             </div>
             <div class="input-data">
                 <label for="email">Dirección de correo eléctronico</label>
-                <input type="email" name="email" id="email-user" value="<%= locals.old&&old.email? old.email:``  %>">
+                <input type="email" name="email" id="email-user" 
+                value="<%= locals.old && old.email ? old.email:``  %>">
                 <span class="asterisk-form">*</span>
-                <div class="text-error">
+                <div class="error-email">
                 <% if(locals.errors && errors.email){ %>
                     <p><%= errors.email.msg  %></p>
                     <% } %>
@@ -48,8 +46,9 @@
             </div>
             <div class="input-data">
                 <label for="direction-user">Domicilio</label>
-                <input type="text" name="address" id="direction-user" value="<%= locals.old&&old.address? old.address:``  %>">
-                <div class="text-error">
+                <input type="text" name="address" id="direction-user" 
+                value="<%= locals.old && old.address ? old.address:``  %>">
+                <div class="error-address">
                 <% if(locals.errors && errors.address){ %>
                     <p><%= errors.address.msg  %></p>
                     <% } %>
@@ -57,18 +56,19 @@
             </div>
             <div class="input-data">
                 <label for="birthday-user">Fecha de nacimiento</label>
-                <input type="date" name="birthday" id="birthday-user" value="<%= locals.old&&old.birthday ? old.birthday:``  %>">
-                <div class="text-error">
+                <input type="date" name="birthday" id="birthday-user" 
+                value="<%= locals.old && old.birthday ? old.birthday:``  %>">
+                <div class="error-birthday">
                 <% if(locals.errors && errors.birthday){ %>
                     <p><%= errors.birthday.msg  %></p>
                     <% } %>
                 </div>
             </div>
-            <div class="input-data">
+                <div class="input-data">
                 <label for="password">Contraseña</label>
-                <input type="password" name="password" id="password-user">
+                <input type="password" name="password" id="password-user" required>
                 <span class="asterisk-form">*</span>
-                <div class="text-error">
+                <div class="error-password">
                 <% if(locals.errors && errors.password){ %>
                     <p><%= errors.password.msg %></p>
                     <% } %>
@@ -76,9 +76,9 @@
             </div>
             <div class="input-data">
                 <label for="confirm_password">Confirmar contraseña</label>
-                <input type="password" name="confirm_password" id="confirm_password">
+                <input type="password" name="confirm_password" id="confirm_password" required>
                 <span class="asterisk-form">*</span>
-                <div class="text-error">
+                <div class="error-password2">
                 <% if(locals.errors && errors.confirm_password){ %>
                     <p><%= errors.confirm_password.msg %></p>
                     <% } %>
@@ -89,7 +89,7 @@
                 <label for="imagen">Selecciona una imagen para el usuario</label>
                 <input type="file" name="image" id="imagen">
                 <span class="asterisk-form">*</span>
-                <div class="text-error">
+                <div class="error-image">
                 <% if(locals.errors && errors.image){ %>
                     <p><%= errors.image.msg %></p>
                     <% } %>
@@ -108,6 +108,7 @@
         </form>
         </div>
     </main>
+    <script src="/js/users/validationRegister.js"></script>
     <%-include("../partials/footer.ejs")%>
 </body>
 </html>

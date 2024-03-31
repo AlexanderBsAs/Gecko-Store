@@ -1,6 +1,4 @@
 const { body } = require("express-validator");
-const fs = require("fs");
-const path = require("path");
 
 const productUpdateValidator = () => {
   return [
@@ -8,7 +6,7 @@ const productUpdateValidator = () => {
       .notEmpty()
       .withMessage("Introducir nombre")
       .bail()
-      .isLength({ min: 3, max: 100 })
+      .isLength({ min: 3, max: 30 })
       .withMessage("El nombre debe tener entre 3 y 30 caracteres")
       .bail(),
     body("description")

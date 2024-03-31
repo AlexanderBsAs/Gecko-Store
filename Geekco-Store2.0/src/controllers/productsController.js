@@ -134,10 +134,9 @@ const productsController = {
     } else {
       const product = db.Product.findByPk(req.params.id)
       let file = req.file;
-      const actualImage = product.image
-      console.log("image:", actualImage)
+      console.log("image:", product.image)
       if (!file) {
-        const file = actualImage
+         file = product.image
       }
       db.Product.update(
         {

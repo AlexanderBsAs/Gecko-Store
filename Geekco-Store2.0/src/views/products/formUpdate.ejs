@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <%-include("../partials/head.ejs",{title: 'Formulario de edición de producto'})%>
+
     <body class="productForm__body">
+      <script src="/js/productUpdate.js"></script>
         <%-include("../partials/header.ejs")%>
         <main class="productForm__main">
             <div class="productForm__div">
                 <h2>Formulario de Edición</h2>
-                <form action="/productos/formUpdate/<%=id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <form action="/productos/formUpdate/<%=id%>?_method=PUT" method="POST" id="form" enctype="multipart/form-data">
                     <label class="edicion" for="name" id="name"> Ingrese el nombre del producto</label>
                     <input class="productForm__input" type="text" id="name" name="name" placeholder="Nombre"  value="<%=productos.name%>">
                     <p class="p-errores">
@@ -80,6 +82,9 @@
                         <%= locals.errores && errores.installments ?
                         errores.installments.msg : null %>
                       </p>
+                      <ul id="errores">
+                       
+                      </ul>
                     <input class="productForm__input__enviar" type="submit" value="Actualizar">
                   </form>
     

@@ -97,6 +97,10 @@
   animation: login 1000ms infinite;
   box-shadow: 0px 0px 20px var(--color-midnight-blue);
 }
+
+.mensaje-error{
+  color:var(--color-turquoise)
+}
 @keyframes login {
   0% {background-color: var(--color-turquoise);}
   50% {background-color: var(--color-violet);}

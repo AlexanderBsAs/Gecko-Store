@@ -14,7 +14,6 @@ const usersController = {
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        console.log(errors);
         return res.render('users/login', { errors: errors.array() });
       }
 
@@ -41,7 +40,6 @@ const usersController = {
       };
       res.locals.user = req.session.user;
 
-      console.log('Usuario autenticado:', user.email, user.rol_id);
       res.redirect('/');
     } catch (error) {
       console.log(err);
@@ -119,7 +117,7 @@ const usersController = {
         });
     } else {
         const file = req.file;
-        console.log(req.file);
+        console.log("Imagen usuario:",req.file);
 
         db.User.findByPk(id).then(function(user) {
             let oldImage = user.image;
@@ -138,7 +136,7 @@ const usersController = {
                     first_name,
                     last_name,
                     birthday,
-                    image: file ? file.filename : "default.webp",
+                    image: file ? file.filename : oldImage ? oldImage : "default.webp",
                 },
                 { where: { id } }
             ).then(function() {
@@ -169,7 +167,6 @@ const usersController = {
     const {password} = req.body;
     const errors = validationResult(req);
         if (!errors.isEmpty()) {
-          console.log(errors)
           db.User.findByPk(id).then(function(user){
             res.render("users/passwordUpdate",{errores: errors.mapped(), old: req.body, usuario:user, id})
           })
@@ -190,7 +187,6 @@ const usersController = {
       db.Address.findOne(
         {where:{user_id : id}}
     )]).then(function([user,address]){
-      console.log(address)
     res.render("users/addressUpdate",{usuario:user,address, id})
   })
   },
@@ -199,7 +195,6 @@ const usersController = {
     const {country, province, city,address}= req.body
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      console.log("errores",errors)
       Promise.all([
         db.User.findByPk(id),
         db.Address.findOne(

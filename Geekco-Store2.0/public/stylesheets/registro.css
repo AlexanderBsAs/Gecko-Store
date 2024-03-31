@@ -129,43 +129,7 @@
     animation-direction: alternate;
     transition: all 2000ms;
 }
-/* Inicio de estilos para formulario de perfil */
 
-.userImage-box {
-    text-align: center;
-}
-
-.input-file {
-    display: none; /* Oculta el input de tipo file */
-}
-
-.custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
-    background-color: #f9f9f9;
-    color: #333;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
-
-.custom-file-upload:hover {
-    background-color: #e9e9e9;
-}
-
-.custom-file-upload input[type="file"] {
-    display: none; /* Oculta el input de tipo file */
-}
-
-
-/* Final de estilos para formulario de perfil */
-@keyframes logink {
-    0% {background-color: var(--color-turquoise);}
-    50% {background-color: var(--color-violet);}
-    100% {background-color: var(--color-turquoise);}
-
-}
 
 
 

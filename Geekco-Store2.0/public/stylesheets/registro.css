@@ -130,12 +130,6 @@
     transition: all 2000ms;
 }
 
-@keyframes logink {
-    0% {background-color: var(--color-turquoise);}
-    50% {background-color: var(--color-violet);}
-    100% {background-color: var(--color-turquoise);}
-
-}
 
 
 

@@ -11,7 +11,14 @@
                 </div>
                 
             </form>
-            <a href="/productos/productsList">Todos los productos</a></div>
+            <% if (locals.user) { %>
+            <% if (locals.user.admin) { %>
+                <a href="/productos/productsList">Todos los productos</a>
+            <% } %>
+            <% } else {%>
+                <a class="products-novisible" href="/productos/productsList">Todos los productos</a>
+            <% } %>
+        </div>
         </nav>
         <button id="abrir" class="abrir-menu"><div class="burger-menu"><i class="fas fa-bars"></i></div></button>
         <nav class="nav" id="nav">

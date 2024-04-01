@@ -34,19 +34,32 @@ const productsController = {
   },
   productForm: (req, res) => {
 
-    res.render('products/productForm',);
+    Promise.all([
+      db.Brand.findAll(),
+      db.Category.findAll(),
+      db.Platform.findAll()
+    ])
+      .then(function ([ brands, categories, platforms]) {
+        res.render("products/productForm", { brands, categories, platforms });
+      });
 
   },
   create: async (req, res, next) => {
-    const errors = validationResult(req);
+    const errores = validationResult(req);
     console.log("body:", req.body, "File:", req.file)
-    if (!errors.isEmpty()) {
+    if (!errores.isEmpty()) {
       if (req.file) {
         fs.unlinkSync(req.file.path); // Eliminar el archivo
     }
-      console.log("errores:", errors)
-      return res.render("products/productForm", { errors: errors.mapped(), old: req.body });
-    };
+    Promise.all([
+      db.Brand.findAll(),
+      db.Category.findAll(),
+      db.Platform.findAll()
+    ])
+      .then(function ([brands, categories, platforms]) {
+        return res.render('products/productForm', { errores: errores.mapped(), brands, categories, platforms });
+      })
+    } else {
     const { name, price, stock, description, platform_id, category_id, installments, discount, brand_id } = req.body;
     console.log(req.body)
     try {
@@ -64,12 +77,14 @@ const productsController = {
       });
 
       res.redirect("/productos/dashboard");
+      
     } catch (error) {
       
       console.error("Error al crear el producto:", error);
       res.status(500).send("Error al crear el producto");
     }
-  },
+  }
+},
 
   dashboard: async (req, res) => {
     try {

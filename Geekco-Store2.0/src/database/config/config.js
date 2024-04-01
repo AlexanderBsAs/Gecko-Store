@@ -2,13 +2,12 @@ require('dotenv').config()
 
 module.exports = {
   "development": {
-    "username": process.env.DB_USERNAME,
-    "password": process.env.DB_PASSWORD,
-    "database": process.env.DB_DATABASE,
-    "host": process.env.DB_HOST,
-    "dialect": process.env.DB_DIALECT,
-    "port":process.env.DB_PORT,
-
+    "username": "root",
+    "password": "Root2024",
+    "database":"geekco_storedb2.0",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "port":"3306",
   },
   test: {
     username: "root",

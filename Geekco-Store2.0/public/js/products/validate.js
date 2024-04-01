@@ -1,5 +1,5 @@
 window.addEventListener("load",function(){
-    let formulario=document.addEventListener("formCreate")
+    let formulario=document.addEventListener(".formCreate")
     formulario.addEventListener("submit", function(e){
         
        let errores=[]
@@ -78,7 +78,7 @@ window.addEventListener("load",function(){
             let ulErrores=document.querySelector(".errores ul")
 
             for (let i=0;errores.lenght>0;i++){
-                ulErrores.innerHTML+=errores[i]
+                ulErrores.innerHTML+= "<li>"+errores[i]+"</li>"
             }
         }
 

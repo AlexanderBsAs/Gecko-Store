@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Pixelify+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+
 .register-body {
     font-family: 'Prompt', sans-serif;
 }
@@ -8,6 +9,7 @@
     margin-bottom: 15%;
     padding-top: 15%;
 }
+
 .register-logo {
     position: absolute;
     width: 40%;
@@ -16,38 +18,40 @@
     font-size: 20px;
     margin: auto;
 }
+
 .register-main-body {
     background-image: url("/images/bg-body-register.png");
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
     width: 100%;
     position: relative;
     padding: 5%;
 }
+
 .register-form h2 {
     font-size: 24px;
     padding-bottom: 10px;
     font-family: 'Pixelify Sans', sans-serif;
 }
-.register-form h2, .register-form .info-text-form p {
+
+.register-form h2,
+.register-form .info-text-form p {
     text-align: center;
 }
-.text-error {
+
+.text-error, .error-lastname, .error-email, .error-address, .error-birthday,.error-password, .error-password2 {
     animation: text-error 3500ms infinite;
     font-size: 12px;
-  }
-  
-  @keyframes text-error {
-    0% {color: var(--color-turquoise);}
-    50% {color: white;}
-    100% {color: var(--color-turquoise);}
-  
-  }
-.register-form p  {
-    font-size: 18px;
 }
+
+@keyframes text-error{
+    0% { color: var(--color-turquoise); }
+    50% { color: white; }
+    100% { color: var(--color-turquoise); }
+}
+
+
 .register-form {
-    
     border-radius: 25px;
     margin: auto;
     width: 95%;
@@ -65,6 +69,7 @@
     width: 80%;
     margin: auto;
 }
+
 .input-data {
     display: flex;
     flex-direction: column;
@@ -82,7 +87,8 @@
     background-color: var(--color-turquoise);
     transition: all 1000ms;
 }
-.input-data label{
+
+.input-data label {
     margin-bottom: 5px;
 }
 
@@ -90,11 +96,11 @@
     animation: register 1000ms infinite;
     box-shadow: 0px 0px 20px var(--color-midnight-blue);
 }
-@keyframes register {
-    0% {background-color: var(--color-turquoise);}
-    50% {background-color: var(--color-violet);}
-    100% {background-color: var(--color-turquoise);}
 
+@keyframes register {
+    0% { background-color: var(--color-turquoise); }
+    50% { background-color: var(--color-violet); }
+    100% { background-color: var(--color-turquoise); }
 }
 
 .asterisk-form {
@@ -108,15 +114,15 @@
     padding: 10px;
     border-radius: 10px;
     border: 1px;
-
 }
+
 .login-link {
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
-
 }
+
 .login-link a {
     background-color: var(--color-turquoise);
     border-radius: 5px;
@@ -124,18 +130,20 @@
     margin-top: 5px;
     text-decoration: none;
 }
+
 .login-link a:hover {
     animation: logink 2000ms infinite;
     animation-direction: alternate;
     transition: all 2000ms;
 }
 
+@keyframes logink {
+    0% { background-color: var(--color-turquoise); }
+    50% { background-color: var(--color-violet); }
+    100% { background-color: var(--color-turquoise); }
+}
 
-
-
-
-
-@media (min-width: 768px){
+@media (min-width: 768px) {
     .register-form h2 {
         font-size: 35px;
     }
@@ -147,7 +155,8 @@
         top: 20px;
     }
 }
-@media (min-width: 1024px){
+
+@media (min-width: 1024px) {
     .register-form h2 {
         font-size: 40px;
     }

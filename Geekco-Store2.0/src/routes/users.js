@@ -9,8 +9,7 @@ const {
   userUpdateForm,
   userUpdate,
   updatePasswordForm,
-  updatePassword,
-  listUsers,
+  updatePassword
 } = require("../controllers/usersController");
 const loginValidationRules = require("../validations/loginValidator")
 const guestMiddleware = require('../Middlewares/guestMiddleware')
@@ -41,5 +40,4 @@ router.put(
   userUpdatePasswordValidator(),
   updatePassword
 );
-router.get("/list",listUsers)
 module.exports = router;

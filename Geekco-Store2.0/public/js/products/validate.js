@@ -6,7 +6,7 @@ window.addEventListener("load",function(){
         let nombre=document.querySelector("#name")
 
         if(nombre.value==""){
-            errores.push("el campo de nombre debe estar completo")
+            alert("hola")
         }
         else if(nombre.value.length<6){
             errores.push("el nombre debe tener minimo 6 caracteres")
@@ -77,7 +77,7 @@ window.addEventListener("load",function(){
             e.preventDefault()
             let ulErrores=document.querySelector(".errores ul")
 
-            for (let i=0;errores.lenght>0;i++){
+            for (let i=0;errores.length>0;i++){
                 ulErrores.innerHTML+= "<li>"+errores[i]+"</li>"
             }
         }

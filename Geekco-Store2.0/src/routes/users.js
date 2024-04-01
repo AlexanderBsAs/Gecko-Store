@@ -9,13 +9,9 @@ const {
   userUpdateForm,
   userUpdate,
   updatePasswordForm,
-<<<<<<< HEAD
-  updatePassword
-=======
   updatePassword,
   updateAddressForm,
   updateAddress
->>>>>>> bba4cc91ac4d70c5261203b1378dcf0d9c65193d
 } = require("../controllers/usersController");
 const loginValidationRules = require("../validations/loginValidator");
 const guestMiddleware = require("../Middlewares/guestMiddleware");
@@ -46,15 +42,6 @@ upload.single('image'),
 userUpdateValidator(), 
 userUpdate);
 
-<<<<<<< HEAD
-router.get("/passwordUpdate/:id",userAuthMiddleware, updatePasswordForm);
-router.put(
-  "/passwordUpdate/:id",
-  userUpdatePasswordValidator(),
-  updatePassword
-);
-module.exports = router;
-=======
 router.get("/passwordUpdate/:id",
 userAuthMiddleware,
 updatePasswordForm);
@@ -70,4 +57,3 @@ addressUpdateValidator(),
 updateAddress);
 
 module.exports = router;
->>>>>>> bba4cc91ac4d70c5261203b1378dcf0d9c65193d

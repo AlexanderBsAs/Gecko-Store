@@ -1,6 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+const expressValidator = require('express-validator')
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const methodOverride = require('method-override')
@@ -14,6 +15,7 @@ var app = express();
 const bodyParser = require('body-parser');
 
 // Configurar body-parser para analizar datos de formulario
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // view engine setup
@@ -29,7 +31,12 @@ app.use(methodOverride("_method"))
 app.use(session({secret: "Secretgecko123",resave: false,
 saveUninitialized: true}))
 app.use((req, res, next) => {
-  res.locals.user = req.session.user;
+  if (req.session.user) {
+    const { rol_id } = req.session.user;
+    const isAdmin = rol_id === 2;
+    res.locals.user = req.session.user;
+    res.locals.isAdmin = isAdmin;
+  }
   next();
 });
 app.use(rememberMiddleware)

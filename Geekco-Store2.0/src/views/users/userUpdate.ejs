@@ -8,14 +8,16 @@
         <img class="register-logo" src="/images/logo.png" alt="" />
         <form
           action="/users/update/<%=id%>?_method=PUT"
-          class="register-form"
+          class="register-form profile-form"
           method="POST"
+          enctype="multipart/form-data"
         >
           <h2>EDITAR PERFIL</h2>
 
           <div class="input-data">
             <label for="first_name">Nombre</label>
             <input
+              class="userProfile-input"
               type="text"
               name="first_name"
               id="first_name"
@@ -30,6 +32,7 @@
           <div class="input-data">
             <label for="last_name">Apellido</label>
             <input
+            class="userProfile-input"
               type="text"
               name="last_name"
               id="last_name"
@@ -41,21 +44,34 @@
               null %>
             </p>
           </div>
-
           <div class="input-data">
-            <label for="address">Domicilio</label>
+            <label for="date">Fecha de nacimiento</label>
             <input
-              type="text"
-              name="address"
-              id="address"
-              value="<%=usuario.address %>"
+            class="userProfile-input"
+              type="date"
+              name="birthday"
+              id="birthday"
+              value="<%=usuario.birthday %>"
             />
             <p>
-              <%= locals.errores && errores.address ? errores.address.msg : null
+              <%= locals.errores && errores.birthday ? errores.birthday.msg : null
               %>
             </p>
           </div>
+          <div class="userImage-Container" style="width: 100%; text-align: center;">
+            <div class="userImage-box">
+              <img src="/images/users/<%= usuario.image %>" alt="">
+          </div>
+          
+          <div class="file-input-container">
+              <label class="edicion" for="imagen">Cambiar imagen para el usuario</label>
+              <input type="file" name="image" id="imagen" value="<%= usuario.image %>">  
+          </div>
+          </div>
+        
           <div class="input-data">
+            <a href="/users/addressUpdate/<%= locals.user.id %>">Domicilio</a>
+
             <a href="/users/passwordUpdate/<%-usuario.id %>"
               >Cambiar Contraseña</a
             >
@@ -67,6 +83,7 @@
         </form>
       </div>
     </main>
+    <script src="/js/users/userProfileValidations.js"></script>
     <%-include("../partials/footer.ejs")%>
   </body>
 </html>

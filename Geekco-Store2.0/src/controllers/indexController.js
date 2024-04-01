@@ -1,26 +1,32 @@
-
-const { log } = require("console");
-const fs = require("fs");
-const path = require("path");
-const json = fs.readFileSync(path.join(__dirname,"../database/products.json"),"utf-8")
-const products = JSON.parse(json);
+const { Op } = require('sequelize');
+const { Product } = require('../database/models/index');
 
 const indexController = {
-    home: (req,res)=>{
-const json = fs.readFileSync(path.join(__dirname,"../database/products.json"),"utf-8")
-const products = JSON.parse(json);
-        res.render("index",{products})
+    home: async (req, res) => {
+        try {
+            const products = await Product.findAll();
+            res.render("index", { products });
+        } catch (error) {
+            console.error("Error al cargar productos:", error);
+            res.status(500).send("Error al cargar productos");
+        }
     },
-    search: (req,res)=>{
-        let {keywords} = req.query;
-        const search = [];
-        products.forEach(product => {
-            if(product.name.toLowerCase().includes(keywords.toLowerCase())){
-                search.push(product)
-            }
-        });
-        res.render("results",{search,keywords})
+    search: async (req, res) => {
+        try {
+            const { keywords } = req.query;
+            const searchResults = await Product.findAll({
+                where: {
+                    name: {
+                        [Op.like]: `%${keywords}%` // Búsqueda insensible a mayúsculas y minúsculas en MySQL
+                    }
+                }
+            });
+            res.render("results", { search: searchResults, keywords });
+        } catch (error) {
+            console.error("Error al buscar productos:", error);
+            res.status(500).send("Error al buscar productos");
+        }
     }
-}
+};
 
 module.exports = indexController;

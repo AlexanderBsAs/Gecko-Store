@@ -1,7 +1,7 @@
 .productForm__main{
  background-image: url("/images/wpp1.jpg");
  background-size: cover;
- height: 810px;
+ height: 100%;
  width: 100%;
  display: flex;
 }
@@ -12,6 +12,7 @@
     margin: auto;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 0.2rem;
+
 }
 .productForm__div h2{
     width: 100%;
@@ -29,7 +30,7 @@
     color: white;
     font-weight: 700;
     width: 60%;
-    margin: 4% 20%;
+    margin: 4% 28%;
     padding: 2%;
     border-radius: 0.6rem;
 }
@@ -43,6 +44,10 @@
     width: 100%;
     text-align: center;
 }
+.p-errores{
+    color: white;
+    text-align: center;
+}
 @media(min-width:768px){
     .productForm__input {
         margin: 10px 40px;
@@ -52,14 +57,33 @@
     }
 }
 @media(min-width:1024px){
+    #form{
+        margin:auto;
+    }
+    .productForm__div{
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
     .productForm__main { 
-        height: 964px;}
+        height: 100%;
+    }
     .productForm__input {
-            margin: 12px 198px;
-            width: 65%;
-            padding: 2px;
+            margin: auto;
+            width: 100%;
+           
         }
     .productForm__input__image{
         margin: 10px 199px;}
         
+}
+.productForm__input__enviar {
+    background: var(--color-violet);
+    color: white;
+    font-weight: 700;
+    width: 50%;
+    margin: auto;
+    padding: 1%;
+    border-radius: 0.6rem;
+    display: block;
+    margin-bottom: 1%;
 }

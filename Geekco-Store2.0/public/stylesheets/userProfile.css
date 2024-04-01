@@ -1,0 +1,120 @@
+/* Inicio de estilos para formulario de perfil */
+
+.userImage-box {
+    text-align: center;
+}
+
+.input-file {
+    display: none; /* Oculta el input de tipo file */
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    color: #333;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.custom-file-upload:hover {
+    background-color: #e9e9e9;
+}
+
+.custom-file-upload input[type="file"] {
+    display: none; /* Oculta el input de tipo file */
+}
+
+
+/* Final de estilos para formulario de perfil */
+@keyframes logink {
+    0% {background-color: var(--color-turquoise);}
+    50% {background-color: var(--color-violet);}
+    100% {background-color: var(--color-turquoise);}
+
+}
+.input-valid {
+    animation: valid 2000ms ease 1;
+    background-color: white;
+}
+
+@keyframes valid {
+    0% { background-color: rgb(97, 243, 97); }
+    25% { background-color: white; }
+    50% { background-color: rgb(97, 243, 97); }
+    75% { background-color: white; }
+    100% { background-color: rgb(97, 243, 97); }
+}
+
+
+.userImage-box img {
+    width: 50%;
+}
+.input-invalid {
+    animation: invalid 2000ms ease 1;
+    background-color: white;
+}
+
+@keyframes invalid {
+    0%{background-color: rgb(221, 62, 62);}
+    25% { background-color: white; }
+    50%{background-color: white;}
+    75% { background-color: white; }
+    100%{ background-color:  rgb(221, 62, 62);}
+}
+
+
+/* Ocultar el input de tipo file */
+.file-input-container input[type="file"] {
+    display: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+
+}
+
+/* Estilo para el contenedor del input de tipo file */
+.file-input-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilo para el texto "Cambiar imagen para el usuario" */
+.file-input-container label.edicion {
+    cursor: pointer;
+    background-color: var(--color-turquoise);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-top: 20px ;
+    transition: 2s;
+
+}
+
+/* Añadir estilo opcional para resaltar el contenedor cuando se pasa el cursor */
+.file-input-container label.edicion:hover {
+    animation: imageEdit 2000ms infinite;
+    background-color: none;
+}
+@keyframes imageEdit {
+    0% {background-color: var(--color-turquoise);}
+    50% {background-color: var(--color-violet);}
+    100% {background-color: var(--color-turquoise);}
+
+}
+
+
+.userImage-Container {
+    width: 100%;
+    text-align: center;
+}
+
+
+@media (max-width: 480px){
+    .file-input-container label.edicion {
+        font-size: 0.5em;
+    }
+}

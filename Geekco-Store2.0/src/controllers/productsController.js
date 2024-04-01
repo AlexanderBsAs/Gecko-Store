@@ -1,142 +1,197 @@
-const fs = require("fs");
-const path = require("path");
-const json = fs.readFileSync(path.join(__dirname, "../database/products.json"),"utf-8");
-const products = JSON.parse(json);
-
+const db = require('../database/models');
+const { validationResult } = require("express-validator");
+const fileUpload = require("../Middlewares/productMulter");
+const fs = require('fs');
 const productsController = {
 
-    carrito: (req,res)=>{
-        res.render("products/productCart")
-    },
-    productDetail: (req,res)=>{
-      const json = fs.readFileSync(path.join(__dirname, "../database/products.json"), "utf-8");
-      const products = JSON.parse(json);
-        const id = req.params.idProducto
-        const producto = products.find(element => element.id == id);
-        res.render("products/productDetail",{producto,products})
-    },
-    productForm: (req,res)=>{
-        res.render("products/productForm")
-    },
-    create: (req,res,next)=>{
-      console.log('Files:', req.file.filename);
-      console.log('Body:', req.body);
-      const filename = req.file.filename;
-      const json = fs.readFileSync(path.join(__dirname, "../database/products.json"), "utf-8");
-      const products = JSON.parse(json);
-        
-      if (!req.file){
-     return res.status(400).send('Por favor seleccione un archivo'); 
-     
-       }else{
-        const {name,price,stock,description,image,
-        platform,category,installments,discount} = req.body;
-        let newId = Date.now()
-        const product = {
-          id: newId,
-          name: name.trim(),
-          price: parseFloat(price),
-          discount:parseInt(discount),
-          stock: parseInt(stock),
-          description: description.trim(),
-          image: filename,
-          platform: platform.trim(),
-          category: category.trim(),
-          installments: parseInt(installments)
-        }
-      
-        products.push(product);
-        const productjson = JSON.stringify(products);
-        fs.writeFileSync(path.join(__dirname,"../database/products.json"),productjson,"utf-8");
-        res.redirect("/productos/dashboard")}
-    },
-
-  dashboard: (req, res) => {
-    let json = fs.readFileSync(path.join(__dirname, "../database/products.json"), "utf-8");
-    const products = JSON.parse(json);
-    res.render("products/dashboard", { title: "dashboard", products });
+  carrito: (req, res) => {
+    res.render("products/productCart")
   },
-	productsList: (req,res)=>{
-		res.render("products/products", {products})
-	},
-edit: (req, res) => {
-  const json = fs.readFileSync(
-    path.join(__dirname, "../database/products.json"),
-    "utf-8"
-  );
-  const products = JSON.parse(json);
-  const id = +req.params.id
-  let productos = products.find((elemento) => {
+  productDetail: (req, res) => {
+    db.Product.findByPk(req.params.idProducto, {
+      include: [
+        { association: "categories" }, { association: "brands" }, { association: "platforms" }
+      ],
+    })
+      .then(resultado => {
+        db.Product.findAll({
+          include: [
+            { association: "categories" }, { association: "brands" }, { association: "platforms" }
+          ],
+        })
+          .then(resultados => {
+            console.log(resultado)
+            res.render("products/productDetail", {
+              producto: resultado, products: resultados
+            })
+          })
 
-    return elemento.id == id
+      }
+      )
+      .catch(error => {
+        res.send(error)
+      })
+  },
+  productForm: (req, res) => {
 
-  })
-  console.log(productos)
+    res.render('products/productForm',);
 
-  res.render("products/formupdate", { productos, id })
-
-},
-update: (req,res)=>{
-  const json = fs.readFileSync(
-    path.join(__dirname, "../database/products.json"),
-    "utf-8"
-  );
-
-  try { 
-    const { name, price, stock, discount, platform, category, description, installments}=req.body
-  const id= +req.params.id
-
-const file=req.file
- if(!file){
-  throw new Error("Debe elegir una imagen")
- }
-
-/*  console.log(file) */
-  let nuevobjeto={
-   id,
-   name,
-   price: +price,
-   discount:+discount,
-   stock:+stock,
-   description,
-   image:file? file.filename:null,
-   platform,
-   category,
-   installments
-  }
-  console.log(nuevobjeto.image)
-  let producto = products.map((elemento) => {
-    if (elemento.id == id) {
-      /* nuevobjeto.image = elemento.image */
-
-      return nuevobjeto
+  },
+  create: async (req, res, next) => {
+    const errors = validationResult(req);
+    console.log("body:", req.body, "File:", req.file)
+    if (!errors.isEmpty()) {
+      if (req.file) {
+        fs.unlinkSync(req.file.path); // Eliminar el archivo
     }
-   
-  return elemento
-  }) 
-/*   console.log(producto) */
-/*  console.log(producto) */
-/* console.log(producto) */
-  let json2=JSON.stringify(producto)
-/*     console.log(json2) */
-fs.writeFileSync(path.join(__dirname, "../database/products.json"),json2,"utf-8")  
- /* console.log(req.body) */
-  res.redirect("/productos/dashboard")
+      console.log("errores:", errors)
+      return res.render("products/productForm", { errors: errors.mapped(), old: req.body });
+    };
+    const { name, price, stock, description, platform_id, category_id, installments, discount, brand_id } = req.body;
+    console.log(req.body)
+    try {
+      const newProduct = await db.Product.create({
+        name: name.trim(),
+        price: parseFloat(price),
+        stock: parseInt(stock),
+        description: description,
+        platform_id: platform_id ? platform_id : null,
+        category_id: category_id,
+        brand_id: brand_id,
+        installments: installments ? parseInt(installments) : null,
+        discount: discount ? parseInt(discount) : null,
+        image: req.file ? req.file.filename : "default.jpg",
+      });
 
-}catch(error){
-  res.send("Error, debes elegir una imagen")
-}
+      res.redirect("/productos/dashboard");
+    } catch (error) {
+      
+      console.error("Error al crear el producto:", error);
+      res.status(500).send("Error al crear el producto");
+    }
+  },
 
-},
-destroy: (req, res) => {
-  const { id } = req.params;
-  const json = fs.readFileSync(path.join(__dirname, "../database/products.json"), "utf-8");
-  const products = JSON.parse(json);
-  const updatedProducts = products.filter(producto => producto.id != id);
-  const updatedJson = JSON.stringify(updatedProducts);
-  fs.writeFileSync(path.join(__dirname, "../database/products.json"), updatedJson, "utf-8");
-  res.redirect("/productos/dashboard");
-}
-}
+  dashboard: async (req, res) => {
+    try {
+      // Obtener todos los productos desde la base de datos
+      const products = await db.Product.findAll();
+      res.render('products/dashboard', { title: 'dashboard', products });
+    } catch (error) {
+      console.error('Error al obtener los productos:', error);
+      res.status(500).send('Error al obtener los productos');
+    }
+  },
+  productsList: (req, res) => {
+    db.Product.findAll()
+      .then(resultado => {
+        res.render("products/products", {
+          products: resultado
+        })
+      })
+  },
+  edit: (req, res) => {
+    const { id } = req.params;
+    Promise.all([
+      db.Product.findByPk(id, {
+        include: ["brands", "categories", "platforms"],
+      }),
+      db.Brand.findAll(),
+      db.Category.findAll(),
+      db.Platform.findAll()
+    ])
+      .then(function ([product, brands, categories, platforms]) {
+        res.render("products/formUpdate", { productos: product, brands, categories, platforms, id });
+      });
+  },
+
+  update: (req, res) => {
+    const { id } = req.params;
+    const {
+      name,
+      price,
+      stock,
+      description,
+      brands,
+      platform,
+      category,
+      discount,
+      installments
+    } = req.body;
+    const errores = validationResult(req);
+    if (!errores.isEmpty()) {
+      console.log(errores);
+      Promise.all([
+        db.Product.findByPk(id, {
+          include: ["brands", "categories", "platforms"],
+        }),
+        db.Brand.findAll(),
+        db.Category.findAll(),
+        db.Platform.findAll()
+      ])
+        .then(function ([product, brands, categories, platforms]) {
+          return res.render('products/formUpdate', { errores: errores.mapped(), productos: product, brands, categories, platforms, id });
+        })
+    } else {
+      const product = db.Product.findByPk(req.params.id)
+      let file = req.file;
+      console.log("image:", product.image)
+      if (!file) {
+         file = product.image
+      }
+      db.Product.update(
+        {
+          name,
+          price,
+          stock,
+          description,
+          image: file,
+          brand_id: brands,
+          platform_id: platform != 0 ? platform : null,
+          category_id: category,
+          discount,
+          installments
+        },
+        {
+          where: { id },
+        },
+        {
+          include: ["brands", "categories", "platforms"],
+        }
+      ).then(function (product) {
+        res.redirect("/productos/dashboard");
+      });
+    }
+  },
+  destroy: (req, res) => {
+    const productId = req.params.id;
+
+    db.Product.findOne({
+      where: {
+        id: productId,
+      },
+    })
+      .then(product => {
+        const imageName = product.image;
+        const imagePath = `public/images/products/${imageName}`;
+        fs.unlink(imagePath, (err) => {
+          if (err) {
+            console.error('Error al eliminar la imagen:', err);
+          } else {
+            db.Product.destroy({
+              where: {
+                id: productId,
+              },
+            })
+              .then(() => {
+                res.redirect("/productos/dashboard");
+              })
+              .catch(err => console.error('Error al eliminar el producto:', err));
+          }
+        });
+      })
+      .catch(err => console.error('Error al buscar el producto:', err));
+  }
+
+};
 
 module.exports = productsController;

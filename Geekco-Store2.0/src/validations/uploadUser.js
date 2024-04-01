@@ -22,7 +22,7 @@ let storage=multer.diskStorage({
      req.errorValidationImage = "No es un tipo de archivo valido"
      cb(null, false)
     }
- }
- 
+}
 
-module.exports = multer({storage,fileFilter})
+
+module.exports= multer({ storage: storage });

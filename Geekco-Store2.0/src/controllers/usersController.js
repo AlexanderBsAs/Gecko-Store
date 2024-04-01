@@ -1,52 +1,52 @@
-const fs = require("fs")
-const path = require("path")
 const { validationResult } = require('express-validator');
-const {getJson, setJson} = require('../utility/jsonMethod')
 const bcrypt = require('bcryptjs');
-const usersPath = path.join(__dirname, "../database/users.json");
-const json = fs.readFileSync(usersPath, "utf-8");
-const users = JSON.parse(json);
 const db = require('../database/models/index');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
+const fs = require('fs');
+const moment = require('moment');
 
 const usersController = {
-    login: (req, res) => {
-            res.render('users/login');
-        
-    },
-    userLogin: (req, res) => {  
-        const users = getJson('users')
-   
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            console.log(errors);
-            return res.render('users/login', { errors: errors.array() });
-        }
+  login: (req, res) => {
+    res.render('users/login');
+  },
+  userLogin: async (req, res) => {
+    try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.render('users/login', { errors: errors.array() });
+      }
 
-        const { email, password, remember } = req.body;
-        const userLogged = users.find(user => user.email === email);
-        if (userLogged && bcrypt.compareSync(password, userLogged.password)) {    
-        if (remember) {
-            res.cookie('remember', req.body.email, { maxAge: 30 * 24 * 60 * 60 * 1000 }); // Cookie válida por 30 días
-        }
-        req.session.user = {
-            email: userLogged.email,
-            first_name: userLogged.first_name,
-            last_name: userLogged.last_name,
-            admin: userLogged.admin,
-            id: userLogged.id
-        }
-        res.locals.user = req.session.user;
-     
-        console.log(req.session.user)
-        console.log('Usuario autenticado:', userLogged);
-        res.redirect('/');}
-    },
-    register: (req, res) => {
-        const json = fs.readFileSync(usersPath, "utf-8");
-        const users = JSON.parse(json);
-        res.render("users/register")
+      const { email, remember } = req.body;
+      // Buscar el usuario por su correo electrónico en la base de datos
+      const user = await db.User.findOne({ where: { email } });
+      if (!user) {
+        throw new Error('Correo electrónico no encontrado');
+      }
+
+      // Si se recuerda al usuario, restablecer la cookie
+      if (remember) {
+        res.cookie('remember', email, { maxAge: 30 * 24 * 60 * 60 * 1000 }); // Cookie válida por 30 días
+      }
+
+      // Establecer la sesión del usuario
+      req.session.user = {
+        email: user.email,
+        first_name: user.first_name,
+        last_name: user.last_name,
+        image: user.image,
+        admin: (user.rol_id === 2),
+        id: user.id
+      };
+      res.locals.user = req.session.user;
+
+      res.redirect('/');
+    } catch (error) {
+      console.log(err);
+    }
+  },
+  register: (req, res) => {
+    res.render("users/register")
     },
     logout: (req,res)=>{
         res.clearCookie('remember')
@@ -54,158 +54,177 @@ const usersController = {
         return res.redirect('/')
     },
     userRegister: (req, res) => {
-        const errors = validationResult(req);
-        if (errors.isEmpty()) {
-        const users = getJson('users')
-            const {first_name, last_name, email, password, address, birthday } = req.body;
-        const id = Date.now();
-        const newUser = {
-            id,
-            first_name: first_name.trim(),
-            last_name: last_name.trim(),
-            email: email.trim(),
-            password: bcrypt.hashSync(password, 10),
-            address: address.trim(),
-            birthday: birthday,
-            admin: false,
-            image: req.file ? req.file.filename : "default.jpg",
-        };
-        users.push(newUser);
-        setJson(users, 'users')
-        res.redirect('/');}
-        
-        else{
-        console.log(errors);
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
         if (req.file) {
-            fs.unlinkSync(req.file.path); // Eliminar el archivo
+          fs.unlinkSync(req.file.path);
+      }
+          return res.render('users/register', { errors: errors.mapped(), old: req.body });
+      }
+  
+      const { first_name, last_name, email, password, address, birthday } = req.body;
+      db.User.create({
+        first_name,
+        last_name,
+        email,
+        password: bcrypt.hashSync(password, 10),
+        address,
+        birthday,
+        rol_id: 1,
+        image: req.file ? req.file.filename : "default.jpg",
+    })
+    
+      .then(newUser => {
+          console.log('Usuario creado:', newUser.email);
+          res.redirect('/');
+      })
+      .catch((err) => {
+        console.log(err);
+    });
+  },  
+  userUpdateForm: (req, res) => {
+    const { id } = req.params;
+  
+    Promise.all([
+      db.User.findByPk(
+        id,
+        {
+          include: ["rols","addresses"],
         }
-        res.render('users/register', { errors: errors.mapped(), old: req.body });
-    }
-},
-userUpdateForm: (req, res) => {
-    const usuarios = fs.readFileSync(
-      path.join(__dirname, "../database/users.json"),
-      "utf-8"
-    );
-    const users = JSON.parse(usuarios);
-
-    const id = +req.params.id;
-    const usuario = users.find((usuario) => usuario.id == id);
-    console.log(usuario);
-    res.render("users/userUpdate", {
-      usuario,
-      id,
+      ),
+      db.Address.findOne(
+        { where: { user_id: id } }
+      )
+    ]).then(function([user, address]) {
+      user.dataValues.birthday = moment(user.dataValues.birthday).format('YYYY-MM-DD');
+      console.log(user.dataValues.birthday);
+  
+      res.render("users/userUpdate", { usuario: user, address, id });
+    }).catch(err => {
+      console.error("Error:", err);
+      res.status(500).send("Error interno del servidor");
     });
   },
+  
   userUpdate: (req, res) => {
-    try {
-      const usuarios = fs.readFileSync(
-        path.join(__dirname, "../database/users.json"),
-        "utf-8"
-      );
-      const { first_name, last_name, address } = req.body;
-      const { id } = req.params;
-      const users = JSON.parse(usuarios);
-      const usuario = users.find((usuario) => usuario.id == id);
-      const errores = validationResult(req);
-      if (!errores.isEmpty()) {
-        res.render("users/userUpdate", {
-          usuario,
-          id,
-          errores: errores.mapped(),
-        });
-      } else {
-        const userUpdate = {
-          id: usuario.id,
-          first_name,
-          last_name,
-          email: usuario.email,
-          admin: usuario.admin,
-          password: usuario.password,
-          address,
-          image: usuario.image,
-        };
-        let usersList = users.map((elemento) => {
-          if (elemento.id == id) {
-            return userUpdate;
-          } else {
-            return elemento;
-          }
-        });
-        let jsonUpdate = JSON.stringify(usersList);
+    const { id } = req.params;
+    const { first_name, last_name, birthday } = req.body;
+    const errors = validationResult(req);
 
-        fs.writeFileSync(
-          path.join(__dirname, "../database/users.json"),
-          jsonUpdate,
-          "utf-8"
-        );
-        res.redirect("/");
-      }
-    } catch (error) {
-      console.log(error);
+    if (!errors.isEmpty()) {
+        db.User.findByPk(id).then(function(user) {
+            res.render("users/userUpdate", { errores: errors.mapped(), old: req.body, usuario: user, id });
+        });
+    } else {
+        const file = req.file;
+        console.log("Imagen usuario:",req.file);
+
+        db.User.findByPk(id).then(function(user) {
+            let oldImage = user.image;
+
+            if (file) {
+                // Si se ha subido un nuevo archivo, eliminar el archivo anterior
+                if (oldImage !== "default.webp") {
+                    // Verificar si la imagen no es la predeterminada para evitar su eliminación accidental
+                    const imagePath = `public/images/users/${oldImage}`;
+                    fs.unlinkSync(imagePath);
+                }
+            }
+
+            db.User.update(
+                {
+                    first_name,
+                    last_name,
+                    birthday,
+                    image: file ? file.filename : oldImage ? oldImage : "default.webp",
+                },
+                { where: { id } }
+            ).then(function() {
+                req.session.user = {
+                    first_name,
+                    last_name,
+                    image: file ? file.filename : "default.webp",
+                    id,
+                };
+                res.locals.user = req.session.user;
+                res.redirect(`/users/update/${id}`);
+            });
+        });
     }
-  },
+},
+
 
   updatePasswordForm: (req, res) => {
-    const usuarios = fs.readFileSync(
-      path.join(__dirname, "../database/users.json"),
-      "utf-8"
-    );
-    const users = JSON.parse(usuarios);
-
-    const id = +req.params.id;
-    const usuario = users.find((usuario) => usuario.id == id);
-    console.log(usuario);
-    res.render("users/passwordUpdate", { usuario, id });
+    const { id } = req.params;
+    db.User.findByPk(id)
+    .then(function(resultado){
+      res.render("users/passwordUpdate", { usuario: resultado, id })
+    })
   },
 
   updatePassword: (req, res) => {
-    try {
-      const usuarios = fs.readFileSync(
-        path.join(__dirname, "../database/users.json"),
-        "utf-8"
-      );
-      const { password } = req.body;
-      const { id } = req.params;
-      const users = JSON.parse(usuarios);
-      const usuario = users.find((usuario) => usuario.id == id);
-      const errores = validationResult(req);
-      if (!errores.isEmpty()) {
-        res.render("users/passwordUpdate", {
-          usuario,
-          id,
-          errores: errores.mapped(),
-        });
-      } else {
-        const userUpdate = {
-          id: usuario.id,
-          first_name: usuario.first_name,
-          last_name: usuario.last_name,
-          email: usuario.email,
-          admin: usuario.admin,
-          password: bcrypt.hashSync(password, 10),
-          address: usuario.address,
-          image: usuario.image,
-        };
-        let usersList = users.map((elemento) => {
-          if (elemento.id == id) {
-            return userUpdate;
-          } else {
-            return elemento;
-          }
-        });
-        let jsonUpdate = JSON.stringify(usersList);
-
-        fs.writeFileSync(
-          path.join(__dirname, "../database/users.json"),
-          jsonUpdate,
-          "utf-8"
-        );
-        res.redirect("/");
+    const {id} = req.params;
+    const {password} = req.body;
+    const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+          db.User.findByPk(id).then(function(user){
+            res.render("users/passwordUpdate",{errores: errors.mapped(), old: req.body, usuario:user, id})
+          })
+        }else {
+    db.User.update(
+      {
+        password: bcrypt.hashSync(password, 10)
+      },
+      {where: {id}}
+    ).then(function(){
+      res.redirect("/")
+    })}
+  },
+  updateAddressForm:(req,res)=>{
+    const {id} = req.params
+    Promise.all([
+      db.User.findByPk(id),
+      db.Address.findOne(
+        {where:{user_id : id}}
+    )]).then(function([user,address]){
+    res.render("users/addressUpdate",{usuario:user,address, id})
+  })
+  },
+  updateAddress:(req,res)=>{
+    const {id} = req.params
+    const {country, province, city,address}= req.body
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      Promise.all([
+        db.User.findByPk(id),
+        db.Address.findOne(
+          {where:{user_id : id}}
+      )]).then(function([user,address]){
+        res.render("users/addressUpdate",{errores: errors.mapped(), old: req.body, usuario:user,address, id})
+      })
+    }else {
+    db.Address.update(
+      {
+        country, province, city, address
+      },
+      {
+        where:{user_id:id}
       }
-    } catch (error) {
-      console.log(error);
-    }
+      )
+    .then(function(){
+      res.redirect("/")
+    })
+  }
+  },
+  destroy: (req,res)=>{
+    const userId = req.params.id
+    db.User.destroy({
+      where: userId
+    })
+    .then((resp)=>{
+      return res.redirect("/users/dashboard")
+    })
   }
 }
+
 module.exports = usersController;

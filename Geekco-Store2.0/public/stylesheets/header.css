@@ -7,6 +7,13 @@
     color: var(--color-turquoise);
     font-size: 14px;
 }
+
+.image-perfil  {
+   height: 50px;
+   border-radius: 30px;
+   border: solid 2px white;
+   padding: 2px;
+}
 .header__gradient {
     height: 5px; /* Altura de la barra */
     width: 100%; /* Ancho completo del header */
@@ -47,22 +54,21 @@
     border-radius: 0.2em;
     padding: 1%;
 }
-#div{
+#div {
     width: 100%;
     align-items: center;
     background-color: #551CA6;
     padding: 2% 12% 2% 9%;
-    margin-bottom: 10px;
+    margin-bottom: 5%;
 }
-.fa-solid.fa-magnifying-glass{
+.fa-solid.fa-magnifying-glass {
     color: var(--Gris-oscuro);
     background-color: white;
     border: 1px solid white;
     border-radius: 16%;
-    margin-left: -4%;
     padding: 0.41em;
-    margin-right: -2%;
 }
+
 #logo{
     width: 25%;
     transform: scaleX(-1);
@@ -104,13 +110,74 @@ header div{
 }
 .header__nav1{
     display: none;
-    
 }
 .header__nav1 ul {
     padding: 5px;
 }
 .header__nav1 ul li a{
     color: white;
+}
+.header__nav1 {
+    /* background-color: var(--color-turquoise); */
+    position: absolute;
+    background: linear-gradient(135deg, #551CA6, #04BFBF, #0098B6);
+    font-size: 1em;
+    margin: 5%;
+    top: 70px;
+    z-index: 10;
+    right: -5%;
+    border-radius: 15px;
+    background-size: 400% 400%; /* Ajustamos el tamaño del fondo para que el gradiente sea más visible */
+    animation: gradientAnimation 5s ease infinite;
+}
+#input-container {
+    position: relative;
+    width: 71%;
+}
+
+#input {
+    border: 1px solid white;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 0.2em;
+    padding: 1%;
+    padding-right: 35px; /* Ajusta el espacio a la derecha para el icono */
+}
+
+.fa-solid.fa-magnifying-glass {
+    position: absolute;
+    right: 10px; /* Ajusta la posición del icono a la derecha */
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--Gris-oscuro);
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 50%;
+    padding: 0.41em;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 .header__nav2{
     width: 49%;
@@ -173,6 +240,11 @@ header div{
     background-color: #551CA6;
 }
 
+.header__nav1.visible {
+    display: block;
+    /* Otros estilos... */
+}
+
 @media(min-width:768px){
     .session__header__on a {
         list-style-type: none;
@@ -226,17 +298,6 @@ header div{
     }
     .burger-menu{
         display:none;}
-    .header__nav1 {
-        display: none;
-        background-color:transparent;
-        position: absolute;
-        font-size: 16px;
-        margin: 3%;
-        top: 43px;
-        z-index: 10;
-        right: 141px;
-    }
-    
     .header__nav2 {
         margin-top: -5%;
         display: inline-flex;
@@ -251,10 +312,10 @@ header div{
         justify-content: flex-start;
         order: 3;
     }
-    .fa-solid.fa-magnifying-glass{    
-        margin-right: -1%;
-        padding: 0.66em;}
-
+    .fa-solid.fa-magnifying-glass {
+        margin-left: -4%;
+        /* padding: 0.66em; */
+    }
     #div a{
         font-size: 20px;
     color: white;
@@ -270,6 +331,8 @@ header div{
             top: 244px;
         }
 }
+
+
 @media(min-width:1024px){
     .session__header__on a {
         list-style-type: none;
@@ -283,7 +346,7 @@ header div{
         font-size: 40px;
     }
     #div{
-        margin-bottom:5%;
+        margin-bottom:7%;
     }
     .nav-list {
         top: 89px;
@@ -300,17 +363,7 @@ header div{
     header div p {
         left: 30%;
 }
-.header__nav1 {
-    background-color: var(--color-turquoise);
-    position: absolute;
-    font-size: 16px;
-    margin: 3%;
-    top: 70px;
-    z-index: 10;
-    right: -28px;
-    border-radius: 20%;
-
-}.header__nav1 ul {
+.header__nav1 ul {
     font-size: 26px;
     gap: 13px;
     display: flex;
@@ -332,9 +385,10 @@ header div{
         top: 13%;
     }
     .header__nav2 {
-        margin-left: 48%;
+        margin-top: auto;
+        margin-left: auto;
         align-items: center;
-        gap: 5%;
+        gap: 4%;
         
     }
   

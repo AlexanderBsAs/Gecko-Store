@@ -3,9 +3,13 @@
         <div>
         <a href="/"><img id="logo" src ="/images/logo.png"></img></a>
         <p>GeekcoStore</p> </div>
-        <div id="div"><i class="fa-solid fa-magnifying-glass"></i>
+        <div id="div">
             <form action="/search" method="GET" class="navbar-form">
-            <input name="keywords" type="text" id="input" placeholder="Buscar productos,marcas..." >
+                <div id="input-container">
+                    <input name="keywords" type="text" id="input" placeholder="Buscar productos, marcas...">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                
             </form>
             <a href="/productos/productsList">Todos los productos</a></div>
         </nav>
@@ -41,7 +45,6 @@
                     <a href="../productos/carrito"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
                 <% } else { %>
                     <!-- Mostrar contenido cuando el usuario no está autenticado -->
-                    <span class="message-login-user">¡Inicia sesión!</span>
                     <span id="abrir__logeo1" class="btn__log"><i class="fa-regular fa-circle-user" style="color: #ffffff;"></i></span>
                     <nav class="header__nav1">
                         <ul>

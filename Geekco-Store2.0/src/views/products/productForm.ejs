@@ -6,7 +6,11 @@
     <main class="productForm__main">
         <div class="productForm__div">
             <h2>Formulario de Carga de Productos</h2>
-            <form action="/productos/create" method="POST" enctype="multipart/form-data">
+    <script src="js/products/validate.js"></script>
+            <div class="errores">
+                <ul></ul>
+            </div>
+            <form action="/productos/create" method="POST" enctype="multipart/form-data" class="formCreate">
                 <input class="productForm__input" type="text" id="name" name="name" placeholder="Nombre" value="<%= locals.old && locals.old.name ? locals.old.name : '' %>" >
                 <% if (locals.errors && locals.errors.name) { %>
                     <p style="color:red ; text-align: center;"><%= locals.errors.name.msg %></p>

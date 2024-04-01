@@ -1,8 +1,7 @@
 const expresionesRegulares = {
     exRegAlfa: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/,
     exRegEmail: /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/,
-    exRegPass: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{6,8}/,
-    exRegBirthday: /^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d{4}$/,
+    exRegPass: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{8,12}/
 };
 
 const elemento = (element) => document.querySelector(element);
@@ -19,124 +18,100 @@ const validatorInput = (element, target) => {
 };
 
 const inputName = document.querySelector("#name-user");
-    inputName.addEventListener("blur", function({target}) {
-    switch (true) {
-        case !this.value.trim():
-            messageError(".text-error", "Debes completar el campo con tu nombre", target);
-            
-            break;
-        case this.value.trim().length < 5:
-            messageError(".text-error", "El nombre debe tener 5 o mas caracteres", target);
-            break;
-        case !expresionesRegulares.exRegAlfa.test(this.value):
-            messageError(".text-error", "Solo caracteres alfabetico", target);
-            break;
-        default:
-            validatorInput(".text-error", target);
-            break;
+inputName.addEventListener("blur", function({target}) {
+    if (!this.value.trim()) {
+        messageError(".text-error", "Debes completar el campo con tu nombre", target);
+    } else if (this.value.trim().length < 5) {
+        messageError(".text-error", "El nombre debe tener 5 o más caracteres", target);
+    } else if (!expresionesRegulares.exRegAlfa.test(this.value)) {
+        messageError(".text-error", "Solo caracteres alfabéticos", target);
+    } else {
+        validatorInput(".text-error", target);
     }
 });
 
-const inputLastname = document.querySelector("#lastname-user");
+    const inputLastname = document.querySelector("#lastname-user");
 inputLastname.addEventListener("blur", function({target}) {
-    switch (true) {
-        case !this.value.trim():
-            messageError(".error-lastname", "Debes completar el campo con tu apellido", target);
-            break;
-        case this.value.trim().length < 5:
-            messageError(".error-lastname", "El apellido debe tener 5 o más caracteres", target);
-            break;
-        case !expresionesRegulares.exRegAlfa.test(this.value):
-            messageError(".error-lastname", "Solo caracteres alfabéticos", target);
-            break;
-        default:
-            validatorInput(".error-lastname", target);
-            break;
+    if (!this.value.trim()) {
+        messageError(".error-lastname", "Debes completar el campo con tu apellido", target);
+    } else if (this.value.trim().length < 5) {
+        messageError(".error-lastname", "El apellido debe tener 5 o más caracteres", target);
+    } else if (!expresionesRegulares.exRegAlfa.test(this.value)) {
+        messageError(".error-lastname", "Solo caracteres alfabéticos", target);
+    } else {
+        validatorInput(".error-lastname", target);
     }
 });
 
-
-const inputEmail = document.querySelector("#email-user")
-    inputEmail.addEventListener("blur", async function({target}) {
-    switch (true) {
-        case !this.value.trim():
-            messageError(".error-email", "Debes completar este campo con tu email", target);
-            break;
-        case !expresionesRegulares.exRegEmail.test(this.value):
-            messageError(".error-email", "No tiene formato de email", target);
-            break;
-        default:
-            validatorInput(".error-email", target)
-            break;
+const inputEmail = document.querySelector("#email-user");
+inputEmail.addEventListener("blur", async function({target}) {
+    if (!this.value.trim()) {
+        messageError(".error-email", "Debes completar este campo con tu email", target);
+    } else if (!expresionesRegulares.exRegEmail.test(this.value)) {
+        messageError(".error-email", "No tiene formato de email", target);
+    } else {
+        validatorInput(".error-email", target);
     }
 });
 
 const inputAddress = document.querySelector("#direction-user");
 inputAddress.addEventListener("blur", function({target}) {
-    switch (true) {
-        case !this.value.trim():
-            messageError(".error-address", "Debes completar el campo con tu domicilio", target);
-            break;
-        default:
-            validatorInput(".error-address", target);
-            break;
+    if (!this.value.trim()) {
+        messageError(".error-address", "Debes completar el campo con tu domicilio", target);
+    } else {
+        validatorInput(".error-address", target);
     }
 });
 
-const inputBirthday = document.querySelector("#birthday-user");
-inputBirthday.addEventListener("blur", function({target}) {
-    switch (true) {
-        case !this.value.trim():
-            messageError(".error-birthday", "Debes completar el campo con tu fecha de nacimiento", target);
-            break;
-        case !expresionesRegulares.exRegBirthday.test(this.value.trim()):
-            messageError(".error-birthday", "Formato de fecha de nacimiento inválido", target);
-            break;
-            default:
-                validatorInput(".error-birthday", target);
-                break;
+const inputDate = document.querySelector('#birthday-user');
+
+inputDate.addEventListener("blur", function({target}) {
+    const selectedDate = new Date(this.value);
+    const eighteenYearsAgo = new Date();
+    eighteenYearsAgo.setFullYear(eighteenYearsAgo.getFullYear() - 18);
+    const oldestAllowedDate = new Date(1944, 0, 1); // Fecha más antigua permitida (1 de enero de 1944)
+
+    let errorMessage = null;
+
+    if (isNaN(selectedDate.getTime()) || selectedDate.getFullYear() < 1944) {
+        errorMessage = 'Fecha inválida';
+    } else if (selectedDate > eighteenYearsAgo) {
+        errorMessage = 'Debe ser mayor de 18 años';
+    }
+
+    if (errorMessage) {
+        messageError('.error-birthday', errorMessage, target);
+    } else {
+        validatorInput('.error-birthday', target);
     }
 });
 
-const inputPassword = document.querySelector("#password-user")
-    inputPassword.addEventListener("blur", function({target}) {
-    switch (true) {
-        case !this.value.trim():
-            messageError(".error-password","Contraseña desde 6 a 20 caracteres",target);
-            break;
-        case !expresionesRegulares.exRegPass.test(this.value):
-            messageError(".error-password","Debes incluir números, mayúscula, minúscula",target
-            );
-            break;
-        default:
-            validatorInput(".error-password", target);
-            break;
+const inputPassword = document.querySelector("#password-user");
+inputPassword.addEventListener("blur", function({target}) {
+    if (!this.value.trim()) {
+        messageError(".error-password","Contraseña desde 8 a 12 caracteres",target);
+    } else if (!expresionesRegulares.exRegPass.test(this.value)) {
+        messageError(".error-password","Debes incluir números, mayúscula, minúscula",target);
+    } else {
+        validatorInput(".error-password", target);
     }
 });
 
-const inputPasswordTwo= document.querySelector("#confirm_password")
-    inputPasswordTwo.addEventListener("blur", function({target}) {
-    switch (true) {
-        case !this.value.trim():
-            messageError(
-                ".error-password2",
-                "Debes completar el campo con tu contraseña",
-                target
-            );
-            break;
-        case this.value.trim() !== elemento("#password-user").value.trim():
-            messageError(".error-password2", "Las contraseñas no coinciden", target);
-            break;
-        default:
-            validatorInput(".error-password2", target);
-            break;
+const inputPasswordTwo= document.querySelector("#confirm_password");
+inputPasswordTwo.addEventListener("blur", function({target}) {
+    if (!this.value.trim()) {
+        messageError(".error-password2", "Debes completar el campo con tu contraseña", target);
+    } else if (this.value.trim() !== elemento("#password-user").value.trim()) {
+        messageError(".error-password2", "Las contraseñas no coinciden", target);
+    } else {
+        validatorInput(".error-password2", target);
     }
 });
 
 const filter = /\.(jpg|jpeg|png|gif|webp|svg)$/;
 
-const inputImg = document.querySelector('#imagen')
-    inputImg.addEventListener('change', function({target}) {
+const inputImage = document.querySelector('#imagen')
+    inputImage.addEventListener('change', function({target}) {
     const file = target.files[0];
     if (!file) {
         messageError(".imageError", "Formato valido.", target);
@@ -146,4 +121,3 @@ const inputImg = document.querySelector('#imagen')
         messageError(".imageError", "Solo se permiten formatos de imagen (jpg, jpeg, png, gif, webp, svg).", target);
     }
 });
-

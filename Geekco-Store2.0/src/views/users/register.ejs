@@ -56,14 +56,12 @@
             </div>
             <div class="input-data">
                 <label for="birthday-user">Fecha de nacimiento</label>
-                <input type="date" name="birthday" id="birthday-user" 
-                value="<%= locals.old && old.birthday ? old.birthday:``  %>">
-                <div class="error-birthday">
-                <% if(locals.errors && errors.birthday){ %>
-                    <p><%= errors.birthday.msg  %></p>
-                    <% } %>
-                </div>
+                <input type="date" id="birthday-user" name="birthday" 
+                    min="1944-01-01" max="2006-12-31" 
+                    value="<%= locals.old && old.birthday ? old.birthday:`` %>" >
+                <div class="error-birthday"></div>
             </div>
+            
                 <div class="input-data">
                 <label for="password">Contraseña</label>
                 <input type="password" name="password" id="password-user" required>

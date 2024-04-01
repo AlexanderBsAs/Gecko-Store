@@ -69,7 +69,7 @@ inputDate.addEventListener("blur", function({target}) {
     const selectedDate = new Date(this.value);
     const eighteenYearsAgo = new Date();
     eighteenYearsAgo.setFullYear(eighteenYearsAgo.getFullYear() - 18);
-    const oldestAllowedDate = new Date(1944, 0, 1); // Fecha más antigua permitida (1 de enero de 1944)
+    const oldestAllowedDate = new Date(1944, 0, 1); // Lo limite hasta 60 años ya que no le vi mucho sentido que una persona mayor se registre
 
     let errorMessage = null;
 

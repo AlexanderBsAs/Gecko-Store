@@ -31,6 +31,25 @@
             </article>
             <% }; %>
         </section>
+            <% categories.forEach(category => { %>
+            <h2 class="title-home-h2">Productos de <%= category.name %></h2>
+            <section>
+                <% category.products.slice(0, 6).forEach(product => { %>
+                    <article class="card">
+                        <img id="img1" src="/images/products/<%= product.image  %>" alt="<%= product.image  %>">
+                        <div class="index__cardinfo">
+                            <h3><%= product.name %></h3>
+                            <h3>$<%= product.price %></h3>
+                            <h3>Disponibles: <%= product.stock %></h3>
+                            <p class="index__pd"><%= product.description %></p>
+                            <button class="boton-product color-turquesa flex flex-row">
+                                <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
+                            </button>
+                        </div>
+                    </article>
+                <% }); %>
+            </section>
+        <% }); %>
         <div class="header__gradient index__gradient"></div>
         <div class="index__banner2__div">
         <img class="index__banner2" src="/images/banner2.jpg"></img>

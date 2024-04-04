@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <%-include("../partials/head.ejs",{title: 'Inicio de sesión'})%>
+  <script src="/js/users/loginValidate.js">  </script>
+
   <body class="body-login">
     <%-include("../partials/header.ejs")%>
     <section class="section-login">
@@ -10,7 +12,7 @@
 
         <img src="/images/logo.png" alt="logo" />
       </div>
-      <form action="/users/login" method="POST">
+      <form id="login-form" action="/users/login" method="POST">
         <h2>Bienvenido</h2>
         <% if (locals.errors && locals.errors.length > 0) { %>
           <div class="error-message">
@@ -19,13 +21,13 @@
             <% }); %>
           </div>
         <% } %>
-        <div class="input-box-login">
+        <div class="input-box-login" id="email-contenedor">
           <label for="">Correo electronico</label>
-          <input type="email" name="email" required>
+          <input id="login-email" type="text" name="email">
         </div>
-        <div class="input-box-login">
+        <div class="input-box-login" id="password-contenedor">
           <label for="">Contraseña</label>
-          <input type="password" name="password" required>
+          <input id="login-password" type="password" name="password">
         </div>
           <a href="">¿Olvidaste tu contraseña?</a>
         <div class="rememberMe-box">

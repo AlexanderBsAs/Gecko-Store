@@ -2,91 +2,91 @@
 <html lang="en">
 <%-include("../partials/head.ejs",{title: 'Formulario de Carga de Productos'})%>
 <body>
+    <script src="/js/users/productUpdate.js"></script>
     <%-include("../partials/header.ejs")%>
     <main class="productForm__main">
         <div class="productForm__div">
             <h2>Formulario de Carga de Productos</h2>
-            <form action="/productos/create" method="POST" enctype="multipart/form-data">
-                <input class="productForm__input" type="text" id="name" name="name" placeholder="Nombre" value="<%= locals.old && locals.old.name ? locals.old.name : '' %>" >
-                <% if (locals.errors && locals.errors.name) { %>
-                    <p style="color:red ; text-align: center;"><%= locals.errors.name.msg %></p>
-                <% } %>
-                
-                <input class="productForm__input" type="number" id="price" name="price" placeholder="Precio" value="<%= locals.old && locals.old.price ? locals.old.price : '' %>" >
-                <% if (locals.errors && errors.price) { %>
-                    <p style="color:red ; text-align: center;"><%= errors.price.msg %></p>
-                <% } %>
-                
-                <input class="productForm__input" type="text" id="franchise" name="discount" placeholder="Descuento" value="<%= locals.old && locals.old.discount ? locals.old.discount : '' %>" >
-                <% if (locals.errors && errors.discount) { %>
-                    <p style="color:red ; text-align: center;"><%= errors.discount.msg %></p>
-                <% } %>
-                
-                <input class="productForm__input" type="number" id="limit" name="installments" placeholder="Cuotas" value="<%= locals.old && locals.old.installments ? locals.old.installments : '' %>" >
-                <% if (locals.errors && errors.installments) { %>
-                    <p style="color:red ; text-align: center;"><%= errors.installments.msg %></p>
-                <% } %>
-                
-                <input class="productForm__input" type="number" id="stock" name="stock" placeholder="Stock" value="<%= locals.old && locals.old.stock ? locals.old.stock : '' %>" >
-                <% if (locals.errors && errors.stock) { %>
-                    <p style="color:red ; text-align: center;"><%= errors.stock.msg %></p>
-                <% } %>
-                
-                <textarea class="productForm__input" id="description" name="description" placeholder="Descripción" ><%= locals.old && locals.old.description ? locals.old.description : '' %></textarea>
-                <% if (locals.errors && errors.description) { %>
-                    <p style="color:red ; text-align: center;"><%= errors.description.msg %></p>
-                <% } %>
-                
-                
-                <select class="productForm__input" id="brand" name="brand_id" placeholder="Marca" >
-                    <option value="">Selecciona una marca</option>
-                    <option value="1" <%= locals.old && locals.old.brand_id === '1' ? 'selected' : '' %>>DC</option>
-                    <option value="2" <%= locals.old && locals.old.brand_id === '2' ? 'selected' : '' %>>LEGO</option>
-                    <option value="3" <%= locals.old && locals.old.brand_id === '3' ? 'selected' : '' %>>Nintendo</option>
-                    <option value="4" <%= locals.old && locals.old.brand_id === '4' ? 'selected' : '' %>>PlayStation</option>
-                    <option value="5" <%= locals.old && locals.old.brand_id === '5' ? 'selected' : '' %>>Nerf</option>
-                    <option value="6" <%= locals.old && locals.old.brand_id === '6' ? 'selected' : '' %>>Xbox</option>
-                    <option value="7" <%= locals.old && locals.old.brand_id === '7' ? 'selected' : '' %>>Marvel</option>
-                    <option value="8" <%= locals.old && locals.old.brand_id === '8' ? 'selected' : '' %>>Hasbro</option>
-                    <option value="9" <%= locals.old && locals.old.brand_id === '9' ? 'selected' : '' %>>Mattel</option>
-                    <option value="10" <%= locals.old && locals.old.brand_id === '10' ? 'selected' : '' %>>Disney</option>
-                    <option value="11" <%= locals.old && locals.old.brand_id === '11' ? 'selected' : '' %>>Sony</option>
-                    <option value="12" <%= locals.old && locals.old.brand_id === '12' ? 'selected' : '' %>>Ubisoft</option>
-                </select>
-                
-                <select class="productForm__input" id="platform" name="platform_id" placeholder="Plataforma" >
+            <form action="/productos/create" method="POST" id="form" enctype="multipart/form-data">
+                <label class="edicion" for="name" id="name"> Ingrese el nombre del producto</label>
+                <input class="productForm__input" type="text" id="name" name="name" placeholder="Nombre">
+                <p class="p-errores">
+                    <%= locals.errores && errores.name ? errores.name.msg : null %>
+                  </p>
+                <label class="edicion" for="price" id="name"> Ingrese el precio del producto</label>
+                <input class="productForm__input" type="number" id="price" name="price"placeholder="Precio" ">
+                <p class="p-errores">
+                    <%= locals.errores && errores.price ?
+                    errores.price.msg : null %>
+                  </p>
+                <label class="edicion" for="stock" id="name"> Ingrese el stock</label>
+                <input class="productForm__input" type="number" id="stock" name="stock"placeholder="Stock" ">
+                <p class="p-errores">
+                    <%= locals.errores && errores.stock ?
+                    errores.stock.msg : null %>
+                  </p>
+                <label class="edicion" for="description" id="name">Descripcion del producto</label>
+                <textarea class="productForm__input" id="description" name="description"placeholder="Descripcion"></textarea>
+                <p class="p-errores">
+                    <%= locals.errores && errores.description ?
+                    errores.description.msg : null %>
+                  </p>
+                <label class="edicion" for="image" > Ingrese una imagen</label>
+                <input class="productForm__input__image" type="file" id="image" name="image" >
+                <p class="p-errores">
+                    <%= locals.errores && errores.image ?
+                    errores.image.msg : null %>
+                  </p>
+                <label class="edicion" for="plataform" id="name"> Elegir plataforma del producto</label>
+                <select class="productForm__input" name="platform" id="platform">
                     <option value="">Selecciona una plataforma</option>
-                    <option value="1" <%= locals.old && locals.old.platform_id === '1' ? 'selected' : '' %>>Ps4</option>
-                    <option value="2" <%= locals.old && locals.old.platform_id === '2' ? 'selected' : '' %>>PC</option>
-                    <option value="3" <%= locals.old && locals.old.platform_id === '3' ? 'selected' : '' %>>PlayStation</option>
-                    <option value="4" <%= locals.old && locals.old.platform_id === '4' ? 'selected' : '' %>>Nintendo Switch</option>
-                    <option value="5" <%= locals.old && locals.old.platform_id === '5' ? 'selected' : '' %>>Nintendo 3DS</option>
-                    <option value="6" <%= locals.old && locals.old.platform_id === '6' ? 'selected' : '' %>>Xbox</option>
-                    <option value="7" <%= locals.old && locals.old.platform_id === '7' ? 'selected' : '' %>>Android</option>
-                    <option value="8" <%= locals.old && locals.old.platform_id === '8' ? 'selected' : '' %>>iOS</option>
-                    <option value="9" <%= locals.old && locals.old.platform_id === '9' ? 'selected' : '' %>>Xbox Series X</option>
-                    <option value="10" <%= locals.old && locals.old.platform_id === '10' ? 'selected' : '' %>>PlayStation 5</option>
-                    <option value="11" <%= locals.old && locals.old.platform_id === '11' ? 'selected' : '' %>>Nintendo Wii</option>
-                    <option value="12" <%= locals.old && locals.old.platform_id === '12' ? 'selected' : '' %>>PC Gaming</option>
+                    <% platforms.forEach(platform => { %>
+                    <option value="<%= platform.id %>"><%= platform.name %></option>
+                    <% }); %>
+                    <option value="0">No contiene</option>
+
                 </select>
-                
-                
-                <select class="productForm__input" id="category" name="category_id" placeholder="Categoría" >
+                <p class="p-errores">
+                    <%= locals.errores && errores.platform ?
+                    errores.platform.msg : null %>
+                  </p>
+                <label class="edicion" for="category" id="name"> Elegir categoría del producto</label>
+                <select class="productForm__input" name="category" id="category">
                     <option value="">Selecciona una categoría</option>
-                    <option value="1" <%= locals.old && locals.old.category_id === '1' ? 'selected' : '' %>>Toy</option>
-                    <option value="2" <%= locals.old && locals.old.category_id === '2' ? 'selected' : '' %>>Video Game</option>
-                    <option value="3" <%= locals.old && locals.old.category_id === '3' ? 'selected' : '' %>>Console</option>
-                    <option value="4" <%= locals.old && locals.old.category_id === '4' ? 'selected' : '' %>>Accessory</option>
-                    <option value="5" <%= locals.old && locals.old.category_id === '5' ? 'selected' : '' %>>Board Game</option>
-                    <option value="6" <%= locals.old && locals.old.category_id === '6' ? 'selected' : '' %>>Figuras</option>
+                    <% categories.forEach(category => { %>
+                    <option value="<%= category.id %>"><%= category.name %></option>
+                    <% }); %>
                 </select>
-        
-                
-                <input class="productForm__input__image" type="file" id="image" name="image" placeholder="Imagen" required>
-                <% if (locals.errors && errors.image) { %>
-                    <p style="color:red ; text-align: center;"><%= errors.image.msg %></p>
-                <% } %>
-                
+                <p class="p-errores">
+                    <%= locals.errores && errores.category ?
+                    errores.category.msg : null %>
+                  </p>
+                <label class="edicion" for="brand" id="name"> Elegir marca del producto</label>
+                <select class="productForm__input" name="brand" id="brand">
+                    <option value="">Selecciona una marca</option>
+                    <% brands.forEach(brand => { %>
+                    <option value="<%= brand.id %>"><%= brand.name %></option>
+                    <% }); %>
+                </select>
+                <p class="p-errores">
+                    <%= locals.errores && errores.brand ?
+                    errores.brand.msg : null %>
+                  </p>
+                <label class="edicion" for="discount" id="name"> De cuanto es el descuento?</label>
+                <input class="productForm__input" type="text" id="discount" name="discount"placeholder="Descuentos">
+                <p class="p-errores">
+                    <%= locals.errores && errores.discount ?
+                    errores.discount.msg : null %>
+                  </p>
+                <label class="edicion" for="installments" id="name"> Ingrese el numero de cuotas</label>
+                <input class="productForm__input" type="text" id="installments" name="installments"placeholder="Cuotas">
+                <p class="p-errores">
+                    <%= locals.errores && errores.installments ?
+                    errores.installments.msg : null %>
+                  </p>
+                  <ul id="errores">
+                   
+                  </ul>
                 <input class="productForm__input__enviar" type="submit" value="Enviar">
             </form>
         </div>

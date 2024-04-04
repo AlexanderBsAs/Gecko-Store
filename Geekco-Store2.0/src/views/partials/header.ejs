@@ -4,11 +4,22 @@
         <div>
         <a href="/"><img id="logo" src ="/images/logo.png"></img></a>
         <p>GeekcoStore</p> </div>
-        <div id="div"><i class="fa-solid fa-magnifying-glass"></i>
+        <div id="div">
             <form action="/search" method="GET" class="navbar-form">
-            <input name="keywords" type="text" id="input" placeholder="Buscar productos,marcas..." >
+                <div id="input-container">
+                    <input name="keywords" type="text" id="input" placeholder="Buscar productos, marcas...">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                
             </form>
-            <a href="/productos/productsList">Todos los productos</a></div>
+            <% if (locals.user) { %>
+            <% if (locals.user.admin) { %>
+                <a href="/productos/productsList">Todos los productos</a>
+            <% } %>
+            <% } else {%>
+                <a class="products-novisible" href="/productos/productsList">Todos los productos</a>
+            <% } %>
+        </div>
         </nav>
         <button id="abrir" class="abrir-menu"><div class="burger-menu"><i class="fas fa-bars"></i></div></button>
         <nav class="nav" id="nav">
@@ -31,9 +42,7 @@
                     <% if (locals.user.admin) { %>
                         <a href="/productos/dashboard">Dashboard</a>
                     <% } %>
-                    <a href="/"><%= locals.user.first_name %> <%= locals.user.last_name %></a> 
-                    <a href="/users/update/<%= locals.user.id %>">Editar perfil</a>
-                    <a href="/users/addressUpdate/<%= locals.user.id %>">Domicilio</a>
+                    <a href="/users/update/<%= locals.user.id %>"><%= locals.user.first_name %> <%= locals.user.last_name %></a> 
                     <img class="image-perfil" src="/images/users/<%= locals.user.image %>" alt="">
 
                     <a href="/users/logout">Cerrar sesión <i class="fa-solid fa-right-from-bracket"></i></a>
@@ -42,8 +51,7 @@
                     <a href="../productos/carrito"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
                 <% } else { %>
                     <!-- Mostrar contenido cuando el usuario no está autenticado -->
-                    <span class="message-login-user">¡Inicia sesión!</span>
-                    <span  class="btn__log"><i class="fa-regular fa-circle-user" id="abrir__logeo1" style="color: #ffffff;"></i></span>
+                    <span id="abrir__logeo1" class="btn__log"><i class="fa-regular fa-circle-user" style="color: #ffffff;"></i></span>
                     <nav class="header__nav1">
                         <ul>
                             <li><a href="../users/login">Ingresar</a></li>

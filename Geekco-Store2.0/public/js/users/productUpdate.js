@@ -1,6 +1,5 @@
 
 window.addEventListener('load', function() {
-    console.log("Vinculacion correcta")
 const form = document.getElementById("form")
 const name = document.querySelector("input#name");
 const price = document.querySelector("#price");

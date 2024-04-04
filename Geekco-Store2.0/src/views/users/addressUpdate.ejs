@@ -8,13 +8,13 @@
         <img class="register-logo" src="/images/logo.png" alt="" />
         <form
           action="/users/addressUpdate/<%=id%>?_method=PUT"
-          class="register-form"
+          class="register-form profile-form"
           method="POST"
         >
           <h2>EDITAR DOMICILIO</h2>
           <div class="input-data">
             <label for="country">Pais</label>
-            <input type="text" name="country" id="country" value="<%=address.country %>"
+            <input class="userProfile-input" type="text" name="country" id="country" value="<%=address.country %>"
             />
             <p>
               <%= locals.errores && errores.country ?
@@ -62,6 +62,8 @@
         </form>
       </div>
     </main>
+    <script src="/js/users/userProfileValidations.js"></script>
+
     <%-include("../partials/footer.ejs")%>
   </body>
 </html>

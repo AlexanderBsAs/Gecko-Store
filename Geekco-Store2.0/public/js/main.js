@@ -4,15 +4,13 @@ window.addEventListener('load', function() {
     const abrirlog = document.querySelector("#abrir__logeo1");
     const navlog = document.querySelector(".header__nav1");
 
-    abrirlog.addEventListener("click", () => {
-        if (navlog.style.display === "none" || navlog.style.visibility === "hidden") {
-            navlog.style.display = "block";
-            navlog.style.visibility = "visible";
-        } else {
-            navlog.style.display = "none";
-            navlog.style.visibility = "hidden";
-        }
-    });
+abrirlog.style.cursor = 'pointer';
+
+abrirlog.addEventListener("click", () => {
+    // Alternar la clase 'visible' para mostrar u ocultar el menú
+    navlog.classList.toggle('visible');
+});
+
 
     abrir.addEventListener("click", () => {
         if (nav.style.visibility === "hidden") {

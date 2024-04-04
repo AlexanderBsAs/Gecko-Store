@@ -3,3 +3,13 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+
+.noResults {
+    color: white;
+    font-weight: bold;
+}
+
+.products-novisible{
+    visibility: hidden;
+}

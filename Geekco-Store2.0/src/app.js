@@ -1,16 +1,18 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
 const expressValidator = require('express-validator')
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const methodOverride = require('method-override')
 const session = require("express-session")
-var indexRouter = require('./routes/index.js');
-var usersRouter = require('./routes/users.js');
-var productsRouter = require('./routes/products.js');
-var rememberMiddleware = require("./Middlewares/rememberMe.js")
-var app = express();
+const indexRouter = require('./routes/index.js');
+const usersRouter = require('./routes/users.js');
+const productsRouter = require('./routes/products.js');
+const APIusersRouter = require('./routes/api/APIusers.js')
+
+const rememberMiddleware = require("./Middlewares/rememberMe.js")
+const app = express();
 
 const bodyParser = require('body-parser');
 
@@ -39,11 +41,16 @@ app.use((req, res, next) => {
   }
   next();
 });
+app.use('/images', express.static(path.join(__dirname, '/images')));
 app.use(rememberMiddleware)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/productos', productsRouter);
 
+
+// Rutas para el acceso de las API
+
+app.use('/api/users',APIusersRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

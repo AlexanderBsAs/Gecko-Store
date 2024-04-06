@@ -9,7 +9,8 @@ const session = require("express-session")
 const indexRouter = require('./routes/index.js');
 const usersRouter = require('./routes/users.js');
 const productsRouter = require('./routes/products.js');
-const APIusersRouter = require('./routes/api/APIusers.js')
+const APIUsersRouter = require('./routes/api/APIusers.js');
+const APIProductsRouter = require('./routes/api/APIproducts.js');
 
 const rememberMiddleware = require("./Middlewares/rememberMe.js")
 const app = express();
@@ -50,7 +51,10 @@ app.use('/productos', productsRouter);
 
 // Rutas para el acceso de las API
 
-app.use('/api/users',APIusersRouter);
+app.use('/api/users',APIUsersRouter);
+app.use('/api/products',APIProductsRouter);
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

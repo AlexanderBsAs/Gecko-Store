@@ -28,6 +28,10 @@
 
 .descripcion-producto {
   text-align: center;
+  background-color: var(--color-violet);
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 50px;
 }
 
 .contenido-producto {

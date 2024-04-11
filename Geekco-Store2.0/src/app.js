@@ -11,7 +11,8 @@ const usersRouter = require('./routes/users.js');
 const productsRouter = require('./routes/products.js');
 const APIUsersRouter = require('./routes/api/APIusers.js');
 const APIProductsRouter = require('./routes/api/APIproducts.js');
-
+const APICategoriesRouter = require('./routes/api/APIcategories.js');
+const cors = require('cors');
 const rememberMiddleware = require("./Middlewares/rememberMe.js")
 const app = express();
 
@@ -24,7 +25,7 @@ app.use(bodyParser.json());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
+app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -53,7 +54,7 @@ app.use('/productos', productsRouter);
 
 app.use('/api/users',APIUsersRouter);
 app.use('/api/products',APIProductsRouter);
-
+app.use('/api/categories',APICategoriesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

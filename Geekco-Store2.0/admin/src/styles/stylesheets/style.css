@@ -1,0 +1,126 @@
+:root {
+    --color-violet: #551CA6;
+    --color-ligth-violet: #AD2AB4;
+    --color-dark-cyan: #0098B6;
+    --color-turquoise: #04BFBF;
+    --color-midnight-blue: #00001E;
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+body{
+    background-color:white;
+}
+
+.SideBar__nav{
+    height: 100vh;
+    background-color: #00001E;
+    width: 15%;
+    display: flex;
+    border-right: 2px solid grey;
+    margin: 0%;
+    flex-direction: column;
+    
+}
+.SideBar__nav ul{
+    margin-top:50px;
+    width: 100%;
+    list-style: none;
+    padding: 0%;
+    text-decoration: none;
+    display: grid;
+    height: 30%;
+    text-align: center;
+}
+.SideBar__nav ul li{
+    font-size: 28px;
+    color: white;
+    margin-top: 5%;
+    padding: 0%;
+    border-bottom: 1px solid black;
+}
+.logo-image{
+    width: 100%;
+    border-bottom: 5px solid #0098B6;
+    border-radius:100%
+}
+
+.UpBar__nav{
+    width: 85%;
+    position: absolute;
+    right: 0px;
+    text-align: right;
+    height: 8%;
+    background-color: #00001E;
+}
+.UpBar__nav ul{
+    display:flex;
+    gap:75%;
+  
+}
+.UpBar__nav ul li{
+    font-size:24px;
+    margin-top: 2%;
+    color:white;
+}
+
+.ContentWrapper {
+    background-image: linear-gradient(to bottom, #00001E 40%, #551CA6 80%);
+    width: 85%;
+    display: grid;
+    position: absolute;
+    top: 8%;
+    left: 15%;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 142px 450px;
+    gap:60px;
+}
+.ProductWrapper,.CategoryWrapper,.UserWrapper{
+   
+    border-radius: 3% 10%;
+    box-shadow: 1px 10px 20px #551CA6;
+    background-color: rgba(255, 255, 255, 0.479);
+    height: 60%;
+    margin-top: 66px;
+    margin-left: 10px;
+    text-align: left;
+    font-size: 24px;
+    align-content: center;
+    font-weight: 600;
+    color:rgb(233, 233, 233);
+}
+
+
+.LatestUser,.LatestProduct,.PopularCategory{
+    border-width: 3px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #0098B6,#AD2AB4, #551CA6) 1; 
+    border-radius: 4%;
+    background-color: black;
+    color: white;
+    width:340px;
+    height: auto;
+    font-size:12px;
+}
+
+.LatestProduct img{
+    border-top:1px solid white;
+    width: 100%;
+    height: min-content;
+}
+.LatestProduct__description{
+    border-top:1px solid white;
+    font-size: 20px;
+}
+.LatestProduct h1{
+    border-bottom:1px solid white;
+}
+.LatestUser img{
+    border-top:1px solid white;
+    width: 100%;
+    height: min-content;
+}

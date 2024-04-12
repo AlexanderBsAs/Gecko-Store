@@ -120,10 +120,14 @@
         </div>
         <div class="contenido-producto-texto-logo">
           <div class="contenido-producto-texto">
-     <div class="contenido-producto-texto--contenido">
+            <div class="contenido-producto-texto--contenido">
               <h4 class="conte">Plataforma:</h4>
-              <p class="conte"><%= producto.platforms.name %></p>
-            </div> 
+              <% if (producto.platforms) { %>
+                  <p class="conte"><%= producto.platforms.name %></p>
+              <% } else { %>
+                  <p class="conte">Plataforma no especificada</p>
+              <% } %>
+          </div>
             <!-- <div class="contenido-producto-texto--contenido">
                         <h4 class="conte">Franquicia:</h4>
                         <p class="conte"><%= producto.franchise%></p>

@@ -193,6 +193,10 @@ position: relative;
     }
 }
 @media(min-width:1400px){
+    #div {
+        padding: 1% 11% 2% 20%;
+        margin-bottom: 4%;
+    }
        .index__banner2 {
         height: 550px;
     }

@@ -27,10 +27,10 @@ const UpBar = () => {
   if (!userData) {
     return (
       <nav className="UpBar__nav">
-        <ul>
-          <li>Volver al inicio</li>
-          <li>Cargando...</li>
-        </ul>
+      
+        <a href="http://localhost:3000/">Volver al inicio</a>
+        <span>Cargando...</span> 
+        
       </nav>
     );
   }

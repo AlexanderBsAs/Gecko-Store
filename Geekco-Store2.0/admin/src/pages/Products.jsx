@@ -1,77 +1,73 @@
-import React, {useState,useEffect } from "react";
-import ProductList from "../components/ProductList"
-import UpBar from "../components/UpBar";
-import SideBar from "../components/SideBar";
+import React, { useState, useEffect } from "react";
+import ProductList from "../components/ProductList";
+import ProductDetail from "../components/ProductDetail";
+import UpBar from '../components/UpBar'
+import SideBar from '../components/SideBar'
 
- const Products = () => {
-    
+import "../styles/stylesheets/product.css";
+
+const Products = () => {
   const [products, setProducts] = useState([]);
-  const [productDetail, setProductDetail] = useState([]);
-
+  const [productDetail, setProductDetail] = useState(null);
+  const [productId, setProductId] = useState(1);
 
   useEffect(() => {
-      const fetchProducts = async () => {
-        try {
-          const response = await fetch('http://localhost:3000/api/products');
-          if (!response.ok) {
-            throw new Error('Error al obtener los productos');
-          }
-          const data = await response.json();
-          setProducts(data.data); // Guardar el array de productos en el estado
-          // // Obtener el último producto del array de productos
-          // const latest = data.data.length > 0 ? data.data[data.data.length - 1] : null;
-          // setLatestProduct(latest); // Establecer el último producto en el estado
-          // console.log(latest.image)
-        } catch (error) {
-          console.error('Error fetching products:', error);
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/products");
+        if (!response.ok) {
+          throw new Error("Error al obtener los productos");
         }
-      };
+        const data = await response.json();
+        setProducts(data.data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
 
-      const fetchProductDetail = async () => {
-        try {
-          const response = await fetch('http://localhost:3000/api/products/1');
-          if (!response.ok) {
-            throw new Error('Error al obtener los productos');
-          }
-          const data = await response.json();
-          setProductDetail(data.data); // Guardar el array de productos en el estado
-          // // Obtener el último producto del array de productos
-          // const latest = data.data.length > 0 ? data.data[data.data.length - 1] : null;
-          // setLatestProduct(latest); // Establecer el último producto en el estado
-          // console.log(latest.image)
-        } catch (error) {
-          console.error('Error fetching products:', error);
+    const fetchProductDetail = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:3000/api/products/${productId}`
+        );
+        if (!response.ok) {
+          throw new Error("Error al obtener los detalles del producto");
         }
-      };
-      fetchProducts()
-      fetchProductDetail()
-  },[])
-    return (
-      <div>
-            {/* <a href='http://localhost:5173/'>Home</a> */}
-           
-      <h1>
-      Dashboard Productos
-      </h1>
-      
-<div style={{ display: 'flex' }}>
-      <div>
+        const data = await response.json();
+        setProductDetail(data.data);
+      } catch (error) {
+        console.error("Error fetching product details:", error);
+      }
+    };
 
-      <h1>
-        {productDetail.name}
-      </h1>
-      <img src={productDetail.imageUrl}></img>
-            <p>
-        {productDetail.description}
-      </p>
-      </div>
-      <div>
-        <ProductList products={products}/>
-      </div>
-      </div>
-      </div>
-      )
+    if (productId !== null) {
+      fetchProductDetail();
+    }
+    fetchProducts();
+  }, [productId]);
+
+  const handleProductClick = (id) => {
+    setProductId(id);
+  };
+
+  return (
+    <div className="body-products">
     
-  }
+    <div className="contenedor">
+    <UpBar />
+    <SideBar />
+      <div className="contenedor-products">
+        <ProductDetail productDetail={productDetail} />
+        <div className="contenedor-lista">
+          <ProductList
+            products={products}
+            onProductClick={handleProductClick}
+          />
+        </div>
+      </div>
+      </div>
+    </div>
+  );
+};
 
-  export default Products
+export default Products;

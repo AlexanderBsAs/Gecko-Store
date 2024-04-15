@@ -8,8 +8,8 @@ const SideBar = () => {
              <li><a href='http://localhost:5173/products'>Productos</a></li>
              <li><a href='http://localhost:5173/users'>Usuarios</a></li>
              <li><a href='http://localhost:5173/categories'>Categorias</a></li>    
-             <li>Estadísticas</li>     
-             <li>Dashboard</li>          
+             <li><a href='http://localhost:5173/'>Estadisticas</a></li>
+             <li><a href='http://localhost:5173/'>Dashboard</a></li>          
         </ul>
         </nav>
         )

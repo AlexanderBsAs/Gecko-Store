@@ -39,7 +39,7 @@
                 <% if (locals.user) { %>
                     <!-- Mostrar contenido cuando el usuario está autenticado -->
                     <% if (locals.user.admin) { %>
-                        <a href="http://localhost:5173/">Dashboard</a>
+                        <a href="/productos/dashboard">Dashboard</a>
                     <% } %>
                     <a href="/users/update/<%= locals.user.id %>"><%= locals.user.first_name %> <%= locals.user.last_name %></a> 
                     <img class="image-perfil" src="/images/users/<%= locals.user.image %>" alt="">
@@ -53,14 +53,14 @@
                     <span id="abrir__logeo1" class="btn__log"><i class="fa-regular fa-circle-user" style="color: #ffffff;"></i></span>
                     <nav class="header__nav1">
                         <ul>
-                            <li><a href="/users/login">Ingresar</a></li>
-                            <li><a href="/users/registro">Registrarse</a></li>
+                            <li><a href="../users/login">Ingresar</a></li>
+                            <li><a href="../users/registro">Registrarse</a></li>
                         </ul>
                     </nav>
                 <% } %> 
             
         </nav>
         <div class="header__gradient"></div>
-        <script src="/js/main.js"></script>
+
     </header>
-    
+    <script src="/js/main.js"></script>   

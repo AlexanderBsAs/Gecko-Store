@@ -54,15 +54,6 @@ inputEmail.addEventListener("blur", async function({target}) {
     }
 });
 
-const inputAddress = document.querySelector("#direction-user");
-inputAddress.addEventListener("blur", function({target}) {
-    if (!this.value.trim()) {
-        messageError(".error-address", "Debes completar el campo con tu domicilio", target);
-    } else {
-        validatorInput(".error-address", target);
-    }
-});
-
 const inputDate = document.querySelector('#birthday-user');
 
 inputDate.addEventListener("blur", function({target}) {

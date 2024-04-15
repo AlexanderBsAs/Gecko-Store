@@ -45,16 +45,6 @@
                 </div>
             </div>
             <div class="input-data">
-                <label for="direction-user">Domicilio</label>
-                <input type="text" name="address" id="direction-user" 
-                value="<%= locals.old && old.address ? old.address:``  %>">
-                <div class="error-address">
-                <% if(locals.errors && errors.address){ %>
-                    <p><%= errors.address.msg  %></p>
-                    <% } %>
-                </div>
-            </div>
-            <div class="input-data">
                 <label for="birthday-user">Fecha de nacimiento</label>
                 <input type="date" id="birthday-user" name="birthday" 
                     min="1944-01-01" max="2006-12-31" 
@@ -85,7 +75,11 @@
 
             <div class="input-data">
                 <label for="imagen">Selecciona una imagen para el usuario</label>
-                <input type="file" name="image" id="imagen">
+                <img id="imgPreview" src="/images/default.jpg" alt="">
+				<input type="file" name="image" id="imagen" style="display: none;" required onchange="previewImage(event, '#imgPreview')">
+                <div class="file-input-container">
+                    <label class="edicion" for="imagen">Seleccionar imagen para el usuario</label>
+                </div>
                 <span class="asterisk-form">*</span>
                 <div class="error-image">
                 <% if(locals.errors && errors.image){ %>
@@ -107,6 +101,7 @@
         </div>
     </main>
     <script src="/js/users/validationRegister.js"></script>
+    <script src="/js/image-preview.js"></script>
     <%-include("../partials/footer.ejs")%>
 </body>
 </html>

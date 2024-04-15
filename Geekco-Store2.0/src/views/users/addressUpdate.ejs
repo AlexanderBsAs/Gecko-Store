@@ -14,7 +14,7 @@
           <h2>EDITAR DOMICILIO</h2>
           <div class="input-data">
             <label for="country">Pais</label>
-            <input class="userProfile-input" type="text" name="country" id="country" value="<%=address.country %>"
+            <input class="userProfile-input" type="text" name="country" id="country" value="<%=address && address.country ? address.country : null  %>"
             />
             <p>
               <%= locals.errores && errores.country ?
@@ -27,7 +27,7 @@
               type="text"
               name="province"
               id="province"
-              value="<%=address.province %>"
+              value="<%=address && address.province ? address.province : null %>"
             />
             <p>
               <%= locals.errores && errores.province ?
@@ -36,7 +36,7 @@
           </div>
           <div class="input-data">
             <label for="city">Ciudad</label>
-            <input type="text" name="city" id="city" value="<%=address.city %>"/>
+            <input type="text" name="city" id="city" value="<%=address && address.city ? address.city : null %>"/>
             <p>
               <%= locals.errores && errores.city? errores.city.msg :
               null %>
@@ -48,7 +48,7 @@
               type="text"
               name="address"
               id="address"
-              value="<%=address.address %>"
+              value="<%=address && address.address ? address.address : null %>"
             />
             <p>
               <%= locals.errores && errores.address ?

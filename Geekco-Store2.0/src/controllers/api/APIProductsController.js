@@ -17,8 +17,8 @@ const productsController = {
                 })
 
                 return res.status(200).json({
+                    status: 'ok',
                     meta: {
-                        status: 200,
                         total: productsCount,
                         url: '/api/products'
                     },

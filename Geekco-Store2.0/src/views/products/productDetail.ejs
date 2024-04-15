@@ -3,7 +3,7 @@
   <%-include("../partials/head.ejs",{title: producto.name})%>
   <body class="body" id="header">
     <%-include("../partials/header.ejs")%>
-    <main class="main" class="results-section">
+    <main class="main " class="results-section">
       <section class="contenido-producto">
         <article class="articulo_producto_venta">
           <div class="detalle-img">
@@ -115,7 +115,7 @@
         </div>
       </section>
       <section class="contenido-producto">
-        <div>
+        <div class="descripcion-producto">
           <h2>Especificaciones del producto</h2>
         </div>
         <div class="contenido-producto-texto-logo">
@@ -154,51 +154,46 @@
           </div>
         </div>
       </section>
-      <section class="contenido-producto">
-        <h2>Productos Similares</h2>
-        <div class="contenedor-producto-caja">
-            <% for(let i = 0; i < 4; i++){ %>
-                <% let randomIndex = Math.floor(Math.random() * products.length) %>
-                <% let product = products[randomIndex] %>
-                <article class="home__main__article">
-                    <div class="caja-img">
-                        <img class="w-100" src="/images/products/<%- product.image %>" alt="<%= product.name %>"/>
-                    </div>
+      <div class="index__main">
+        <h2 class="title-home-h2">Productos Similares</h2>
+        <section>
+          <% for(let i = 0; i < 3; i++){ %>
+          <% let product = products[Math.floor(Math.random() * products.length)] %>
+          <article class="card">
+              <img id="img1" src="/images/products/<%= product.image  %>" alt="<%= product.image  %>">
+                  <div class="index__cardinfo">
+                      <h3><%= product.name %></h3>
+                      <h3>$<%= product.price %></h3>
+                      <h3>Disponibles: <%= product.stock %></h3>
+                      <p class="index__pd"><%= product.description %></p>
+                      <button class="boton-product color-turquesa flex flex-row">
+                          <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
+                      </button>
+                  </div>
+              </img>
+          </article>
+          <% }; %>
+      </section>
+      <h2 class="title-home-h2">Productos que podrían interesarte</h2>
+      <section>
+        <% for(let i = 0; i < 3; i++){ %>
+        <% let product = products[Math.floor(Math.random() * products.length)] %>
+        <article class="card">
+            <img id="img1" src="/images/products/<%= product.image  %>" alt="<%= product.image  %>">
+                <div class="index__cardinfo">
                     <h3><%= product.name %></h3>
                     <h3>$<%= product.price %></h3>
                     <h3>Disponibles: <%= product.stock %></h3>
-                    <p><%= product.description %></p>
+                    <p class="index__pd"><%= product.description %></p>
                     <button class="boton-product color-turquesa flex flex-row">
                         <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
                     </button>
-                </article>
-            <% } %>
-        </div>
+                </div>
+            </img>
+        </article>
+        <% }; %>
     </section>
-      <section class="contenido-producto">
-        <h2>Otros productos que podrían interesarte</h2>
-        <div class="contenedor-producto-caja">
-          <% for(let i = 0; i < 4; i++){ %>
-            <% let product = products[Math.floor(Math.random() * products.length)] %>
-          <article class="home__main__article">
-            <div class="caja-img">
-              <img
-                class="w-100"
-                src="/images/products/<%- product.image %>"
-                alt="<%= product.name %>"
-              />
-            </div>
-            <h3><%= product.name %></h3>
-            <h3>$<%= product.price %></h3>
-            <h3>Disponibles: <%= product.stock %></h3>
-            <p><%= product.description %></p>
-            <button class="boton-product color-turquesa flex flex-row">
-              <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
-            </button>
-          </article>
-          <% }; %>
-        </div>
-      </section>
+      </div>
       <button class="boton-product-2 flex flex-row">
         <a href="#header">Volver arriba</a>
       </button>

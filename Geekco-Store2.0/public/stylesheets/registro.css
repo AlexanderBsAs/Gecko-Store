@@ -103,6 +103,12 @@
     100% { background-color: var(--color-turquoise); }
 }
 
+#imgPreview {
+    max-width: 300px; /* Establece el ancho máximo */
+    max-height: 300px; /* Establece la altura máxima */
+    margin: auto;
+}
+
 .asterisk-form {
     position: absolute;
     right: -15px;

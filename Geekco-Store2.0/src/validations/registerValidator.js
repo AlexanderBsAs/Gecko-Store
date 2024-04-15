@@ -25,7 +25,6 @@ let validacionRegistro = [
     })
     .isEmail().withMessage("debes escribir un mail valido"),
     body("password").notEmpty().withMessage("*Debes especificar una contraseña").bail(),
-    body("address").notEmpty().withMessage("*Debes poner una direccion").bail(),
     body('birthday')
         .notEmpty().withMessage("Ingrese una fecha correcta").bail()
         .custom((value) => {

@@ -1,11 +1,18 @@
 const { Op } = require('sequelize');
-const { Product } = require('../database/models/index');
+const { Product,Category } = require('../database/models/index');
 
 const indexController = {
     home: async (req, res) => {
         try {
+            const categories = await Category.findAll({
+                include: {
+                    model: Product,
+                    as: 'products' // Alias de la relación en el modelo Category
+                }
+            });
+    
             const products = await Product.findAll();
-            res.render("index", { products });
+            res.render("index", { products,categories });
         } catch (error) {
             console.error("Error al cargar productos:", error);
             res.status(500).send("Error al cargar productos");

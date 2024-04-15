@@ -1,14 +1,9 @@
-import SideBar from './components/SideBar';
 import "./styles/stylesheets/style.css";
-import UpBar from './components/UpBar';
-import ContentWrapper from './components/ContentWrapper';
+import AppRouter from './routes/AppRouter';
 const App = () => {
     return(
-    <div>
-    <UpBar/>
-    <SideBar/>
-    <ContentWrapper/>
-    </div>)
+        <AppRouter/>
+        )
 };
 
 export default App;

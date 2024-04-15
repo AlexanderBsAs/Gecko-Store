@@ -1,11 +1,18 @@
-import React from 'react';
 
 const ProductList = ({ products }) => {
+   
+    console.log("Lista de productos",products)
     return (
+        <div>
+        <div>
+            
+        </div>
         <div className="contenedor-tabla">
             <table className="table-dash">
                 <thead>
                     <tr>
+                    <th>Id</th>
+
                         <th>Nombre</th>
                         <th>Precio</th>
                         <th>Descuento</th>
@@ -15,6 +22,7 @@ const ProductList = ({ products }) => {
                 <tbody>
                     {products.map(product => (
                         <tr key={product.id} className="lista-tabla">
+                        <td>{product.id}</td>
                             <td>{product.name}</td>
                             <td>${product.price}</td>
                             <td>{product.discount ? `${product.discount}%` : '-'}</td>
@@ -28,6 +36,7 @@ const ProductList = ({ products }) => {
                     ))}
                 </tbody>
             </table>
+        </div>
         </div>
     );
 };

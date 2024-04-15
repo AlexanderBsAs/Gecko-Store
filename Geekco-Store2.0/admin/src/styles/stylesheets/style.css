@@ -10,18 +10,19 @@
     padding: 0px;
     margin: 0px;
     list-style: none;
+    text-decoration: none;
 }
 body{
     background-color:white;
 }
 
 .SideBar__nav{
-    height: 100vh;
+    height: 111vh;
     background-color: #00001E;
     width: 15%;
     display: flex;
     border-right: 2px solid grey;
-    margin: 0%;
+    
     flex-direction: column;
     
 }
@@ -53,9 +54,24 @@ body{
     position: absolute;
     right: 0px;
     text-align: right;
-    height: 8%;
+    height: 13%;
     background-color: #00001E;
+    display: grid;
+    color: white;
+    font-size: 23px;
+    grid-auto-flow: column;
+    grid-template-columns: 12% 80% 7%;
+    align-items: center;
+        
 }
+.UpBar__nav a{
+    color:white;
+}
+.UpBar__nav img{
+height: 50px;
+border-radius: 30px;
+border: solid 2px white;
+padding: 2px;}
 .UpBar__nav ul{
     display:flex;
     gap:75%;
@@ -65,6 +81,7 @@ body{
     font-size:24px;
     margin-top: 2%;
     color:white;
+    height: auto;
 }
 
 .ContentWrapper {
@@ -72,7 +89,7 @@ body{
     width: 85%;
     display: grid;
     position: absolute;
-    top: 8%;
+    top:11%;
     left: 15%;
     height: 100vh;
     grid-template-columns: 1fr 1fr 1fr;
@@ -123,4 +140,7 @@ body{
     border-top:1px solid white;
     width: 100%;
     height: min-content;
+}
+.LatestProduct{
+    margin-left: 3em;
 }

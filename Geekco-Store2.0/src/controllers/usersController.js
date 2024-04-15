@@ -39,7 +39,7 @@ const usersController = {
         id: user.id
       };
       res.locals.user = req.session.user;
-
+      console.log(req.session); 
       res.redirect('/');
     } catch (error) {
       console.log(err);

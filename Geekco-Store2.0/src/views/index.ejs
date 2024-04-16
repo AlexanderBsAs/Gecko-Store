@@ -49,7 +49,7 @@
             <h2 class="title-home-h2">Productos de <%= category.name %></h2>
             <section>
                 <% category.products.slice(0, 6).forEach(product => { %>
-                    <article class="card">
+                    <article class="card" id="<%= category.name %>">
                         <img id="img1" src="/images/products/<%= product.image  %>" alt="<%= product.image  %>">
                         <div class="index__cardinfo">
                             <h4  class="product-cardinfo"><%= product.name %></h4>

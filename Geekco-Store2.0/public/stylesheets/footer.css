@@ -175,7 +175,11 @@
 
     .img-soporte{
         position: relative;
-        left: 26px;
+        left: 20px;
+    }
+    .img-ayuda {
+        position: relative;
+        left: 20px;
     }
 
     .footer-quienes {

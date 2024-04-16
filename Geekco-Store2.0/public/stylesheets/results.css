@@ -3,7 +3,9 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+.results-main {
+    height: 500px;
+}
 
 .noResults {
     color: white;

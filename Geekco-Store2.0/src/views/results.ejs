@@ -13,10 +13,21 @@
             <article class="card">
                 <img id="img1" src="/images/products/<%= product.image  %>" alt="<%= product.image  %>">
                     <div class="index__cardinfo">
-                        <h3><%= product.name %></h3>
-                        <h3>$<%= product.price %></h3>
-                        <h3>Disponibles: <%= product.stock %></h3>
-                        <p class="index__pd"><%= product.description %></p>
+                        <h4 class="product-cardinfo"><%= product.name %></h4>
+                        <%if (product.discount > 0 && product.discount != null) { %>
+                            <div class="price-original">
+                                <h3  class="product-cardinfo">$<%= product.price %></h3>
+                            </div>
+                            <p class="price-discount">
+                                $<%= (product.price - ( product.price * product.discount /
+                                100)).toFixed(2) %>
+                            </p>
+                    <%} else {%>
+                        <h3  class="product-cardinfo">$<%= product.price %></h3>
+                        <% } %>
+                        <h5 class="product-cardinfo"><%= product.discount > 0 && product.discount != null ? `Descuento: ` + product.discount + "%": null   %></h5>
+  
+                        <h3  class="product-cardinfo">Disponibles: <%= product.stock %></h3>
                         <button class="boton-product color-turquesa flex flex-row">
                             <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
                         </button>

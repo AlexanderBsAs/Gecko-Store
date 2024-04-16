@@ -1,4 +1,4 @@
-body{
+.home-body{
     position: absolute;
 }
 .principal-icons-div {
@@ -9,32 +9,7 @@ body{
     z-index: 100;
     font-size: 4em;
 }
-
-.dropdown-menu {
-    display: none;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 10px;
-  }
-  
-  .dropdown-menu a {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .dropdown-menu a i {
-    font-size: 24px;
-  }
-  
-  .dropdown-menu a i.fa-times {
-    float: right;
-    cursor: pointer;
-  }
-  
-  .dropdown-menu a:hover {
-    text-decoration: none;
-  }
-  
+ 
 .card {
     overflow: hidden;
     position: relative;
@@ -107,7 +82,7 @@ overflow: hidden;
 }
 .index__main{
 background-color: #00001e;
-background-image: url("/images/bg-body-register.png");
+/* background-image: url("/images/bg-body-register.png"); */
 background-repeat: no-repeat;
 background-size: cover;
 }

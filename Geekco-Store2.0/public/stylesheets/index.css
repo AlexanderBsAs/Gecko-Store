@@ -1,3 +1,40 @@
+body{
+    position: absolute;
+}
+.principal-icons-div {
+    position: fixed;
+    right: 0%;
+    bottom: 5%;
+    width: 10%;
+    z-index: 100;
+    font-size: 4em;
+}
+
+.dropdown-menu {
+    display: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .dropdown-menu a {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .dropdown-menu a i {
+    font-size: 24px;
+  }
+  
+  .dropdown-menu a i.fa-times {
+    float: right;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu a:hover {
+    text-decoration: none;
+  }
+  
 .card {
     overflow: hidden;
     position: relative;
@@ -8,6 +45,8 @@
     transition: transform 0.3s ease;
     opacity: 0.85;
     width: 100%;
+    height: 89%;
+
 }
   
   .card:hover .index__cardinfo {
@@ -115,6 +154,23 @@ background-size: cover;
     background-color: var(--color-violet);
     text-align: center;
     color: white;
+}
+.product-cardinfo {
+    height: 15%;
+    margin-bottom: 3%;
+}
+.boton-product a {
+    text-decoration: none;
+    color: white;
+}
+
+.price-original {
+    text-decoration: line-through;
+}
+.price-discount {
+    position: absolute;
+    right: 40%;
+    top: 12%;
 }
 #img1{
     width: 100%;

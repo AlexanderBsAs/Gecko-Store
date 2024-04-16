@@ -3,7 +3,8 @@ window.addEventListener('load', function() {
     const abrir = document.querySelector("#abrir");
     const abrirlog = document.querySelector("#abrir__logeo1");
     const navlog = document.querySelector(".header__nav1");
-
+    const principalIconsDiv = document.querySelector(".principal-icons-div");
+    const dropdownMenu = document.getElementById("dropdown-menu");
 abrirlog.style.cursor = 'pointer';
 
 abrirlog.addEventListener("click", () => {
@@ -19,4 +20,12 @@ abrirlog.addEventListener("click", () => {
             nav.style.visibility = "hidden";
         }
     });
+
+        
+      
+        principalIconsDiv.addEventListener("click", function() {
+          // Mostrar u ocultar el menú al hacer clic en el contenedor de iconos
+          dropdownMenu.style.display = dropdownMenu.style.display === "none" ? "block" : "none";
+        });
+      
 });

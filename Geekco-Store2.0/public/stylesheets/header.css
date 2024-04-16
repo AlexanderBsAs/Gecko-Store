@@ -271,16 +271,16 @@ header div{
         font-size:24.5px;
         color: var(--color-ligth-violet) 
       }
-    
-    .nav-list {
-        display: flex;
-    visibility: visible;
-    flex-direction: row;
-    position: relative;
-    top: 34px;
-    font-size: 24px;
-    gap: 62px;
 
+      .nav-list {
+        display: flex;
+        visibility: visible;
+        flex-direction: row;
+        position: relative;
+        top: 23px;
+        font-size: 21px;
+        gap: 24px;
+        width: max-content;
     }
     .abrir-menu,
 .cerrar-menu {
@@ -308,7 +308,7 @@ header div{
     }
     
     #div {
-        margin-bottom: 8%;
+        margin-bottom: 10%;
         justify-content: flex-start;
         order: 3;
     }
@@ -350,7 +350,8 @@ header div{
     }
     .nav-list {
         top: 89px;
-        gap: 130px;
+        gap: 70px;
+        width: max-content;
     }
     
     .header__nav2 {
@@ -372,6 +373,11 @@ header div{
     top: 299px;
     height: 5.5px;
 }
+}
+@media(min-width: 1200px){
+    #div {
+        margin-bottom: 6%;
+    }
 }
 @media(min-width: 1400px){
     #abrir__logeo1{

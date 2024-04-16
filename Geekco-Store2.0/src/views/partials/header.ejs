@@ -24,14 +24,16 @@
         <button id="abrir" class="abrir-menu"><div class="burger-menu"><i class="fas fa-bars"></i></div></button>
         <nav class="nav" id="nav">
             <ul class="nav-list">
-                <li><a href="#"> Figuras</a></li>
-                <li><a href="#"> Consolas</a></li>
-                <li><a href="#"> Juegos</a></li>
-                <li><a href="#"> Marcas</a></li>
-                <li><a href="#"> Accesorios</a></li>
+                <li><a href="#Toy"> Juguetes</a></li>
+                <li><a href="#Video Game"> Video Juegos</a></li>
+                <li><a href="#Console"> Consola</a></li>
+                <li><a href="#Accessory"> Accesorios</a></li>
+                <li><a href="#Board Game"> Juegos de mesa</a></li>
+                <li><a href="#Figuras"> Figuras</a></li>
             </ul>
         </nav>
-        </div> 
+        </div>
+
         
         <nav class="header__nav2">
             <div class="session__header__on">
@@ -40,7 +42,7 @@
                 <% if (locals.user) { %>
                     <!-- Mostrar contenido cuando el usuario está autenticado -->
                     <% if (locals.user.admin) { %>
-                        <a href=" http://localhost:5173/">Dashboard</a>
+                        <a href="http://localhost:5173/">Dashboard</a>
                     <% } %>
                     <a href="/users/update/<%= locals.user.id %>"><%= locals.user.first_name %> <%= locals.user.last_name %></a> 
                     <img class="image-perfil" src="/images/users/<%= locals.user.image %>" alt="">
@@ -54,8 +56,8 @@
                     <span id="abrir__logeo1" class="btn__log"><i class="fa-regular fa-circle-user" style="color: #ffffff;"></i></span>
                     <nav class="header__nav1">
                         <ul>
-                            <li><a href="../users/login">Ingresar</a></li>
-                            <li><a href="../users/registro">Registrarse</a></li>
+                            <li><a href="/users/login">Ingresar</a></li>
+                            <li><a href="/users/registro">Registrarse</a></li>
                         </ul>
                     </nav>
                 <% } %> 
@@ -64,4 +66,3 @@
         <div class="header__gradient"></div>
 
     </header>
-    <script src="/js/main.js"></script>   

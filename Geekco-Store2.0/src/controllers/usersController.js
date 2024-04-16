@@ -123,7 +123,7 @@ const usersController = {
 
             if (file) {
                 // Si se ha subido un nuevo archivo, eliminar el archivo anterior
-                if (oldImage != "default.jpg") {
+                if (oldImage != "default.jpg" ) {
                     // Verificar si la imagen no es la predeterminada para evitar su eliminación accidental
                     const imagePath = `public/images/users/${oldImage}`;
                     fs.unlinkSync(imagePath);

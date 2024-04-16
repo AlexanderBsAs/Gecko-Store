@@ -33,9 +33,6 @@ const indexController = {
             console.error("Error al buscar productos:", error);
             res.status(500).send("Error al buscar productos");
         }
-    },
-    FAQ: (req,res)=>{
-        res.render('FAQPage')
     }
 };
 

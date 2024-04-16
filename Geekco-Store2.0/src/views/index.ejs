@@ -11,7 +11,10 @@
                 <li><img src="/images/products/ps4.jpg" ></img></li>
                 <li><img src="/images/products/heman.jpg"></img></li>
             </ul>
-          </div>
+            
+        </div>
+    
+      
        <h2 class="title-home-h2">Productos destacados</h2>
         <section>
             <% for(let i = 0; i < 6; i++){ %>
@@ -32,7 +35,7 @@
         </section>
             <% categories.forEach(category => { %>
             <h2 class="title-home-h2">Productos de <%= category.name %></h2>
-            <section id="<%= category.name%>">
+            <section>
                 <% category.products.slice(0, 6).forEach(product => { %>
                     <article class="card">
                         <img id="img1" src="/images/products/<%= product.image  %>" alt="<%= product.image  %>">

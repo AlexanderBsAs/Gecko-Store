@@ -33,7 +33,7 @@
         </section>
             <% categories.forEach(category => { %>
             <h2 class="title-home-h2">Productos de <%= category.name %></h2>
-            <section id="<%= category.name%>">
+            <section>
                 <% category.products.slice(0, 6).forEach(product => { %>
                     <article class="card">
                         <img id="img1" src="/images/products/<%= product.image  %>" alt="<%= product.image  %>">
@@ -50,7 +50,11 @@
                 <% }); %>
             </section>
         <% }); %>
-        
+        <div class="header__gradient index__gradient"></div>
+        <div class="index__banner2__div">
+        <img class="index__banner2" src="/images/banner2.jpg"></img>
+        <p>Seccion de computadoras</p>
+          </div>
         </main>
         <%-include("./partials/footer.ejs")%>
 </body>

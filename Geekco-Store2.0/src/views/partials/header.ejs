@@ -1,6 +1,6 @@
 
     <header id="header">
-        <script src="./js/main.js"></script>
+        <script src="../../../public/js/main.js"></script>
         <div>
         <a href="/"><img id="logo" src ="/images/logo.png"></img></a>
         <p>GeekcoStore</p> </div>
@@ -40,7 +40,7 @@
                 <% if (locals.user) { %>
                     <!-- Mostrar contenido cuando el usuario está autenticado -->
                     <% if (locals.user.admin) { %>
-                        <a href="/productos/dashboard">Dashboard</a>
+                        <a href=" http://localhost:5173/">Dashboard</a>
                     <% } %>
                     <a href="/users/update/<%= locals.user.id %>"><%= locals.user.first_name %> <%= locals.user.last_name %></a> 
                     <img class="image-perfil" src="/images/users/<%= locals.user.image %>" alt="">

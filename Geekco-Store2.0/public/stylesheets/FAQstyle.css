@@ -1,0 +1,60 @@
+.FAQ-body {
+    background-image: url('/images/detailBg.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; /* Fija el fondo en su posición inicial */
+}
+
+.pregunta {
+    cursor: pointer;
+}
+.FAQ-main {
+    width: 80%;
+    margin: auto;
+}
+
+.ayuda-compras, .ayuda-envios, .ayuda-usuarios {
+    margin-top: 5%;
+    background-color: rgba(0, 0, 30, 0.9);
+    padding: 5%;
+    color: white;
+    border-radius: 15px;
+
+
+
+    margin-bottom: 5%;
+}
+.respuesta {
+    display: none; /* Inicialmente oculta la respuesta */
+}
+
+.respuesta h4 {
+    font-size: 1em;
+}
+
+.respuesta.visible {
+    display: block; /* Muestra la respuesta cuando la clase 'visible' está presente */
+}
+.sucursal-container {
+    width: 100%;
+    text-align: center;
+}
+
+.sucursal-container iframe {
+    height: 40%;
+}
+.title-home-h2 {
+    color: white;
+    text-align: center;
+    background-color: var(--color-turquoise);
+    padding: 5px 0px;
+    animation: title 7s ;
+    animation-iteration-count: infinite;
+    transition: all 10s;
+}
+@keyframes title {
+    0% {background-color: var(--color-turquoise);}
+    50% {background-color: var(--color-ligth-violet);}
+    100% {background-color: var(--color-turquoise);}
+
+}

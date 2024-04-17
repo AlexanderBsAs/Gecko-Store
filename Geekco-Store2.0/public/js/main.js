@@ -20,4 +20,11 @@ abrirlog.addEventListener("click", () => {
         }
     });
 
+    function toggleRespuesta(elemento) {
+
+        var respuesta = elemento.nextElementSibling;
+
+
+        respuesta.classList.toggle("visible");
+    }
 });

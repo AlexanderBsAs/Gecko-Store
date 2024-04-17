@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import PropTypes from 'prop-types';
+
 
 const ProductList = ({ products, onProductClick }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -32,9 +34,9 @@ const ProductList = ({ products, onProductClick }) => {
     <h1>Dashboard Productos</h1>
 
       <div className="body-tabla">
-      <button className="pagination-button" onClick={goToPreviousPage} disabled={currentPage === 1}>
-      &lt;&lt;
-        </button>
+      <div className="pagination-button-left" onClick={goToPreviousPage} disabled={currentPage === 1}>
+      <img src="/images/arrow.png"></img>
+        </div>
         <div className="contenedor-tabla">
           {currentProducts.map((product) => (
             <div
@@ -47,20 +49,25 @@ const ProductList = ({ products, onProductClick }) => {
             </div>
           ))}
         </div>
-        <button
-        className="pagination-button"
+        <div
+        className="pagination-button-right"
           onClick={goToNextPage}
           disabled={
             currentPage === Math.ceil(products.length / productsPerPage)
           }
         >
-          &gt;&gt;
-        </button>
+      <img src="/images/arrow.png"></img>
+        </div>
       </div>
      
         
     </div>
   );
+};
+
+ProductList.propTypes = {
+  products: PropTypes.array.isRequired,
+  onProductClick: PropTypes.func.isRequired,
 };
 
 export default ProductList;

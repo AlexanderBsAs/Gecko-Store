@@ -1,5 +1,4 @@
 .body-products{
-
     background-image: linear-gradient(to bottom, #00001E 40%, #551CA6 80%);
     color: white;
 }
@@ -13,7 +12,7 @@
     display: flex;
     justify-content: center;
     justify-items: center;
-    padding: 3rem;
+    padding: 4rem 3rem;
     width: 80%;
     margin: 0;
 }
@@ -40,20 +39,22 @@
     border-radius: 4%;
     background-color: black;
     color: white;
-    height: auto;
     width: 35vw;
     font-size:12px;
     margin-top: 2rem;
+    min-height: 30rem;
 }
 
 .card-detail h1{
-    font-size:38px;
+    font-size:28px;
+    text-align: center;
+    margin: 0.8rem;
 }
 
 .card-detail p{
     padding: 1rem;
     text-align:justify;
-    font-size:24px;
+    font-size:16px;
 }
 
 .contenedor-tabla{
@@ -65,18 +66,28 @@
     margin: 1rem;
 }
 
+
+.imagen-detalles{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .lista-tabla{
-    border-radius: 3% 10%;
+    border-radius: 3%;
     box-shadow: 1px 10px 20px #551CA6;
-    background-color: rgba(255, 255, 255, 0.479);
+    background-color: #AD2AB4;
     padding: 0.5rem;
     margin: 1rem;
-    text-align: left;
-    font-size: 18px;
+    text-align: center;
+    font-size: 14px;
     align-content: center;
     font-weight: 600;
     color:rgb(233, 233, 233);
     width: 10rem;
+    height: 2rem;
 }
 
 .body-tabla{
@@ -87,9 +98,21 @@
 
 .contenedor-detalle{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.lista-detalle {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 5rem;
+    height: 2rem;
+    background-color: #551CA6;
+    margin: 0.2rem;
+    font-size: 12px;
 }
 
 .contenedor-imagen{
@@ -98,18 +121,56 @@
     align-items: center;
     border:1px solid white;
     padding: 1rem;
-    width: 50%;
+    width: 90%;
     margin: 1rem;
 }
 
 .contenedor-imagen img{
-    width: 100%;
-    height: min-content;
+    max-height: 12rem;
 }
 
-.pagination-button{
-    border-radius: 100px;
+.pagination-button-left{
+    background-color: transparent;
+    transform: rotate(180deg);
     padding: 0.5rem;
     color: wheat;
     text-align: center;
+    cursor: pointer;
+}
+
+
+
+.pagination-button-right{
+    background-color: transparent;
+    padding: 0.5rem;
+    color: wheat;
+    text-align: center;
+    cursor: pointer;
+
+}
+
+.action-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-buttons div{
+    border-radius: 3%;
+    box-shadow: 1px 10px 20px #551CA6;
+    background-color: #AD2AB4;
+    padding: 0.5rem;
+    margin: 1rem;
+    text-align: center;
+    font-size: 14px;
+    align-content: center;
+    font-weight: 600;
+    color:rgb(233, 233, 233);
+    width: 10rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.action-buttons a{
+    color: white;
 }

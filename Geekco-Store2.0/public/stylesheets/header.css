@@ -269,10 +269,9 @@ header div{
     flex-direction: row;
     position: relative;
     top: 34px;
-    font-size: 24px;
-    gap: 62px;
-
-    }
+    font-size: 22px;
+    gap: 12px;
+}
     .abrir-menu,
 .cerrar-menu {
     display: none;

@@ -9,7 +9,102 @@
     z-index: 100;
     font-size: 4em;
 }
- 
+
+/* Botones funcionales */
+
+.go-top-container {
+    position: fixed;
+    bottom: 12rem;
+    right: 0rem;
+    width: 6.6rem;
+    height: 6.6rem;
+    z-index: -1;
+}
+.icon-whatsapp-container {
+    position: fixed;
+    bottom: 18rem;
+    right: 0rem;
+    width: 6.6rem;
+    height: 6.6rem;
+    z-index: -1;
+}
+
+.go-top-button {
+    width: 0rem;
+    height: 0rem;
+    background-color: var(--color-turquoise);
+    border-radius: 50%;
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    transition: .2s;
+}
+.icon-whatsapp-button {
+    width: 0rem;
+    height: 0rem;
+    background-color: #20a742;
+    border-radius: 50%;
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    transition: .2s;
+}
+
+.go-top-button i {
+    position: absolute;
+    font-size: 1.7rem;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: white;
+    transition: .2s;
+}
+.icon-whatsapp-button i {
+    position: absolute;
+    font-size: 1.7rem;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: white;
+    transition: .2s;
+}
+
+.show{
+    z-index: 10;
+}
+
+.show .go-top-button, .show .icon-whatsapp-button{
+    animation: popup .3s ease-in-out;
+    width: 4.6rem;
+    height: 4.6rem;
+    z-index: 11;
+}
+
+.show i {
+    transform: translate(-50%,-50%) scale(1);
+}
+
+@keyframes popup {
+    0%{
+        width: 0rem;
+        height: 0rem;
+    }
+    50%{
+        width: 5rem;
+        height: 5rem;
+
+    }
+    100%{
+        width: 4.6rem;
+        height: 4.6rem;
+    }
+}
+
+
 .card {
     overflow: hidden;
     position: relative;
@@ -185,8 +280,31 @@ position: relative;
     text-align: center;
     padding: 10px;
 }
-
+@media (max-width: 480px){
+    .icon-whatsapp-container{
+        bottom: 8rem;
+        right: -4rem;
+    }
+    .go-top-container {
+        bottom: 3rem;
+        right: -4rem;
+    }
+    .show .go-top-button, .show .icon-whatsapp-button{
+        animation: popup .3s ease-in-out;
+        width: 3.6rem;
+        height: 3.6rem;
+        z-index: 11;
+    }
+}
 @media(min-width:768px){
+    .icon-whatsapp-container{
+        bottom: 16rem;
+        right: -2rem;
+    }
+    .go-top-container {
+        bottom: 11rem;
+        right: -2rem;
+    }
     .index__main section{
         flex-direction: row;
     }

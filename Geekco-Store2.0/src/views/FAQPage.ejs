@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include("./partials/head.ejs",{title: `Ayuda`})%>
+
+    <!-- Incluye tus etiquetas de estilo CSS y otros elementos de cabecera aquí -->
+    <style>
+        .respuesta {
+            display: none; /* Inicialmente oculta la respuesta */
+        }
+    </style>
+
+<body class="FAQ-body">
+    <%-include("./partials/header.ejs")%>
+
+    <main class="FAQ-main">
+        <h2  class="title-home-h2">¿Con qué podemos ayudarte?</h2>
+        <section class="ayuda-compras">
+            <h2>Compras</h2>
+            <div>
+                <h4 class="pregunta" onclick="toggleRespuesta(this)">¿Cómo puedo realizar una compra en su tienda en línea?</h4>
+                <div class="respuesta">
+                    <p>Para realizar una compra en nuestra tienda en línea, simplemente sigue estos pasos:</p>
+                        <li>Selecciona los productos que deseas comprar y agrégalos al carrito de compras.</li>
+                        <li>Ve al carrito de compras y revisa los productos seleccionados.</li>
+                        <li>Procede al proceso de pago, donde ingresarás tu información de envío y seleccionarás el método de pago deseado.</li>
+                        <li>Revisa y confirma tu pedido.</li>
+                        <li>Completa el pago.</li>
+                </div>
+            </div>
+            <div>
+                <h4 class="pregunta" onclick="toggleRespuesta(this)">¿Qué métodos de pago aceptan?</h4>
+                <div class="respuesta">
+                    <p>Contamos con los siguientes métodos de pago.</p>
+                    <ul>
+                        <li>Tarjeta de crédito (Mastercard/Visa)</li>
+                        <li>Tarjeta de débito (Mastercard/Visa)</li>
+                        <li>Transferencia bancaria</li>
+                        <li>Pago contra entrega</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <h4 class="pregunta" onclick="toggleRespuesta(this)">¿Recibiré una factura por mi compra?</h4>
+                <div class="respuesta">
+                    <ul>
+                        <li>Sí, todas las compras realizadas en nuestra tienda en línea incluyen una factura detallada que se enviará junto con tu pedido. La factura contendrá información importante, como el número de pedido, la descripción detallada de los productos comprados, el precio unitario, la cantidad, el total de la compra y los detalles de facturación y envío proporcionados por ti durante el proceso de compra.</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <h4 class="pregunta" onclick="toggleRespuesta(this)">¿Puedo pagar en cuotas o a plazos?</h4>
+                <div class="respuesta">
+                    <ul>
+                        <li>Sí, en nuestro e-commerce ofrecemos la opción de pagar en cuotas o a plazos para brindarte mayor flexibilidad en tus compras. Con nuestro servicio de pago a plazos, puedes dividir el costo total de tu compra en pagos mensuales más pequeños, lo que te permite gestionar mejor tu presupuesto.</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <h4 class="pregunta" onclick="toggleRespuesta(this)">¿Cuál es su política de precios y tasas de impuestos?</h4>
+                <div class="respuesta">
+                    <ul>
+                        <li>Nuestra política de precios se basa en ofrecer productos de alta calidad a precios justos y transparentes. Nos esforzamos por mantener una política de precios competitivos en el mercado, asegurándonos de que nuestros clientes obtengan el mejor valor por su dinero</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="ayuda-envios">
+            <h2>Envios</h2>
+            <div>
+                <h4 class="pregunta" onclick="toggleRespuesta(this)">¿Cuáles son las opciones de envío disponibles?</h4>
+                <div class="respuesta">
+                        <li>Ofrecemos varias opciones de envío para adaptarnos a tus necesidades. Actualmente, nuestras opciones de envío incluyen envío estándar, envío express y entrega en tienda. Puedes seleccionar la opción que mejor se adapte a ti durante el proceso de compra.</li>
+                </div>
+            </div>
+            <div>
+                <h4 class="pregunta" onclick="toggleRespuesta(this)">¿Cuánto tiempo tardará en llegar mi pedido?</h4>
+                <div class="respuesta">
+                        <li>El tiempo de entrega puede variar según la opción de envío seleccionada y tu ubicación. Por lo general, los pedidos enviados con envío estándar suelen tardar entre 3 y 5 días hábiles en llegar, mientras que los pedidos con envío express pueden llegar en 1 o 2 días hábiles. Te proporcionaremos una estimación más precisa del tiempo de entrega durante el proceso de compra y en la confirmación del pedido.</li>
+                </div>
+            </div>
+            <div>
+                <h4 class="pregunta" onclick="toggleRespuesta(this)">¿Ofrecen envío internacional?</h4>
+                <div class="respuesta">
+                        <li>Por el momento, lamentablemente no ofrecemos envío internacional. Nos estamos enfocando en mejorar y expandir nuestros servicios locales para garantizar una experiencia de entrega óptima para nuestros clientes. Sin embargo, siempre estamos evaluando nuevas oportunidades y considerando opciones de envío internacional en el futuro.</li>
+                </div>
+            </div>
+            <div>
+                <h4 class="pregunta" onclick="toggleRespuesta(this)">¿Cómo puedo rastrear mi pedido?</h4>
+                <div class="respuesta">
+                        <li>Una vez que tu pedido haya sido enviado, recibirás un correo electrónico de confirmación que incluirá un número de seguimiento. Con este número de seguimiento, podrás rastrear el estado de tu pedido en línea a través de nuestro sitio web o del servicio de mensajería utilizado para el envío.</li>
+                </div>
+            </div>
+            <div>
+                <h4 class="pregunta" onclick="toggleRespuesta(this)">¿Cuál es su política de devolución y reembolso?</h4>
+                <div class="respuesta">
+                        <li>Nos esforzamos por garantizar tu satisfacción con cada compra. Si por alguna razón no estás completamente satisfecho con tu pedido, ofrecemos una política de devolución dentro de un plazo determinado. Por favor, consulta nuestra página de políticas de devolución y reembolso para obtener información detallada sobre cómo devolver un artículo y solicitar un reembolso.</li>
+                </div>
+            </div>
+            <h4>Nuestra sucursal</h4>
+            <div class="sucursal-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6565.856553908704!2d-58.43889282885977!3d-34.631252740354164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca4afb5d7f71%3A0x646a3f44b48cd670!2sGeek%20Store%20Argentina!5e0!3m2!1ses-419!2sar!4v1713215535255!5m2!1ses-419!2sar" width="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+        
+        <section class="ayuda-usuarios">
+            <h2>Cuenta de usuario y seguridad</h2>
+            <div>
+                <h4 class="pregunta" onclick="toggleRespuesta(this)">¿Cómo puedo crear una cuenta en su tienda en línea?</h4>
+                <div class="respuesta">
+                        <li>Crear una cuenta en nuestra tienda en línea es rápido y sencillo. Solo necesitas hacer clic en el enlace "Registrarse" en la esquina superior derecha de nuestro sitio web y completar el formulario de registro con tu información personal, como nombre, dirección de correo electrónico y contraseña. Una vez que hayas completado el registro, en el enlace de ingresar podrás "Ingresar" tu información y comenzar a disfrutar de todos los beneficios de ser un usuario registrado.</li>
+                </div>
+            </div>
+            <div>
+                <h4 class="pregunta" onclick="toggleRespuesta(this)">¿Qué beneficios ofrece registrarse como usuario?</h4>
+                <div class="respuesta">
+                        <li>Registrarse como usuario en nuestra tienda en línea ofrece una serie de beneficios exclusivos, como acceso a promociones especiales, descuentos para usuarios registrados, la capacidad de realizar un seguimiento de tus pedidos y guardar tus productos favoritos para una compra más rápida en el futuro. Además, ser usuario registrado te permite disfrutar de una experiencia de compra personalizada y recibir actualizaciones sobre nuevos productos y ofertas exclusivas.</li>
+                </div>
+            </div>
+            <div>
+                <h4 class="pregunta" onclick="toggleRespuesta(this)">¿Cómo puedo cambiar mi contraseña o actualizar mi información de perfil?</h4>
+                <div class="respuesta">
+                        <li>Para cambiar tu contraseña o actualizar tu información de perfil, simplemente inicia sesión en tu cuenta y navega hasta la sección de configuración de la cuenta. Desde allí, podrás encontrar opciones para cambiar tu contraseña, modificar tu dirección de envío y realizar otros cambios en tu información personal.</li>
+                </div>
+            </div>
+            <div>
+                <h4 class="pregunta" onclick="toggleRespuesta(this)">¿Cómo protegen la privacidad de mis datos personales?</h4>
+                <div class="respuesta">
+                        <li>En nuestra tienda en línea, nos tomamos muy en serio la protección de la privacidad de nuestros clientes. Utilizamos medidas de seguridad avanzadas para proteger tus datos personales contra accesos no autorizados, pérdidas o alteraciones. Además, cumplimos con todas las regulaciones de protección de datos aplicables y nunca compartimos tus datos personales con terceros sin tu consentimiento.</li>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+         function toggleRespuesta(elemento) {
+
+        var respuesta = elemento.nextElementSibling;
+
+
+        respuesta.classList.toggle("visible");
+    }
+    </script>
+    <%-include("./partials/footer.ejs")%>
+
+</body>
+
+</html>

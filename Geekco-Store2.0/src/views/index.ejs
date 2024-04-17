@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <%-include("./partials/head.ejs",{title: 'Inicio'})%>
-<body>
+<body class="home-body">
    <%-include("./partials/header.ejs")%>
     <main class="index__main">
         <div class="home__carrousel">
@@ -23,7 +23,19 @@
                 <img id="img1" src="/images/products/<%= product.image  %>" alt="<%= product.image  %>">
                     <div class="index__cardinfo">
                         <h4 class="product-cardinfo"><%= product.name %></h4>
+                        <%if (product.discount > 0 && product.discount != null) { %>
+                            <div class="price-original">
+                                <h3  class="product-cardinfo">$<%= product.price %></h3>
+                            </div>
+                            <p class="price-discount">
+                                $<%= (product.price - ( product.price * product.discount /
+                                100)).toFixed(2) %>
+                            </p>
+                    <%} else {%>
                         <h3  class="product-cardinfo">$<%= product.price %></h3>
+                        <% } %>
+                        <h5 class="product-cardinfo"><%= product.discount > 0 && product.discount != null ? `Descuento: ` + product.discount + "%": null   %></h5>
+
                         <h3  class="product-cardinfo">Disponibles: <%= product.stock %></h3>
                         <button class="boton-product color-turquesa flex flex-row">
                             <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
@@ -44,7 +56,7 @@
             <h2 class="title-home-h2">Productos de <%= category.name %></h2>
             <section>
                 <% category.products.slice(0, 6).forEach(product => { %>
-                    <article class="card">
+                    <article class="card" id="<%= category.name %>">
                         <img id="img1" src="/images/products/<%= product.image  %>" alt="<%= product.image  %>">
                         <div class="index__cardinfo">
                             <h4  class="product-cardinfo"><%= product.name %></h4>
@@ -85,6 +97,16 @@
             <p id="total-carrito">Total: $0</p>
         </div>
         </main>
+        <div class="go-top-container">
+            <div class="go-top-button">
+                <i class="fas fa-chevron-up"></i>
+            </div>
+        </div>
+        <div class="icon-whatsapp-container">
+            <div class="icon-whatsapp-button">
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+        </div>
 
         <%-include("./partials/footer.ejs")%>
 </body>

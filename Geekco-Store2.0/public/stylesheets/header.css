@@ -275,10 +275,9 @@ header div{
     flex-direction: row;
     position: relative;
     top: 34px;
-    font-size: 24px;
-    gap: 62px;
-
-    }
+    font-size: 22px;
+    gap: 12px;
+}
     .abrir-menu,
 .cerrar-menu {
     display: none;
@@ -371,7 +370,9 @@ header div{
     }
     .nav-list {
         top: 89px;
-        gap: 130px;
+        margin-left: 16%;
+        gap: 10px;
+
     }
     
     .header__nav2 {
@@ -384,10 +385,10 @@ header div{
     header div p {
         left: 30%;
 }
-.header__nav1 ul {
-    font-size: 26px;
-    gap: 13px;
-    display: flex;
+.nav-list li {
+    margin-left: -2px;
+    padding: 1px 12px 1px 0px;
+    width: max-content;
 }
 .header__gradient {
     top: 299px;
@@ -432,7 +433,7 @@ header div{
         font-size: 23px;
     }
     .nav-list {
-        gap: 140px;
+        gap: 70px;
         margin-left: 16%;
         top: 45px;
     }

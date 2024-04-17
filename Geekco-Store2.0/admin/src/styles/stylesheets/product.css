@@ -171,6 +171,22 @@
     cursor: pointer;
 }
 
+.agregar-producto{
+    border-radius: 3%;
+    box-shadow: 1px 10px 20px #551CA6;
+    background-color:#0098B6;
+    padding: 0.5rem;
+    margin: 1rem;
+    text-align: center;
+    font-size: 14px;
+    align-content: center;
+    font-weight: 600;
+    color:rgb(233, 233, 233);
+    width: 10rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
 .action-buttons a{
     color: white;
 }

@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import ProductList from "../components/ProductList";
 import ProductDetail from "../components/ProductDetail";
-import UpBar from '../components/UpBar'
-import SideBar from '../components/SideBar'
+import UpBar from '../components/UpBar';
+import SideBar from '../components/SideBar';
 
 import "../styles/stylesheets/product.css";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [productDetail, setProductDetail] = useState(null);
-  const [productId, setProductId] = useState(1);
+  const [productId, setProductId] = useState(null);
+  const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -20,6 +21,12 @@ const Products = () => {
         }
         const data = await response.json();
         setProducts(data.data);
+
+        // Establecer el productId inicial solo si aún no se ha inicializado
+        if (!initialized && data.data.length > 0) {
+          setProductId(data.data[0].id);
+          setInitialized(true);
+        }
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -44,7 +51,7 @@ const Products = () => {
       fetchProductDetail();
     }
     fetchProducts();
-  }, [productId]);
+  }, [productId, initialized]);
 
   const handleProductClick = (id) => {
     setProductId(id);
@@ -52,7 +59,6 @@ const Products = () => {
 
   return (
     <div className="body-products">
-    
     <div className="contenedor">
     <UpBar />
     <SideBar />

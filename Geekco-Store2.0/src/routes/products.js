@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {carrito,productDetail,productForm,create,dashboard,edit,productsList,update, destroy} = require("../controllers/productsController")
+const {carrito,agregarAlCarrito,productDetail,productForm,create,dashboard,edit,productsList,update, destroy} = require("../controllers/productsController")
 const userAuthMiddleware = require('../Middlewares/userAuthMiddleware')
 const adminAuthMiddleware = require('../Middlewares/adminAuthMIddleware')
 const fileUpload = require("../Middlewares/productMulter")
@@ -9,6 +9,7 @@ const {productUpdateValidator} = require("../validations/uploadProduct")
 
 
 router.get("/carrito",userAuthMiddleware, carrito);
+router.post('/carrito/agregar', agregarAlCarrito);
 router.get('/detalles/:idProducto', productDetail)
 router.get("/productForm",userAuthMiddleware,adminAuthMiddleware,productForm)
 router.post("/create",userAuthMiddleware, fileUpload.single("image"),productCreateValidator, create);

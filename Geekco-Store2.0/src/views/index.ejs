@@ -28,6 +28,13 @@
                         <button class="boton-product color-turquesa flex flex-row">
                             <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
                         </button>
+                        <button class="boton-product agregar-carrito color-turquesa flex flex-row"
+                        data-product-id="<%= product.id %>"
+                        data-product-name="<%= product.name %>"
+                        data-product-price="<%= product.price %>"
+                        data-product-image="<%= product.image %>">
+                    Agregar al carrito
+                </button>
                     </div>
                 </img>
             </article>
@@ -57,6 +64,12 @@
                             <button class="boton-product color-turquesa flex flex-row">
                                 <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
                             </button>
+                            <button class="boton-product agregar-carrito color-turquesa flex flex-row"
+                            data-product-id="<%= product.id %>"
+                            data-product-name="<%= product.name %>"
+                            data-product-price="<%= product.price %>">
+                        Agregar al carrito
+                    </button>
                         </div>
                     </article>
                 <% }); %>
@@ -65,6 +78,11 @@
         <div class="principal-icons-div">
             <a href="https://wa.me/1164712830"><i class="fa-brands fa-whatsapp" style="color: #20a742;"></i></a>
             <a href="#header"><i class="fa-solid fa-circle-up" style="color: #0098b6;"></i></a>
+        </div>
+        <div id="mini-carrito" >
+            <h3>Carrito de Compras</h3>
+            <ul id="lista-carrito"></ul>
+            <p id="total-carrito">Total: $0</p>
         </div>
         </main>
 

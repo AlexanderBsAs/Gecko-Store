@@ -3,9 +3,35 @@ const { validationResult } = require("express-validator");
 const fileUpload = require("../Middlewares/productMulter");
 const fs = require('fs');
 const productsController = {
+  agregarAlCarrito: (req,res) =>{
+    const { productId } = req.body;
 
+    // Aquí puedes realizar una búsqueda en tu base de datos utilizando el ID del producto recibido
+    // Por ejemplo, usando Sequelize para encontrar el producto por su ID
+    Producto.findByPk(productId)
+        .then(producto => {
+            if (!producto) {
+                // Manejar el caso donde el producto no se encontró en la base de datos
+                return res.status(404).json({ error: 'Producto no encontrado' });
+            }
+
+            // Agregar el producto al carrito en la sesión
+            req.session.carrito = req.session.carrito || [];
+            req.session.carrito.push(producto);
+
+            // Redireccionar al usuario a la página del carrito después de agregar el producto
+            res.redirect('/carrito'); // Redirige a la página del carrito
+        })
+        .catch(error => {
+            console.error('Error al buscar el producto:', error);
+            res.status(500).json({ error: 'Error interno del servidor' });
+        });
+
+
+  },
   carrito: (req, res) => {
-    res.render("products/productCart")
+    res.render('products/productCart' )
+    
   },
   productDetail: (req, res) => {
     db.Product.findByPk(req.params.idProducto, {

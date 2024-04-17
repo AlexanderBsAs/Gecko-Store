@@ -50,4 +50,25 @@ window.addEventListener('load', function () {
                 behavior: 'smooth'
             });
         });
+        
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Obtener todos los enlaces del menú de navegación
+    const links = document.querySelectorAll('#nav a');
+
+    // Iterar sobre cada enlace
+    links.forEach(link => {
+        // Agregar un evento de clic a cada enlace
+        link.addEventListener('click', function (event) {
+            // Prevenir el comportamiento predeterminado del enlace
+            event.preventDefault();
+            
+            // Obtener el hash del enlace (el ID del destino)
+            const hash = this.getAttribute('href');
+            
+            // Redirigir a la página principal y luego desplazarse hacia abajo a la sección correspondiente
+            window.location.href = '/' + hash;
+        });
+    });
 });

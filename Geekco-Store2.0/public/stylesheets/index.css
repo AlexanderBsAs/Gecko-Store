@@ -324,8 +324,14 @@ background-size: cover;
 }
 .price-discount {
     position: absolute;
-    right: 40%;
-    top: 12%;
+    right: 22%;
+    top: 16%;
+}
+
+.discount-card-image {
+    position: absolute;
+    width: 10%;
+    right: 0px;
 }
 #img1{
     width: 100%;

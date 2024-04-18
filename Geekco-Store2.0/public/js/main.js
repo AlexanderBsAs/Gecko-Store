@@ -4,7 +4,7 @@ window.addEventListener('load', function () {
     const abrirlog = document.querySelector("#abrir__logeo1");
     const navlog = document.querySelector(".header__nav1");
 
-    // abrirlog.style.cursor = 'pointer';
+    abrirlog.style.cursor = 'pointer';
     console.log("Archivo JS vinculado con éxito")
     abrirlog.addEventListener("click", () => {
         // Alternar la clase 'visible' para mostrar u ocultar el menú

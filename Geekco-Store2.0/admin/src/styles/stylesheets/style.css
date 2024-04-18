@@ -17,7 +17,7 @@ body{
 }
 
 .SideBar__nav{
-    height: 111vh;
+    height: 110vh;
     background-color: #00001E;
     width: 15%;
     display: flex;
@@ -98,12 +98,12 @@ padding: 2px;}
     gap:60px;
 }
 .ProductWrapper,.CategoryWrapper,.UserWrapper{
-    border-radius: 3% 10%;
+    border-radius: 3%;
     box-shadow: 1px 10px 20px #551CA6;
-    background-color: rgba(255, 255, 255, 0.479);
+    background-color: #AD2AB4;
     height: 57%;
-    margin-top: 44px;
-    margin-left: 77px;
+    margin-top: 2rem;
+    margin-left: 4rem;
     font-size: 24px;
     align-content: center;
     font-weight: 600;

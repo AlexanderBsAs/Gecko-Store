@@ -24,7 +24,7 @@
         "brand_id": 11
     },
     {
-        "category_id": 1,
+        "category_id": 6,
         "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore beatae dolorem natus ealaudantium! Excepturi, quaerat.",
         "discount": 10,
         "image": "heman.jpg",
@@ -36,7 +36,7 @@
         "brand_id": 12
     },
     {
-        "category_id": 1,
+        "category_id": 6,
         "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore beatae dolorem natus ealaudantium! Excepturi, quaerat.",
         "discount": 2,
         "image": "dethstroke.jpg",
@@ -72,7 +72,7 @@
         "brand_id": 12
     },
     {
-        "category_id": 2,
+        "category_id": 3,
         "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore beatae dolorem natus ealaudantium! Excepturi, quaerat.",
         "discount": 10,
         "image": "ps4.jpg",
@@ -276,7 +276,7 @@
         "brand_id": 4
     },
     {
-        "category_id": 1,
+        "category_id": 6,
         "description": "Collectible action figure of the Autobot leader.",
         "discount": 10,
         "image": "optimus_prime_figure.jpg",

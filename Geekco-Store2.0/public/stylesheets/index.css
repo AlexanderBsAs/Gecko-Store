@@ -124,7 +124,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
-    transition: .2s;
+    transition: .5s;
 }
 .icon-whatsapp-button {
     width: 0rem;
@@ -136,7 +136,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
-    transition: .2s;
+    transition: .5s;
 }
 
 .go-top-button i {
@@ -146,7 +146,7 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     color: white;
-    transition: .2s;
+    transition: .5s;
 }
 .icon-whatsapp-button i {
     position: absolute;
@@ -155,7 +155,7 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     color: white;
-    transition: .2s;
+    transition: .5s;
 }
 
 .show{

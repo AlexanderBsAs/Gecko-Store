@@ -99,7 +99,7 @@ const ProductDetail = ({ productDetail }) => {
           </div>
           <p>{productDetail.description}</p>
           <div className="action-buttons">
-            <div><a href={`http://localhost:3000/productos/formUpdate/${productDetail.id}}`}>Editar</a></div>
+            <div><a href={`http://localhost:3000/productos/formUpdate/${productDetail.id}`}>Editar</a></div>
             <div onClick={handleDelete}>Eliminar</div>
           </div>
         </div>

@@ -349,13 +349,13 @@
     },
     {
         "category_id": 6,
-        "description": "Figura pikachu oficial",
+        "description": "Figura de pikachu mamadisimo",
         "discount": 25,
         "image": "image-1705874605783.jpg",
         "installments": 6,
-        "name": "Figura pikachu",
+        "name": "Figura de pikachu mamadisimo",
         "platform_id": 6,
-        "price": 10000,
+        "price": 100000,
         "stock": 12,
         "brand_id": 3
     }

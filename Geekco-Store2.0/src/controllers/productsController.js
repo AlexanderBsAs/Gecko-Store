@@ -102,7 +102,7 @@ const productsController = {
         image: req.file ? req.file.filename : "default.jpg",
       });
 
-      res.redirect("/productos/dashboard");
+      res.redirect("http://localhost:5173/products");
       
     } catch (error) {
       
@@ -199,7 +199,7 @@ const productsController = {
           include: ["brands", "categories", "platforms"],
         }
       ).then(function (product) {
-        res.redirect("/productos/dashboard");
+        res.redirect("http://localhost:5173/products");
       });
     }
   },
@@ -224,7 +224,7 @@ const productsController = {
               },
             })
               .then(() => {
-                res.redirect("/productos/dashboard");
+                res.redirect("http://localhost:5173/products");
               })
               .catch(err => console.error('Error al eliminar el producto:', err));
           }

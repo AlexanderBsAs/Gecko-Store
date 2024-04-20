@@ -31,12 +31,19 @@
                     <%= locals.errores && errores.description ?
                     errores.description.msg : null %>
                   </p>
-                <label class="edicion" for="image" > Ingrese una imagen</label>
-                <input class="productForm__input__image" type="file" id="image" name="image" >
+                <!-- <input class="productForm__input__image" type="file" id="image" name="image" > -->
+                <div class="contenedor-imagen-create">
+                  <label class="edicion" for="image" > Ingrese una imagen</label>
+
+                <img id="imgPreview" src="/images/default.jpg" alt="">
+
+                <input  type="file" name="image" id="imagen" required onchange="previewImage(event, '#imgPreview')">
                 <p class="p-errores">
-                    <%= locals.errores && errores.image ?
-                    errores.image.msg : null %>
-                  </p>
+                  <%= locals.errores && errores.image ?
+                  errores.image.msg : null %>
+                </p>
+              </div>
+                
                 <label class="edicion" for="plataform" id="name"> Elegir plataforma del producto</label>
                 <select class="productForm__input" name="platform" id="platform">
                     <option value="">Selecciona una plataforma</option>
@@ -93,5 +100,7 @@
        
     </main>
     <%-include("../partials/footer.ejs")%>
+    <script src="/js/image-preview.js"></script>
+
 </body>
 </html>

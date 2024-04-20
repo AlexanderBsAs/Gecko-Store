@@ -1,0 +1,107 @@
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.body-usuarios{
+    background-image: linear-gradient(to bottom, #00001E 40%, #551CA6 80%);
+    color: white;
+}
+
+.main-usuarios{
+    display: flex;
+}
+
+.contenedor-usuarios{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+}
+
+.contenedor-lista-usuarios{
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:space-around;
+}
+
+.user-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-width: 3px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #0098B6,#AD2AB4, #551CA6) 1; 
+    border-radius: 4%;
+    background-color: black;
+    color: white;
+    font-size:16px;
+    min-height: 10rem;
+    margin: 1rem;
+    padding: 1rem 2rem;
+
+}
+
+.usuarios-buttons{
+    display: flex;
+}
+
+.usuarios{
+    font-size: 26px;
+    color: white;
+    padding: 0.3rem;
+}
+
+.user-container img{
+    max-height: 10rem;
+}
+
+.pagination-user-button-left{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    transform: rotate(180deg);
+    padding: 0.5rem;
+    color: wheat;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+.pagination-user-button-right{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding: 0.5rem;
+    color: wheat;
+    text-align: center;
+    cursor: pointer;
+
+}
+
+.action-btn{
+    border-radius: 3%;
+    box-shadow: 1px 10px 20px #551CA6;
+    background-color: #AD2AB4;
+    padding: 0.5rem;
+    margin: 1rem;
+    text-align: center;
+    font-size: 12px;
+    align-content: center;
+    font-weight: 600;
+    color:rgb(233, 233, 233);
+    height: 0.6rem;
+    min-width: 4rem;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+  }

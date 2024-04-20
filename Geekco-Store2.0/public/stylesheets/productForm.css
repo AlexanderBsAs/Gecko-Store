@@ -4,15 +4,17 @@
  height: 100%;
  width: 100%;
  display: flex;
+ color: white;
 }
 .productForm__div{
     display: flex;
     flex-wrap: wrap;
     width: 80%;
     margin: auto;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 0.2rem;
-
+    background-color: var(--color-ligth-violet);
+    opacity: 0.7;
+    border-radius: 10%;
+    padding: 1rem;
 }
 .productForm__div h2{
     width: 100%;
@@ -22,11 +24,12 @@
 .productForm__input{
     width: 86%;
     margin: 4%;
-    border-radius: 0.2rem;
+    border-radius: 20px;
+    padding: 0.4rem 1rem;
     border: 2px solid black;
 }
 .productForm__input__enviar{
-    background: var(--color-violet);
+    background-color: #04bfbf;
     color: white;
     font-weight: 700;
     width: 60%;
@@ -34,6 +37,33 @@
     padding: 2%;
     border-radius: 0.6rem;
 }
+
+.contenedor-imagen-update{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15rem;
+}
+
+
+.contenedor-imagen-update img{
+    height: 100%;
+}
+
+.contenedor-imagen-create{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contenedor-imagen-create img{
+    height: 100%;
+    margin: 1rem;
+}
+
+
 .productForm__input__image{
     width: 92%;
     display: flex;
@@ -77,7 +107,7 @@
         
 }
 .productForm__input__enviar {
-    background: var(--color-violet);
+    background-color: #04bfbf;
     color: white;
     font-weight: 700;
     width: 50%;

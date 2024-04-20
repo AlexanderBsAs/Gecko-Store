@@ -1,11 +1,11 @@
 .body-products{
     background-image: linear-gradient(to bottom, #00001E 40%, #551CA6 80%);
     color: white;
+    
 }
 
 .contenedor{
     display: flex;
-
 }
 
 .contenedor-products{

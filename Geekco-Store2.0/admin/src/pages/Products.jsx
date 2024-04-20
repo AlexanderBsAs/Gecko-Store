@@ -3,7 +3,6 @@ import ProductList from "../components/ProductList";
 import ProductDetail from "../components/ProductDetail";
 import UpBar from '../components/UpBar';
 import SideBar from '../components/SideBar';
-
 import "../styles/stylesheets/product.css";
 
 const Products = () => {

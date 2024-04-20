@@ -11,7 +11,8 @@ const {
   updatePasswordForm,
   updatePassword,
   updateAddressForm,
-  updateAddress
+  updateAddress,
+  destroy
 } = require("../controllers/usersController");
 const loginValidationRules = require("../validations/loginValidator");
 const guestMiddleware = require("../Middlewares/guestMiddleware");
@@ -55,5 +56,8 @@ updateAddressForm);
 router.put("/addressUpdate/:id", 
 addressUpdateValidator(), 
 updateAddress);
+
+router.delete('/delete/:id', destroy)
+
 
 module.exports = router;

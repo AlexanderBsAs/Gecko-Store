@@ -60,13 +60,13 @@
           </div>
           <div class="userImage-Container" style="width: 100%; text-align: center;">
             <div class="userImage-box">
-              <img src="/images/users/<%= usuario.image %>" alt="">
-          </div>
+              <img id="imagen-previa" src="/images/users/<%= usuario.image %>" alt="Imagen del usuario">
+            </div>
           
-          <div class="file-input-container">
+            <div class="file-input-container">
               <label class="edicion" for="imagen">Cambiar imagen para el usuario</label>
-              <input type="file" name="image" id="imagen" value="<%= usuario.image %>">  
-          </div>
+              <input type="file" name="image" id="imagen" onchange="previewImage(event, '#imagen-previa')" value="<%= usuario.image %>">  
+            </div>
           </div>
         
           <div class="input-data">
@@ -84,6 +84,8 @@
       </div>
     </main>
     <script src="/js/users/userProfileValidations.js"></script>
+    <script src="/js/image-replace.js"></script>
+
     <%-include("../partials/footer.ejs")%>
   </body>
 </html>

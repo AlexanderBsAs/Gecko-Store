@@ -116,20 +116,27 @@ const usersController = {
         });
     } else {
         const file = req.file;
-        console.log("Imagen usuario:",req.file);
-
         db.User.findByPk(id).then(function(user) {
             let oldImage = user.image;
-
             if (file) {
                 // Si se ha subido un nuevo archivo, eliminar el archivo anterior
-                if (oldImage != "default.jpg" ) {
+                if (oldImage !== "default.jpg") {
                     // Verificar si la imagen no es la predeterminada para evitar su eliminación accidental
                     const imagePath = `public/images/users/${oldImage}`;
                     fs.unlinkSync(imagePath);
                 }
             }
 
+            // Verificar si el usuario que realiza la solicitud es el mismo que está siendo actualizado
+            if (req.session.user.id === id) {
+                // Actualizar req.session.user solo si el usuario está actualizando sus propios datos
+                req.session.user = {
+                    first_name,
+                    last_name,
+                    image: file ? file.filename : "default.webp",
+                    id,
+                };
+            }
             db.User.update(
                 {
                     first_name,
@@ -139,18 +146,18 @@ const usersController = {
                 },
                 { where: { id } }
             ).then(function() {
-                req.session.user = {
-                    first_name,
-                    last_name,
-                    image: file ? file.filename : "default.webp",
-                    id,
-                };
                 res.locals.user = req.session.user;
-                res.redirect(`/users/update/${id}`);
+                if (req.session.user.rol_id == 2){
+                  res.redirect(`http://localhost:5173/users`);
+                } else {
+                  res.redirect(`/`);
+
+                }
             });
         });
     }
 },
+
 
 
   updatePasswordForm: (req, res) => {
@@ -215,15 +222,45 @@ const usersController = {
     })
   }
   },
-  destroy: (req,res)=>{
+  // destroy: (req,res)=>{
+  //   const userId = req.params.id
+  //   db.User.destroy({
+  //     where: userId
+  //   })
+  //   .then((resp)=>{
+  //     return res.redirect("http://localhost:5173/users")
+  //   })
+  // }
+  destroy: (req, res) => {
     const userId = req.params.id
-    db.User.destroy({
-      where: userId
+    console.log("Este es el id: ", userId)
+    db.User.findOne({
+      where: {
+        id: userId,
+      },
     })
-    .then((resp)=>{
-      return res.redirect("/users/dashboard")
-    })
+      .then(user => {
+        const imageName = user.image;
+        const imagePath = `public/images/users/${imageName}`;
+        fs.unlink(imagePath, (err) => {
+          if (err) {
+            console.error('Error al eliminar la imagen:', err);
+          } else {
+            db.User.destroy({
+              where: {
+                id: userId,
+              },
+            })
+              .then(() => {
+                res.redirect("http://localhost:5173/users");
+              })
+              .catch(err => console.error('Error al eliminar el usuario:', err));
+          }
+        });
+      })
+      .catch(err => console.error('Error al buscar el usuario:', err));
   }
+
 }
 
 module.exports = usersController;

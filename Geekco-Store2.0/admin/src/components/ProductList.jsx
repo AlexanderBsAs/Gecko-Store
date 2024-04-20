@@ -34,7 +34,9 @@ const ProductList = ({ products, onProductClick }) => {
     <h1>Dashboard Productos</h1>
 
       <div className="body-tabla">
-      <div className="pagination-button-left" onClick={goToPreviousPage} disabled={currentPage === 1}>
+      <div 
+      className={`pagination-button-left ${currentPage === 1 ? 'hidden' : ''}`}
+      onClick={goToPreviousPage} disabled={currentPage === 1}>
       <img src="/images/arrow.png"></img>
         </div>
         <div className="contenedor-tabla">
@@ -53,7 +55,7 @@ const ProductList = ({ products, onProductClick }) => {
           ))}
         </div>
         <div
-        className="pagination-button-right"
+          className={`pagination-button-right ${currentPage === Math.ceil(products.length / productsPerPage) ? 'hidden' : ''}`}
           onClick={goToNextPage}
           disabled={
             currentPage === Math.ceil(products.length / productsPerPage)

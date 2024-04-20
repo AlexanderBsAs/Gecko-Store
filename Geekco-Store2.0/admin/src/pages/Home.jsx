@@ -4,9 +4,11 @@ import ContentWrapper from '../components/ContentWrapper'
 const Home = () => {
   return (
     <div>
+    <div className='body-ContentWrapper'>
     <UpBar/>
     <SideBar/>
     <ContentWrapper/>
+    </div>
     </div>)
   
 }

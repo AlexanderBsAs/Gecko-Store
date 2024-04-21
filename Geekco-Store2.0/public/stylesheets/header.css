@@ -1,6 +1,17 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+.nav-visible {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
+}
+
+.nav-hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
+}
 
 .fa-solid.fa-cart-shopping{    color: #ffffff;
     position: absolute;
@@ -198,12 +209,6 @@ header div{
     padding: 1px 12px 1px 0px;
 }
 
-.nav.visible {
-    opacity: 1;
-    visibility: visible;
-    z-index: 1;
-}
-
 .nav-list {
     flex-direction: column;
     align-items: end;
@@ -235,6 +240,7 @@ header div{
 }
 
 @media(min-width:768px){
+ 
     .image-perfil  {display:flex}
     .fa-regular.fa-circle-user{
         
@@ -269,10 +275,9 @@ header div{
     flex-direction: row;
     position: relative;
     top: 34px;
-    font-size: 24px;
-    gap: 62px;
-
-    }
+    font-size: 22px;
+    gap: 12px;
+}
     .abrir-menu,
 .cerrar-menu {
     display: none;

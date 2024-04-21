@@ -7,27 +7,27 @@ module.exports = {
       "categories",
       [
         {
-          name: "Toy",
+          name: "Juguetes",
           createdAt: new Date,
           updatedAt: new Date
         },
         {
-          name: "Video Game",
+          name: "Video Juegos",
           createdAt: new Date,
           updatedAt: new Date
         },
         {
-          name: "Console",
+          name: "Consolas",
           createdAt: new Date,
           updatedAt: new Date
         },
         {
-          name: "Accessory",
+          name: "Accesorios",
           createdAt: new Date,
           updatedAt: new Date
         },
         {
-          name: "Board Game",
+          name: "Juegos de mesa",
           createdAt: new Date,
           updatedAt: new Date
         },

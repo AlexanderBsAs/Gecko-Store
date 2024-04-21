@@ -6,7 +6,7 @@
     <%-include("./partials/header.ejs")%>
 
 
-    <main class="index__main" >
+    <main class="index__main productsList-section" >
         <section>
     <% if (search[0]) { %>
         <% search.forEach(product => { %>
@@ -38,6 +38,7 @@
     <% } else { %>
         <div class="noResults">
             <p>No hay productos que coincidan con la busqueda: <%= keywords  %></p>
+            <img src="/images/gecosad.jfif" alt="Productos no encontrados">
         </div>
         <% } %>
 </main>

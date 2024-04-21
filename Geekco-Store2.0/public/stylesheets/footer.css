@@ -62,13 +62,6 @@
     text-decoration: none;
 
 }
-
-.footer-contacto img {
-    display: none;
-    width: 15px;
-}
-
-
 .footer-contacto a:hover+img {
     display: block;
 }
@@ -103,10 +96,12 @@
 
 .footer-iconos {
     display: flex;
-    width: 38px;
-    border-bottom: 1px solid #04bfbf;
+    width: 10%;
+    justify-content: space-between;
+    /* border-bottom: 1px solid #04bfbf; */
     gap: 3px;
     margin-left: 10px;
+    align-items: center;
 }
 
 .footer-quienes {

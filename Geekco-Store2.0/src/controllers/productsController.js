@@ -3,9 +3,35 @@ const { validationResult } = require("express-validator");
 const fileUpload = require("../Middlewares/productMulter");
 const fs = require('fs');
 const productsController = {
+  agregarAlCarrito: (req,res) =>{
+    const { productId } = req.body;
 
+    // Aquí puedes realizar una búsqueda en tu base de datos utilizando el ID del producto recibido
+    // Por ejemplo, usando Sequelize para encontrar el producto por su ID
+    Producto.findByPk(productId)
+        .then(producto => {
+            if (!producto) {
+                // Manejar el caso donde el producto no se encontró en la base de datos
+                return res.status(404).json({ error: 'Producto no encontrado' });
+            }
+
+            // Agregar el producto al carrito en la sesión
+            req.session.carrito = req.session.carrito || [];
+            req.session.carrito.push(producto);
+
+            // Redireccionar al usuario a la página del carrito después de agregar el producto
+            res.redirect('/carrito'); // Redirige a la página del carrito
+        })
+        .catch(error => {
+            console.error('Error al buscar el producto:', error);
+            res.status(500).json({ error: 'Error interno del servidor' });
+        });
+
+
+  },
   carrito: (req, res) => {
-    res.render("products/productCart")
+    res.render('products/productCart' )
+    
   },
   productDetail: (req, res) => {
     db.Product.findByPk(req.params.idProducto, {
@@ -60,7 +86,17 @@ const productsController = {
         return res.render('products/productForm', { errores: errores.mapped(), brands, categories, platforms });
       })
     } else {
-    const { name, price, stock, description, platform_id, category_id, installments, discount, brand_id } = req.body;
+      const {
+        name,
+        price,
+        stock,
+        description,
+        brand,
+        platform,
+        category,
+        discount,
+        installments
+      } = req.body;
     console.log(req.body)
     try {
       const newProduct = await db.Product.create({
@@ -68,15 +104,15 @@ const productsController = {
         price: parseFloat(price),
         stock: parseInt(stock),
         description: description,
-        platform_id: platform_id ? platform_id : null,
-        category_id: category_id,
-        brand_id: brand_id,
+        platform_id: platform ? platform : null,
+        category_id: category,
+        brand_id: brand,
         installments: installments ? parseInt(installments) : null,
         discount: discount ? parseInt(discount) : null,
         image: req.file ? req.file.filename : "default.jpg",
       });
 
-      res.redirect("/productos/dashboard");
+      res.redirect("http://localhost:5173/products");
       
     } catch (error) {
       
@@ -126,7 +162,7 @@ const productsController = {
       price,
       stock,
       description,
-      brands,
+      brand,
       platform,
       category,
       discount,
@@ -160,7 +196,7 @@ const productsController = {
           stock,
           description,
           image: file,
-          brand_id: brands,
+          brand_id: brand,
           platform_id: platform != 0 ? platform : null,
           category_id: category,
           discount,
@@ -173,7 +209,7 @@ const productsController = {
           include: ["brands", "categories", "platforms"],
         }
       ).then(function (product) {
-        res.redirect("/productos/dashboard");
+        res.redirect("http://localhost:5173/products");
       });
     }
   },
@@ -198,7 +234,7 @@ const productsController = {
               },
             })
               .then(() => {
-                res.redirect("/productos/dashboard");
+                res.redirect("http://localhost:5173/products");
               })
               .catch(err => console.error('Error al eliminar el producto:', err));
           }

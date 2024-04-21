@@ -40,6 +40,13 @@
                         <button class="boton-product color-turquesa flex flex-row">
                             <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
                         </button>
+                        <button class="boton-product agregar-carrito color-turquesa flex flex-row"
+                        data-product-id="<%= product.id %>"
+                        data-product-name="<%= product.name %>"
+                        data-product-price="<%= product.price %>"
+                        data-product-image="<%= product.image %>">
+                    Agregar al carrito
+                </button>
                     </div>
                 </img>
             </article>
@@ -49,10 +56,14 @@
             <h2 class="title-home-h2">Productos de <%= category.name %></h2>
             <section>
                 <% category.products.slice(0, 6).forEach(product => { %>
-                    <article class="card" id="<%= category.name %>">
+                    <article class="card" id="<%= category.name %>"> 
+                        <%if(product.discount > 0 && product.discount != null){ %>
+                            <img class="discount-card-image" src="/images/discount.png" alt="discount-image">
+                        <% } %>
+
                         <img id="img1" src="/images/products/<%= product.image  %>" alt="<%= product.image  %>">
                         <div class="index__cardinfo">
-                            <h4  class="product-cardinfo"><%= product.name %></h4>
+                            <h4  class="product-cardinfo product-name"><%= product.name %></h4>
                             <%if (product.discount > 0 && product.discount != null) { %>
                                     <div class="price-original">
                                         <h3  class="product-cardinfo">$<%= product.price %></h3>
@@ -69,16 +80,33 @@
                             <button class="boton-product color-turquesa flex flex-row">
                                 <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
                             </button>
+                            <button class="boton-product agregar-carrito color-turquesa flex flex-row"
+                            data-product-id="<%= product.id %>"
+                            data-product-name="<%= product.name %>"
+                            data-product-price="<%= product.price %>">
+                        Agregar al carrito
+                    </button>
                         </div>
                     </article>
                 <% }); %>
             </section>
         <% }); %>
-        <div class="principal-icons-div">
-            <a href="https://wa.me/1164712830"><i class="fa-brands fa-whatsapp" style="color: #20a742;"></i></a>
-            <a href="#header"><i class="fa-solid fa-circle-up" style="color: #0098b6;"></i></a>
+        <div id="mini-carrito" >
+            <h3>Carrito de Compras</h3>
+            <ul id="lista-carrito"></ul>
+            <p id="total-carrito">Total: $0</p>
         </div>
         </main>
+        <div class="go-top-container">
+            <div class="go-top-button">
+                <i class="fas fa-chevron-up"></i>
+            </div>
+        </div>
+        <div class="icon-whatsapp-container">
+            <div class="icon-whatsapp-button">
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+        </div>
 
         <%-include("./partials/footer.ejs")%>
 </body>

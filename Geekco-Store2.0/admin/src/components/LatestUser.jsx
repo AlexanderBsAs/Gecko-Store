@@ -8,7 +8,8 @@ const LatestUser = ({ users }) => {
     const {image, first_name, last_name} = lastUser
     return(
 <div className="LatestUser">
-    <h1>Último usuario : {first_name} {last_name}</h1>
+    <h1>Último usuario registrado</h1>
+    <h2>{first_name} {last_name}</h2>
     <img src={`http://localhost:3000/images/users/${image}`}  />
 </div>
     )

@@ -86,7 +86,17 @@ const productsController = {
         return res.render('products/productForm', { errores: errores.mapped(), brands, categories, platforms });
       })
     } else {
-    const { name, price, stock, description, platform_id, category_id, installments, discount, brand_id } = req.body;
+      const {
+        name,
+        price,
+        stock,
+        description,
+        brand,
+        platform,
+        category,
+        discount,
+        installments
+      } = req.body;
     console.log(req.body)
     try {
       const newProduct = await db.Product.create({
@@ -94,9 +104,9 @@ const productsController = {
         price: parseFloat(price),
         stock: parseInt(stock),
         description: description,
-        platform_id: platform_id ? platform_id : null,
-        category_id: category_id,
-        brand_id: brand_id,
+        platform_id: platform ? platform : null,
+        category_id: category,
+        brand_id: brand,
         installments: installments ? parseInt(installments) : null,
         discount: discount ? parseInt(discount) : null,
         image: req.file ? req.file.filename : "default.jpg",
@@ -152,7 +162,7 @@ const productsController = {
       price,
       stock,
       description,
-      brands,
+      brand,
       platform,
       category,
       discount,
@@ -186,7 +196,7 @@ const productsController = {
           stock,
           description,
           image: file,
-          brand_id: brands,
+          brand_id: brand,
           platform_id: platform != 0 ? platform : null,
           category_id: category,
           discount,

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import Swal from "sweetalert2";
 
 const ProductDetail = ({ productDetail }) => {
@@ -108,8 +107,5 @@ const ProductDetail = ({ productDetail }) => {
   );
 };
 
-ProductDetail.propTypes = {
-  productDetail: PropTypes.object.isRequired,
-};
 
 export default ProductDetail;

@@ -97,7 +97,7 @@ const usersController = {
     ]).then(function([user, address]) {
       user.dataValues.birthday = moment(user.dataValues.birthday).format('YYYY-MM-DD');
       console.log(user.dataValues.birthday);
-  
+      console.log(user);
       res.render("users/userUpdate", { usuario: user, address, id });
     }).catch(err => {
       console.error("Error:", err);

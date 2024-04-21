@@ -27,7 +27,10 @@
     display: none; /* Oculta el input de tipo file */
 }
 
-
+.userProfile-select {
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
 /* Final de estilos para formulario de perfil */
 @keyframes logink {
     0% {background-color: var(--color-turquoise);}

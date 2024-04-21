@@ -107,7 +107,7 @@ const usersController = {
   
   userUpdate: (req, res) => {
     const { id } = req.params;
-    const { first_name, last_name, birthday } = req.body;
+    const { first_name, last_name, birthday, rol_id } = req.body;
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
@@ -128,7 +128,7 @@ const usersController = {
             }
 
             // Verificar si el usuario que realiza la solicitud es el mismo que está siendo actualizado
-            if (req.session.user.id === id) {
+            if (req.session.user.id == id) {
                 // Actualizar req.session.user solo si el usuario está actualizando sus propios datos
                 req.session.user = {
                     first_name,
@@ -143,6 +143,7 @@ const usersController = {
                     last_name,
                     birthday,
                     image: file ? file.filename : oldImage ? oldImage : "default.webp",
+                    rol_id: rol_id ? rol_id : user.rol_id
                 },
                 { where: { id } }
             ).then(function() {

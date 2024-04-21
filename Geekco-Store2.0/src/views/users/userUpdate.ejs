@@ -58,6 +58,18 @@
               %>
             </p>
           </div>
+          <%if (locals.user.admin) { %>
+            <div class="input-data">
+              <label for="rol">Rol</label>
+              <select name="rol_id" id="rol_id">
+                <option value="1" <%= usuario.rol_id == 1 ? 'selected' : '' %>>Cliente</option>
+                <option value="2" <%= usuario.rol_id == 2 ? 'selected' : '' %>>Administrador</option>
+              </select>
+            </div>
+            
+          <% } else { %>
+
+          <% } %>
           <div class="userImage-Container" style="width: 100%; text-align: center;">
             <div class="userImage-box">
               <img id="imagen-previa" src="/images/users/<%= usuario.image %>" alt="Imagen del usuario">

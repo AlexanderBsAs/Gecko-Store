@@ -104,6 +104,11 @@
 }
 
 .lista-detalle {
+    white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+    overflow: hidden; /* Oculta cualquier contenido que exceda el ancho del contenedor */
+    text-overflow: ellipsis; /* Muestra puntos suspensivos (...) cuando el texto se recorta */
+    max-width: 100%; /* Asegura que el texto no desborde el contenedor */
+
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -12,6 +12,14 @@ a{
     display: flex;
 }
 
+.contenedor-dashboard-usuario{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .contenedor-usuarios{
     display: flex;
     justify-content: center;
@@ -20,7 +28,6 @@ a{
 }
 
 .contenedor-lista-usuarios{
-    margin-top: 100px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

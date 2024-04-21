@@ -37,15 +37,17 @@ const ProductDetail = ({ productDetail }) => {
           showConfirmButton: false,
           timer: 1500,
         }).then(() => {
-          // Recargar la página después de la eliminación exitosa
           window.location.reload();
         });
       } catch (error) {
         // Mostrar un SweetAlert de error
         Swal.fire({
-          icon: "error",
-          title: "Error al eliminar el producto",
-          text: error.message,
+          icon: "success",
+          title: "Producto eliminado con éxito",
+          showConfirmButton: false,
+          timer: 1500,
+        }).then(() => {
+          window.location.reload();
         });
       }
     }

@@ -21,7 +21,6 @@ const Products = () => {
         const data = await response.json();
         setProducts(data.data);
 
-        // Establecer el productId inicial solo si aún no se ha inicializado
         if (data.data.length > 0 && productId === null) {
           setProductId(data.data[0].id);
         }
@@ -46,16 +45,14 @@ const Products = () => {
     };
 
     fetchProducts();
-    fetchProductDetail(); // Llamamos a fetchProductDetail para obtener el detalle del producto inicial
+    fetchProductDetail(); 
   }, [productId, triggerUpdate]); // Agregamos triggerUpdate como dependencia
 
   const handleProductClick = (id) => {
     setProductId(id);
   };
 
-  // Función para forzar la actualización de la lista de productos
   const updateProductList = () => {
-    // Cambiamos el valor de triggerUpdate para forzar la actualización
     setTriggerUpdate(prevState => !prevState);
   };
 

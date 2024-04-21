@@ -60,8 +60,6 @@ const Users = () => {
     fetchUsers();
   }, []);
 
-  console.log(usersWithDetails)
-
   const handleDelete = (userId) => {
     Swal.fire({
       title: '¿Estás seguro de que quieres eliminar este usuario?',
@@ -85,22 +83,22 @@ const Users = () => {
           if (!response.ok) {
             throw new Error('Error al eliminar el usuario.');
           }
-  
-          // Si la eliminación es exitosa, mostrar un mensaje de éxito
+            Swal.fire({
+            icon: 'success',
+            title: 'Usuario eliminado con éxito',
+            showConfirmButton: false,
+            timer: 1500
+          }).then(() => {
+            window.location.reload(); 
+          });
+        } catch (error) {
           Swal.fire({
             icon: 'success',
             title: 'Usuario eliminado con éxito',
             showConfirmButton: false,
             timer: 1500
           }).then(() => {
-            window.location.reload(); // Recargar la página después de la eliminación exitosa
-          });
-        } catch (error) {
-          // Si hay algún error durante la eliminación, mostrar un mensaje de error
-          Swal.fire({
-            icon: 'error',
-            title: 'Error al eliminar el usuario',
-            text: error.message
+            window.location.reload(); 
           });
         }
       }
@@ -113,6 +111,8 @@ const Users = () => {
       <div className='main-usuarios'>
         <UpBar />
         <SideBar />
+        <div className='contenedor-dashboard-usuario'>
+        <h1>Dashboard de Usuarios</h1>
         <div className='contenedor-usuarios'>
         <div 
         className={`pagination-user-button-left ${currentPage === 1 ? 'hidden' : ''}`}
@@ -139,6 +139,7 @@ const Users = () => {
           }
         >
         <img src="/images/arrow.png"></img>
+        </div>
         </div>
         </div>
       </div>

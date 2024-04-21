@@ -112,7 +112,7 @@ const productsController = {
         image: req.file ? req.file.filename : "default.jpg",
       });
 
-      res.redirect("http://localhost:5173/products");
+      res.redirect(`/`);
       
     } catch (error) {
       
@@ -195,7 +195,7 @@ const productsController = {
           price,
           stock,
           description,
-          image: file,
+          image: file.filename,
           brand_id: brand,
           platform_id: platform != 0 ? platform : null,
           category_id: category,
@@ -208,8 +208,8 @@ const productsController = {
         {
           include: ["brands", "categories", "platforms"],
         }
-      ).then(function (product) {
-        res.redirect("http://localhost:5173/products");
+      ).then(product => {
+        res.redirect(`/productos/detalles/${id}`);
       });
     }
   },

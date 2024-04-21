@@ -46,8 +46,22 @@ const categoriesInDb = {
           categoryCounts[categoryName] = 1;
         }
       }
+      const categoryCountsArray = Object.keys(categoryCounts).map((key) => ({
+        name: key,
+        count: categoryCounts[key],
+      }));
+
       if (categoryCounts) {
-        res.status(200).json(categoryCounts);
+        res.status(200).json(
+          // [categoryCounts]
+          {
+            meta: {
+              status: 200,
+              total: categoryCountsArray.length,
+              url: "/api/categories/count",
+            },
+            data: categoryCountsArray,
+          });
         // let maxCategory = null;
         // let maxCount = 0;
         // for (const categoryId in categoryCounts) {

@@ -3,7 +3,7 @@
         "rol_id": 2,
         "email": "lili.49_@outlook.com",
         "first_name": "Liliana",
-        "image": "image-1705961748418.jpg",
+        "image": "gatopan1.jpg",
         "last_name": "Almirón",
         "password": "123456789",
         "birthday": "1995-05-15"
@@ -12,7 +12,7 @@
         "rol_id": 2,
         "email": "gaby_robles@outlook.com",
         "first_name": "Gabriel",
-        "image": "gatopan.jpg",
+        "image": "gatopan2.png",
         "last_name": "Robles",
         "password": "12345678",
         "birthday": "1990-05-15"
@@ -21,7 +21,7 @@
         "rol_id": 2,
         "email": "ale_vera@outlook.com",
         "first_name": "Alejandro",
-        "image": "gatopan.jpg",
+        "image": "gatopan3.jpg",
         "last_name": "Vera",
         "password": "abc12345",
         "birthday": "1988-08-20"
@@ -30,7 +30,7 @@
         "rol_id": 2,
         "email": "fer_ortiz@outlook.com",
         "first_name": "Fernando",
-        "image": "gatopan.jpg",
+        "image": "gatopan4.jpeg",
         "last_name": "Ortiz",
         "password": "password",
         "birthday": "1975-03-10"
@@ -39,7 +39,7 @@
         "rol_id": 2,
         "email": "alex_ureta@outlook.com",
         "first_name": "Alexander",
-        "image": "gatopan.jpg",
+        "image": "gatopan5.jpg",
         "last_name": "Ureta",
         "password": "qwerty12",
         "birthday": "1982-11-28"
@@ -48,7 +48,7 @@
         "rol_id": 1,
         "email": "kdurrad5@nbcnews.com",
         "first_name": "Kipper",
-        "image": "gatopan.jpg",
+        "image": "gatopan6.jpg",
         "last_name": "Durrad",
         "password": "letmein123",
         "birthday": "1978-09-03"
@@ -57,7 +57,7 @@
         "rol_id": 1,
         "email": "vbuyers6@seesaa.net",
         "first_name": "Vincents",
-        "image": "gatopan.jpg",
+        "image": "gatopan7.jpg",
         "last_name": "Buyers",
         "password": "welcome1",
         "birthday": "1993-12-17"
@@ -66,7 +66,7 @@
         "rol_id": 1,
         "email": "lgilkes7@acquirethisname.com",
         "first_name": "Lauri",
-        "image": "gatopan.jpg",
+        "image": "gatopan8.jpg",
         "last_name": "Gilkes",
         "password": "sunshine",
         "birthday": "1986-06-25"
@@ -75,7 +75,7 @@
         "rol_id": 1,
         "email": "cpeartree8@g.co",
         "first_name": "Candi",
-        "image": "gatopan.jpg",
+        "image": "gatopan9.jpg",
         "last_name": "Peartree",
         "password": "12345678",
         "birthday": "1995-02-12"
@@ -84,7 +84,7 @@
         "rol_id": 1,
         "email": "amattersley9@shareasale.com",
         "first_name": "Alexi",
-        "image": "gatopan.jpg",
+        "image": "gatopan10.jpg",
         "last_name": "Mattersley",
         "password": "abc12345",
         "birthday": "1980-07-08"

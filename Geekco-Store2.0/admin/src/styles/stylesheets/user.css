@@ -61,8 +61,8 @@ a{
     padding: 0.3rem;
 }
 
-.user-container img{
-    max-height: 10rem;
+.user-container img {
+    height: 8em;
 }
 
 .pagination-user-button-left{

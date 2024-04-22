@@ -39,7 +39,6 @@ const usersController = {
         id: user.id
       };
       res.locals.user = req.session.user;
-      console.log(req.session); 
       res.redirect('/');
     } catch (error) {
       console.log(err);
@@ -74,7 +73,6 @@ const usersController = {
     })
     
       .then(newUser => {
-          console.log('Usuario creado:', newUser.email);
           res.redirect('/');
       })
       .catch((err) => {
@@ -96,8 +94,6 @@ const usersController = {
       )
     ]).then(function([user, address]) {
       user.dataValues.birthday = moment(user.dataValues.birthday).format('YYYY-MM-DD');
-      console.log(user.dataValues.birthday);
-      console.log(user);
       res.render("users/userUpdate", { usuario: user, address, id });
     }).catch(err => {
       console.error("Error:", err);
@@ -107,7 +103,7 @@ const usersController = {
   
   userUpdate: (req, res) => {
     const { id } = req.params;
-    const { first_name, last_name, birthday } = req.body;
+    const { first_name, last_name, birthday, rol_id } = req.body;
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
@@ -128,7 +124,7 @@ const usersController = {
             }
 
             // Verificar si el usuario que realiza la solicitud es el mismo que está siendo actualizado
-            if (req.session.user.id === id) {
+            if (req.session.user.id == id) {
                 // Actualizar req.session.user solo si el usuario está actualizando sus propios datos
                 req.session.user = {
                     first_name,
@@ -143,11 +139,13 @@ const usersController = {
                     last_name,
                     birthday,
                     image: file ? file.filename : oldImage ? oldImage : "default.webp",
+                    rol_id: rol_id ? rol_id : user.rol_id
                 },
                 { where: { id } }
             ).then(function() {
                 res.locals.user = req.session.user;
-                if (req.session.user.rol_id == 2){
+                console.log("Session:",req.session.user);
+                if (req.session.user.admin){
                   res.redirect(`http://localhost:5173/users`);
                 } else {
                   res.redirect(`/`);
@@ -233,7 +231,6 @@ const usersController = {
   // }
   destroy: (req, res) => {
     const userId = req.params.id
-    console.log("Este es el id: ", userId)
     db.User.findOne({
       where: {
         id: userId,

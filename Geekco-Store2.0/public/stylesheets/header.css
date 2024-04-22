@@ -168,18 +168,6 @@ header div{
         background-position: 0% 50%;
     }
 }
-
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
 .header__nav2{
     display: flex;
     width: 96%;
@@ -216,8 +204,41 @@ header div{
 }
 
 .nav-list li a {
+    /* Establece el color inicial del texto */
     color: white;
+    /* Define la transición para la animación */
+    transition: color 0.3s ease;
+    /* Establece el fondo como un gradiente */
+    background: linear-gradient(to right, var(--color-turquoise), var(--color-dark-cyan));
+    /* Indica que el gradiente se muestra solo detrás del texto */
+    -webkit-background-clip: text;
+    background-clip: text;
 }
+
+.nav-list li a:hover {
+    /* Cambia el color del texto al pasar el ratón */
+    color: transparent;
+    /* Desplaza el gradiente al 100% cuando se pasa el ratón */
+    background-position: 100% 0;
+    /* Agrega la animación al gradiente */
+    animation: gradientAnimation 1s linear infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+
 .fas.fa-bars{
     color:white}
 #div a{
@@ -238,6 +259,9 @@ header div{
     margin: 0 10px; /* Espaciado del separador */
     color: white; /* Color del separador (opcional) */
 }
+
+
+
 
 @media(min-width:768px){
  
@@ -264,10 +288,7 @@ header div{
         text-decoration: none;
         transition: font-size 0.3s ease, color 0.3s ease;
     }
-    .nav-list li a:hover {
-        font-size:24.5px;
-        color: var(--color-ligth-violet) 
-      }
+    
     
     .nav-list {
         display: flex;

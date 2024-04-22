@@ -209,8 +209,24 @@
 .home__main__article {
   background-color: var(--color-violet);
 }
-
+.price-discount {
+  position: absolute;
+  right: 41%;
+  top: 27%;
+}
+@media (min-width: 320px){
+  .price-discount {
+    position: absolute;
+    right: 35%;
+    top: 25%;
+}
+}
 @media (min-width: 768px) {
+  .price-discount {
+    position: absolute;
+    right: 37%;
+    top: 23%;
+}
   .logo2 {
     width: 325px;
     height: 384px;
@@ -230,6 +246,11 @@
 }
 
 @media (min-width: 1024px) {
+  .price-discount {
+    position: absolute;
+    right: 36%;
+    top: 26%;
+}
   .logo2 {
     width: 363px;
     height: 404px;
@@ -240,5 +261,14 @@
   }
   .home__main__article {
     width: 24%;
+}
+}
+
+
+@media (min-width: 1440px){
+  .price-discount {
+    position: absolute;
+    right: 40%;
+    top: 27%;
 }
 }

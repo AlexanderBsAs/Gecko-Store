@@ -5,7 +5,7 @@
 #carrito-container {
     display: grid;
     grid-gap: 20px;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
     padding: 20px;
     background-color:#551ca6de;
     height: auto;
@@ -15,6 +15,8 @@
     border: 1px solid #ddd;
     text-align: center;
     width: 70%;
+    max-height: 185px;
+
 }
 
 .cart_imagen-producto {
@@ -34,15 +36,63 @@
     position: relative;
     font-size: 21px;
     left: 32%;
-    bottom: 32%;
+    bottom: 45%;
     text-align: left;
     width: 32%;
 }
 .cart_cantidad-producto{
     margin-left: 10px;
-    color: black;
+    color: white;
     position: relative;
-    bottom: 45%;
-    left: 14%;
+    bottom: 59%;
+    left: 20%;
     font-weight: 600;
 }
+
+.cart_btn-incrementar,.cart_btn-decrementar,.cart_btn-eliminar{
+position: relative;
+left: 37%;
+bottom: 73%;
+margin-left: 1%;
+min-width: 26px
+}
+.productCart__total{
+    border: 1px solid white;
+    position: absolute;
+    left: 71%;
+    height: auto;
+    color: white;
+    font-size: 30px;
+    top: 82%;
+    text-align: center;
+    width: 21%;
+}
+.carrito-cupon-descuento{
+  
+        color: white;
+        width: 300px;
+        position: relative;
+        left: 71%;
+        bottom: 62%;
+        font-size: 31px;
+        height: 18%;
+        border: 1px solid white;
+
+}
+
+#cupon-input{
+    width: 90%;
+    font-size: 18px;
+    margin-left: 4%;
+}
+#aplicar-cupon-btn{font-size: 20px;
+    margin: 5% 28%;}
+
+    #carrito-enviar-compra{
+    position: relative;
+    top: 138%;
+    width: 102%;
+    background-color: #0098B6;
+    color: white;
+    border-radius: 11px;
+    }

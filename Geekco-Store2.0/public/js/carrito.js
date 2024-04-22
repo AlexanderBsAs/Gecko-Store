@@ -57,15 +57,15 @@ document.addEventListener('DOMContentLoaded', () => {
             // Crear elementos para mostrar el producto en el carrito
             const nombreProducto = document.createElement('span');
             nombreProducto.textContent = `${producto.name}`;
-              nombreProducto.classList.add('nombre-producto');
+              nombreProducto.classList.add('carrito-nombre-producto');
     
             const cantidadProducto = document.createElement('span');
             cantidadProducto.textContent = `Cant: ${cantidad}`;
-             cantidadProducto.classList.add('cantidad-producto');
+             cantidadProducto.classList.add('carrito-cantidad-producto');
     
             const subtotalProducto = document.createElement('span');
             subtotalProducto.textContent = `Subtotal: $${subtotal.toFixed(2)}`;
-            subtotalProducto.classList.add('subtotal-producto');
+            subtotalProducto.classList.add('carrito-subtotal-producto');
     
             // Botón para incrementar la cantidad
             const btnIncrementar = document.createElement('button');

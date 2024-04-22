@@ -47,10 +47,13 @@
                 >
                 <i class="fa-solid fa-credit-card"></i> Comprar Ahora
                 </button>
-                <button
-                  class="boton-product boton__añadir color-turquesa flex flex-row info-detailProduct-text"
-                >
-                  <i class="fas fa-shopping-cart"></i> Añadir al Carrito
+                <button class="boton-product agregar-carrito color-turquesa flex flex-row"
+                data-product-id="<%= producto.id %>"
+                data-product-name="<%= producto.name %>"
+                data-product-price="<%= producto.price %>"
+                data-product-image="<%= producto.image %>">
+            Agregar al carrito
+        </button></i>
                 </button>
               </div>
               <div class="contenedor-metodo-pagos info-detailProduct-text">

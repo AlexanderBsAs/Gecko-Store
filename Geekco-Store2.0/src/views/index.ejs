@@ -45,7 +45,8 @@
                     <button class="boton-product agregar-carrito color-turquesa flex flex-row"
                     data-product-id="<%= product.id %>"
                     data-product-name="<%= product.name %>"
-                    data-product-price="<%= product.price %>">
+                    data-product-price="<%= product.price %>"
+                    data-product-image="<%= product.image %>">
                 Agregar al carrito
             </button>
                 </div>
@@ -82,7 +83,8 @@
                             <button class="boton-product agregar-carrito color-turquesa flex flex-row"
                             data-product-id="<%= product.id %>"
                             data-product-name="<%= product.name %>"
-                            data-product-price="<%= product.price %>">
+                            data-product-price="<%= product.price %>"
+                            data-product-image="<%= product.image %>">
                         Agregar al carrito
                     </button>
                         </div>
@@ -90,11 +92,7 @@
                 <% }); %>
             </section>
         <% }); %>
-        <div id="mini-carrito" >
-            <h3>Carrito de Compras</h3>
-            <ul id="lista-carrito"></ul>
-            <p id="total-carrito">Total: $0</p>
-        </div>
+      
         </main>
         <div class="go-top-container">
             <div class="go-top-button">

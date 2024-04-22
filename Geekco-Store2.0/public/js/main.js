@@ -4,11 +4,6 @@ window.addEventListener('load', function () {
     const abrirlog = document.querySelector("#abrir__logeo1");
     const navlog = document.querySelector(".header__nav1");
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> develop
     abrirlog.style.cursor = 'pointer';
     console.log("Archivo JS vinculado con éxito")
     abrirlog.addEventListener("click", () => {

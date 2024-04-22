@@ -1,96 +1,8 @@
-<<<<<<< HEAD
 
-=======
 body {
     background-color: var(--color-midnight-blue);
 }
->>>>>>> develop
-#mini-carrito {
-    display: none;
-    position: absolute;
-    top: 19%; 
-    right: 33%;
-    border: 3px solid #551CA6;
-    padding: 10px;
-    width: 427px;
-    background-color: rgba(255, 255, 255, 0.9);
-    z-index: 12;
-    transition: opacity 0.3s ease, transform 0.3s ease; 
-    transform-origin: top center;
-    opacity: 0; 
-}
 
-#mini-carrito.mostrar {
-    display: block;
-    opacity: 1;
-    transform: translateY(0); /* Desplaza hacia abajo */
-}
-
-#mini-carrito h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    font-weight: 700;
-    text-decoration: underline;
-}
-
-
-#lista-carrito li {
-    list-style-type: disc;
-    border-bottom: 1px solid black;
-    display: grid;
-    grid-template-columns: 172px 48px 25px 25px 75px;
-    grid-template-rows: 26px;
-
-}
-
-#total-carrito {
-    font-weight: bold;
-    border-top: 2px solid black;
-}
-
-.item-carrito {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.nombre-producto {
-    font-weight: bold;
-    color:black;
-}
-
-.cantidad-producto {
-    margin-left: 10px;
-    color: #888;
-}
-
-.subtotal-producto {
-    margin-left: 10px;
-}
-
-.btn-incrementar,
-.btn-decrementar {
-    margin-top: 10px;
-    height: 29px;
-    margin-left: 6px;
-    cursor: pointer;
-    background-color: #551CA6;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-}
-.btn-eliminar{width: 22px;
-    width: 20px;
-    color: white;
-    background-color: red;
-    position: relative;
-    top: -21px;
-    right: 32px;
-    border-radius: 26%;
-}
-.btn-incrementar:hover,
-.btn-decrementar:hover {
-    background-color: #0056b3;
-}
 
 .principal-icons-div {
     position: fixed;
@@ -396,7 +308,6 @@ position: relative;
 }
 @media(min-width:768px){
    
-<<<<<<< HEAD
     .icon-whatsapp-container{
         bottom: 16rem;
         right: -2rem;
@@ -405,8 +316,6 @@ position: relative;
         bottom: 11rem;
         right: -2rem;
     }
-=======
->>>>>>> develop
     .index__main section{
         flex-direction: row;
     }

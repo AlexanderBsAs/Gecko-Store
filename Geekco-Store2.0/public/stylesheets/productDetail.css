@@ -246,6 +246,7 @@
 }
 
 @media (min-width: 1024px) {
+  .boton-product {width: 100%;}
   .price-discount {
     position: absolute;
     right: 36%;

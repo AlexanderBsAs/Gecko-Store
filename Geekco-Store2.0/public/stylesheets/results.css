@@ -6,10 +6,22 @@
 
 
 .noResults {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color: white;
     font-weight: bold;
+    padding: 20px;
+    margin: auto;
+    font-size: 2rem;
 }
 
 .products-novisible{
     visibility: hidden;
+}
+
+.productsList-section {
+    height: 500px;
 }

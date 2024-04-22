@@ -6,15 +6,19 @@
     <%-include("./partials/header.ejs")%>
 
 
-    <main class="index__main" >
+    <main class="index__main productsList-section" >
         <section>
     <% if (search[0]) { %>
         <% search.forEach(product => { %>
-            <article class="card">
+            <article class="card"> 
+                <%if(product.discount > 0 && product.discount != null){ %>
+                    <img class="discount-card-image" src="/images/discount.png" alt="discount-image">
+                <% } %>
+
                 <img id="img1" src="/images/products/<%= product.image  %>" alt="<%= product.image  %>">
-                    <div class="index__cardinfo">
-                        <h4 class="product-cardinfo"><%= product.name %></h4>
-                        <%if (product.discount > 0 && product.discount != null) { %>
+                <div class="index__cardinfo">
+                    <h4  class="product-cardinfo product-name"><%= product.name %></h4>
+                    <%if (product.discount > 0 && product.discount != null) { %>
                             <div class="price-original">
                                 <h3  class="product-cardinfo">$<%= product.price %></h3>
                             </div>
@@ -25,19 +29,23 @@
                     <%} else {%>
                         <h3  class="product-cardinfo">$<%= product.price %></h3>
                         <% } %>
-                        <h5 class="product-cardinfo"><%= product.discount > 0 && product.discount != null ? `Descuento: ` + product.discount + "%": null   %></h5>
-  
-                        <h3  class="product-cardinfo">Disponibles: <%= product.stock %></h3>
-                        <button class="boton-product color-turquesa flex flex-row">
-                            <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
-                        </button>
-                    </div>
-                </img>
+                    <h5 class="product-cardinfo"><%= product.discount > 0 && product.discount != null ? `Descuento: ` + product.discount + "%": null   %></h5>
+                    <button class="boton-product color-turquesa flex flex-row">
+                        <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
+                    </button>
+                    <button class="boton-product agregar-carrito color-turquesa flex flex-row"
+                    data-product-id="<%= product.id %>"
+                    data-product-name="<%= product.name %>"
+                    data-product-price="<%= product.price %>">
+                Agregar al carrito
+            </button>
+                </div>
             </article>
             <%}); %>
     <% } else { %>
         <div class="noResults">
             <p>No hay productos que coincidan con la busqueda: <%= keywords  %></p>
+            <img src="/images/gecosad.jfif" alt="Productos no encontrados">
         </div>
         <% } %>
 </main>

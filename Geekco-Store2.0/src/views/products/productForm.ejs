@@ -8,49 +8,56 @@
         <div class="productForm__div">
             <h2>Formulario de Carga de Productos</h2>
             <form action="/productos/create" method="POST" id="form" enctype="multipart/form-data">
-                <label class="edicion" for="name" id="name"> Ingrese el nombre del producto</label>
+                <label class="edicion" for="name" id="name">Nombrew</label>
                 <input class="productForm__input" type="text" id="name" name="name" placeholder="Nombre">
                 <p class="p-errores">
                     <%= locals.errores && errores.name ? errores.name.msg : null %>
                   </p>
-                <label class="edicion" for="price" id="name"> Ingrese el precio del producto</label>
+                <label class="edicion" for="price" id="name">Precio:</label>
                 <input class="productForm__input" type="number" id="price" name="price"placeholder="Precio" ">
                 <p class="p-errores">
                     <%= locals.errores && errores.price ?
                     errores.price.msg : null %>
                   </p>
-                <label class="edicion" for="stock" id="name"> Ingrese el stock</label>
+                <label class="edicion" for="stock" id="name">Stock:</label>
                 <input class="productForm__input" type="number" id="stock" name="stock"placeholder="Stock" ">
                 <p class="p-errores">
                     <%= locals.errores && errores.stock ?
                     errores.stock.msg : null %>
                   </p>
-                <label class="edicion" for="description" id="name">Descripcion del producto</label>
+                <label class="edicion" for="description" id="name">Descripción:</label>
                 <textarea class="productForm__input" id="description" name="description"placeholder="Descripcion"></textarea>
                 <p class="p-errores">
                     <%= locals.errores && errores.description ?
                     errores.description.msg : null %>
                   </p>
-                <label class="edicion" for="image" > Ingrese una imagen</label>
-                <input class="productForm__input__image" type="file" id="image" name="image" >
+                <!-- <input class="productForm__input__image" type="file" id="image" name="image" > -->
+                <div class="contenedor-imagen-create">
+                  <label class="edicion" for="image" >Imagen:</label>
+
+                <img id="imgPreview" src="/images/default.jpg" alt="">
+
+                <input  type="file" name="image" id="imagen" required onchange="previewImage(event, '#imgPreview')">
                 <p class="p-errores">
-                    <%= locals.errores && errores.image ?
-                    errores.image.msg : null %>
-                  </p>
-                <label class="edicion" for="plataform" id="name"> Elegir plataforma del producto</label>
+                  <%= locals.errores && errores.image ?
+                  errores.image.msg : null %>
+                </p>
+              </div>
+                
+                <label class="edicion" for="plataform" id="name">Plataforma:</label>
                 <select class="productForm__input" name="platform" id="platform">
                     <option value="">Selecciona una plataforma</option>
                     <% platforms.forEach(platform => { %>
                     <option value="<%= platform.id %>"><%= platform.name %></option>
                     <% }); %>
-                    <option value="0">No contiene</option>
+                    <option value="">No contiene</option>
 
                 </select>
                 <p class="p-errores">
                     <%= locals.errores && errores.platform ?
                     errores.platform.msg : null %>
                   </p>
-                <label class="edicion" for="category" id="name"> Elegir categoría del producto</label>
+                <label class="edicion" for="category" id="name">Categoría:</label>
                 <select class="productForm__input" name="category" id="category">
                     <option value="">Selecciona una categoría</option>
                     <% categories.forEach(category => { %>
@@ -61,7 +68,7 @@
                     <%= locals.errores && errores.category ?
                     errores.category.msg : null %>
                   </p>
-                <label class="edicion" for="brand" id="name"> Elegir marca del producto</label>
+                <label class="edicion" for="brand" id="name">Marca:</label>
                 <select class="productForm__input" name="brand" id="brand">
                     <option value="">Selecciona una marca</option>
                     <% brands.forEach(brand => { %>
@@ -72,13 +79,13 @@
                     <%= locals.errores && errores.brand ?
                     errores.brand.msg : null %>
                   </p>
-                <label class="edicion" for="discount" id="name"> De cuanto es el descuento?</label>
+                <label class="edicion" for="discount" id="name">Descuento:</label>
                 <input class="productForm__input" type="text" id="discount" name="discount"placeholder="Descuentos">
                 <p class="p-errores">
                     <%= locals.errores && errores.discount ?
                     errores.discount.msg : null %>
                   </p>
-                <label class="edicion" for="installments" id="name"> Ingrese el numero de cuotas</label>
+                <label class="edicion" for="installments" id="name">Cuotas:</label>
                 <input class="productForm__input" type="text" id="installments" name="installments"placeholder="Cuotas">
                 <p class="p-errores">
                     <%= locals.errores && errores.installments ?
@@ -93,5 +100,7 @@
        
     </main>
     <%-include("../partials/footer.ejs")%>
+    <script src="/js/image-preview.js"></script>
+
 </body>
 </html>

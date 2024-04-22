@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 
+=======
+body {
+    background-color: var(--color-midnight-blue);
+}
+>>>>>>> develop
 #mini-carrito {
     display: none;
     position: absolute;
@@ -124,7 +130,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
-    transition: .2s;
+    transition: .5s;
 }
 .icon-whatsapp-button {
     width: 0rem;
@@ -136,7 +142,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
-    transition: .2s;
+    transition: .5s;
 }
 
 .go-top-button i {
@@ -146,7 +152,7 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     color: white;
-    transition: .2s;
+    transition: .5s;
 }
 .icon-whatsapp-button i {
     position: absolute;
@@ -155,7 +161,7 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     color: white;
-    transition: .2s;
+    transition: .5s;
 }
 
 .show{
@@ -163,7 +169,7 @@
 }
 
 .show .go-top-button, .show .icon-whatsapp-button{
-    animation: popup .3s ease-in-out;
+    animation: popup .5s ease-in-out;
     width: 4.6rem;
     height: 4.6rem;
     z-index: 11;
@@ -282,9 +288,9 @@ background-size: cover;
     100% {background-color: var(--color-turquoise);}
 
 }
-.index__main h4{
+.index__main h4 {
     color: white;
-    font-size:24px;
+    font-size: 1.5em;
 }
 .index__main section{
     display:flex;
@@ -322,10 +328,17 @@ background-size: cover;
 .price-original {
     text-decoration: line-through;
 }
-.price-discount {
+.product-name {
+    white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+    overflow: hidden; /* Oculta cualquier contenido que exceda el ancho del contenedor */
+    text-overflow: ellipsis; /* Muestra puntos suspensivos (...) cuando el texto se recorta */
+    max-width: 100%; /* Asegura que el texto no desborde el contenedor */
+  }
+  
+.discount-card-image {
     position: absolute;
-    right: 40%;
-    top: 12%;
+    width: 10%;
+    right: 0px;
 }
 #img1{
     width: 100%;
@@ -383,6 +396,7 @@ position: relative;
 }
 @media(min-width:768px){
    
+<<<<<<< HEAD
     .icon-whatsapp-container{
         bottom: 16rem;
         right: -2rem;
@@ -391,6 +405,8 @@ position: relative;
         bottom: 11rem;
         right: -2rem;
     }
+=======
+>>>>>>> develop
     .index__main section{
         flex-direction: row;
     }

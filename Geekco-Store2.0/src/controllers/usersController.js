@@ -39,7 +39,6 @@ const usersController = {
         id: user.id
       };
       res.locals.user = req.session.user;
-      console.log(req.session); 
       res.redirect('/');
     } catch (error) {
       console.log(err);
@@ -74,7 +73,6 @@ const usersController = {
     })
     
       .then(newUser => {
-          console.log('Usuario creado:', newUser.email);
           res.redirect('/');
       })
       .catch((err) => {
@@ -96,8 +94,6 @@ const usersController = {
       )
     ]).then(function([user, address]) {
       user.dataValues.birthday = moment(user.dataValues.birthday).format('YYYY-MM-DD');
-      console.log(user.dataValues.birthday);
-  
       res.render("users/userUpdate", { usuario: user, address, id });
     }).catch(err => {
       console.error("Error:", err);
@@ -107,7 +103,7 @@ const usersController = {
   
   userUpdate: (req, res) => {
     const { id } = req.params;
-    const { first_name, last_name, birthday } = req.body;
+    const { first_name, last_name, birthday, rol_id } = req.body;
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
@@ -116,41 +112,50 @@ const usersController = {
         });
     } else {
         const file = req.file;
-        console.log("Imagen usuario:",req.file);
-
         db.User.findByPk(id).then(function(user) {
             let oldImage = user.image;
-
             if (file) {
                 // Si se ha subido un nuevo archivo, eliminar el archivo anterior
-                if (oldImage != "default.jpg" ) {
+                if (oldImage !== "default.jpg") {
                     // Verificar si la imagen no es la predeterminada para evitar su eliminación accidental
                     const imagePath = `public/images/users/${oldImage}`;
                     fs.unlinkSync(imagePath);
                 }
             }
 
-            db.User.update(
-                {
-                    first_name,
-                    last_name,
-                    birthday,
-                    image: file ? file.filename : oldImage ? oldImage : "default.webp",
-                },
-                { where: { id } }
-            ).then(function() {
+            // Verificar si el usuario que realiza la solicitud es el mismo que está siendo actualizado
+            if (req.session.user.id == id) {
+                // Actualizar req.session.user solo si el usuario está actualizando sus propios datos
                 req.session.user = {
                     first_name,
                     last_name,
                     image: file ? file.filename : "default.webp",
                     id,
                 };
+            }
+            db.User.update(
+                {
+                    first_name,
+                    last_name,
+                    birthday,
+                    image: file ? file.filename : oldImage ? oldImage : "default.webp",
+                    rol_id: rol_id ? rol_id : user.rol_id
+                },
+                { where: { id } }
+            ).then(function() {
                 res.locals.user = req.session.user;
-                res.redirect(`/users/update/${id}`);
+                console.log("Session:",req.session.user);
+                if (req.session.user.admin){
+                  res.redirect(`http://localhost:5173/users`);
+                } else {
+                  res.redirect(`/`);
+
+                }
             });
         });
     }
 },
+
 
 
   updatePasswordForm: (req, res) => {
@@ -215,15 +220,44 @@ const usersController = {
     })
   }
   },
-  destroy: (req,res)=>{
+  // destroy: (req,res)=>{
+  //   const userId = req.params.id
+  //   db.User.destroy({
+  //     where: userId
+  //   })
+  //   .then((resp)=>{
+  //     return res.redirect("http://localhost:5173/users")
+  //   })
+  // }
+  destroy: (req, res) => {
     const userId = req.params.id
-    db.User.destroy({
-      where: userId
+    db.User.findOne({
+      where: {
+        id: userId,
+      },
     })
-    .then((resp)=>{
-      return res.redirect("/users/dashboard")
-    })
+      .then(user => {
+        const imageName = user.image;
+        const imagePath = `public/images/users/${imageName}`;
+        fs.unlink(imagePath, (err) => {
+          if (err) {
+            console.error('Error al eliminar la imagen:', err);
+          } else {
+            db.User.destroy({
+              where: {
+                id: userId,
+              },
+            })
+              .then(() => {
+                res.redirect("http://localhost:5173/users");
+              })
+              .catch(err => console.error('Error al eliminar el usuario:', err));
+          }
+        });
+      })
+      .catch(err => console.error('Error al buscar el usuario:', err));
   }
+
 }
 
 module.exports = usersController;

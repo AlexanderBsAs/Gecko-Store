@@ -13,18 +13,15 @@
     text-decoration: none;
 }
 body{
-    background-color:white;
+    background-color: #00001E;
 }
 
 .SideBar__nav{
-    height: 111vh;
+    min-height: 100vh;
     background-color: #00001E;
-    width: 15%;
+    width: 200px;
     display: flex;
-    border-right: 2px solid grey;
-    
     flex-direction: column;
-    
 }
 .SideBar__nav ul{
     margin-top:50px;
@@ -40,7 +37,7 @@ body{
     font-size: 28px;
     margin-top: 5%;
     padding: 0%;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid white;
 }
 .SideBar__nav ul li a{
     color:white;
@@ -64,7 +61,6 @@ body{
     grid-auto-flow: column;
     grid-template-columns: 12% 80% 7%;
     align-items: center;
-        
 }
 .UpBar__nav a{
     color:white;
@@ -77,7 +73,7 @@ padding: 2px;}
 .UpBar__nav ul{
     display:flex;
     gap:75%;
-  
+
 }
 .UpBar__nav ul li{
     font-size:24px;
@@ -85,38 +81,51 @@ padding: 2px;}
     height: auto;
 }
 
-.ContentWrapper {
-    background-image: linear-gradient(to bottom, #00001E 40%, #551CA6 80%);
-    width: 85%;
-    display: grid;
-    position: absolute;
-    top:11%;
-    left: 15%;
-    height: 100vh;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 142px 450px;
-    gap:60px;
+.body-ContentWrapper{
+    display: flex;
 }
+
+.ContentWrapper {
+    margin-top: 80px;
+    background-image: linear-gradient(to bottom, #00001E 40%, #551CA6 80%);
+    width: 84%;
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+}
+
+.top-home{
+    display: flex;
+    justify-content:space-around;
+    padding: 1rem 0;
+}
+
+.bottom-home{
+    display: flex;
+    justify-content:space-around;
+    padding: 2rem 0;
+}
+
 .ProductWrapper,.CategoryWrapper,.UserWrapper{
-    border-radius: 3% 10%;
+    border-radius: 3%;
     box-shadow: 1px 10px 20px #551CA6;
-    background-color: rgba(255, 255, 255, 0.479);
-    height: 57%;
-    margin-top: 44px;
-    margin-left: 77px;
-    font-size: 24px;
+    background-color: #AD2AB4;
+    height: 50%;
+    margin-top: 2rem;
+    margin-left: 3rem;
+    font-size: 26px;
     align-content: center;
     font-weight: 600;
     color: rgb(233, 233, 233);
-    width: max-content;
-    padding: 0px 60px 0px 10px;
+    padding: 1rem;
 }
 
 
-.LatestUser,.LatestProduct,.PopularCategory{
+.LatestUser,.LatestProduct{
+    text-align: center;
     border-width: 3px;
     border-style: solid;
-    border-image: linear-gradient(to right, #0098B6,#AD2AB4, #551CA6) 1; 
+    border-image: linear-gradient(to right, #0098B6,#AD2AB4, #551CA6) 1;
     border-radius: 4%;
     background-color: black;
     color: white;
@@ -125,22 +134,23 @@ padding: 2px;}
     font-size:12px;
 }
 
-.LatestProduct img{
-    border-top:1px solid white;
+.LatestProduct img {
+    border-top: 1px solid white;
     width: 100%;
-    height: min-content;
+    height: 20rem;
 }
 .LatestProduct__description{
     border-top:1px solid white;
     font-size: 20px;
+    text-align: center;
 }
 .LatestProduct h1{
     border-bottom:1px solid white;
 }
-.LatestUser img{
-    border-top:1px solid white;
+.LatestUser img {
+    border-top: 1px solid white;
     width: 100%;
-    height: min-content;
+    height: 20rem;
 }
 .LatestProduct{
     margin-left: 3em;

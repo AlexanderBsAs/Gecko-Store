@@ -50,7 +50,7 @@ form.addEventListener("submit",event=>{
         ulErrores.innerHTML = "";
         errores.forEach(error => {
             ulErrores.innerHTML += "<li>" + error + "</li>"; 
-            ulErrores.style.cssText = "color: #b13; font-weight: 600;text-align: center;text-shadow: 0 0 black; ";
+            ulErrores.style.cssText = "color: white; font-weight: 600;text-align: center;text-shadow: 0 0 black; ";
         });
     }
 });

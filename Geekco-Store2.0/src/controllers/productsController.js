@@ -86,7 +86,17 @@ const productsController = {
         return res.render('products/productForm', { errores: errores.mapped(), brands, categories, platforms });
       })
     } else {
-    const { name, price, stock, description, platform_id, category_id, installments, discount, brand_id } = req.body;
+      const {
+        name,
+        price,
+        stock,
+        description,
+        brand,
+        platform,
+        category,
+        discount,
+        installments
+      } = req.body;
     console.log(req.body)
     try {
       const newProduct = await db.Product.create({
@@ -94,15 +104,15 @@ const productsController = {
         price: parseFloat(price),
         stock: parseInt(stock),
         description: description,
-        platform_id: platform_id ? platform_id : null,
-        category_id: category_id,
-        brand_id: brand_id,
+        platform_id: platform ? platform : null,
+        category_id: category,
+        brand_id: brand,
         installments: installments ? parseInt(installments) : null,
         discount: discount ? parseInt(discount) : null,
         image: req.file ? req.file.filename : "default.jpg",
       });
 
-      res.redirect("/productos/dashboard");
+      res.redirect(`/`);
       
     } catch (error) {
       
@@ -152,7 +162,7 @@ const productsController = {
       price,
       stock,
       description,
-      brands,
+      brand,
       platform,
       category,
       discount,
@@ -176,17 +186,17 @@ const productsController = {
       const product = db.Product.findByPk(req.params.id)
       let file = req.file;
       console.log("image:", product.image)
-      if (!file) {
-         file = product.image
-      }
+      // if (!file) {
+      //    file = product.image
+      // }
       db.Product.update(
         {
           name,
           price,
           stock,
           description,
-          image: file,
-          brand_id: brands,
+          image: file ? file.filename : product.image,
+          brand_id: brand,
           platform_id: platform != 0 ? platform : null,
           category_id: category,
           discount,
@@ -198,8 +208,8 @@ const productsController = {
         {
           include: ["brands", "categories", "platforms"],
         }
-      ).then(function (product) {
-        res.redirect("/productos/dashboard");
+      ).then(product => {
+        res.redirect(`/productos/detalles/${id}`);
       });
     }
   },
@@ -224,7 +234,7 @@ const productsController = {
               },
             })
               .then(() => {
-                res.redirect("/productos/dashboard");
+                res.redirect("http://localhost:5173/products");
               })
               .catch(err => console.error('Error al eliminar el producto:', err));
           }

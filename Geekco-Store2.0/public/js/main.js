@@ -3,13 +3,13 @@ window.addEventListener('load', function () {
     const abrir = document.querySelector("#abrir");
     const abrirlog = document.querySelector("#abrir__logeo1");
     const navlog = document.querySelector(".header__nav1");
-console.log("Archivo JS vinculado con éxito")
-abrirlog.addEventListener("click", () => {
-    navlog.classList.toggle('visible');
-});
 
+
+
+    abrirlog.style.cursor = 'pointer';
     console.log("Archivo JS vinculado con éxito")
     abrirlog.addEventListener("click", () => {
+        
         navlog.classList.toggle('visible');
     });
 

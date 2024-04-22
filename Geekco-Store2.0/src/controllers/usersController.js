@@ -39,7 +39,6 @@ const usersController = {
         id: user.id
       };
       res.locals.user = req.session.user;
-      console.log(req.session); 
       res.redirect('/');
     } catch (error) {
       console.log(err);
@@ -74,7 +73,6 @@ const usersController = {
     })
     
       .then(newUser => {
-          console.log('Usuario creado:', newUser.email);
           res.redirect('/');
       })
       .catch((err) => {
@@ -96,8 +94,6 @@ const usersController = {
       )
     ]).then(function([user, address]) {
       user.dataValues.birthday = moment(user.dataValues.birthday).format('YYYY-MM-DD');
-      console.log(user.dataValues.birthday);
-      console.log(user);
       res.render("users/userUpdate", { usuario: user, address, id });
     }).catch(err => {
       console.error("Error:", err);
@@ -148,7 +144,8 @@ const usersController = {
                 { where: { id } }
             ).then(function() {
                 res.locals.user = req.session.user;
-                if (req.session.user.rol_id == 2){
+                console.log("Session:",req.session.user);
+                if (req.session.user.admin){
                   res.redirect(`http://localhost:5173/users`);
                 } else {
                   res.redirect(`/`);
@@ -234,7 +231,6 @@ const usersController = {
   // }
   destroy: (req, res) => {
     const userId = req.params.id
-    console.log("Este es el id: ", userId)
     db.User.findOne({
       where: {
         id: userId,

@@ -186,16 +186,16 @@ const productsController = {
       const product = db.Product.findByPk(req.params.id)
       let file = req.file;
       console.log("image:", product.image)
-      if (!file) {
-         file = product.image
-      }
+      // if (!file) {
+      //    file = product.image
+      // }
       db.Product.update(
         {
           name,
           price,
           stock,
           description,
-          image: file.filename,
+          image: file ? file.filename : product.image,
           brand_id: brand,
           platform_id: platform != 0 ? platform : null,
           category_id: category,

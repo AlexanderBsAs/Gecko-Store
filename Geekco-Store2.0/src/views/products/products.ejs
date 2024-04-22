@@ -8,19 +8,37 @@
         <h2 class="title-home-h2">Todos los productos</h2>
         <section>
             <% products.forEach (product => { %>
-            <article class="card">
-                <img id="img1" src="/images/products/<%= product.image  %>" alt="<%= product.image  %>">
+                <article class="card"> 
+                    <%if(product.discount > 0 && product.discount != null){ %>
+                        <img class="discount-card-image" src="/images/discount.png" alt="discount-image">
+                    <% } %>
+
+                    <img id="img1" src="/images/products/<%= product.image  %>" alt="<%= product.image  %>">
                     <div class="index__cardinfo">
-                        <h3><%= product.name %></h3>
-                        <h3>$<%= product.price %></h3>
-                        <h3>Disponibles: <%= product.stock %></h3>
-                        <p class="index__pd"><%= product.description %></p>
+                        <h4  class="product-cardinfo product-name"><%= product.name %></h4>
+                        <%if (product.discount > 0 && product.discount != null) { %>
+                                <div class="price-original">
+                                    <h3  class="product-cardinfo">$<%= product.price %></h3>
+                                </div>
+                                <p class="price-discount">
+                                    $<%= (product.price - ( product.price * product.discount /
+                                    100)).toFixed(2) %>
+                                </p>
+                        <%} else {%>
+                            <h3  class="product-cardinfo">$<%= product.price %></h3>
+                            <% } %>
+                        <h5 class="product-cardinfo"><%= product.discount > 0 && product.discount != null ? `Descuento: ` + product.discount + "%": null   %></h5>
                         <button class="boton-product color-turquesa flex flex-row">
                             <a href="/productos/detalles/<%= product.id  %>">Ver más</a>
                         </button>
+                        <button class="boton-product agregar-carrito color-turquesa flex flex-row"
+                        data-product-id="<%= product.id %>"
+                        data-product-name="<%= product.name %>"
+                        data-product-price="<%= product.price %>">
+                    Agregar al carrito
+                </button>
                     </div>
-                </img>
-            </article>
+                </article>
             <% }); %>
         </section>
     </main>

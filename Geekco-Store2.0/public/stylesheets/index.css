@@ -1,4 +1,6 @@
-
+body {
+    background-color: var(--color-midnight-blue);
+}
 #mini-carrito {
     display: none;
     position: absolute;
@@ -163,7 +165,7 @@
 }
 
 .show .go-top-button, .show .icon-whatsapp-button{
-    animation: popup .3s ease-in-out;
+    animation: popup .5s ease-in-out;
     width: 4.6rem;
     height: 4.6rem;
     z-index: 11;
@@ -321,11 +323,6 @@ background-size: cover;
 
 .price-original {
     text-decoration: line-through;
-}
-.price-discount {
-    position: absolute;
-    right: 24%;
-    top: 11%;
 }
 .product-name {
     white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */

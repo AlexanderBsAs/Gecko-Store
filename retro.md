@@ -222,3 +222,35 @@ Dejar de hacer
 ----------------------------- 25/03/2024.
 
 ![retro-sprint-6](./example//retro-sprint-6.jpg)
+
+---------------------------------------------------------Retro Sprint 7------------------------------------------------------------------------
+
+¿Cómo nos sentimos respecto al anterior Sprint? 
+
+Hablando entre todos nos dabamos cuenta que cada vez podíamos entendernos más y reducir los conflictos en gran medida, nos sentimos satisfechos con cada sprint pero siempre con ideas nuevas que a veces nos costaba poner en marcha pero pudimos con todo como equipo, se volvió un ambiente bastante cómodo pese a las diferencias.
+
+------------------------------------------------------------------------------- 
+Comenzar a hacer 
+
+Organizar nuevamente charlas para esta etapa final en las que discutamos detalladamente los puntos del proyecto.
+
+------------------------------------------------------------------------------- 
+
+Hacer más
+Comunicar el proceso de las tareas individuales para un mejor seguimiento y evitar pisar detalles de otros.
+
+------------------------------------------------------------------------------- 
+Continuar haciendo 
+
+Tomar en cuenta la opinión de todos para repartir tareas, empatizar ante cualquier inconveniente repentino.
+
+
+------------------------------------------------------------------------------------------------------- 
+Hacer menos 
+
+Dedicarle tiempo a detalles secundarios.
+
+------------------------------------------------------------------------------- 
+Dejar de hacer 
+
+No avisar sobre cambios aunque sean detalles, ya que aún si no se han mencionado podría estar un compañero mismamente trabajando en lo mismo.
